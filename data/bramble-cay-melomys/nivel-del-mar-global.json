@@ -1,0 +1,4381 @@
+{
+  "source": "NASA Sea Level Height Data Set",
+  "scope": "global",
+  "units": "mm",
+  "reference": "first 1993 value in source workbook",
+  "url": "https://www.nasa.gov/stem-content/sea-level-height-data-set/",
+  "series": [
+    {
+      "decimal_year": 1993.011526,
+      "variation_mm": 0
+    },
+    {
+      "decimal_year": 1993.038692,
+      "variation_mm": -0.53
+    },
+    {
+      "decimal_year": 1993.065858,
+      "variation_mm": 0
+    },
+    {
+      "decimal_year": 1993.093025,
+      "variation_mm": 0.24
+    },
+    {
+      "decimal_year": 1993.120191,
+      "variation_mm": 1.36
+    },
+    {
+      "decimal_year": 1993.147357,
+      "variation_mm": 2.58
+    },
+    {
+      "decimal_year": 1993.174523,
+      "variation_mm": 3.61
+    },
+    {
+      "decimal_year": 1993.201689,
+      "variation_mm": 4.35
+    },
+    {
+      "decimal_year": 1993.228855,
+      "variation_mm": 4.81
+    },
+    {
+      "decimal_year": 1993.256021,
+      "variation_mm": 5.03
+    },
+    {
+      "decimal_year": 1993.283188,
+      "variation_mm": 5.12
+    },
+    {
+      "decimal_year": 1993.310354,
+      "variation_mm": 5.08
+    },
+    {
+      "decimal_year": 1993.33752,
+      "variation_mm": 4.96
+    },
+    {
+      "decimal_year": 1993.364686,
+      "variation_mm": 5.02
+    },
+    {
+      "decimal_year": 1993.391852,
+      "variation_mm": 4.91
+    },
+    {
+      "decimal_year": 1993.419018,
+      "variation_mm": 5.32
+    },
+    {
+      "decimal_year": 1993.446185,
+      "variation_mm": 5.5
+    },
+    {
+      "decimal_year": 1993.473351,
+      "variation_mm": 5.66
+    },
+    {
+      "decimal_year": 1993.500517,
+      "variation_mm": 5.52
+    },
+    {
+      "decimal_year": 1993.527683,
+      "variation_mm": 5.17
+    },
+    {
+      "decimal_year": 1993.554849,
+      "variation_mm": 4.83
+    },
+    {
+      "decimal_year": 1993.582015,
+      "variation_mm": 4.63
+    },
+    {
+      "decimal_year": 1993.609181,
+      "variation_mm": 4.52
+    },
+    {
+      "decimal_year": 1993.636348,
+      "variation_mm": 4.33
+    },
+    {
+      "decimal_year": 1993.663514,
+      "variation_mm": 4.16
+    },
+    {
+      "decimal_year": 1993.69068,
+      "variation_mm": 3.95
+    },
+    {
+      "decimal_year": 1993.717846,
+      "variation_mm": 3.78
+    },
+    {
+      "decimal_year": 1993.745012,
+      "variation_mm": 3.94
+    },
+    {
+      "decimal_year": 1993.772178,
+      "variation_mm": 4.04
+    },
+    {
+      "decimal_year": 1993.799345,
+      "variation_mm": 3.95
+    },
+    {
+      "decimal_year": 1993.826511,
+      "variation_mm": 3.63
+    },
+    {
+      "decimal_year": 1993.853677,
+      "variation_mm": 3.38
+    },
+    {
+      "decimal_year": 1993.880843,
+      "variation_mm": 3.59
+    },
+    {
+      "decimal_year": 1993.908009,
+      "variation_mm": 4.3
+    },
+    {
+      "decimal_year": 1993.935175,
+      "variation_mm": 5.31
+    },
+    {
+      "decimal_year": 1993.962341,
+      "variation_mm": 6.33
+    },
+    {
+      "decimal_year": 1993.989508,
+      "variation_mm": 6.8
+    },
+    {
+      "decimal_year": 1994.016674,
+      "variation_mm": 7.37
+    },
+    {
+      "decimal_year": 1994.04384,
+      "variation_mm": 7.61
+    },
+    {
+      "decimal_year": 1994.071006,
+      "variation_mm": 7.31
+    },
+    {
+      "decimal_year": 1994.098172,
+      "variation_mm": 6.8
+    },
+    {
+      "decimal_year": 1994.125338,
+      "variation_mm": 6.41
+    },
+    {
+      "decimal_year": 1994.152505,
+      "variation_mm": 6.52
+    },
+    {
+      "decimal_year": 1994.179671,
+      "variation_mm": 7.28
+    },
+    {
+      "decimal_year": 1994.206837,
+      "variation_mm": 8.38
+    },
+    {
+      "decimal_year": 1994.234003,
+      "variation_mm": 9.24
+    },
+    {
+      "decimal_year": 1994.261169,
+      "variation_mm": 9.5
+    },
+    {
+      "decimal_year": 1994.288335,
+      "variation_mm": 9.08
+    },
+    {
+      "decimal_year": 1994.315501,
+      "variation_mm": 8.84
+    },
+    {
+      "decimal_year": 1994.342668,
+      "variation_mm": 8.33
+    },
+    {
+      "decimal_year": 1994.369834,
+      "variation_mm": 8.11
+    },
+    {
+      "decimal_year": 1994.397,
+      "variation_mm": 7.67
+    },
+    {
+      "decimal_year": 1994.424166,
+      "variation_mm": 7.56
+    },
+    {
+      "decimal_year": 1994.451332,
+      "variation_mm": 7.47
+    },
+    {
+      "decimal_year": 1994.478498,
+      "variation_mm": 7.36
+    },
+    {
+      "decimal_year": 1994.505664,
+      "variation_mm": 7.29
+    },
+    {
+      "decimal_year": 1994.532831,
+      "variation_mm": 7.28
+    },
+    {
+      "decimal_year": 1994.559997,
+      "variation_mm": 7.26
+    },
+    {
+      "decimal_year": 1994.587163,
+      "variation_mm": 7.23
+    },
+    {
+      "decimal_year": 1994.614329,
+      "variation_mm": 7.23
+    },
+    {
+      "decimal_year": 1994.641495,
+      "variation_mm": 7.24
+    },
+    {
+      "decimal_year": 1994.668661,
+      "variation_mm": 7.31
+    },
+    {
+      "decimal_year": 1994.695828,
+      "variation_mm": 7.54
+    },
+    {
+      "decimal_year": 1994.722994,
+      "variation_mm": 7.61
+    },
+    {
+      "decimal_year": 1994.75016,
+      "variation_mm": 7.74
+    },
+    {
+      "decimal_year": 1994.777326,
+      "variation_mm": 7.96
+    },
+    {
+      "decimal_year": 1994.804492,
+      "variation_mm": 8.16
+    },
+    {
+      "decimal_year": 1994.831658,
+      "variation_mm": 8.14
+    },
+    {
+      "decimal_year": 1994.858824,
+      "variation_mm": 7.93
+    },
+    {
+      "decimal_year": 1994.885991,
+      "variation_mm": 7.95
+    },
+    {
+      "decimal_year": 1994.913157,
+      "variation_mm": 8.6
+    },
+    {
+      "decimal_year": 1994.940323,
+      "variation_mm": 9.8
+    },
+    {
+      "decimal_year": 1994.967489,
+      "variation_mm": 11.17
+    },
+    {
+      "decimal_year": 1994.994655,
+      "variation_mm": 12.02
+    },
+    {
+      "decimal_year": 1995.021821,
+      "variation_mm": 12.54
+    },
+    {
+      "decimal_year": 1995.048988,
+      "variation_mm": 12.81
+    },
+    {
+      "decimal_year": 1995.076154,
+      "variation_mm": 12.3
+    },
+    {
+      "decimal_year": 1995.10332,
+      "variation_mm": 11.68
+    },
+    {
+      "decimal_year": 1995.130486,
+      "variation_mm": 11.35
+    },
+    {
+      "decimal_year": 1995.157652,
+      "variation_mm": 11.65
+    },
+    {
+      "decimal_year": 1995.184818,
+      "variation_mm": 11.91
+    },
+    {
+      "decimal_year": 1995.211984,
+      "variation_mm": 12.17
+    },
+    {
+      "decimal_year": 1995.239151,
+      "variation_mm": 12.08
+    },
+    {
+      "decimal_year": 1995.266317,
+      "variation_mm": 11.83
+    },
+    {
+      "decimal_year": 1995.293483,
+      "variation_mm": 11.61
+    },
+    {
+      "decimal_year": 1995.320649,
+      "variation_mm": 11.59
+    },
+    {
+      "decimal_year": 1995.347815,
+      "variation_mm": 11.55
+    },
+    {
+      "decimal_year": 1995.374981,
+      "variation_mm": 11.5
+    },
+    {
+      "decimal_year": 1995.402148,
+      "variation_mm": 11.53
+    },
+    {
+      "decimal_year": 1995.429314,
+      "variation_mm": 11.41
+    },
+    {
+      "decimal_year": 1995.45648,
+      "variation_mm": 11.04
+    },
+    {
+      "decimal_year": 1995.483646,
+      "variation_mm": 10.47
+    },
+    {
+      "decimal_year": 1995.510812,
+      "variation_mm": 10.15
+    },
+    {
+      "decimal_year": 1995.537978,
+      "variation_mm": 9.53
+    },
+    {
+      "decimal_year": 1995.565144,
+      "variation_mm": 9.36
+    },
+    {
+      "decimal_year": 1995.592311,
+      "variation_mm": 9.35
+    },
+    {
+      "decimal_year": 1995.619477,
+      "variation_mm": 9.76
+    },
+    {
+      "decimal_year": 1995.646643,
+      "variation_mm": 10.07
+    },
+    {
+      "decimal_year": 1995.673809,
+      "variation_mm": 10.51
+    },
+    {
+      "decimal_year": 1995.700975,
+      "variation_mm": 11.25
+    },
+    {
+      "decimal_year": 1995.728141,
+      "variation_mm": 11.07
+    },
+    {
+      "decimal_year": 1995.755307,
+      "variation_mm": 11.37
+    },
+    {
+      "decimal_year": 1995.782474,
+      "variation_mm": 10.96
+    },
+    {
+      "decimal_year": 1995.80964,
+      "variation_mm": 10.56
+    },
+    {
+      "decimal_year": 1995.836806,
+      "variation_mm": 10.45
+    },
+    {
+      "decimal_year": 1995.863972,
+      "variation_mm": 10.7
+    },
+    {
+      "decimal_year": 1995.891138,
+      "variation_mm": 11.19
+    },
+    {
+      "decimal_year": 1995.918304,
+      "variation_mm": 11.67
+    },
+    {
+      "decimal_year": 1995.945471,
+      "variation_mm": 11.72
+    },
+    {
+      "decimal_year": 1995.972637,
+      "variation_mm": 11.67
+    },
+    {
+      "decimal_year": 1995.999803,
+      "variation_mm": 11.47
+    },
+    {
+      "decimal_year": 1996.026895,
+      "variation_mm": 10.85
+    },
+    {
+      "decimal_year": 1996.053987,
+      "variation_mm": 10.39
+    },
+    {
+      "decimal_year": 1996.081079,
+      "variation_mm": 10.66
+    },
+    {
+      "decimal_year": 1996.108171,
+      "variation_mm": 10.75
+    },
+    {
+      "decimal_year": 1996.135263,
+      "variation_mm": 11.3
+    },
+    {
+      "decimal_year": 1996.162355,
+      "variation_mm": 11.68
+    },
+    {
+      "decimal_year": 1996.189447,
+      "variation_mm": 11.76
+    },
+    {
+      "decimal_year": 1996.216539,
+      "variation_mm": 11.66
+    },
+    {
+      "decimal_year": 1996.243631,
+      "variation_mm": 11.56
+    },
+    {
+      "decimal_year": 1996.270723,
+      "variation_mm": 11.72
+    },
+    {
+      "decimal_year": 1996.297815,
+      "variation_mm": 11.98
+    },
+    {
+      "decimal_year": 1996.324907,
+      "variation_mm": 12.32
+    },
+    {
+      "decimal_year": 1996.351998,
+      "variation_mm": 12.88
+    },
+    {
+      "decimal_year": 1996.37909,
+      "variation_mm": 13.42
+    },
+    {
+      "decimal_year": 1996.406182,
+      "variation_mm": 13.88
+    },
+    {
+      "decimal_year": 1996.433274,
+      "variation_mm": 14.3
+    },
+    {
+      "decimal_year": 1996.460366,
+      "variation_mm": 14.69
+    },
+    {
+      "decimal_year": 1996.487458,
+      "variation_mm": 15.03
+    },
+    {
+      "decimal_year": 1996.51455,
+      "variation_mm": 15.22
+    },
+    {
+      "decimal_year": 1996.541642,
+      "variation_mm": 15.2
+    },
+    {
+      "decimal_year": 1996.568734,
+      "variation_mm": 14.91
+    },
+    {
+      "decimal_year": 1996.595826,
+      "variation_mm": 14.23
+    },
+    {
+      "decimal_year": 1996.622918,
+      "variation_mm": 13.56
+    },
+    {
+      "decimal_year": 1996.65001,
+      "variation_mm": 12.85
+    },
+    {
+      "decimal_year": 1996.677102,
+      "variation_mm": 12.48
+    },
+    {
+      "decimal_year": 1996.704194,
+      "variation_mm": 12.57
+    },
+    {
+      "decimal_year": 1996.731285,
+      "variation_mm": 13.13
+    },
+    {
+      "decimal_year": 1996.758377,
+      "variation_mm": 14.07
+    },
+    {
+      "decimal_year": 1996.785469,
+      "variation_mm": 15.15
+    },
+    {
+      "decimal_year": 1996.812561,
+      "variation_mm": 15.91
+    },
+    {
+      "decimal_year": 1996.839653,
+      "variation_mm": 16.06
+    },
+    {
+      "decimal_year": 1996.866745,
+      "variation_mm": 15.67
+    },
+    {
+      "decimal_year": 1996.893837,
+      "variation_mm": 14.97
+    },
+    {
+      "decimal_year": 1996.920929,
+      "variation_mm": 14.15
+    },
+    {
+      "decimal_year": 1996.948021,
+      "variation_mm": 13.5
+    },
+    {
+      "decimal_year": 1996.975113,
+      "variation_mm": 12.73
+    },
+    {
+      "decimal_year": 1997.002211,
+      "variation_mm": 12.27
+    },
+    {
+      "decimal_year": 1997.029377,
+      "variation_mm": 12.07
+    },
+    {
+      "decimal_year": 1997.056543,
+      "variation_mm": 12.07
+    },
+    {
+      "decimal_year": 1997.083709,
+      "variation_mm": 12.14
+    },
+    {
+      "decimal_year": 1997.110875,
+      "variation_mm": 12.23
+    },
+    {
+      "decimal_year": 1997.138042,
+      "variation_mm": 12.39
+    },
+    {
+      "decimal_year": 1997.165208,
+      "variation_mm": 12.74
+    },
+    {
+      "decimal_year": 1997.192374,
+      "variation_mm": 13.31
+    },
+    {
+      "decimal_year": 1997.21954,
+      "variation_mm": 13.98
+    },
+    {
+      "decimal_year": 1997.246706,
+      "variation_mm": 14.44
+    },
+    {
+      "decimal_year": 1997.273872,
+      "variation_mm": 14.87
+    },
+    {
+      "decimal_year": 1997.301038,
+      "variation_mm": 15.22
+    },
+    {
+      "decimal_year": 1997.328205,
+      "variation_mm": 15.46
+    },
+    {
+      "decimal_year": 1997.355371,
+      "variation_mm": 15.75
+    },
+    {
+      "decimal_year": 1997.382537,
+      "variation_mm": 16.1
+    },
+    {
+      "decimal_year": 1997.409703,
+      "variation_mm": 16.6
+    },
+    {
+      "decimal_year": 1997.436869,
+      "variation_mm": 16.86
+    },
+    {
+      "decimal_year": 1997.464035,
+      "variation_mm": 17.34
+    },
+    {
+      "decimal_year": 1997.491202,
+      "variation_mm": 17.85
+    },
+    {
+      "decimal_year": 1997.518368,
+      "variation_mm": 18.32
+    },
+    {
+      "decimal_year": 1997.545534,
+      "variation_mm": 18.77
+    },
+    {
+      "decimal_year": 1997.5727,
+      "variation_mm": 19.32
+    },
+    {
+      "decimal_year": 1997.599866,
+      "variation_mm": 19.83
+    },
+    {
+      "decimal_year": 1997.627032,
+      "variation_mm": 20.39
+    },
+    {
+      "decimal_year": 1997.654198,
+      "variation_mm": 20.81
+    },
+    {
+      "decimal_year": 1997.681365,
+      "variation_mm": 21.15
+    },
+    {
+      "decimal_year": 1997.708531,
+      "variation_mm": 21.5
+    },
+    {
+      "decimal_year": 1997.735697,
+      "variation_mm": 21.79
+    },
+    {
+      "decimal_year": 1997.762863,
+      "variation_mm": 21.58
+    },
+    {
+      "decimal_year": 1997.790029,
+      "variation_mm": 21.8
+    },
+    {
+      "decimal_year": 1997.817195,
+      "variation_mm": 21.55
+    },
+    {
+      "decimal_year": 1997.844362,
+      "variation_mm": 21.25
+    },
+    {
+      "decimal_year": 1997.871528,
+      "variation_mm": 20.64
+    },
+    {
+      "decimal_year": 1997.898694,
+      "variation_mm": 20.29
+    },
+    {
+      "decimal_year": 1997.92586,
+      "variation_mm": 19.63
+    },
+    {
+      "decimal_year": 1997.953026,
+      "variation_mm": 18.92
+    },
+    {
+      "decimal_year": 1997.980192,
+      "variation_mm": 18.44
+    },
+    {
+      "decimal_year": 1998.007358,
+      "variation_mm": 18.28
+    },
+    {
+      "decimal_year": 1998.034525,
+      "variation_mm": 18.35
+    },
+    {
+      "decimal_year": 1998.061691,
+      "variation_mm": 18.5
+    },
+    {
+      "decimal_year": 1998.088857,
+      "variation_mm": 18.54
+    },
+    {
+      "decimal_year": 1998.116023,
+      "variation_mm": 18.5
+    },
+    {
+      "decimal_year": 1998.143189,
+      "variation_mm": 18.5
+    },
+    {
+      "decimal_year": 1998.170355,
+      "variation_mm": 18.63
+    },
+    {
+      "decimal_year": 1998.197521,
+      "variation_mm": 18.91
+    },
+    {
+      "decimal_year": 1998.224688,
+      "variation_mm": 19.15
+    },
+    {
+      "decimal_year": 1998.251854,
+      "variation_mm": 19.5
+    },
+    {
+      "decimal_year": 1998.27902,
+      "variation_mm": 19.54
+    },
+    {
+      "decimal_year": 1998.306186,
+      "variation_mm": 19.27
+    },
+    {
+      "decimal_year": 1998.333352,
+      "variation_mm": 18.66
+    },
+    {
+      "decimal_year": 1998.360518,
+      "variation_mm": 17.68
+    },
+    {
+      "decimal_year": 1998.387685,
+      "variation_mm": 16.71
+    },
+    {
+      "decimal_year": 1998.414851,
+      "variation_mm": 15.49
+    },
+    {
+      "decimal_year": 1998.442017,
+      "variation_mm": 14.86
+    },
+    {
+      "decimal_year": 1998.469183,
+      "variation_mm": 14.44
+    },
+    {
+      "decimal_year": 1998.496349,
+      "variation_mm": 14.01
+    },
+    {
+      "decimal_year": 1998.523515,
+      "variation_mm": 13.44
+    },
+    {
+      "decimal_year": 1998.550681,
+      "variation_mm": 12.87
+    },
+    {
+      "decimal_year": 1998.577848,
+      "variation_mm": 12.16
+    },
+    {
+      "decimal_year": 1998.605014,
+      "variation_mm": 11.89
+    },
+    {
+      "decimal_year": 1998.63218,
+      "variation_mm": 11.51
+    },
+    {
+      "decimal_year": 1998.659346,
+      "variation_mm": 11.36
+    },
+    {
+      "decimal_year": 1998.686512,
+      "variation_mm": 11.26
+    },
+    {
+      "decimal_year": 1998.713678,
+      "variation_mm": 11.2
+    },
+    {
+      "decimal_year": 1998.740845,
+      "variation_mm": 11.1
+    },
+    {
+      "decimal_year": 1998.768011,
+      "variation_mm": 11.37
+    },
+    {
+      "decimal_year": 1998.795177,
+      "variation_mm": 11.52
+    },
+    {
+      "decimal_year": 1998.822343,
+      "variation_mm": 11.59
+    },
+    {
+      "decimal_year": 1998.849509,
+      "variation_mm": 11.62
+    },
+    {
+      "decimal_year": 1998.876675,
+      "variation_mm": 11.69
+    },
+    {
+      "decimal_year": 1998.903841,
+      "variation_mm": 11.91
+    },
+    {
+      "decimal_year": 1998.931008,
+      "variation_mm": 12.2
+    },
+    {
+      "decimal_year": 1998.958174,
+      "variation_mm": 12.61
+    },
+    {
+      "decimal_year": 1998.98534,
+      "variation_mm": 12.9
+    },
+    {
+      "decimal_year": 1999.012506,
+      "variation_mm": 13.3
+    },
+    {
+      "decimal_year": 1999.039672,
+      "variation_mm": 13.86
+    },
+    {
+      "decimal_year": 1999.066838,
+      "variation_mm": 14.75
+    },
+    {
+      "decimal_year": 1999.094005,
+      "variation_mm": 15.97
+    },
+    {
+      "decimal_year": 1999.121171,
+      "variation_mm": 17.1
+    },
+    {
+      "decimal_year": 1999.148337,
+      "variation_mm": 18.13
+    },
+    {
+      "decimal_year": 1999.175503,
+      "variation_mm": 18.69
+    },
+    {
+      "decimal_year": 1999.202669,
+      "variation_mm": 18.93
+    },
+    {
+      "decimal_year": 1999.229835,
+      "variation_mm": 18.87
+    },
+    {
+      "decimal_year": 1999.257001,
+      "variation_mm": 18.89
+    },
+    {
+      "decimal_year": 1999.284168,
+      "variation_mm": 18.7
+    },
+    {
+      "decimal_year": 1999.311334,
+      "variation_mm": 18.49
+    },
+    {
+      "decimal_year": 1999.3385,
+      "variation_mm": 18.32
+    },
+    {
+      "decimal_year": 1999.365666,
+      "variation_mm": 18.25
+    },
+    {
+      "decimal_year": 1999.392832,
+      "variation_mm": 18.18
+    },
+    {
+      "decimal_year": 1999.419998,
+      "variation_mm": 18.07
+    },
+    {
+      "decimal_year": 1999.447164,
+      "variation_mm": 17.93
+    },
+    {
+      "decimal_year": 1999.474331,
+      "variation_mm": 18.05
+    },
+    {
+      "decimal_year": 1999.501497,
+      "variation_mm": 17.87
+    },
+    {
+      "decimal_year": 1999.528663,
+      "variation_mm": 17.84
+    },
+    {
+      "decimal_year": 1999.555829,
+      "variation_mm": 17.68
+    },
+    {
+      "decimal_year": 1999.582995,
+      "variation_mm": 17.45
+    },
+    {
+      "decimal_year": 1999.610161,
+      "variation_mm": 17.38
+    },
+    {
+      "decimal_year": 1999.637328,
+      "variation_mm": 17.69
+    },
+    {
+      "decimal_year": 1999.664494,
+      "variation_mm": 18.42
+    },
+    {
+      "decimal_year": 1999.69166,
+      "variation_mm": 19.28
+    },
+    {
+      "decimal_year": 1999.718826,
+      "variation_mm": 19.92
+    },
+    {
+      "decimal_year": 1999.745992,
+      "variation_mm": 19.99
+    },
+    {
+      "decimal_year": 1999.773158,
+      "variation_mm": 20.43
+    },
+    {
+      "decimal_year": 1999.800324,
+      "variation_mm": 20.43
+    },
+    {
+      "decimal_year": 1999.827491,
+      "variation_mm": 20.33
+    },
+    {
+      "decimal_year": 1999.854657,
+      "variation_mm": 20.41
+    },
+    {
+      "decimal_year": 1999.881823,
+      "variation_mm": 20.58
+    },
+    {
+      "decimal_year": 1999.908989,
+      "variation_mm": 20.86
+    },
+    {
+      "decimal_year": 1999.936155,
+      "variation_mm": 21.18
+    },
+    {
+      "decimal_year": 1999.963321,
+      "variation_mm": 21.47
+    },
+    {
+      "decimal_year": 1999.990488,
+      "variation_mm": 21.7
+    },
+    {
+      "decimal_year": 2000.017605,
+      "variation_mm": 21.8
+    },
+    {
+      "decimal_year": 2000.044697,
+      "variation_mm": 21.72
+    },
+    {
+      "decimal_year": 2000.071789,
+      "variation_mm": 21.54
+    },
+    {
+      "decimal_year": 2000.098881,
+      "variation_mm": 21.4
+    },
+    {
+      "decimal_year": 2000.125973,
+      "variation_mm": 21.19
+    },
+    {
+      "decimal_year": 2000.153065,
+      "variation_mm": 21.32
+    },
+    {
+      "decimal_year": 2000.180157,
+      "variation_mm": 21.56
+    },
+    {
+      "decimal_year": 2000.207249,
+      "variation_mm": 21.75
+    },
+    {
+      "decimal_year": 2000.234341,
+      "variation_mm": 21.7
+    },
+    {
+      "decimal_year": 2000.261433,
+      "variation_mm": 21.36
+    },
+    {
+      "decimal_year": 2000.288525,
+      "variation_mm": 20.94
+    },
+    {
+      "decimal_year": 2000.315617,
+      "variation_mm": 20.7
+    },
+    {
+      "decimal_year": 2000.342709,
+      "variation_mm": 20.68
+    },
+    {
+      "decimal_year": 2000.369801,
+      "variation_mm": 20.78
+    },
+    {
+      "decimal_year": 2000.396892,
+      "variation_mm": 20.75
+    },
+    {
+      "decimal_year": 2000.423984,
+      "variation_mm": 20.69
+    },
+    {
+      "decimal_year": 2000.451076,
+      "variation_mm": 20.41
+    },
+    {
+      "decimal_year": 2000.478168,
+      "variation_mm": 20.15
+    },
+    {
+      "decimal_year": 2000.50526,
+      "variation_mm": 19.92
+    },
+    {
+      "decimal_year": 2000.532352,
+      "variation_mm": 19.77
+    },
+    {
+      "decimal_year": 2000.559444,
+      "variation_mm": 19.82
+    },
+    {
+      "decimal_year": 2000.586536,
+      "variation_mm": 20.05
+    },
+    {
+      "decimal_year": 2000.613628,
+      "variation_mm": 20.38
+    },
+    {
+      "decimal_year": 2000.64072,
+      "variation_mm": 20.91
+    },
+    {
+      "decimal_year": 2000.667812,
+      "variation_mm": 21.33
+    },
+    {
+      "decimal_year": 2000.694904,
+      "variation_mm": 22.11
+    },
+    {
+      "decimal_year": 2000.721996,
+      "variation_mm": 22.84
+    },
+    {
+      "decimal_year": 2000.749088,
+      "variation_mm": 23.99
+    },
+    {
+      "decimal_year": 2000.776179,
+      "variation_mm": 24.66
+    },
+    {
+      "decimal_year": 2000.803271,
+      "variation_mm": 24.88
+    },
+    {
+      "decimal_year": 2000.830363,
+      "variation_mm": 24.63
+    },
+    {
+      "decimal_year": 2000.857455,
+      "variation_mm": 23.9
+    },
+    {
+      "decimal_year": 2000.884547,
+      "variation_mm": 23.47
+    },
+    {
+      "decimal_year": 2000.911639,
+      "variation_mm": 23.04
+    },
+    {
+      "decimal_year": 2000.938731,
+      "variation_mm": 22.89
+    },
+    {
+      "decimal_year": 2000.965823,
+      "variation_mm": 23.03
+    },
+    {
+      "decimal_year": 2000.992915,
+      "variation_mm": 23.55
+    },
+    {
+      "decimal_year": 2001.020062,
+      "variation_mm": 23.87
+    },
+    {
+      "decimal_year": 2001.047228,
+      "variation_mm": 24.28
+    },
+    {
+      "decimal_year": 2001.074394,
+      "variation_mm": 24.67
+    },
+    {
+      "decimal_year": 2001.10156,
+      "variation_mm": 25.09
+    },
+    {
+      "decimal_year": 2001.128726,
+      "variation_mm": 25.55
+    },
+    {
+      "decimal_year": 2001.155892,
+      "variation_mm": 26.02
+    },
+    {
+      "decimal_year": 2001.183059,
+      "variation_mm": 26.37
+    },
+    {
+      "decimal_year": 2001.210225,
+      "variation_mm": 26.57
+    },
+    {
+      "decimal_year": 2001.237391,
+      "variation_mm": 26.85
+    },
+    {
+      "decimal_year": 2001.264557,
+      "variation_mm": 27.07
+    },
+    {
+      "decimal_year": 2001.291723,
+      "variation_mm": 27.17
+    },
+    {
+      "decimal_year": 2001.318889,
+      "variation_mm": 27.03
+    },
+    {
+      "decimal_year": 2001.346055,
+      "variation_mm": 26.7
+    },
+    {
+      "decimal_year": 2001.373222,
+      "variation_mm": 26.39
+    },
+    {
+      "decimal_year": 2001.400388,
+      "variation_mm": 26.29
+    },
+    {
+      "decimal_year": 2001.427554,
+      "variation_mm": 26.55
+    },
+    {
+      "decimal_year": 2001.45472,
+      "variation_mm": 27.14
+    },
+    {
+      "decimal_year": 2001.481886,
+      "variation_mm": 27.85
+    },
+    {
+      "decimal_year": 2001.509052,
+      "variation_mm": 28.36
+    },
+    {
+      "decimal_year": 2001.536218,
+      "variation_mm": 28.5
+    },
+    {
+      "decimal_year": 2001.563385,
+      "variation_mm": 28.35
+    },
+    {
+      "decimal_year": 2001.590551,
+      "variation_mm": 28.14
+    },
+    {
+      "decimal_year": 2001.617717,
+      "variation_mm": 28.11
+    },
+    {
+      "decimal_year": 2001.644883,
+      "variation_mm": 28.39
+    },
+    {
+      "decimal_year": 2001.672049,
+      "variation_mm": 28.9
+    },
+    {
+      "decimal_year": 2001.699215,
+      "variation_mm": 29.44
+    },
+    {
+      "decimal_year": 2001.726382,
+      "variation_mm": 29.72
+    },
+    {
+      "decimal_year": 2001.753548,
+      "variation_mm": 29.61
+    },
+    {
+      "decimal_year": 2001.780714,
+      "variation_mm": 29.21
+    },
+    {
+      "decimal_year": 2001.80788,
+      "variation_mm": 28.8
+    },
+    {
+      "decimal_year": 2001.835046,
+      "variation_mm": 28.5
+    },
+    {
+      "decimal_year": 2001.862212,
+      "variation_mm": 28.23
+    },
+    {
+      "decimal_year": 2001.889378,
+      "variation_mm": 27.9
+    },
+    {
+      "decimal_year": 2001.916545,
+      "variation_mm": 27.57
+    },
+    {
+      "decimal_year": 2001.943711,
+      "variation_mm": 27.41
+    },
+    {
+      "decimal_year": 2001.970877,
+      "variation_mm": 27.49
+    },
+    {
+      "decimal_year": 2001.998043,
+      "variation_mm": 27.77
+    },
+    {
+      "decimal_year": 2002.025209,
+      "variation_mm": 28.18
+    },
+    {
+      "decimal_year": 2002.052375,
+      "variation_mm": 28.66
+    },
+    {
+      "decimal_year": 2002.079542,
+      "variation_mm": 29.08
+    },
+    {
+      "decimal_year": 2002.106708,
+      "variation_mm": 29.34
+    },
+    {
+      "decimal_year": 2002.133874,
+      "variation_mm": 29.33
+    },
+    {
+      "decimal_year": 2002.16104,
+      "variation_mm": 29.16
+    },
+    {
+      "decimal_year": 2002.188206,
+      "variation_mm": 28.98
+    },
+    {
+      "decimal_year": 2002.215372,
+      "variation_mm": 28.96
+    },
+    {
+      "decimal_year": 2002.242538,
+      "variation_mm": 29.13
+    },
+    {
+      "decimal_year": 2002.269705,
+      "variation_mm": 29.34
+    },
+    {
+      "decimal_year": 2002.296871,
+      "variation_mm": 29.48
+    },
+    {
+      "decimal_year": 2002.324037,
+      "variation_mm": 29.55
+    },
+    {
+      "decimal_year": 2002.351203,
+      "variation_mm": 29.56
+    },
+    {
+      "decimal_year": 2002.378369,
+      "variation_mm": 29.57
+    },
+    {
+      "decimal_year": 2002.405535,
+      "variation_mm": 29.6
+    },
+    {
+      "decimal_year": 2002.432702,
+      "variation_mm": 29.77
+    },
+    {
+      "decimal_year": 2002.459868,
+      "variation_mm": 30.19
+    },
+    {
+      "decimal_year": 2002.487034,
+      "variation_mm": 30.84
+    },
+    {
+      "decimal_year": 2002.5142,
+      "variation_mm": 31.62
+    },
+    {
+      "decimal_year": 2002.541366,
+      "variation_mm": 32.41
+    },
+    {
+      "decimal_year": 2002.568532,
+      "variation_mm": 33.08
+    },
+    {
+      "decimal_year": 2002.595698,
+      "variation_mm": 33.51
+    },
+    {
+      "decimal_year": 2002.622865,
+      "variation_mm": 33.61
+    },
+    {
+      "decimal_year": 2002.650031,
+      "variation_mm": 33.43
+    },
+    {
+      "decimal_year": 2002.677197,
+      "variation_mm": 33.18
+    },
+    {
+      "decimal_year": 2002.704363,
+      "variation_mm": 33.08
+    },
+    {
+      "decimal_year": 2002.731529,
+      "variation_mm": 33.28
+    },
+    {
+      "decimal_year": 2002.758695,
+      "variation_mm": 33.75
+    },
+    {
+      "decimal_year": 2002.785861,
+      "variation_mm": 34.35
+    },
+    {
+      "decimal_year": 2002.813028,
+      "variation_mm": 34.85
+    },
+    {
+      "decimal_year": 2002.840194,
+      "variation_mm": 35
+    },
+    {
+      "decimal_year": 2002.86736,
+      "variation_mm": 34.79
+    },
+    {
+      "decimal_year": 2002.894526,
+      "variation_mm": 34.33
+    },
+    {
+      "decimal_year": 2002.921692,
+      "variation_mm": 33.81
+    },
+    {
+      "decimal_year": 2002.948858,
+      "variation_mm": 33.39
+    },
+    {
+      "decimal_year": 2002.976025,
+      "variation_mm": 33.23
+    },
+    {
+      "decimal_year": 2003.003191,
+      "variation_mm": 33.44
+    },
+    {
+      "decimal_year": 2003.030357,
+      "variation_mm": 34.04
+    },
+    {
+      "decimal_year": 2003.057523,
+      "variation_mm": 34.82
+    },
+    {
+      "decimal_year": 2003.084689,
+      "variation_mm": 35.42
+    },
+    {
+      "decimal_year": 2003.111855,
+      "variation_mm": 35.58
+    },
+    {
+      "decimal_year": 2003.139021,
+      "variation_mm": 35.37
+    },
+    {
+      "decimal_year": 2003.166188,
+      "variation_mm": 35.12
+    },
+    {
+      "decimal_year": 2003.193354,
+      "variation_mm": 35.07
+    },
+    {
+      "decimal_year": 2003.22052,
+      "variation_mm": 35.21
+    },
+    {
+      "decimal_year": 2003.247686,
+      "variation_mm": 35.36
+    },
+    {
+      "decimal_year": 2003.274852,
+      "variation_mm": 35.38
+    },
+    {
+      "decimal_year": 2003.302018,
+      "variation_mm": 35.23
+    },
+    {
+      "decimal_year": 2003.329185,
+      "variation_mm": 34.99
+    },
+    {
+      "decimal_year": 2003.356351,
+      "variation_mm": 34.73
+    },
+    {
+      "decimal_year": 2003.383517,
+      "variation_mm": 34.48
+    },
+    {
+      "decimal_year": 2003.410683,
+      "variation_mm": 34.23
+    },
+    {
+      "decimal_year": 2003.437849,
+      "variation_mm": 34.05
+    },
+    {
+      "decimal_year": 2003.465015,
+      "variation_mm": 33.97
+    },
+    {
+      "decimal_year": 2003.492181,
+      "variation_mm": 34.02
+    },
+    {
+      "decimal_year": 2003.519348,
+      "variation_mm": 34.13
+    },
+    {
+      "decimal_year": 2003.546514,
+      "variation_mm": 34.2
+    },
+    {
+      "decimal_year": 2003.57368,
+      "variation_mm": 34.21
+    },
+    {
+      "decimal_year": 2003.600846,
+      "variation_mm": 34.25
+    },
+    {
+      "decimal_year": 2003.628012,
+      "variation_mm": 34.42
+    },
+    {
+      "decimal_year": 2003.655178,
+      "variation_mm": 34.72
+    },
+    {
+      "decimal_year": 2003.682345,
+      "variation_mm": 35.02
+    },
+    {
+      "decimal_year": 2003.709511,
+      "variation_mm": 35.25
+    },
+    {
+      "decimal_year": 2003.736677,
+      "variation_mm": 35.4
+    },
+    {
+      "decimal_year": 2003.763843,
+      "variation_mm": 35.5
+    },
+    {
+      "decimal_year": 2003.791009,
+      "variation_mm": 35.49
+    },
+    {
+      "decimal_year": 2003.818175,
+      "variation_mm": 35.28
+    },
+    {
+      "decimal_year": 2003.845341,
+      "variation_mm": 34.89
+    },
+    {
+      "decimal_year": 2003.872508,
+      "variation_mm": 34.57
+    },
+    {
+      "decimal_year": 2003.899674,
+      "variation_mm": 34.59
+    },
+    {
+      "decimal_year": 2003.92684,
+      "variation_mm": 35.01
+    },
+    {
+      "decimal_year": 2003.954006,
+      "variation_mm": 35.65
+    },
+    {
+      "decimal_year": 2003.981172,
+      "variation_mm": 36.35
+    },
+    {
+      "decimal_year": 2004.008316,
+      "variation_mm": 36.96
+    },
+    {
+      "decimal_year": 2004.035407,
+      "variation_mm": 37.33
+    },
+    {
+      "decimal_year": 2004.062499,
+      "variation_mm": 37.3
+    },
+    {
+      "decimal_year": 2004.089591,
+      "variation_mm": 36.88
+    },
+    {
+      "decimal_year": 2004.116683,
+      "variation_mm": 36.38
+    },
+    {
+      "decimal_year": 2004.143775,
+      "variation_mm": 36.11
+    },
+    {
+      "decimal_year": 2004.170867,
+      "variation_mm": 36.14
+    },
+    {
+      "decimal_year": 2004.197959,
+      "variation_mm": 36.34
+    },
+    {
+      "decimal_year": 2004.225051,
+      "variation_mm": 36.54
+    },
+    {
+      "decimal_year": 2004.252143,
+      "variation_mm": 36.62
+    },
+    {
+      "decimal_year": 2004.279235,
+      "variation_mm": 36.41
+    },
+    {
+      "decimal_year": 2004.306327,
+      "variation_mm": 35.84
+    },
+    {
+      "decimal_year": 2004.333419,
+      "variation_mm": 34.98
+    },
+    {
+      "decimal_year": 2004.360511,
+      "variation_mm": 34.1
+    },
+    {
+      "decimal_year": 2004.387603,
+      "variation_mm": 33.57
+    },
+    {
+      "decimal_year": 2004.414694,
+      "variation_mm": 33.65
+    },
+    {
+      "decimal_year": 2004.441786,
+      "variation_mm": 34.34
+    },
+    {
+      "decimal_year": 2004.468878,
+      "variation_mm": 35.37
+    },
+    {
+      "decimal_year": 2004.49597,
+      "variation_mm": 36.33
+    },
+    {
+      "decimal_year": 2004.523062,
+      "variation_mm": 36.9
+    },
+    {
+      "decimal_year": 2004.550154,
+      "variation_mm": 37.08
+    },
+    {
+      "decimal_year": 2004.577246,
+      "variation_mm": 37.09
+    },
+    {
+      "decimal_year": 2004.604338,
+      "variation_mm": 37.15
+    },
+    {
+      "decimal_year": 2004.63143,
+      "variation_mm": 37.37
+    },
+    {
+      "decimal_year": 2004.658522,
+      "variation_mm": 37.64
+    },
+    {
+      "decimal_year": 2004.685614,
+      "variation_mm": 37.88
+    },
+    {
+      "decimal_year": 2004.712706,
+      "variation_mm": 38
+    },
+    {
+      "decimal_year": 2004.739798,
+      "variation_mm": 37.96
+    },
+    {
+      "decimal_year": 2004.76689,
+      "variation_mm": 37.83
+    },
+    {
+      "decimal_year": 2004.793981,
+      "variation_mm": 37.67
+    },
+    {
+      "decimal_year": 2004.821073,
+      "variation_mm": 37.56
+    },
+    {
+      "decimal_year": 2004.848165,
+      "variation_mm": 37.58
+    },
+    {
+      "decimal_year": 2004.875257,
+      "variation_mm": 37.78
+    },
+    {
+      "decimal_year": 2004.902349,
+      "variation_mm": 38.19
+    },
+    {
+      "decimal_year": 2004.929441,
+      "variation_mm": 38.71
+    },
+    {
+      "decimal_year": 2004.956533,
+      "variation_mm": 39.13
+    },
+    {
+      "decimal_year": 2004.983625,
+      "variation_mm": 39.29
+    },
+    {
+      "decimal_year": 2005.010746,
+      "variation_mm": 39.31
+    },
+    {
+      "decimal_year": 2005.037912,
+      "variation_mm": 39.44
+    },
+    {
+      "decimal_year": 2005.065079,
+      "variation_mm": 39.87
+    },
+    {
+      "decimal_year": 2005.092245,
+      "variation_mm": 40.5
+    },
+    {
+      "decimal_year": 2005.119411,
+      "variation_mm": 41.14
+    },
+    {
+      "decimal_year": 2005.146577,
+      "variation_mm": 41.62
+    },
+    {
+      "decimal_year": 2005.173743,
+      "variation_mm": 41.83
+    },
+    {
+      "decimal_year": 2005.200909,
+      "variation_mm": 41.77
+    },
+    {
+      "decimal_year": 2005.228075,
+      "variation_mm": 41.57
+    },
+    {
+      "decimal_year": 2005.255242,
+      "variation_mm": 41.37
+    },
+    {
+      "decimal_year": 2005.282408,
+      "variation_mm": 41.27
+    },
+    {
+      "decimal_year": 2005.309574,
+      "variation_mm": 41.27
+    },
+    {
+      "decimal_year": 2005.33674,
+      "variation_mm": 41.39
+    },
+    {
+      "decimal_year": 2005.363906,
+      "variation_mm": 41.6
+    },
+    {
+      "decimal_year": 2005.391072,
+      "variation_mm": 41.86
+    },
+    {
+      "decimal_year": 2005.418239,
+      "variation_mm": 42.06
+    },
+    {
+      "decimal_year": 2005.445405,
+      "variation_mm": 42.16
+    },
+    {
+      "decimal_year": 2005.472571,
+      "variation_mm": 42.18
+    },
+    {
+      "decimal_year": 2005.499737,
+      "variation_mm": 42.1
+    },
+    {
+      "decimal_year": 2005.526903,
+      "variation_mm": 41.93
+    },
+    {
+      "decimal_year": 2005.554069,
+      "variation_mm": 41.64
+    },
+    {
+      "decimal_year": 2005.581235,
+      "variation_mm": 41.28
+    },
+    {
+      "decimal_year": 2005.608402,
+      "variation_mm": 40.94
+    },
+    {
+      "decimal_year": 2005.635568,
+      "variation_mm": 40.75
+    },
+    {
+      "decimal_year": 2005.662734,
+      "variation_mm": 40.79
+    },
+    {
+      "decimal_year": 2005.6899,
+      "variation_mm": 40.99
+    },
+    {
+      "decimal_year": 2005.717066,
+      "variation_mm": 41.2
+    },
+    {
+      "decimal_year": 2005.744232,
+      "variation_mm": 41.3
+    },
+    {
+      "decimal_year": 2005.771399,
+      "variation_mm": 41.36
+    },
+    {
+      "decimal_year": 2005.798565,
+      "variation_mm": 41.57
+    },
+    {
+      "decimal_year": 2005.825731,
+      "variation_mm": 42.04
+    },
+    {
+      "decimal_year": 2005.852897,
+      "variation_mm": 42.69
+    },
+    {
+      "decimal_year": 2005.880063,
+      "variation_mm": 43.29
+    },
+    {
+      "decimal_year": 2005.907229,
+      "variation_mm": 43.62
+    },
+    {
+      "decimal_year": 2005.934395,
+      "variation_mm": 43.61
+    },
+    {
+      "decimal_year": 2005.961562,
+      "variation_mm": 43.29
+    },
+    {
+      "decimal_year": 2005.988728,
+      "variation_mm": 42.75
+    },
+    {
+      "decimal_year": 2006.015894,
+      "variation_mm": 42.17
+    },
+    {
+      "decimal_year": 2006.04306,
+      "variation_mm": 41.65
+    },
+    {
+      "decimal_year": 2006.070226,
+      "variation_mm": 41.33
+    },
+    {
+      "decimal_year": 2006.097392,
+      "variation_mm": 41.16
+    },
+    {
+      "decimal_year": 2006.124559,
+      "variation_mm": 41.1
+    },
+    {
+      "decimal_year": 2006.151725,
+      "variation_mm": 41
+    },
+    {
+      "decimal_year": 2006.178891,
+      "variation_mm": 40.81
+    },
+    {
+      "decimal_year": 2006.206057,
+      "variation_mm": 40.53
+    },
+    {
+      "decimal_year": 2006.233223,
+      "variation_mm": 40.26
+    },
+    {
+      "decimal_year": 2006.260389,
+      "variation_mm": 40.08
+    },
+    {
+      "decimal_year": 2006.287555,
+      "variation_mm": 40.1
+    },
+    {
+      "decimal_year": 2006.314722,
+      "variation_mm": 40.39
+    },
+    {
+      "decimal_year": 2006.341888,
+      "variation_mm": 41.01
+    },
+    {
+      "decimal_year": 2006.369054,
+      "variation_mm": 41.88
+    },
+    {
+      "decimal_year": 2006.39622,
+      "variation_mm": 42.8
+    },
+    {
+      "decimal_year": 2006.423386,
+      "variation_mm": 43.6
+    },
+    {
+      "decimal_year": 2006.450552,
+      "variation_mm": 44.25
+    },
+    {
+      "decimal_year": 2006.477718,
+      "variation_mm": 44.74
+    },
+    {
+      "decimal_year": 2006.504885,
+      "variation_mm": 44.99
+    },
+    {
+      "decimal_year": 2006.532051,
+      "variation_mm": 44.89
+    },
+    {
+      "decimal_year": 2006.559217,
+      "variation_mm": 44.45
+    },
+    {
+      "decimal_year": 2006.586383,
+      "variation_mm": 43.93
+    },
+    {
+      "decimal_year": 2006.613549,
+      "variation_mm": 43.65
+    },
+    {
+      "decimal_year": 2006.640715,
+      "variation_mm": 43.79
+    },
+    {
+      "decimal_year": 2006.667882,
+      "variation_mm": 44.24
+    },
+    {
+      "decimal_year": 2006.695048,
+      "variation_mm": 44.67
+    },
+    {
+      "decimal_year": 2006.722214,
+      "variation_mm": 44.85
+    },
+    {
+      "decimal_year": 2006.74938,
+      "variation_mm": 44.86
+    },
+    {
+      "decimal_year": 2006.776546,
+      "variation_mm": 44.87
+    },
+    {
+      "decimal_year": 2006.803712,
+      "variation_mm": 45.01
+    },
+    {
+      "decimal_year": 2006.830878,
+      "variation_mm": 45.12
+    },
+    {
+      "decimal_year": 2006.885211,
+      "variation_mm": 44.8
+    },
+    {
+      "decimal_year": 2006.912377,
+      "variation_mm": 44.6
+    },
+    {
+      "decimal_year": 2006.939543,
+      "variation_mm": 44.47
+    },
+    {
+      "decimal_year": 2006.966709,
+      "variation_mm": 44.32
+    },
+    {
+      "decimal_year": 2006.993875,
+      "variation_mm": 44.07
+    },
+    {
+      "decimal_year": 2007.021042,
+      "variation_mm": 43.89
+    },
+    {
+      "decimal_year": 2007.048208,
+      "variation_mm": 43.55
+    },
+    {
+      "decimal_year": 2007.075374,
+      "variation_mm": 43.52
+    },
+    {
+      "decimal_year": 2007.10254,
+      "variation_mm": 43.74
+    },
+    {
+      "decimal_year": 2007.129706,
+      "variation_mm": 44.12
+    },
+    {
+      "decimal_year": 2007.156872,
+      "variation_mm": 44.43
+    },
+    {
+      "decimal_year": 2007.184038,
+      "variation_mm": 44.57
+    },
+    {
+      "decimal_year": 2007.211205,
+      "variation_mm": 44.58
+    },
+    {
+      "decimal_year": 2007.238371,
+      "variation_mm": 44.57
+    },
+    {
+      "decimal_year": 2007.265537,
+      "variation_mm": 44.57
+    },
+    {
+      "decimal_year": 2007.292703,
+      "variation_mm": 44.45
+    },
+    {
+      "decimal_year": 2007.319869,
+      "variation_mm": 44.23
+    },
+    {
+      "decimal_year": 2007.347035,
+      "variation_mm": 44.01
+    },
+    {
+      "decimal_year": 2007.374202,
+      "variation_mm": 43.97
+    },
+    {
+      "decimal_year": 2007.401368,
+      "variation_mm": 44.08
+    },
+    {
+      "decimal_year": 2007.428534,
+      "variation_mm": 44.23
+    },
+    {
+      "decimal_year": 2007.4557,
+      "variation_mm": 44.25
+    },
+    {
+      "decimal_year": 2007.482866,
+      "variation_mm": 44.04
+    },
+    {
+      "decimal_year": 2007.510032,
+      "variation_mm": 43.62
+    },
+    {
+      "decimal_year": 2007.537198,
+      "variation_mm": 43.09
+    },
+    {
+      "decimal_year": 2007.564365,
+      "variation_mm": 42.66
+    },
+    {
+      "decimal_year": 2007.591531,
+      "variation_mm": 42.4
+    },
+    {
+      "decimal_year": 2007.618697,
+      "variation_mm": 42.21
+    },
+    {
+      "decimal_year": 2007.645863,
+      "variation_mm": 42.01
+    },
+    {
+      "decimal_year": 2007.673029,
+      "variation_mm": 41.83
+    },
+    {
+      "decimal_year": 2007.700195,
+      "variation_mm": 41.78
+    },
+    {
+      "decimal_year": 2007.727361,
+      "variation_mm": 41.92
+    },
+    {
+      "decimal_year": 2007.754528,
+      "variation_mm": 42.25
+    },
+    {
+      "decimal_year": 2007.781694,
+      "variation_mm": 42.73
+    },
+    {
+      "decimal_year": 2007.80886,
+      "variation_mm": 43.37
+    },
+    {
+      "decimal_year": 2007.836026,
+      "variation_mm": 44.08
+    },
+    {
+      "decimal_year": 2007.863192,
+      "variation_mm": 44.73
+    },
+    {
+      "decimal_year": 2007.890358,
+      "variation_mm": 45.05
+    },
+    {
+      "decimal_year": 2007.917525,
+      "variation_mm": 44.94
+    },
+    {
+      "decimal_year": 2007.944691,
+      "variation_mm": 44.48
+    },
+    {
+      "decimal_year": 2007.971857,
+      "variation_mm": 43.96
+    },
+    {
+      "decimal_year": 2007.999023,
+      "variation_mm": 43.68
+    },
+    {
+      "decimal_year": 2008.026118,
+      "variation_mm": 43.64
+    },
+    {
+      "decimal_year": 2008.05321,
+      "variation_mm": 43.65
+    },
+    {
+      "decimal_year": 2008.080301,
+      "variation_mm": 43.5
+    },
+    {
+      "decimal_year": 2008.107393,
+      "variation_mm": 43.22
+    },
+    {
+      "decimal_year": 2008.134485,
+      "variation_mm": 42.97
+    },
+    {
+      "decimal_year": 2008.161577,
+      "variation_mm": 42.84
+    },
+    {
+      "decimal_year": 2008.188669,
+      "variation_mm": 42.82
+    },
+    {
+      "decimal_year": 2008.215761,
+      "variation_mm": 42.77
+    },
+    {
+      "decimal_year": 2008.242853,
+      "variation_mm": 42.66
+    },
+    {
+      "decimal_year": 2008.269945,
+      "variation_mm": 42.57
+    },
+    {
+      "decimal_year": 2008.297037,
+      "variation_mm": 42.76
+    },
+    {
+      "decimal_year": 2008.324129,
+      "variation_mm": 43.43
+    },
+    {
+      "decimal_year": 2008.351221,
+      "variation_mm": 44.65
+    },
+    {
+      "decimal_year": 2008.378313,
+      "variation_mm": 46.15
+    },
+    {
+      "decimal_year": 2008.405405,
+      "variation_mm": 47.55
+    },
+    {
+      "decimal_year": 2008.432497,
+      "variation_mm": 48.51
+    },
+    {
+      "decimal_year": 2008.459588,
+      "variation_mm": 48.93
+    },
+    {
+      "decimal_year": 2008.48668,
+      "variation_mm": 48.91
+    },
+    {
+      "decimal_year": 2008.513772,
+      "variation_mm": 48.57
+    },
+    {
+      "decimal_year": 2008.540864,
+      "variation_mm": 48.08
+    },
+    {
+      "decimal_year": 2008.567956,
+      "variation_mm": 47.6
+    },
+    {
+      "decimal_year": 2008.595048,
+      "variation_mm": 47.18
+    },
+    {
+      "decimal_year": 2008.62214,
+      "variation_mm": 46.83
+    },
+    {
+      "decimal_year": 2008.649232,
+      "variation_mm": 46.51
+    },
+    {
+      "decimal_year": 2008.676324,
+      "variation_mm": 46.25
+    },
+    {
+      "decimal_year": 2008.703416,
+      "variation_mm": 46.14
+    },
+    {
+      "decimal_year": 2008.730508,
+      "variation_mm": 46.22
+    },
+    {
+      "decimal_year": 2008.7576,
+      "variation_mm": 46.47
+    },
+    {
+      "decimal_year": 2008.784692,
+      "variation_mm": 46.75
+    },
+    {
+      "decimal_year": 2008.811784,
+      "variation_mm": 47
+    },
+    {
+      "decimal_year": 2008.838875,
+      "variation_mm": 47.22
+    },
+    {
+      "decimal_year": 2008.865967,
+      "variation_mm": 47.46
+    },
+    {
+      "decimal_year": 2008.893059,
+      "variation_mm": 47.68
+    },
+    {
+      "decimal_year": 2008.920151,
+      "variation_mm": 47.76
+    },
+    {
+      "decimal_year": 2008.947243,
+      "variation_mm": 47.65
+    },
+    {
+      "decimal_year": 2008.974335,
+      "variation_mm": 47.45
+    },
+    {
+      "decimal_year": 2009.001431,
+      "variation_mm": 47.31
+    },
+    {
+      "decimal_year": 2009.028597,
+      "variation_mm": 47.31
+    },
+    {
+      "decimal_year": 2009.055763,
+      "variation_mm": 47.38
+    },
+    {
+      "decimal_year": 2009.082929,
+      "variation_mm": 47.52
+    },
+    {
+      "decimal_year": 2009.110096,
+      "variation_mm": 47.73
+    },
+    {
+      "decimal_year": 2009.137262,
+      "variation_mm": 48.07
+    },
+    {
+      "decimal_year": 2009.164428,
+      "variation_mm": 48.45
+    },
+    {
+      "decimal_year": 2009.191594,
+      "variation_mm": 48.75
+    },
+    {
+      "decimal_year": 2009.21876,
+      "variation_mm": 48.93
+    },
+    {
+      "decimal_year": 2009.245926,
+      "variation_mm": 48.98
+    },
+    {
+      "decimal_year": 2009.273092,
+      "variation_mm": 49.01
+    },
+    {
+      "decimal_year": 2009.300259,
+      "variation_mm": 49.07
+    },
+    {
+      "decimal_year": 2009.327425,
+      "variation_mm": 49.16
+    },
+    {
+      "decimal_year": 2009.354591,
+      "variation_mm": 49.26
+    },
+    {
+      "decimal_year": 2009.381757,
+      "variation_mm": 49.36
+    },
+    {
+      "decimal_year": 2009.408923,
+      "variation_mm": 49.49
+    },
+    {
+      "decimal_year": 2009.436089,
+      "variation_mm": 49.61
+    },
+    {
+      "decimal_year": 2009.463256,
+      "variation_mm": 49.75
+    },
+    {
+      "decimal_year": 2009.490422,
+      "variation_mm": 49.94
+    },
+    {
+      "decimal_year": 2009.517588,
+      "variation_mm": 50.26
+    },
+    {
+      "decimal_year": 2009.544754,
+      "variation_mm": 50.74
+    },
+    {
+      "decimal_year": 2009.57192,
+      "variation_mm": 51.22
+    },
+    {
+      "decimal_year": 2009.599086,
+      "variation_mm": 51.58
+    },
+    {
+      "decimal_year": 2009.626252,
+      "variation_mm": 51.85
+    },
+    {
+      "decimal_year": 2009.653419,
+      "variation_mm": 52.17
+    },
+    {
+      "decimal_year": 2009.680585,
+      "variation_mm": 52.62
+    },
+    {
+      "decimal_year": 2009.707751,
+      "variation_mm": 53.13
+    },
+    {
+      "decimal_year": 2009.734917,
+      "variation_mm": 53.67
+    },
+    {
+      "decimal_year": 2009.762083,
+      "variation_mm": 54.19
+    },
+    {
+      "decimal_year": 2009.789249,
+      "variation_mm": 54.71
+    },
+    {
+      "decimal_year": 2009.816415,
+      "variation_mm": 55.14
+    },
+    {
+      "decimal_year": 2009.843582,
+      "variation_mm": 55.35
+    },
+    {
+      "decimal_year": 2009.870748,
+      "variation_mm": 55.28
+    },
+    {
+      "decimal_year": 2009.897914,
+      "variation_mm": 55.01
+    },
+    {
+      "decimal_year": 2009.92508,
+      "variation_mm": 54.66
+    },
+    {
+      "decimal_year": 2009.952246,
+      "variation_mm": 54.34
+    },
+    {
+      "decimal_year": 2009.979412,
+      "variation_mm": 54.02
+    },
+    {
+      "decimal_year": 2010.006579,
+      "variation_mm": 53.66
+    },
+    {
+      "decimal_year": 2010.033745,
+      "variation_mm": 53.34
+    },
+    {
+      "decimal_year": 2010.060911,
+      "variation_mm": 53.25
+    },
+    {
+      "decimal_year": 2010.088077,
+      "variation_mm": 53.54
+    },
+    {
+      "decimal_year": 2010.115243,
+      "variation_mm": 54.11
+    },
+    {
+      "decimal_year": 2010.142409,
+      "variation_mm": 54.57
+    },
+    {
+      "decimal_year": 2010.169575,
+      "variation_mm": 54.56
+    },
+    {
+      "decimal_year": 2010.196742,
+      "variation_mm": 54.11
+    },
+    {
+      "decimal_year": 2010.223908,
+      "variation_mm": 53.55
+    },
+    {
+      "decimal_year": 2010.251074,
+      "variation_mm": 53.22
+    },
+    {
+      "decimal_year": 2010.27824,
+      "variation_mm": 53.22
+    },
+    {
+      "decimal_year": 2010.305406,
+      "variation_mm": 53.51
+    },
+    {
+      "decimal_year": 2010.332572,
+      "variation_mm": 54.04
+    },
+    {
+      "decimal_year": 2010.359739,
+      "variation_mm": 54.73
+    },
+    {
+      "decimal_year": 2010.386905,
+      "variation_mm": 55.46
+    },
+    {
+      "decimal_year": 2010.414071,
+      "variation_mm": 56.05
+    },
+    {
+      "decimal_year": 2010.441237,
+      "variation_mm": 56.32
+    },
+    {
+      "decimal_year": 2010.468403,
+      "variation_mm": 56.21
+    },
+    {
+      "decimal_year": 2010.495569,
+      "variation_mm": 55.72
+    },
+    {
+      "decimal_year": 2010.522735,
+      "variation_mm": 54.93
+    },
+    {
+      "decimal_year": 2010.549902,
+      "variation_mm": 53.95
+    },
+    {
+      "decimal_year": 2010.577068,
+      "variation_mm": 52.87
+    },
+    {
+      "decimal_year": 2010.604234,
+      "variation_mm": 51.73
+    },
+    {
+      "decimal_year": 2010.6314,
+      "variation_mm": 50.69
+    },
+    {
+      "decimal_year": 2010.658566,
+      "variation_mm": 49.85
+    },
+    {
+      "decimal_year": 2010.685732,
+      "variation_mm": 49.3
+    },
+    {
+      "decimal_year": 2010.712899,
+      "variation_mm": 49.03
+    },
+    {
+      "decimal_year": 2010.740065,
+      "variation_mm": 48.98
+    },
+    {
+      "decimal_year": 2010.767231,
+      "variation_mm": 49.06
+    },
+    {
+      "decimal_year": 2010.794397,
+      "variation_mm": 49.16
+    },
+    {
+      "decimal_year": 2010.821563,
+      "variation_mm": 49.15
+    },
+    {
+      "decimal_year": 2010.848729,
+      "variation_mm": 48.95
+    },
+    {
+      "decimal_year": 2010.875895,
+      "variation_mm": 48.65
+    },
+    {
+      "decimal_year": 2010.903062,
+      "variation_mm": 48.42
+    },
+    {
+      "decimal_year": 2010.930228,
+      "variation_mm": 48.36
+    },
+    {
+      "decimal_year": 2010.957394,
+      "variation_mm": 48.44
+    },
+    {
+      "decimal_year": 2010.98456,
+      "variation_mm": 48.56
+    },
+    {
+      "decimal_year": 2011.011726,
+      "variation_mm": 48.63
+    },
+    {
+      "decimal_year": 2011.038892,
+      "variation_mm": 48.64
+    },
+    {
+      "decimal_year": 2011.066059,
+      "variation_mm": 48.66
+    },
+    {
+      "decimal_year": 2011.093225,
+      "variation_mm": 48.68
+    },
+    {
+      "decimal_year": 2011.120391,
+      "variation_mm": 48.61
+    },
+    {
+      "decimal_year": 2011.147557,
+      "variation_mm": 48.39
+    },
+    {
+      "decimal_year": 2011.174723,
+      "variation_mm": 47.99
+    },
+    {
+      "decimal_year": 2011.201889,
+      "variation_mm": 47.57
+    },
+    {
+      "decimal_year": 2011.229055,
+      "variation_mm": 47.24
+    },
+    {
+      "decimal_year": 2011.256222,
+      "variation_mm": 47.12
+    },
+    {
+      "decimal_year": 2011.283388,
+      "variation_mm": 47.22
+    },
+    {
+      "decimal_year": 2011.310554,
+      "variation_mm": 47.57
+    },
+    {
+      "decimal_year": 2011.33772,
+      "variation_mm": 48.18
+    },
+    {
+      "decimal_year": 2011.364886,
+      "variation_mm": 49.08
+    },
+    {
+      "decimal_year": 2011.392052,
+      "variation_mm": 50.17
+    },
+    {
+      "decimal_year": 2011.419218,
+      "variation_mm": 51.28
+    },
+    {
+      "decimal_year": 2011.446385,
+      "variation_mm": 52.19
+    },
+    {
+      "decimal_year": 2011.473551,
+      "variation_mm": 52.74
+    },
+    {
+      "decimal_year": 2011.500717,
+      "variation_mm": 52.9
+    },
+    {
+      "decimal_year": 2011.527883,
+      "variation_mm": 52.93
+    },
+    {
+      "decimal_year": 2011.555049,
+      "variation_mm": 53.08
+    },
+    {
+      "decimal_year": 2011.582215,
+      "variation_mm": 53.46
+    },
+    {
+      "decimal_year": 2011.609382,
+      "variation_mm": 53.97
+    },
+    {
+      "decimal_year": 2011.636548,
+      "variation_mm": 54.35
+    },
+    {
+      "decimal_year": 2011.663714,
+      "variation_mm": 54.44
+    },
+    {
+      "decimal_year": 2011.69088,
+      "variation_mm": 54.33
+    },
+    {
+      "decimal_year": 2011.718046,
+      "variation_mm": 54.2
+    },
+    {
+      "decimal_year": 2011.745212,
+      "variation_mm": 54.2
+    },
+    {
+      "decimal_year": 2011.772378,
+      "variation_mm": 54.2
+    },
+    {
+      "decimal_year": 2011.799545,
+      "variation_mm": 54.06
+    },
+    {
+      "decimal_year": 2011.826711,
+      "variation_mm": 53.82
+    },
+    {
+      "decimal_year": 2011.853877,
+      "variation_mm": 53.71
+    },
+    {
+      "decimal_year": 2011.881043,
+      "variation_mm": 53.91
+    },
+    {
+      "decimal_year": 2011.908209,
+      "variation_mm": 54.4
+    },
+    {
+      "decimal_year": 2011.935375,
+      "variation_mm": 55.02
+    },
+    {
+      "decimal_year": 2011.962542,
+      "variation_mm": 55.69
+    },
+    {
+      "decimal_year": 2011.989708,
+      "variation_mm": 56.47
+    },
+    {
+      "decimal_year": 2012.016828,
+      "variation_mm": 57.3
+    },
+    {
+      "decimal_year": 2012.04392,
+      "variation_mm": 58.09
+    },
+    {
+      "decimal_year": 2012.071012,
+      "variation_mm": 58.67
+    },
+    {
+      "decimal_year": 2012.098104,
+      "variation_mm": 58.97
+    },
+    {
+      "decimal_year": 2012.125195,
+      "variation_mm": 58.98
+    },
+    {
+      "decimal_year": 2012.152287,
+      "variation_mm": 58.8
+    },
+    {
+      "decimal_year": 2012.179379,
+      "variation_mm": 58.56
+    },
+    {
+      "decimal_year": 2012.206471,
+      "variation_mm": 58.43
+    },
+    {
+      "decimal_year": 2012.233563,
+      "variation_mm": 58.45
+    },
+    {
+      "decimal_year": 2012.260655,
+      "variation_mm": 58.66
+    },
+    {
+      "decimal_year": 2012.287747,
+      "variation_mm": 58.98
+    },
+    {
+      "decimal_year": 2012.314839,
+      "variation_mm": 59.37
+    },
+    {
+      "decimal_year": 2012.341931,
+      "variation_mm": 59.77
+    },
+    {
+      "decimal_year": 2012.369023,
+      "variation_mm": 60.25
+    },
+    {
+      "decimal_year": 2012.396115,
+      "variation_mm": 60.85
+    },
+    {
+      "decimal_year": 2012.423207,
+      "variation_mm": 61.59
+    },
+    {
+      "decimal_year": 2012.450299,
+      "variation_mm": 62.41
+    },
+    {
+      "decimal_year": 2012.477391,
+      "variation_mm": 63.2
+    },
+    {
+      "decimal_year": 2012.504482,
+      "variation_mm": 63.9
+    },
+    {
+      "decimal_year": 2012.531574,
+      "variation_mm": 64.44
+    },
+    {
+      "decimal_year": 2012.558666,
+      "variation_mm": 64.68
+    },
+    {
+      "decimal_year": 2012.585758,
+      "variation_mm": 64.56
+    },
+    {
+      "decimal_year": 2012.61285,
+      "variation_mm": 64.24
+    },
+    {
+      "decimal_year": 2012.639942,
+      "variation_mm": 64
+    },
+    {
+      "decimal_year": 2012.667034,
+      "variation_mm": 64.06
+    },
+    {
+      "decimal_year": 2012.694126,
+      "variation_mm": 64.42
+    },
+    {
+      "decimal_year": 2012.721218,
+      "variation_mm": 64.89
+    },
+    {
+      "decimal_year": 2012.74831,
+      "variation_mm": 65.27
+    },
+    {
+      "decimal_year": 2012.775402,
+      "variation_mm": 65.49
+    },
+    {
+      "decimal_year": 2012.802494,
+      "variation_mm": 65.59
+    },
+    {
+      "decimal_year": 2012.829586,
+      "variation_mm": 65.7
+    },
+    {
+      "decimal_year": 2012.856677,
+      "variation_mm": 65.89
+    },
+    {
+      "decimal_year": 2012.883769,
+      "variation_mm": 66.18
+    },
+    {
+      "decimal_year": 2012.910861,
+      "variation_mm": 66.51
+    },
+    {
+      "decimal_year": 2012.937953,
+      "variation_mm": 66.8
+    },
+    {
+      "decimal_year": 2012.965045,
+      "variation_mm": 66.97
+    },
+    {
+      "decimal_year": 2012.992137,
+      "variation_mm": 67.06
+    },
+    {
+      "decimal_year": 2013.019282,
+      "variation_mm": 67.13
+    },
+    {
+      "decimal_year": 2013.046448,
+      "variation_mm": 67.21
+    },
+    {
+      "decimal_year": 2013.073614,
+      "variation_mm": 67.31
+    },
+    {
+      "decimal_year": 2013.10078,
+      "variation_mm": 67.35
+    },
+    {
+      "decimal_year": 2013.127946,
+      "variation_mm": 67.32
+    },
+    {
+      "decimal_year": 2013.155113,
+      "variation_mm": 67.26
+    },
+    {
+      "decimal_year": 2013.182279,
+      "variation_mm": 67.15
+    },
+    {
+      "decimal_year": 2013.209445,
+      "variation_mm": 66.89
+    },
+    {
+      "decimal_year": 2013.236611,
+      "variation_mm": 66.44
+    },
+    {
+      "decimal_year": 2013.263777,
+      "variation_mm": 65.86
+    },
+    {
+      "decimal_year": 2013.290943,
+      "variation_mm": 65.27
+    },
+    {
+      "decimal_year": 2013.318109,
+      "variation_mm": 64.77
+    },
+    {
+      "decimal_year": 2013.345276,
+      "variation_mm": 64.34
+    },
+    {
+      "decimal_year": 2013.372442,
+      "variation_mm": 63.93
+    },
+    {
+      "decimal_year": 2013.399608,
+      "variation_mm": 63.6
+    },
+    {
+      "decimal_year": 2013.426774,
+      "variation_mm": 63.39
+    },
+    {
+      "decimal_year": 2013.45394,
+      "variation_mm": 63.32
+    },
+    {
+      "decimal_year": 2013.481106,
+      "variation_mm": 63.37
+    },
+    {
+      "decimal_year": 2013.508272,
+      "variation_mm": 63.45
+    },
+    {
+      "decimal_year": 2013.535439,
+      "variation_mm": 63.49
+    },
+    {
+      "decimal_year": 2013.562605,
+      "variation_mm": 63.41
+    },
+    {
+      "decimal_year": 2013.589771,
+      "variation_mm": 63.17
+    },
+    {
+      "decimal_year": 2013.616937,
+      "variation_mm": 62.87
+    },
+    {
+      "decimal_year": 2013.644103,
+      "variation_mm": 62.69
+    },
+    {
+      "decimal_year": 2013.671269,
+      "variation_mm": 62.71
+    },
+    {
+      "decimal_year": 2013.698436,
+      "variation_mm": 62.92
+    },
+    {
+      "decimal_year": 2013.725602,
+      "variation_mm": 63.29
+    },
+    {
+      "decimal_year": 2013.752768,
+      "variation_mm": 63.78
+    },
+    {
+      "decimal_year": 2013.779934,
+      "variation_mm": 64.37
+    },
+    {
+      "decimal_year": 2013.8071,
+      "variation_mm": 64.96
+    },
+    {
+      "decimal_year": 2013.834266,
+      "variation_mm": 65.41
+    },
+    {
+      "decimal_year": 2013.861432,
+      "variation_mm": 65.63
+    },
+    {
+      "decimal_year": 2013.888599,
+      "variation_mm": 65.6
+    },
+    {
+      "decimal_year": 2013.915765,
+      "variation_mm": 65.44
+    },
+    {
+      "decimal_year": 2013.942931,
+      "variation_mm": 65.32
+    },
+    {
+      "decimal_year": 2013.970097,
+      "variation_mm": 65.4
+    },
+    {
+      "decimal_year": 2013.997263,
+      "variation_mm": 65.73
+    },
+    {
+      "decimal_year": 2014.024429,
+      "variation_mm": 66.26
+    },
+    {
+      "decimal_year": 2014.051596,
+      "variation_mm": 66.91
+    },
+    {
+      "decimal_year": 2014.078762,
+      "variation_mm": 67.61
+    },
+    {
+      "decimal_year": 2014.105928,
+      "variation_mm": 68.29
+    },
+    {
+      "decimal_year": 2014.133094,
+      "variation_mm": 68.83
+    },
+    {
+      "decimal_year": 2014.16026,
+      "variation_mm": 69.09
+    },
+    {
+      "decimal_year": 2014.187426,
+      "variation_mm": 69.04
+    },
+    {
+      "decimal_year": 2014.214592,
+      "variation_mm": 68.68
+    },
+    {
+      "decimal_year": 2014.241759,
+      "variation_mm": 68.07
+    },
+    {
+      "decimal_year": 2014.268925,
+      "variation_mm": 67.3
+    },
+    {
+      "decimal_year": 2014.296091,
+      "variation_mm": 66.5
+    },
+    {
+      "decimal_year": 2014.323257,
+      "variation_mm": 65.89
+    },
+    {
+      "decimal_year": 2014.350423,
+      "variation_mm": 65.6
+    },
+    {
+      "decimal_year": 2014.377589,
+      "variation_mm": 65.69
+    },
+    {
+      "decimal_year": 2014.404756,
+      "variation_mm": 66.1
+    },
+    {
+      "decimal_year": 2014.431922,
+      "variation_mm": 66.77
+    },
+    {
+      "decimal_year": 2014.459088,
+      "variation_mm": 67.55
+    },
+    {
+      "decimal_year": 2014.486254,
+      "variation_mm": 68.35
+    },
+    {
+      "decimal_year": 2014.51342,
+      "variation_mm": 69.04
+    },
+    {
+      "decimal_year": 2014.540586,
+      "variation_mm": 69.56
+    },
+    {
+      "decimal_year": 2014.567752,
+      "variation_mm": 69.9
+    },
+    {
+      "decimal_year": 2014.594919,
+      "variation_mm": 70.07
+    },
+    {
+      "decimal_year": 2014.622085,
+      "variation_mm": 70.06
+    },
+    {
+      "decimal_year": 2014.649251,
+      "variation_mm": 69.85
+    },
+    {
+      "decimal_year": 2014.676417,
+      "variation_mm": 69.53
+    },
+    {
+      "decimal_year": 2014.703583,
+      "variation_mm": 69.26
+    },
+    {
+      "decimal_year": 2014.730749,
+      "variation_mm": 69.22
+    },
+    {
+      "decimal_year": 2014.757915,
+      "variation_mm": 69.36
+    },
+    {
+      "decimal_year": 2014.785082,
+      "variation_mm": 69.52
+    },
+    {
+      "decimal_year": 2014.812248,
+      "variation_mm": 69.48
+    },
+    {
+      "decimal_year": 2014.839414,
+      "variation_mm": 69.29
+    },
+    {
+      "decimal_year": 2014.86658,
+      "variation_mm": 69.23
+    },
+    {
+      "decimal_year": 2014.893746,
+      "variation_mm": 69.55
+    },
+    {
+      "decimal_year": 2014.920912,
+      "variation_mm": 70.24
+    },
+    {
+      "decimal_year": 2014.948079,
+      "variation_mm": 70.99
+    },
+    {
+      "decimal_year": 2014.975245,
+      "variation_mm": 71.53
+    },
+    {
+      "decimal_year": 2015.002411,
+      "variation_mm": 71.93
+    },
+    {
+      "decimal_year": 2015.029577,
+      "variation_mm": 72.5
+    },
+    {
+      "decimal_year": 2015.056743,
+      "variation_mm": 73.35
+    },
+    {
+      "decimal_year": 2015.083909,
+      "variation_mm": 74.4
+    },
+    {
+      "decimal_year": 2015.111075,
+      "variation_mm": 75.35
+    },
+    {
+      "decimal_year": 2015.138242,
+      "variation_mm": 75.97
+    },
+    {
+      "decimal_year": 2015.165408,
+      "variation_mm": 76.23
+    },
+    {
+      "decimal_year": 2015.192574,
+      "variation_mm": 76.28
+    },
+    {
+      "decimal_year": 2015.21974,
+      "variation_mm": 76.29
+    },
+    {
+      "decimal_year": 2015.246906,
+      "variation_mm": 76.35
+    },
+    {
+      "decimal_year": 2015.274072,
+      "variation_mm": 76.4
+    },
+    {
+      "decimal_year": 2015.301239,
+      "variation_mm": 76.35
+    },
+    {
+      "decimal_year": 2015.328405,
+      "variation_mm": 76.26
+    },
+    {
+      "decimal_year": 2015.355571,
+      "variation_mm": 76.34
+    },
+    {
+      "decimal_year": 2015.382737,
+      "variation_mm": 76.8
+    },
+    {
+      "decimal_year": 2015.409903,
+      "variation_mm": 77.7
+    },
+    {
+      "decimal_year": 2015.437069,
+      "variation_mm": 78.86
+    },
+    {
+      "decimal_year": 2015.464235,
+      "variation_mm": 80.03
+    },
+    {
+      "decimal_year": 2015.491402,
+      "variation_mm": 80.97
+    },
+    {
+      "decimal_year": 2015.518568,
+      "variation_mm": 81.62
+    },
+    {
+      "decimal_year": 2015.545734,
+      "variation_mm": 81.99
+    },
+    {
+      "decimal_year": 2015.5729,
+      "variation_mm": 82.2
+    },
+    {
+      "decimal_year": 2015.600066,
+      "variation_mm": 82.4
+    },
+    {
+      "decimal_year": 2015.627232,
+      "variation_mm": 82.68
+    },
+    {
+      "decimal_year": 2015.654399,
+      "variation_mm": 83.04
+    },
+    {
+      "decimal_year": 2015.681565,
+      "variation_mm": 83.34
+    },
+    {
+      "decimal_year": 2015.708731,
+      "variation_mm": 83.53
+    },
+    {
+      "decimal_year": 2015.735897,
+      "variation_mm": 83.68
+    },
+    {
+      "decimal_year": 2015.763063,
+      "variation_mm": 83.86
+    },
+    {
+      "decimal_year": 2015.790229,
+      "variation_mm": 84.03
+    },
+    {
+      "decimal_year": 2015.817395,
+      "variation_mm": 84.07
+    },
+    {
+      "decimal_year": 2015.844562,
+      "variation_mm": 83.93
+    },
+    {
+      "decimal_year": 2015.871728,
+      "variation_mm": 83.65
+    },
+    {
+      "decimal_year": 2015.898894,
+      "variation_mm": 83.27
+    },
+    {
+      "decimal_year": 2015.92606,
+      "variation_mm": 82.81
+    },
+    {
+      "decimal_year": 2015.953226,
+      "variation_mm": 82.43
+    },
+    {
+      "decimal_year": 2015.980392,
+      "variation_mm": 82.34
+    },
+    {
+      "decimal_year": 2016.007538,
+      "variation_mm": 82.71
+    },
+    {
+      "decimal_year": 2016.03463,
+      "variation_mm": 83.4
+    },
+    {
+      "decimal_year": 2016.061722,
+      "variation_mm": 84.11
+    },
+    {
+      "decimal_year": 2016.088814,
+      "variation_mm": 84.59
+    },
+    {
+      "decimal_year": 2016.115906,
+      "variation_mm": 84.85
+    },
+    {
+      "decimal_year": 2016.142997,
+      "variation_mm": 84.98
+    },
+    {
+      "decimal_year": 2016.170089,
+      "variation_mm": 85.05
+    },
+    {
+      "decimal_year": 2016.197181,
+      "variation_mm": 84.98
+    },
+    {
+      "decimal_year": 2016.224273,
+      "variation_mm": 84.69
+    },
+    {
+      "decimal_year": 2016.251365,
+      "variation_mm": 84.07
+    },
+    {
+      "decimal_year": 2016.278457,
+      "variation_mm": 83.16
+    },
+    {
+      "decimal_year": 2016.305549,
+      "variation_mm": 82.16
+    },
+    {
+      "decimal_year": 2016.332641,
+      "variation_mm": 81.33
+    },
+    {
+      "decimal_year": 2016.359733,
+      "variation_mm": 80.9
+    },
+    {
+      "decimal_year": 2016.386825,
+      "variation_mm": 80.94
+    },
+    {
+      "decimal_year": 2016.413917,
+      "variation_mm": 81.33
+    },
+    {
+      "decimal_year": 2016.441009,
+      "variation_mm": 81.77
+    },
+    {
+      "decimal_year": 2016.468101,
+      "variation_mm": 81.97
+    },
+    {
+      "decimal_year": 2016.495193,
+      "variation_mm": 81.75
+    },
+    {
+      "decimal_year": 2016.522284,
+      "variation_mm": 81.1
+    },
+    {
+      "decimal_year": 2016.549376,
+      "variation_mm": 80.22
+    },
+    {
+      "decimal_year": 2016.576468,
+      "variation_mm": 79.4
+    },
+    {
+      "decimal_year": 2016.60356,
+      "variation_mm": 78.9
+    },
+    {
+      "decimal_year": 2016.630652,
+      "variation_mm": 78.81
+    },
+    {
+      "decimal_year": 2016.657744,
+      "variation_mm": 78.97
+    },
+    {
+      "decimal_year": 2016.684836,
+      "variation_mm": 79.06
+    },
+    {
+      "decimal_year": 2016.711928,
+      "variation_mm": 78.96
+    },
+    {
+      "decimal_year": 2016.73902,
+      "variation_mm": 78.8
+    },
+    {
+      "decimal_year": 2016.766112,
+      "variation_mm": 78.91
+    },
+    {
+      "decimal_year": 2016.793204,
+      "variation_mm": 79.46
+    },
+    {
+      "decimal_year": 2016.820296,
+      "variation_mm": 80.4
+    },
+    {
+      "decimal_year": 2016.847388,
+      "variation_mm": 81.42
+    },
+    {
+      "decimal_year": 2016.87448,
+      "variation_mm": 82.21
+    },
+    {
+      "decimal_year": 2016.901571,
+      "variation_mm": 82.55
+    },
+    {
+      "decimal_year": 2016.928663,
+      "variation_mm": 82.37
+    },
+    {
+      "decimal_year": 2016.955755,
+      "variation_mm": 81.86
+    },
+    {
+      "decimal_year": 2016.982847,
+      "variation_mm": 81.25
+    },
+    {
+      "decimal_year": 2017.009966,
+      "variation_mm": 80.72
+    },
+    {
+      "decimal_year": 2017.037133,
+      "variation_mm": 80.29
+    },
+    {
+      "decimal_year": 2017.064299,
+      "variation_mm": 79.98
+    },
+    {
+      "decimal_year": 2017.091465,
+      "variation_mm": 79.82
+    },
+    {
+      "decimal_year": 2017.118631,
+      "variation_mm": 79.89
+    },
+    {
+      "decimal_year": 2017.145797,
+      "variation_mm": 80.2
+    },
+    {
+      "decimal_year": 2017.172963,
+      "variation_mm": 80.65
+    },
+    {
+      "decimal_year": 2017.200129,
+      "variation_mm": 81.16
+    },
+    {
+      "decimal_year": 2017.227296,
+      "variation_mm": 81.56
+    },
+    {
+      "decimal_year": 2017.254462,
+      "variation_mm": 81.76
+    },
+    {
+      "decimal_year": 2017.281628,
+      "variation_mm": 81.71
+    },
+    {
+      "decimal_year": 2017.308794,
+      "variation_mm": 81.53
+    },
+    {
+      "decimal_year": 2017.33596,
+      "variation_mm": 81.31
+    },
+    {
+      "decimal_year": 2017.363126,
+      "variation_mm": 81.22
+    },
+    {
+      "decimal_year": 2017.390293,
+      "variation_mm": 81.3
+    },
+    {
+      "decimal_year": 2017.417459,
+      "variation_mm": 81.55
+    },
+    {
+      "decimal_year": 2017.444625,
+      "variation_mm": 81.82
+    },
+    {
+      "decimal_year": 2017.471791,
+      "variation_mm": 82.06
+    },
+    {
+      "decimal_year": 2017.498957,
+      "variation_mm": 82.29
+    },
+    {
+      "decimal_year": 2017.526123,
+      "variation_mm": 82.6
+    },
+    {
+      "decimal_year": 2017.553289,
+      "variation_mm": 83.01
+    },
+    {
+      "decimal_year": 2017.580456,
+      "variation_mm": 83.45
+    },
+    {
+      "decimal_year": 2017.607622,
+      "variation_mm": 83.78
+    },
+    {
+      "decimal_year": 2017.634788,
+      "variation_mm": 84
+    },
+    {
+      "decimal_year": 2017.661954,
+      "variation_mm": 84.09
+    },
+    {
+      "decimal_year": 2017.68912,
+      "variation_mm": 84.01
+    },
+    {
+      "decimal_year": 2017.716286,
+      "variation_mm": 83.8
+    },
+    {
+      "decimal_year": 2017.743453,
+      "variation_mm": 83.6
+    },
+    {
+      "decimal_year": 2017.770619,
+      "variation_mm": 83.65
+    },
+    {
+      "decimal_year": 2017.797785,
+      "variation_mm": 84.09
+    },
+    {
+      "decimal_year": 2017.824951,
+      "variation_mm": 84.88
+    },
+    {
+      "decimal_year": 2017.852117,
+      "variation_mm": 85.8
+    },
+    {
+      "decimal_year": 2017.879283,
+      "variation_mm": 86.61
+    },
+    {
+      "decimal_year": 2017.906449,
+      "variation_mm": 87.1
+    },
+    {
+      "decimal_year": 2017.933616,
+      "variation_mm": 87.17
+    },
+    {
+      "decimal_year": 2017.960782,
+      "variation_mm": 86.88
+    },
+    {
+      "decimal_year": 2017.987948,
+      "variation_mm": 86.43
+    },
+    {
+      "decimal_year": 2018.015114,
+      "variation_mm": 86.08
+    },
+    {
+      "decimal_year": 2018.04228,
+      "variation_mm": 85.9
+    },
+    {
+      "decimal_year": 2018.069446,
+      "variation_mm": 85.81
+    },
+    {
+      "decimal_year": 2018.096613,
+      "variation_mm": 85.66
+    },
+    {
+      "decimal_year": 2018.123779,
+      "variation_mm": 85.43
+    },
+    {
+      "decimal_year": 2018.150945,
+      "variation_mm": 85.21
+    },
+    {
+      "decimal_year": 2018.178111,
+      "variation_mm": 85.01
+    },
+    {
+      "decimal_year": 2018.205277,
+      "variation_mm": 84.74
+    },
+    {
+      "decimal_year": 2018.232443,
+      "variation_mm": 84.4
+    },
+    {
+      "decimal_year": 2018.259609,
+      "variation_mm": 84.16
+    },
+    {
+      "decimal_year": 2018.286776,
+      "variation_mm": 84.19
+    },
+    {
+      "decimal_year": 2018.313942,
+      "variation_mm": 84.53
+    },
+    {
+      "decimal_year": 2018.341108,
+      "variation_mm": 85.05
+    },
+    {
+      "decimal_year": 2018.368274,
+      "variation_mm": 85.61
+    },
+    {
+      "decimal_year": 2018.39544,
+      "variation_mm": 86.09
+    },
+    {
+      "decimal_year": 2018.422606,
+      "variation_mm": 86.37
+    },
+    {
+      "decimal_year": 2018.449772,
+      "variation_mm": 86.5
+    },
+    {
+      "decimal_year": 2018.476939,
+      "variation_mm": 86.53
+    },
+    {
+      "decimal_year": 2018.504105,
+      "variation_mm": 86.59
+    },
+    {
+      "decimal_year": 2018.531271,
+      "variation_mm": 86.72
+    },
+    {
+      "decimal_year": 2018.558437,
+      "variation_mm": 86.83
+    },
+    {
+      "decimal_year": 2018.585603,
+      "variation_mm": 86.92
+    },
+    {
+      "decimal_year": 2018.612769,
+      "variation_mm": 87.11
+    },
+    {
+      "decimal_year": 2018.639936,
+      "variation_mm": 87.5
+    },
+    {
+      "decimal_year": 2018.667102,
+      "variation_mm": 88.15
+    },
+    {
+      "decimal_year": 2018.694268,
+      "variation_mm": 88.89
+    },
+    {
+      "decimal_year": 2018.721434,
+      "variation_mm": 89.58
+    },
+    {
+      "decimal_year": 2018.7486,
+      "variation_mm": 90.09
+    },
+    {
+      "decimal_year": 2018.775766,
+      "variation_mm": 90.37
+    },
+    {
+      "decimal_year": 2018.802932,
+      "variation_mm": 90.43
+    },
+    {
+      "decimal_year": 2018.830099,
+      "variation_mm": 90.23
+    },
+    {
+      "decimal_year": 2018.857265,
+      "variation_mm": 89.81
+    },
+    {
+      "decimal_year": 2018.884431,
+      "variation_mm": 89.32
+    },
+    {
+      "decimal_year": 2018.911597,
+      "variation_mm": 88.95
+    },
+    {
+      "decimal_year": 2018.938763,
+      "variation_mm": 88.85
+    },
+    {
+      "decimal_year": 2018.965929,
+      "variation_mm": 89.05
+    },
+    {
+      "decimal_year": 2018.993096,
+      "variation_mm": 89.5
+    },
+    {
+      "decimal_year": 2019.020262,
+      "variation_mm": 90.16
+    },
+    {
+      "decimal_year": 2019.047428,
+      "variation_mm": 90.88
+    },
+    {
+      "decimal_year": 2019.074594,
+      "variation_mm": 91.45
+    },
+    {
+      "decimal_year": 2019.10176,
+      "variation_mm": 91.81
+    },
+    {
+      "decimal_year": 2019.128926,
+      "variation_mm": 91.96
+    },
+    {
+      "decimal_year": 2019.156092,
+      "variation_mm": 92.03
+    },
+    {
+      "decimal_year": 2019.183259,
+      "variation_mm": 92.06
+    },
+    {
+      "decimal_year": 2019.210425,
+      "variation_mm": 92.04
+    },
+    {
+      "decimal_year": 2019.237591,
+      "variation_mm": 91.95
+    },
+    {
+      "decimal_year": 2019.264757,
+      "variation_mm": 91.96
+    },
+    {
+      "decimal_year": 2019.291923,
+      "variation_mm": 92.2
+    },
+    {
+      "decimal_year": 2019.319089,
+      "variation_mm": 92.66
+    },
+    {
+      "decimal_year": 2019.346256,
+      "variation_mm": 93.17
+    },
+    {
+      "decimal_year": 2019.373422,
+      "variation_mm": 93.57
+    },
+    {
+      "decimal_year": 2019.400588,
+      "variation_mm": 93.84
+    },
+    {
+      "decimal_year": 2019.427754,
+      "variation_mm": 94.08
+    },
+    {
+      "decimal_year": 2019.45492,
+      "variation_mm": 94.31
+    },
+    {
+      "decimal_year": 2019.482086,
+      "variation_mm": 94.49
+    },
+    {
+      "decimal_year": 2019.509252,
+      "variation_mm": 94.64
+    },
+    {
+      "decimal_year": 2019.536419,
+      "variation_mm": 94.83
+    },
+    {
+      "decimal_year": 2019.563585,
+      "variation_mm": 95.15
+    },
+    {
+      "decimal_year": 2019.590751,
+      "variation_mm": 95.66
+    },
+    {
+      "decimal_year": 2019.617917,
+      "variation_mm": 96.24
+    },
+    {
+      "decimal_year": 2019.645083,
+      "variation_mm": 96.72
+    },
+    {
+      "decimal_year": 2019.672249,
+      "variation_mm": 96.89
+    },
+    {
+      "decimal_year": 2019.699415,
+      "variation_mm": 96.7
+    },
+    {
+      "decimal_year": 2019.726582,
+      "variation_mm": 96.22
+    },
+    {
+      "decimal_year": 2019.753748,
+      "variation_mm": 95.6
+    },
+    {
+      "decimal_year": 2019.780914,
+      "variation_mm": 95.1
+    },
+    {
+      "decimal_year": 2019.80808,
+      "variation_mm": 94.89
+    },
+    {
+      "decimal_year": 2019.835246,
+      "variation_mm": 95.07
+    },
+    {
+      "decimal_year": 2019.862412,
+      "variation_mm": 95.52
+    },
+    {
+      "decimal_year": 2019.889579,
+      "variation_mm": 95.92
+    },
+    {
+      "decimal_year": 2019.916745,
+      "variation_mm": 96.03
+    },
+    {
+      "decimal_year": 2019.943911,
+      "variation_mm": 95.71
+    },
+    {
+      "decimal_year": 2019.971077,
+      "variation_mm": 95.01
+    },
+    {
+      "decimal_year": 2019.998243,
+      "variation_mm": 94.12
+    },
+    {
+      "decimal_year": 2020.02534,
+      "variation_mm": 93.23
+    },
+    {
+      "decimal_year": 2020.052432,
+      "variation_mm": 92.56
+    },
+    {
+      "decimal_year": 2020.079524,
+      "variation_mm": 92.24
+    },
+    {
+      "decimal_year": 2020.106616,
+      "variation_mm": 92.33
+    },
+    {
+      "decimal_year": 2020.133708,
+      "variation_mm": 92.71
+    },
+    {
+      "decimal_year": 2020.1608,
+      "variation_mm": 93.18
+    },
+    {
+      "decimal_year": 2020.187891,
+      "variation_mm": 93.53
+    },
+    {
+      "decimal_year": 2020.214983,
+      "variation_mm": 93.73
+    },
+    {
+      "decimal_year": 2020.242075,
+      "variation_mm": 93.89
+    },
+    {
+      "decimal_year": 2020.269167,
+      "variation_mm": 94.23
+    },
+    {
+      "decimal_year": 2020.296259,
+      "variation_mm": 94.87
+    },
+    {
+      "decimal_year": 2020.323351,
+      "variation_mm": 95.67
+    },
+    {
+      "decimal_year": 2020.350443,
+      "variation_mm": 96.34
+    },
+    {
+      "decimal_year": 2020.377535,
+      "variation_mm": 96.59
+    },
+    {
+      "decimal_year": 2020.404627,
+      "variation_mm": 96.37
+    },
+    {
+      "decimal_year": 2020.431719,
+      "variation_mm": 95.89
+    },
+    {
+      "decimal_year": 2020.458811,
+      "variation_mm": 95.42
+    },
+    {
+      "decimal_year": 2020.485903,
+      "variation_mm": 95.16
+    },
+    {
+      "decimal_year": 2020.512995,
+      "variation_mm": 95.1
+    },
+    {
+      "decimal_year": 2020.540087,
+      "variation_mm": 95.11
+    },
+    {
+      "decimal_year": 2020.567178,
+      "variation_mm": 95.1
+    },
+    {
+      "decimal_year": 2020.59427,
+      "variation_mm": 95.09
+    },
+    {
+      "decimal_year": 2020.621362,
+      "variation_mm": 95.2
+    },
+    {
+      "decimal_year": 2020.648454,
+      "variation_mm": 95.46
+    },
+    {
+      "decimal_year": 2020.675546,
+      "variation_mm": 95.81
+    },
+    {
+      "decimal_year": 2020.702638,
+      "variation_mm": 96.11
+    },
+    {
+      "decimal_year": 2020.72973,
+      "variation_mm": 96.28
+    },
+    {
+      "decimal_year": 2020.756822,
+      "variation_mm": 96.38
+    },
+    {
+      "decimal_year": 2020.783914,
+      "variation_mm": 96.42
+    },
+    {
+      "decimal_year": 2020.811006,
+      "variation_mm": 96.44
+    },
+    {
+      "decimal_year": 2020.838098,
+      "variation_mm": 96.36
+    },
+    {
+      "decimal_year": 2020.86519,
+      "variation_mm": 96.2
+    },
+    {
+      "decimal_year": 2020.892282,
+      "variation_mm": 96
+    },
+    {
+      "decimal_year": 2020.919374,
+      "variation_mm": 95.95
+    },
+    {
+      "decimal_year": 2020.946465,
+      "variation_mm": 96.19
+    },
+    {
+      "decimal_year": 2020.973557,
+      "variation_mm": 96.74
+    },
+    {
+      "decimal_year": 2021.000651,
+      "variation_mm": 97.38
+    },
+    {
+      "decimal_year": 2021.027817,
+      "variation_mm": 97.87
+    },
+    {
+      "decimal_year": 2021.054983,
+      "variation_mm": 97.91
+    },
+    {
+      "decimal_year": 2021.08215,
+      "variation_mm": 97.49
+    },
+    {
+      "decimal_year": 2021.109316,
+      "variation_mm": 96.76
+    },
+    {
+      "decimal_year": 2021.136482,
+      "variation_mm": 96.14
+    },
+    {
+      "decimal_year": 2021.163648,
+      "variation_mm": 95.96
+    },
+    {
+      "decimal_year": 2021.190814,
+      "variation_mm": 96.33
+    },
+    {
+      "decimal_year": 2021.21798,
+      "variation_mm": 97.05
+    },
+    {
+      "decimal_year": 2021.245146,
+      "variation_mm": 97.85
+    },
+    {
+      "decimal_year": 2021.272313,
+      "variation_mm": 98.46
+    },
+    {
+      "decimal_year": 2021.299479,
+      "variation_mm": 98.81
+    },
+    {
+      "decimal_year": 2021.326645,
+      "variation_mm": 98.97
+    },
+    {
+      "decimal_year": 2021.353811,
+      "variation_mm": 99.05
+    },
+    {
+      "decimal_year": 2021.380977,
+      "variation_mm": 99.06
+    },
+    {
+      "decimal_year": 2021.408143,
+      "variation_mm": 99.03
+    },
+    {
+      "decimal_year": 2021.43531,
+      "variation_mm": 99.01
+    },
+    {
+      "decimal_year": 2021.462476,
+      "variation_mm": 99.08
+    },
+    {
+      "decimal_year": 2021.489642,
+      "variation_mm": 99.29
+    },
+    {
+      "decimal_year": 2021.516808,
+      "variation_mm": 99.63
+    },
+    {
+      "decimal_year": 2021.543974,
+      "variation_mm": 100.11
+    },
+    {
+      "decimal_year": 2021.57114,
+      "variation_mm": 100.6
+    },
+    {
+      "decimal_year": 2021.598306,
+      "variation_mm": 100.99
+    },
+    {
+      "decimal_year": 2021.625473,
+      "variation_mm": 101.2
+    },
+    {
+      "decimal_year": 2021.652639,
+      "variation_mm": 101.24
+    },
+    {
+      "decimal_year": 2021.679805,
+      "variation_mm": 101.22
+    },
+    {
+      "decimal_year": 2021.706971,
+      "variation_mm": 101.22
+    },
+    {
+      "decimal_year": 2021.734137,
+      "variation_mm": 101.28
+    },
+    {
+      "decimal_year": 2021.761303,
+      "variation_mm": 101.36
+    },
+    {
+      "decimal_year": 2021.788469,
+      "variation_mm": 101.35
+    },
+    {
+      "decimal_year": 2021.815636,
+      "variation_mm": 101.21
+    },
+    {
+      "decimal_year": 2021.842802,
+      "variation_mm": 100.98
+    },
+    {
+      "decimal_year": 2021.869968,
+      "variation_mm": 100.77
+    },
+    {
+      "decimal_year": 2021.897134,
+      "variation_mm": 100.71
+    },
+    {
+      "decimal_year": 2021.9243,
+      "variation_mm": 100.81
+    },
+    {
+      "decimal_year": 2021.951466,
+      "variation_mm": 101.07
+    },
+    {
+      "decimal_year": 2021.978633,
+      "variation_mm": 101.46
+    },
+    {
+      "decimal_year": 2022.005799,
+      "variation_mm": 101.9
+    },
+    {
+      "decimal_year": 2022.032965,
+      "variation_mm": 102.23
+    },
+    {
+      "decimal_year": 2022.060131,
+      "variation_mm": 102.23
+    },
+    {
+      "decimal_year": 2022.087297,
+      "variation_mm": 101.8
+    },
+    {
+      "decimal_year": 2022.114463,
+      "variation_mm": 101.05
+    },
+    {
+      "decimal_year": 2022.141629,
+      "variation_mm": 100.3
+    },
+    {
+      "decimal_year": 2022.168796,
+      "variation_mm": 99.89
+    },
+    {
+      "decimal_year": 2022.195962,
+      "variation_mm": 99.98
+    },
+    {
+      "decimal_year": 2022.223128,
+      "variation_mm": 100.48
+    },
+    {
+      "decimal_year": 2022.250294,
+      "variation_mm": 101.12
+    },
+    {
+      "decimal_year": 2022.27746,
+      "variation_mm": 101.57
+    },
+    {
+      "decimal_year": 2022.304626,
+      "variation_mm": 101.64
+    },
+    {
+      "decimal_year": 2022.331793,
+      "variation_mm": 101.3
+    },
+    {
+      "decimal_year": 2022.358959,
+      "variation_mm": 100.71
+    },
+    {
+      "decimal_year": 2022.386125,
+      "variation_mm": 100.18
+    },
+    {
+      "decimal_year": 2022.413291,
+      "variation_mm": 100.01
+    },
+    {
+      "decimal_year": 2022.440457,
+      "variation_mm": 100.33
+    },
+    {
+      "decimal_year": 2022.467623,
+      "variation_mm": 101.07
+    },
+    {
+      "decimal_year": 2022.494789,
+      "variation_mm": 101.93
+    },
+    {
+      "decimal_year": 2022.521956,
+      "variation_mm": 102.57
+    },
+    {
+      "decimal_year": 2022.549122,
+      "variation_mm": 102.77
+    },
+    {
+      "decimal_year": 2022.576288,
+      "variation_mm": 102.77
+    },
+    {
+      "decimal_year": 2022.603454,
+      "variation_mm": 102.51
+    },
+    {
+      "decimal_year": 2022.63062,
+      "variation_mm": 102.03
+    },
+    {
+      "decimal_year": 2022.657786,
+      "variation_mm": 101.43
+    },
+    {
+      "decimal_year": 2022.684953,
+      "variation_mm": 100.85
+    }
+  ]
+}
