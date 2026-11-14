@@ -19,7 +19,7 @@ export function resolverEleccion(retroalimentacion, sitio) {
   if (!respuesta) throw new Error('Selecciona uno de los tres arriendos');
   return { ...respuesta, graficos: retroalimentacion.comparative_charts };
 }
-// Antes de decidir: ficha(decision2009, sitio, variable).
+// Antes de decidir: ficha(decision2015, sitio, variable). El juego ocurre en 2015; el expediente llega hasta 2014.
 // Tras confirmar: resolverEleccion(retroalimentacion, sitio).
 // Dibujar sus tres graficos comparativos y mostrar titulo/mensaje.
-// La revelacion 1981–2025 es una fase posterior y explícita, no la devolución de 2009.
+// La revelacion 1981–2025 es una fase posterior y explícita, no la devolución de 2015.

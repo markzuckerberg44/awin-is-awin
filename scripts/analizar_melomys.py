@@ -17,8 +17,12 @@ import matplotlib.pyplot as plt
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'data/bramble-cay-melomys'
 NAMES = {'bramble-cay': 'Bramble Cay', 'erub': 'Erub', 'funafuti': 'Funafuti', 'alice-springs': 'Alice Springs'}
-VARS = {'T2M': ('Temperatura', '°C', '°C/década'), 'RH2M': ('Humedad relativa', '%', 'puntos porcentuales/década'), 'PRECTOTCORR': ('Precipitación anual', 'mm/año', '(mm/año)/década')}
-PERIODS = {'decision_2009': (1981, 2008), 'revelacion': (1981, 2025)}
+VARS = {'T2M': ('Temperature', '°C', '°C/decade'), 'RH2M': ('Relative humidity', '%', 'percentage points/decade'), 'PRECTOTCORR': ('Annual rainfall', 'mm/year', '(mm/year)/decade')}
+# El juego ocurre en 2015: la jugadora solo conoce el archivo completo 1981–2014.
+SCENARIO_YEAR = 2015
+ARCHIVE_END = SCENARIO_YEAR - 1
+ARCHIVE_YEARS = ARCHIVE_END - 1981 + 1
+PERIODS = {f'decision_{SCENARIO_YEAR}': (1981, ARCHIVE_END), 'revelacion': (1981, 2025)}
 
 def save(name, data):
     (OUT/name).write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False)+'\n', encoding='utf-8')
@@ -91,9 +95,9 @@ def main():
             monthly.extend(rows)
         months_by_site[site] = monthly
         for month in range(1,13):
-            subset = [r for r in monthly if r['year']<=2008 and r['month']==month]
-            assert len(subset)==28
-            cycles.append(dict(site_id=site,month=month,n_years=28,
+            subset = [r for r in monthly if r['year']<=ARCHIVE_END and r['month']==month]
+            assert len(subset)==ARCHIVE_YEARS
+            cycles.append(dict(site_id=site,month=month,n_years=ARCHIVE_YEARS,
                                **{v:float(np.mean([r[v] for r in subset])) for v in VARS},
                                precipitation_mm_month=float(np.mean([r['precipitation_mm_month'] for r in subset]))))
         for period,(start,end) in PERIODS.items():
@@ -112,7 +116,7 @@ def main():
             previous=adjusted
             record['p_value_holm']=adjusted
             record['significant_holm_005']=bool(adjusted<.05)
-            record['game_stamp']=('REAL ↑' if record['sen_slope_per_decade']>0 else 'REAL ↓') if adjusted<.05 else 'NO PROBADO'
+            record['game_stamp']=('REAL ↑' if record['sen_slope_per_decade']>0 else 'REAL ↓') if adjusted<.05 else 'NOT PROVEN'
     reference = [r for r in cycles if r['site_id']=='bramble-cay']
     # Operational, comparative dry season: six driest reference months, no biological threshold.
     dry = sorted(r['month'] for r in sorted(reference,key=lambda r:r['PRECTOTCORR'])[:6])
@@ -125,16 +129,16 @@ def main():
             dry_season_precipitation_mm=float(sum(r['precipitation_mm_month'] for r in own if r['month'] in dry)),
             driest_month=min(own,key=lambda r:r['PRECTOTCORR'])['month']))
     save('series-anuales.json',dict(schema_version='1.0.0',period=[1981,2025],units={v:t[1] for v,t in VARS.items()},records=annual))
-    save('ciclo-mensual.json',dict(schema_version='1.0.0',period=[1981,2008],
-         units={'T2M':'°C','RH2M':'%','PRECTOTCORR':'mm/día','precipitation_mm_month':'mm/mes'},
-         reference_dry_months=dry,dry_month_definition='Seis meses de menor lluvia media diaria de Bramble Cay en 1981–2008; mismos meses para todos.',
+    save('ciclo-mensual.json',dict(schema_version='1.0.0',period=[1981,ARCHIVE_END],scenario_year=SCENARIO_YEAR,
+         units={'T2M':'°C','RH2M':'%','PRECTOTCORR':'mm/day','precipitation_mm_month':'mm/month'},
+         reference_dry_months=dry,dry_month_definition=f'The six months with the lowest mean daily rainfall at Bramble Cay in 1981–{ARCHIVE_END}; the same months are used for every site.',
          records=cycles,comparisons=comparisons))
     save('tendencias.json',dict(schema_version='1.0.0',species='Melomys rubicola',
-         method=dict(slope='Sen; mediana de pendientes entre todos los pares anuales',test='Mann–Kendall modificado Hamed–Rao (1998)',
-                     autocorrelation='Rangos tras quitar pendiente de Sen; lags 1..n-1 significativos al 5%; corrección de varianza; sensibilidad lag=1 y lag=3.',
-                     alpha=.05,multiple_testing='Holm: 12 tests por período; game_stamp usa p_value_holm',
-                     aggregation='Precipitación: suma(mm/día × días del mes). Temperatura y humedad: media ponderada por días.',
-                     incomplete_years='2026 excluido; solo años con 12 meses válidos',
+         method=dict(slope='Sen; median of slopes between all pairs of years',test='Mann–Kendall modified by Hamed–Rao (1998)',
+                     autocorrelation='Ranks after removing the Sen slope; significant lags 1..n-1 at 5%; variance correction; sensitivity with lag=1 and lag=3.',
+                     alpha=.05,multiple_testing='Holm: 12 tests per period; game_stamp uses p_value_holm',
+                     aggregation='Rainfall: sum(mm/day × days in month). Temperature and humidity: day-weighted mean.',
+                     incomplete_years='2026 excluded; only years with 12 valid months',
                      versions={'numpy':np.__version__,'scipy':scipy.__version__,'pymannkendall':mk.__version__}),
          periods={k:dict(start_year=v[0],end_year=v[1]) for k,v in PERIODS.items()},records=records))
     save('fuentes-analisis.json',dict(analysis_date='2026-11-14',nasa_inputs=sources,
@@ -151,7 +155,7 @@ def main():
             if r['period_id']!=period: continue
             lines.append(f"| {r['site_name']} | {r['label']} | {r['sen_slope_per_decade']:+.3f} | {r['slope_unit']} | {r['p_value']:.4g} | {r['p_value_holm']:.4g} | {r['game_stamp']} | {'Sí' if r['significance_sensitive_to_lag_choice'] else 'No'} |")
         lines.append('')
-    lines += ['## Semejanza estacional (1981–2008)','','RMSE menor significa mayor semejanza, dentro de cada variable. No sumar RMSE con unidades diferentes.','','| Sitio | RMSE T (°C) | RMSE HR (pp) | RMSE lluvia (mm/día) | Lluvia en seis meses secos (mm) |','|---|---:|---:|---:|---:|']
+    lines += [f'## Semejanza estacional (1981–{ARCHIVE_END})','','RMSE menor significa mayor semejanza, dentro de cada variable. No sumar RMSE con unidades diferentes.','','| Sitio | RMSE T (°C) | RMSE HR (pp) | RMSE lluvia (mm/día) | Lluvia en seis meses secos (mm) |','|---|---:|---:|---:|---:|']
     for c in comparisons:
         e=c['monthly_rmse_vs_bramble']
         lines.append(f"| {NAMES[c['site_id']]} | {e['T2M']:.3f} | {e['RH2M']:.3f} | {e['PRECTOTCORR']:.3f} | {c['dry_season_precipitation_mm']:.1f} |")
@@ -160,7 +164,7 @@ def main():
     figures.mkdir(exist_ok=True)
     colors={'bramble-cay':'#182c42','erub':'#008568','funafuti':'#be6a00','alice-springs':'#a13b73'}
     fig,axes=plt.subplots(3,1,figsize=(10,10),sharex=True,layout='constrained')
-    for ax,var,ylabel in zip(axes,VARS,['Temperatura (°C)','Humedad relativa (%)','Precipitación (mm/mes)']):
+    for ax,var,ylabel in zip(axes,VARS,['Temperature (°C)','Relative humidity (%)','Rainfall (mm/month)']):
         field='precipitation_mm_month' if var=='PRECTOTCORR' else var
         for site,name in NAMES.items():
             own=[r for r in cycles if r['site_id']==site]
@@ -168,9 +172,9 @@ def main():
         for m in dry: ax.axvspan(m-.45,m+.45,color='#d8cfae',alpha=.25,zorder=0)
         ax.set_ylabel(ylabel); ax.grid(alpha=.2)
     axes[0].legend(ncol=4,fontsize=9)
-    axes[2].set_xticks(range(1,13),['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'])
-    fig.suptitle('Clima típico antes de la decisión · 1981–2008\nSombreado: seis meses más secos de Bramble Cay',fontsize=14)
-    fig.supxlabel('Fuente: NASA POWER · Medias de 28 años · Escala regional, no microclima del arriendo',fontsize=9)
+    axes[2].set_xticks(range(1,13),['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])
+    fig.suptitle(f'Typical climate before the {SCENARIO_YEAR} decision · 1981–{ARCHIVE_END}\nShaded: the six driest months at Bramble Cay',fontsize=14)
+    fig.supxlabel(f'Source: NASA POWER · {ARCHIVE_YEARS}-year averages · Regional scale, not the microclimate of the plot',fontsize=9)
     fig.savefig(figures/'ciclo-mensual.png',dpi=160); plt.close(fig)
     for period,(start,end) in PERIODS.items():
         fig,axes=plt.subplots(4,3,figsize=(15,12),layout='constrained')
@@ -182,11 +186,11 @@ def main():
                 years=np.array([r['year'] for r in subset])
                 ax.plot(years,[r[var] for r in subset],color=colors[site],alpha=.65,lw=1)
                 ax.plot(years,r['sen_line_at_first_year']+r['sen_slope_per_decade']/10*(years-start),color='#202020',ls='--')
-                ax.set_title(f"{NAMES[site]} · {VARS[var][0]}\nSen {r['sen_slope_per_decade']:+.2f}/década · {r['game_stamp']}",fontsize=10)
+                ax.set_title(f"{NAMES[site]} · {VARS[var][0]}\nSen {r['sen_slope_per_decade']:+.2f}/decade · {r['game_stamp']}",fontsize=10)
                 ax.set_ylabel(VARS[var][1]); ax.grid(alpha=.2)
-                ax.set_xticks([1981,1990,2000,2008] if end==2008 else [1981,1995,2010,2025])
-        fig.suptitle(f'Tendencias anuales · {start}–{end}\nLínea discontinua: ajuste de Sen; sellos con Hamed–Rao + Holm',fontsize=15)
-        fig.supxlabel('Fuente: NASA POWER · Años completos · Tendencia histórica, no pronóstico de supervivencia',fontsize=10)
+                ax.set_xticks([1981,1990,2000,ARCHIVE_END] if end==ARCHIVE_END else [1981,1995,2010,2025])
+        fig.suptitle(f'Annual trends · {start}–{end}\nDashed line: Sen fit; stamps use Hamed–Rao + Holm',fontsize=15)
+        fig.supxlabel('Source: NASA POWER · Complete years · Historical trend, not a survival forecast',fontsize=10)
         fig.savefig(figures/f'tendencias-{period}.png',dpi=140); plt.close(fig)
     assert len(records)==24 and len(cycles)==48 and len(annual)==180
     print('OK: 24 trends, 48 monthly climatology rows, 180 annual rows, 3 figures.')

@@ -9,7 +9,7 @@ Selector de arriendo y de variable (temperatura, humedad, lluvia). Mantener Bram
 1. **Variación y estacionalidad:** serie mensual. X = fecha, Y = temperatura °C, humedad % o precipitación acumulada mm/mes. `monthly_points` ya contiene la conversión de lluvia; no multiplicar otra vez por días.
 2. **Tendencia:** serie anual y línea de Sen. X = año, Y = media anual °C/% o total mm/año. Usar `annual_points` y `sen_line_points`; no ajustar otra recta con regresión lineal.
 
-Mostrar debajo la pendiente con su unidad y dos valores p. El clima histórico del expediente es 1981–2008; las figuras de ejemplo hasta 2025 corresponden a una revelación posterior.
+Mostrar debajo la pendiente con su unidad y dos valores p. El juego ocurre en 2015: el clima histórico del expediente es 1981–2014; las figuras de ejemplo hasta 2025 corresponden a una revelación posterior.
 
 ## Qué dos tests mostrar
 
@@ -22,7 +22,7 @@ Ambos contrastan ausencia de tendencia monotónica; son dos versiones del mismo 
 
 Sen aparece como magnitud del cambio, no como test con p. El p no indica similitud con Bramble Cay ni probabilidad de supervivencia. No escoger el lugar con menor p.
 
-**Criterio de presentación:** las dos tarjetas muestran p sin ajuste por comparaciones múltiples y su lectura individual al 5 %. No mostrar junto a ellas un sello sin explicar su criterio. Si se conserva el sello `REAL ↑/↓` o `NO PROBADO` del paquete anterior, mostrarlo en «Ver detalles» junto a `p_holm` y la nota «corrige las 12 comparaciones». No recalcular Holm solo con los lugares visibles. Así, un p individual menor de 0,05 y un sello NO PROBADO no se presentan como una contradicción inexplicada.
+**Criterio de presentación:** las dos tarjetas muestran p sin ajuste por comparaciones múltiples y su lectura individual al 5 %. No mostrar junto a ellas un sello sin explicar su criterio. Si se conserva el sello `REAL ↑/↓` o `NOT PROVEN` del paquete anterior, mostrarlo en «Ver detalles» junto a `p_holm` y la nota «corrige las 12 comparaciones». No recalcular Holm solo con los lugares visibles. Así, un p individual menor de 0,05 y un sello NOT PROVEN no se presentan como una contradicción inexplicada.
 
 Redondear solo para mostrar. Si p < 0,001, escribir «p < 0,001», nunca «p = 0». La corrección no necesariamente aumenta el p; según la autocorrelación, puede disminuirlo o dejarlo igual. El campo `sensitive_to_lags` activa una nota en los detalles si cambia la conclusión según los rezagos.
 
@@ -36,15 +36,15 @@ Texto principal al acertar:
 
 > Elegiste la opción más adecuada para esta simulación. Erub conserva el ciclo climático más parecido a Bramble Cay. Sin embargo, recibe aproximadamente 22 % menos lluvia durante los meses secos. El terreno interior elevado del arriendo ficticio responde al riesgo de inundación marina. La semejanza climática no garantiza supervivencia.
 
-Debajo de los gráficos, dos mensajes breves: «Los ciclos permiten comparar el clima» y «Las tendencias muestran cuánto cambia con los años». La tendencia y sus p de 1981–2025 se desbloquean en otra fase; no usar resultados futuros para justificar la decisión de 2009.
+Debajo de los gráficos, dos mensajes breves: «Cycles let you compare the climate» y «Trends show how much it changes over the years». La tendencia y sus p de 1981–2025 se desbloquean en otra fase; no usar resultados futuros para justificar la decisión de 2015.
 
 También hay devolución específica para Funafuti y Alice Springs, sin bloquear al estudiante sin explicación.
 
 ## Archivos y contrato
 
-- `decision_2009.json`: 12 fichas (4 sitios × 3 variables), cada una con 336 puntos mensuales, 28 anuales y 28 del ajuste de Sen, pendiente y dos tests.
+- `decision_2015.json`: 12 fichas (4 sitios × 3 variables), cada una con 408 puntos mensuales, 34 anuales y 34 del ajuste de Sen, pendiente y dos tests.
 - `revelacion.json`: las mismas fichas con 540 meses y 45 años hasta 2025.
-- `retroalimentacion.json`: respuestas para las tres elecciones, criterio, unidades y 12 curvas comparativas (4 sitios × 3 variables) de 12 puntos cada una, 1981–2008.
+- `retroalimentacion.json`: respuestas para las tres elecciones, criterio, unidades y 12 curvas comparativas (4 sitios × 3 variables) de 12 puntos cada una, 1981–2014.
 - `fuentes.json`: NASA POWER, archivos fuente con hashes, consultas, metodología y evidencia local.
 - `integracion.js`: funciones para convertir los JSON en las vistas y resolver la elección. El equipo usa su biblioteca de gráficos; no necesita PNG ni Python en el juego.
 - `preparar.py`: generación desde el repositorio local. No recalcula ni selecciona tests según su p; conserva los resultados previamente verificados.

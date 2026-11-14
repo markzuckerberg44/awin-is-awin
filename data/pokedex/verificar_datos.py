@@ -54,7 +54,7 @@ def main():
             else:
                 invalid += 1
                 assert t['p_corrected'] is None and t['invalid_reason']
-        assert invalid == 3
+        assert invalid == 4
         print('OK: integridad SQLite, conteos, 24 hashes NASA, 3240 agregaciones anuales, 15 exportaciones y resultados estadísticos.')
     finally:
         db.close()

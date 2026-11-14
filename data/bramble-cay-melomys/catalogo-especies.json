@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "species": [
+    {
+      "id": "melomys-rubicola",
+      "name": "Bramble Cay melomys",
+      "scientific_name": "Melomys rubicola",
+      "conservation_status": "Extinct",
+      "scenario_year": 2015,
+      "reference_site_id": "bramble-cay",
+      "habitat": "The only known population lived on Bramble Cay, a low-lying cay in the Torres Strait. Herbaceous vegetation gave it food and shelter.",
+      "main_threat": "Repeated seawater flooding reduced the vegetation available to it.",
+      "files": {
+        "decision": "juego-simplificado/decision_2015.json",
+        "feedback": "juego-simplificado/retroalimentacion.json",
+        "reveal": "juego-simplificado/revelacion.json",
+        "sources": "juego-simplificado/fuentes.json"
+      },
+      "chapters": [
+        {
+          "id": "arriendo-seco",
+          "site_id": "alice-springs",
+          "claim": "Alice Springs gets as much rain as Bramble Cay.",
+          "evidence": {
+            "type": "compare_monthly_cycle",
+            "variable": "PRECTOTCORR",
+            "site_ids": [
+              "bramble-cay",
+              "alice-springs"
+            ]
+          },
+          "answer": {
+            "verdict": "contradicha",
+            "explanation": "Between 1981 and 2014, Alice Springs averaged 0.86 mm/day and Bramble Cay 5.52 mm/day."
+          }
+        },
+        {
+          "id": "arriendo-costero",
+          "site_id": "funafuti",
+          "claim": "Since it rains a lot in Funafuti, we know the land is protected from the sea.",
+          "evidence": {
+            "type": "inspect_terrain",
+            "site_ids": [
+              "funafuti"
+            ],
+            "clue": "The listing offers a fictional plot on a low-lying atoll. Exposure to the sea requires evidence about the ground and flooding.",
+            "source_url": "https://www.tuvaluclimatechange.gov.tv/sites/default/files/2025-07/Tuvalu_Assessment%20of%20Climate%20Hazards%20Technical%20Report_final.pdf"
+          },
+          "answer": {
+            "verdict": "evidencia_insuficiente",
+            "explanation": "Rainfall describes the climate. Judging exposure to seawater flooding requires the terrain and the location of the plot."
+          }
+        },
+        {
+          "id": "letra-chica",
+          "site_id": "erub",
+          "claim": "Between 1981 and 2014, a decrease in annual rainfall at Erub was proven.",
+          "evidence": {
+            "type": "test_trend",
+            "variable": "PRECTOTCORR",
+            "period_id": "decision_2015",
+            "site_ids": [
+              "erub"
+            ],
+            "test": "mann_kendall_hamed_rao"
+          },
+          "answer": {
+            "verdict": "evidencia_insuficiente",
+            "trend_stamp": "NOT PROVEN",
+            "explanation": "The Sen slope points downward, but the corrected Mann–Kendall test leaves insufficient evidence to claim a decrease."
+          }
+        }
+      ]
+    }
+  ]
+}

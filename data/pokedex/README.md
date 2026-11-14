@@ -31,15 +31,15 @@ const ficha = await cargarJSON(`${base}/${encodeURIComponent(catalogo.species[0]
 const sitio = ficha.scenario.reference_location;
 const variable = 'T2M'; // RH2M o PRECTOTCORR
 const mensual = ficha.series[sitio].monthly
-  .filter(r => r.year <= 2008)
+  .filter(r => r.year <= 2014) // el juego ocurre en 2015
   .map(r => ({x: r.date, y: r[variable]}));
 const anual = ficha.series[sitio].annual
-  .filter(r => r.year <= 2008)
+  .filter(r => r.year <= 2014) // el juego ocurre en 2015
   .map(r => ({x: r.year, y: r[variable]}));
 const ciclo = ficha.climatology[sitio][variable]; // 12 meses, enero–diciembre
-const testReferencia = ficha.reference_trends.archivo_1981_2008[variable];
+const testReferencia = ficha.reference_trends.archivo_1981_2014[variable];
 // Tendencias de referencia Y candidatos en las rondas terrestres:
-const comparacion = ficha.scenario.adjusted_tests?.archivo_1981_2008 ?? [];
+const comparacion = ficha.scenario.adjusted_tests?.archivo_1981_2014 ?? [];
 const testErub = comparacion.find(t => t.location_id === 'erub' && t.variable === variable);
 // Tras responder: mostrar ficha.scenario.feedback, scores y climatology.
 ```
@@ -48,6 +48,10 @@ Para una inspección rápida también se pueden descargar desde GitHub Raw, por 
 https://raw.githubusercontent.com/markzuckerberg44/awin-is-awin/data-analysis/data/pokedex/export/catalogo.json
 
 Para distribuir el juego, copiar una versión fija de los datos o fijar el SHA de un commit en la URL; una rama puede cambiar. GitHub almacena los archivos: **no ejecuta consultas SQL ni el backend del juego**.
+
+## Predicciones (machine learning)
+
+El pronóstico 2026–2030 de las tres variables clave de cada especie está en el módulo independiente [`ml/`](../../ml/README.md), en inglés. No modifica este paquete de datos.
 
 ## SQLite desde un backend
 
@@ -67,10 +71,11 @@ El progreso de cada jugador lo implementa el equipo en su juego, separado de est
 
 ## Reglas al mostrar los datos
 
-- Temperatura: °C; humedad: %. Precipitación exportada: mm/mes en la serie mensual y mm/año en la anual. NASA original entrega mm/día, ya convertido en las exportaciones.
-- Comparación educativa: 1981–2008. Retrospectiva: 1981–2025. Filtrar las series al período del test seleccionado.
+- **Idioma:** los textos que ve el jugador (nombres, fichas, preguntas, opciones, retroalimentación, sellos y unidades) están en inglés. Los `id` y nombres de campos no cambiaron. Sellos: `REAL ↑`, `REAL ↓`, `NOT PROVEN`, `NOT TESTABLE`.
+- Temperatura: °C; humedad: %. Precipitación exportada: mm/month en la serie mensual y mm/year en la anual. NASA original entrega mm/día, ya convertido en las exportaciones.
+- El juego ocurre en 2015 (`scenario.scenario_year`). Comparación educativa: 1981–2014. Retrospectiva: 1981–2025. Filtrar las series al período del test seleccionado.
 - Mann–Kendall original y Hamed–Rao son variantes del mismo test. Un p pequeño indica evidencia de tendencia, **no** un buen o mal refugio.
-- `p_corrected: null` significa test no evaluable; mostrarlo como tal. No convertirlo a cero. Hay tres casos documentados.
+- `p_corrected: null` significa test no evaluable; mostrarlo como tal. No convertirlo a cero. Hay cuatro casos documentados.
 - `slope_per_decade` mide magnitud. Los candidatos se comparan con ciclos mensuales y el índice descrito en metodología, no con el menor p.
 - No presentar rangos del PDF como límites de supervivencia: `validated_tolerance_limits` es null. Tampoco presentar todas las fichas como extinciones confirmadas por cambio climático.
 

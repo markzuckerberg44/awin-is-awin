@@ -5,19 +5,19 @@
   "end_year": 2025,
   "variables": {
     "T2M": {
-      "label": "Temperatura",
+      "label": "Temperature",
       "monthly_unit": "°C",
       "annual_unit": "°C"
     },
     "RH2M": {
-      "label": "Humedad relativa",
+      "label": "Relative humidity",
       "monthly_unit": "%",
       "annual_unit": "%"
     },
     "PRECTOTCORR": {
-      "label": "Precipitación",
-      "monthly_unit": "mm/mes",
-      "annual_unit": "mm/año"
+      "label": "Rainfall",
+      "monthly_unit": "mm/month",
+      "annual_unit": "mm/year"
     }
   },
   "sites": {
@@ -2557,17 +2557,17 @@
         }
       ],
       "slope_per_decade": 0.24789687238429736,
-      "slope_unit": "°C/década",
+      "slope_unit": "°C/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 4.7068030556217616e-07,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 4.7068030556217616e-07,
           "reject_null_005": true
         }
@@ -2577,7 +2577,7 @@
         "game_stamp": "REAL ↑",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La serie aporta evidencia de aumento con el criterio Hamed–Rao + Holm.",
+      "trend_feedback": "The series shows evidence of an increase under the Hamed–Rao + Holm criterion.",
       "source_id": "nasa-power-bramble-cay"
     },
     {
@@ -5110,27 +5110,27 @@
         }
       ],
       "slope_per_decade": -0.09911504212334443,
-      "slope_unit": "puntos porcentuales/década",
+      "slope_unit": "percentage points/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.4056928208369327,
           "reject_null_005": false
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.4056928208369327,
           "reject_null_005": false
         }
       ],
       "advanced": {
         "p_holm": 1,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-bramble-cay"
     },
     {
@@ -7663,27 +7663,27 @@
         }
       ],
       "slope_per_decade": -262.5521825396826,
-      "slope_unit": "(mm/año)/década",
+      "slope_unit": "(mm/year)/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.00035623691481759153,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.015843417286640255,
           "reject_null_005": true
         }
       ],
       "advanced": {
         "p_holm": 0.11090392100648179,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-bramble-cay"
     },
     {
@@ -10216,17 +10216,17 @@
         }
       ],
       "slope_per_decade": 0.24712807296711498,
-      "slope_unit": "°C/década",
+      "slope_unit": "°C/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 9.537811682288217e-07,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 8.131560102697777e-09,
           "reject_null_005": true
         }
@@ -10236,7 +10236,7 @@
         "game_stamp": "REAL ↑",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La serie aporta evidencia de aumento con el criterio Hamed–Rao + Holm.",
+      "trend_feedback": "The series shows evidence of an increase under the Hamed–Rao + Holm criterion.",
       "source_id": "nasa-power-erub"
     },
     {
@@ -12769,27 +12769,27 @@
         }
       ],
       "slope_per_decade": 0.02462423499358883,
-      "slope_unit": "puntos porcentuales/década",
+      "slope_unit": "percentage points/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.8679213099245014,
           "reject_null_005": false
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.8679213099245014,
           "reject_null_005": false
         }
       ],
       "advanced": {
         "p_holm": 1,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-erub"
     },
     {
@@ -15322,27 +15322,27 @@
         }
       ],
       "slope_per_decade": -194.09311594202904,
-      "slope_unit": "(mm/año)/década",
+      "slope_unit": "(mm/year)/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.003904396102942686,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.029404897106274936,
           "reject_null_005": true
         }
       ],
       "advanced": {
         "p_holm": 0.17642938263764962,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-erub"
     },
     {
@@ -17875,17 +17875,17 @@
         }
       ],
       "slope_per_decade": 0.2022364051473634,
-      "slope_unit": "°C/década",
+      "slope_unit": "°C/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 6.315762173406889e-08,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 3.2135954121896316e-11,
           "reject_null_005": true
         }
@@ -17895,7 +17895,7 @@
         "game_stamp": "REAL ↑",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La serie aporta evidencia de aumento con el criterio Hamed–Rao + Holm.",
+      "trend_feedback": "The series shows evidence of an increase under the Hamed–Rao + Holm criterion.",
       "source_id": "nasa-power-funafuti"
     },
     {
@@ -20428,27 +20428,27 @@
         }
       ],
       "slope_per_decade": -0.20098509266720715,
-      "slope_unit": "puntos porcentuales/década",
+      "slope_unit": "percentage points/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.04927016980560916,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.04927016980560916,
           "reject_null_005": true
         }
       ],
       "advanced": {
         "p_holm": 0.2463508490280458,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-funafuti"
     },
     {
@@ -22981,17 +22981,17 @@
         }
       ],
       "slope_per_decade": -145.97619047619042,
-      "slope_unit": "(mm/año)/década",
+      "slope_unit": "(mm/year)/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.025081106911398254,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.0016925220778647005,
           "reject_null_005": true
         }
@@ -23001,7 +23001,7 @@
         "game_stamp": "REAL ↓",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La serie aporta evidencia de descenso con el criterio Hamed–Rao + Holm.",
+      "trend_feedback": "The series shows evidence of a decrease under the Hamed–Rao + Holm criterion.",
       "source_id": "nasa-power-funafuti"
     },
     {
@@ -25534,27 +25534,27 @@
         }
       ],
       "slope_per_decade": 0.21440818413717588,
-      "slope_unit": "°C/década",
+      "slope_unit": "°C/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.011289081608673377,
           "reject_null_005": true
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.011289081608673377,
           "reject_null_005": true
         }
       ],
       "advanced": {
         "p_holm": 0.09031265286938701,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-alice-springs"
     },
     {
@@ -28087,27 +28087,27 @@
         }
       ],
       "slope_per_decade": -0.25735084961449195,
-      "slope_unit": "puntos porcentuales/década",
+      "slope_unit": "percentage points/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.6178510262345541,
           "reject_null_005": false
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.5223047047775173,
           "reject_null_005": false
         }
       ],
       "advanced": {
         "p_holm": 1,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-alice-springs"
     },
     {
@@ -30640,27 +30640,27 @@
         }
       ],
       "slope_per_decade": -17.32327272727273,
-      "slope_unit": "(mm/año)/década",
+      "slope_unit": "(mm/year)/decade",
       "tests": [
         {
           "id": "mk_original",
-          "label": "Mann–Kendall original",
+          "label": "Original Mann–Kendall",
           "p_value": 0.20697784473169267,
           "reject_null_005": false
         },
         {
           "id": "mk_hamed_rao",
-          "label": "Mann–Kendall con autocorrelación",
+          "label": "Mann–Kendall with autocorrelation",
           "p_value": 0.12283292750149488,
           "reject_null_005": false
         }
       ],
       "advanced": {
         "p_holm": 0.4913317100059795,
-        "game_stamp": "NO PROBADO",
+        "game_stamp": "NOT PROVEN",
         "sensitive_to_lags": false
       },
-      "trend_feedback": "La pendiente indica un cambio estimado, pero la evidencia no alcanza el criterio Hamed–Rao + Holm. Esto no demuestra estabilidad.",
+      "trend_feedback": "The slope shows an estimated change, but the evidence does not meet the Hamed–Rao + Holm criterion. This does not prove stability.",
       "source_id": "nasa-power-alice-springs"
     }
   ]

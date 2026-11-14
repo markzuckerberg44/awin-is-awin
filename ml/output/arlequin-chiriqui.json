@@ -1,0 +1,3450 @@
+{
+ "schema_version": "1.0.0",
+ "species_id": "arlequin-chiriqui",
+ "species_name": "Chiriquí harlequin frog",
+ "scientific_name": "Atelopus chiriquiensis",
+ "forecast_years": [
+  2026,
+  2027,
+  2028,
+  2029,
+  2030
+ ],
+ "trained_on": [
+  1981,
+  2025
+ ],
+ "brief_favorable_conditions": "Cold, well-oxygenated mountain streams (12–17 °C), continuous cloudy canopy and stable daily temperatures.",
+ "brief_ranges_validated": false,
+ "why_these_variables": "Air temperature as a stream-temperature proxy, cloudiness and thermal stability (the brief links thermal swings to chytrid outbreaks). Water temperature and oxygen are not available.",
+ "absolute_value_caution": "Montane species: the NASA grid cell is a regional average and cannot resolve mountain-stream microclimates. Prefer the change versus normal over absolute values.",
+ "variables": [
+  {
+   "id": "t2m_mean",
+   "label": "Mean air temperature",
+   "unit": "°C",
+   "source": "T2M",
+   "aggregation": "Day-weighted annual mean of monthly means"
+  },
+  {
+   "id": "cloud_cover",
+   "label": "Cloud cover",
+   "unit": "%",
+   "source": "CLOUD_AMT",
+   "aggregation": "Annual mean"
+  },
+  {
+   "id": "thermal_range",
+   "label": "Monthly temperature range",
+   "unit": "°C",
+   "source": "T2M_MAX − T2M_MIN",
+   "aggregation": "Annual mean of (monthly maximum − monthly minimum)"
+  }
+ ],
+ "locations": [
+  {
+   "location_id": "talamanca",
+   "name": "Talamanca, regional setting",
+   "role": "species_habitat",
+   "grid_elevation_m": 1018.16,
+   "indicators": {
+    "t2m_mean": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 20.828
+      },
+      {
+       "year": 1982,
+       "value": 21.023
+      },
+      {
+       "year": 1983,
+       "value": 21.673
+      },
+      {
+       "year": 1984,
+       "value": 20.837
+      },
+      {
+       "year": 1985,
+       "value": 20.725
+      },
+      {
+       "year": 1986,
+       "value": 20.959
+      },
+      {
+       "year": 1987,
+       "value": 21.385
+      },
+      {
+       "year": 1988,
+       "value": 21.044
+      },
+      {
+       "year": 1989,
+       "value": 21.053
+      },
+      {
+       "year": 1990,
+       "value": 21.26
+      },
+      {
+       "year": 1991,
+       "value": 21.232
+      },
+      {
+       "year": 1992,
+       "value": 21.465
+      },
+      {
+       "year": 1993,
+       "value": 21.343
+      },
+      {
+       "year": 1994,
+       "value": 21.373
+      },
+      {
+       "year": 1995,
+       "value": 21.189
+      },
+      {
+       "year": 1996,
+       "value": 21.087
+      },
+      {
+       "year": 1997,
+       "value": 21.558
+      },
+      {
+       "year": 1998,
+       "value": 21.856
+      },
+      {
+       "year": 1999,
+       "value": 20.453
+      },
+      {
+       "year": 2000,
+       "value": 20.685
+      },
+      {
+       "year": 2001,
+       "value": 21.139
+      },
+      {
+       "year": 2002,
+       "value": 21.303
+      },
+      {
+       "year": 2003,
+       "value": 21.304
+      },
+      {
+       "year": 2004,
+       "value": 21.339
+      },
+      {
+       "year": 2005,
+       "value": 21.127
+      },
+      {
+       "year": 2006,
+       "value": 21.162
+      },
+      {
+       "year": 2007,
+       "value": 21.106
+      },
+      {
+       "year": 2008,
+       "value": 20.811
+      },
+      {
+       "year": 2009,
+       "value": 21.378
+      },
+      {
+       "year": 2010,
+       "value": 21.267
+      },
+      {
+       "year": 2011,
+       "value": 21.026
+      },
+      {
+       "year": 2012,
+       "value": 21.207
+      },
+      {
+       "year": 2013,
+       "value": 21.274
+      },
+      {
+       "year": 2014,
+       "value": 21.392
+      },
+      {
+       "year": 2015,
+       "value": 21.703
+      },
+      {
+       "year": 2016,
+       "value": 21.705
+      },
+      {
+       "year": 2017,
+       "value": 21.363
+      },
+      {
+       "year": 2018,
+       "value": 21.153
+      },
+      {
+       "year": 2019,
+       "value": 21.683
+      },
+      {
+       "year": 2020,
+       "value": 21.455
+      },
+      {
+       "year": 2021,
+       "value": 21.232
+      },
+      {
+       "year": 2022,
+       "value": 21.143
+      },
+      {
+       "year": 2023,
+       "value": 21.933
+      },
+      {
+       "year": 2024,
+       "value": 22.073
+      },
+      {
+       "year": 2025,
+       "value": 21.58
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 21.519,
+       "low80": 21.32,
+       "high80": 21.995
+      },
+      {
+       "year": 2027,
+       "value": 21.53,
+       "low80": 21.331,
+       "high80": 22.006
+      },
+      {
+       "year": 2028,
+       "value": 21.541,
+       "low80": 21.342,
+       "high80": 22.017
+      },
+      {
+       "year": 2029,
+       "value": 21.552,
+       "low80": 21.353,
+       "high80": 22.028
+      },
+      {
+       "year": 2030,
+       "value": 21.563,
+       "low80": 21.364,
+       "high80": 22.039
+      }
+     ],
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "historical_mean": 0.264,
+      "recent_mean": 0.245,
+      "linear_trend": 0.23,
+      "theil_sen_trend": 0.241
+     },
+     "context": {
+      "normal_1991_2020": 21.271,
+      "mean_2016_2025": 21.532,
+      "forecast_mean_2026_2030": 21.541,
+      "change_vs_normal": 0.27,
+      "trend_per_decade_1981_2025": 0.111
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "linear_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 21.398,
+        "low80": 21.237,
+        "high80": 21.775,
+        "observed": 21.232
+       },
+       {
+        "year": 2022,
+        "value": 21.407,
+        "low80": 21.245,
+        "high80": 21.784,
+        "observed": 21.143
+       },
+       {
+        "year": 2023,
+        "value": 21.415,
+        "low80": 21.254,
+        "high80": 21.792,
+        "observed": 21.933
+       },
+       {
+        "year": 2024,
+        "value": 21.424,
+        "low80": 21.263,
+        "high80": 21.801,
+        "observed": 22.073
+       },
+       {
+        "year": 2025,
+        "value": 21.433,
+        "low80": 21.271,
+        "high80": 21.809,
+        "observed": 21.58
+       }
+      ],
+      "mae": 0.349,
+      "mae_if_no_change": 0.401,
+      "skill_vs_no_change": 0.13,
+      "years_inside_80_interval": 1
+     },
+     "available": true,
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 21.5 °C (80% range for 2030: 21.4–22.0 °C), above the 1991–2020 average of 21.3 °C (+0.27 °C)."
+    },
+    "cloud_cover": {
+     "observed": [
+      {
+       "year": 1984,
+       "value": 73.717
+      },
+      {
+       "year": 1985,
+       "value": 74.712
+      },
+      {
+       "year": 1986,
+       "value": 76.977
+      },
+      {
+       "year": 1987,
+       "value": 78.069
+      },
+      {
+       "year": 1988,
+       "value": 74.835
+      },
+      {
+       "year": 1989,
+       "value": 74.261
+      },
+      {
+       "year": 1990,
+       "value": 76.373
+      },
+      {
+       "year": 1991,
+       "value": 75.607
+      },
+      {
+       "year": 1992,
+       "value": 74.343
+      },
+      {
+       "year": 1993,
+       "value": 78.017
+      },
+      {
+       "year": 1994,
+       "value": 78.306
+      },
+      {
+       "year": 1995,
+       "value": 75.58
+      },
+      {
+       "year": 1996,
+       "value": 76.772
+      },
+      {
+       "year": 1997,
+       "value": 75.109
+      },
+      {
+       "year": 1998,
+       "value": 76.053
+      },
+      {
+       "year": 1999,
+       "value": 77.714
+      },
+      {
+       "year": 2000,
+       "value": 77.061
+      },
+      {
+       "year": 2001,
+       "value": 76.693
+      },
+      {
+       "year": 2002,
+       "value": 75.313
+      },
+      {
+       "year": 2003,
+       "value": 75.089
+      },
+      {
+       "year": 2004,
+       "value": 73.79
+      },
+      {
+       "year": 2005,
+       "value": 77.07
+      },
+      {
+       "year": 2006,
+       "value": 74.896
+      },
+      {
+       "year": 2007,
+       "value": 73.575
+      },
+      {
+       "year": 2008,
+       "value": 76.001
+      },
+      {
+       "year": 2009,
+       "value": 74.193
+      },
+      {
+       "year": 2010,
+       "value": 79.407
+      },
+      {
+       "year": 2011,
+       "value": 76.003
+      },
+      {
+       "year": 2012,
+       "value": 73.793
+      },
+      {
+       "year": 2013,
+       "value": 73.194
+      },
+      {
+       "year": 2014,
+       "value": 73.637
+      },
+      {
+       "year": 2015,
+       "value": 73.975
+      },
+      {
+       "year": 2016,
+       "value": 72.395
+      },
+      {
+       "year": 2017,
+       "value": 71.859
+      },
+      {
+       "year": 2018,
+       "value": 74.738
+      },
+      {
+       "year": 2019,
+       "value": 73.997
+      },
+      {
+       "year": 2020,
+       "value": 73.351
+      },
+      {
+       "year": 2021,
+       "value": 74.521
+      },
+      {
+       "year": 2022,
+       "value": 76.846
+      },
+      {
+       "year": 2023,
+       "value": 76.066
+      },
+      {
+       "year": 2024,
+       "value": 77.974
+      },
+      {
+       "year": 2025,
+       "value": 80.638
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 75.536,
+       "low80": 72.77,
+       "high80": 78.277
+      },
+      {
+       "year": 2027,
+       "value": 75.536,
+       "low80": 72.77,
+       "high80": 78.277
+      },
+      {
+       "year": 2028,
+       "value": 75.536,
+       "low80": 72.77,
+       "high80": 78.277
+      },
+      {
+       "year": 2029,
+       "value": 75.536,
+       "low80": 72.77,
+       "high80": 78.277
+      },
+      {
+       "year": 2030,
+       "value": 75.536,
+       "low80": 72.77,
+       "high80": 78.277
+      }
+     ],
+     "selected_model": "historical_mean",
+     "model_description": "Average of all training years (assumes no change)",
+     "cv_mae_by_model": {
+      "historical_mean": 2.036,
+      "recent_mean": 2.136,
+      "linear_trend": 2.206,
+      "theil_sen_trend": 2.105
+     },
+     "context": {
+      "normal_1991_2020": 75.251,
+      "mean_2016_2025": 75.238,
+      "forecast_mean_2026_2030": 75.536,
+      "change_vs_normal": 0.285,
+      "trend_per_decade_1981_2025": -0.321
+     },
+     "backtest": {
+      "train_period": [
+       1984,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "recent_mean",
+      "years": [
+       {
+        "year": 2021,
+        "value": 73.694,
+        "low80": 71.186,
+        "high80": 74.116,
+        "observed": 74.521
+       },
+       {
+        "year": 2022,
+        "value": 73.694,
+        "low80": 71.186,
+        "high80": 74.116,
+        "observed": 76.846
+       },
+       {
+        "year": 2023,
+        "value": 73.694,
+        "low80": 71.186,
+        "high80": 74.116,
+        "observed": 76.066
+       },
+       {
+        "year": 2024,
+        "value": 73.694,
+        "low80": 71.186,
+        "high80": 74.116,
+        "observed": 77.974
+       },
+       {
+        "year": 2025,
+        "value": 73.694,
+        "low80": 71.186,
+        "high80": 74.116,
+        "observed": 80.638
+       }
+      ],
+      "mae": 3.515,
+      "mae_if_no_change": 2.214,
+      "skill_vs_no_change": -0.587,
+      "years_inside_80_interval": 0
+     },
+     "available": true,
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 75.5 % (80% range for 2030: 72.8–78.3 %), above the 1991–2020 average of 75.3 % (+0.28 %)."
+    },
+    "thermal_range": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 9.503
+      },
+      {
+       "year": 1982,
+       "value": 10.503
+      },
+      {
+       "year": 1983,
+       "value": 10.856
+      },
+      {
+       "year": 1984,
+       "value": 10.568
+      },
+      {
+       "year": 1985,
+       "value": 10.633
+      },
+      {
+       "year": 1986,
+       "value": 11.219
+      },
+      {
+       "year": 1987,
+       "value": 10.678
+      },
+      {
+       "year": 1988,
+       "value": 10.066
+      },
+      {
+       "year": 1989,
+       "value": 10.573
+      },
+      {
+       "year": 1990,
+       "value": 10.477
+      },
+      {
+       "year": 1991,
+       "value": 11.322
+      },
+      {
+       "year": 1992,
+       "value": 11.079
+      },
+      {
+       "year": 1993,
+       "value": 10.378
+      },
+      {
+       "year": 1994,
+       "value": 10.926
+      },
+      {
+       "year": 1995,
+       "value": 10.174
+      },
+      {
+       "year": 1996,
+       "value": 10.491
+      },
+      {
+       "year": 1997,
+       "value": 10.552
+      },
+      {
+       "year": 1998,
+       "value": 9.588
+      },
+      {
+       "year": 1999,
+       "value": 9.127
+      },
+      {
+       "year": 2000,
+       "value": 9.518
+      },
+      {
+       "year": 2001,
+       "value": 10.1
+      },
+      {
+       "year": 2002,
+       "value": 9.668
+      },
+      {
+       "year": 2003,
+       "value": 9.853
+      },
+      {
+       "year": 2004,
+       "value": 9.657
+      },
+      {
+       "year": 2005,
+       "value": 9.201
+      },
+      {
+       "year": 2006,
+       "value": 9.724
+      },
+      {
+       "year": 2007,
+       "value": 9.533
+      },
+      {
+       "year": 2008,
+       "value": 9.303
+      },
+      {
+       "year": 2009,
+       "value": 9.588
+      },
+      {
+       "year": 2010,
+       "value": 9.458
+      },
+      {
+       "year": 2011,
+       "value": 9.873
+      },
+      {
+       "year": 2012,
+       "value": 9.767
+      },
+      {
+       "year": 2013,
+       "value": 10.26
+      },
+      {
+       "year": 2014,
+       "value": 9.875
+      },
+      {
+       "year": 2015,
+       "value": 9.516
+      },
+      {
+       "year": 2016,
+       "value": 9.558
+      },
+      {
+       "year": 2017,
+       "value": 9.322
+      },
+      {
+       "year": 2018,
+       "value": 9.227
+      },
+      {
+       "year": 2019,
+       "value": 9.872
+      },
+      {
+       "year": 2020,
+       "value": 9.67
+      },
+      {
+       "year": 2021,
+       "value": 9.282
+      },
+      {
+       "year": 2022,
+       "value": 9.309
+      },
+      {
+       "year": 2023,
+       "value": 9.783
+      },
+      {
+       "year": 2024,
+       "value": 9.68
+      },
+      {
+       "year": 2025,
+       "value": 8.818
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 9.452,
+       "low80": 8.988,
+       "high80": 9.717
+      },
+      {
+       "year": 2027,
+       "value": 9.452,
+       "low80": 8.988,
+       "high80": 9.717
+      },
+      {
+       "year": 2028,
+       "value": 9.452,
+       "low80": 8.988,
+       "high80": 9.717
+      },
+      {
+       "year": 2029,
+       "value": 9.452,
+       "low80": 8.988,
+       "high80": 9.717
+      },
+      {
+       "year": 2030,
+       "value": 9.452,
+       "low80": 8.988,
+       "high80": 9.717
+      }
+     ],
+     "selected_model": "recent_mean",
+     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "cv_mae_by_model": {
+      "historical_mean": 0.578,
+      "recent_mean": 0.282,
+      "linear_trend": 0.297,
+      "theil_sen_trend": 0.293
+     },
+     "context": {
+      "normal_1991_2020": 9.873,
+      "mean_2016_2025": 9.452,
+      "forecast_mean_2026_2030": 9.452,
+      "change_vs_normal": -0.421,
+      "trend_per_decade_1981_2025": -0.331
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "linear_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 9.339,
+        "low80": 9.062,
+        "high80": 9.885,
+        "observed": 9.282
+       },
+       {
+        "year": 2022,
+        "value": 9.305,
+        "low80": 9.028,
+        "high80": 9.851,
+        "observed": 9.309
+       },
+       {
+        "year": 2023,
+        "value": 9.271,
+        "low80": 8.994,
+        "high80": 9.817,
+        "observed": 9.783
+       },
+       {
+        "year": 2024,
+        "value": 9.238,
+        "low80": 8.96,
+        "high80": 9.784,
+        "observed": 9.68
+       },
+       {
+        "year": 2025,
+        "value": 9.204,
+        "low80": 8.926,
+        "high80": 9.75,
+        "observed": 8.818
+       }
+      ],
+      "mae": 0.28,
+      "mae_if_no_change": 0.657,
+      "skill_vs_no_change": 0.574,
+      "years_inside_80_interval": 4
+     },
+     "available": true,
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 9.45 °C (80% range for 2030: 8.99–9.72 °C), below the 1991–2020 average of 9.87 °C (-0.42 °C)."
+    }
+   }
+  },
+  {
+   "location_id": "boquete",
+   "name": "Boquete, regional setting",
+   "role": "relocation_candidate",
+   "grid_elevation_m": 688.44,
+   "indicators": {
+    "t2m_mean": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 22.112
+      },
+      {
+       "year": 1982,
+       "value": 22.065
+      },
+      {
+       "year": 1983,
+       "value": 22.689
+      },
+      {
+       "year": 1984,
+       "value": 22.045
+      },
+      {
+       "year": 1985,
+       "value": 21.903
+      },
+      {
+       "year": 1986,
+       "value": 22.103
+      },
+      {
+       "year": 1987,
+       "value": 22.417
+      },
+      {
+       "year": 1988,
+       "value": 22.329
+      },
+      {
+       "year": 1989,
+       "value": 22.133
+      },
+      {
+       "year": 1990,
+       "value": 22.247
+      },
+      {
+       "year": 1991,
+       "value": 22.325
+      },
+      {
+       "year": 1992,
+       "value": 22.473
+      },
+      {
+       "year": 1993,
+       "value": 22.466
+      },
+      {
+       "year": 1994,
+       "value": 22.425
+      },
+      {
+       "year": 1995,
+       "value": 22.461
+      },
+      {
+       "year": 1996,
+       "value": 22.295
+      },
+      {
+       "year": 1997,
+       "value": 22.504
+      },
+      {
+       "year": 1998,
+       "value": 23.031
+      },
+      {
+       "year": 1999,
+       "value": 21.884
+      },
+      {
+       "year": 2000,
+       "value": 22.019
+      },
+      {
+       "year": 2001,
+       "value": 22.34
+      },
+      {
+       "year": 2002,
+       "value": 22.499
+      },
+      {
+       "year": 2003,
+       "value": 22.609
+      },
+      {
+       "year": 2004,
+       "value": 22.481
+      },
+      {
+       "year": 2005,
+       "value": 22.564
+      },
+      {
+       "year": 2006,
+       "value": 22.401
+      },
+      {
+       "year": 2007,
+       "value": 22.474
+      },
+      {
+       "year": 2008,
+       "value": 22.238
+      },
+      {
+       "year": 2009,
+       "value": 22.59
+      },
+      {
+       "year": 2010,
+       "value": 22.659
+      },
+      {
+       "year": 2011,
+       "value": 22.464
+      },
+      {
+       "year": 2012,
+       "value": 22.507
+      },
+      {
+       "year": 2013,
+       "value": 22.693
+      },
+      {
+       "year": 2014,
+       "value": 22.728
+      },
+      {
+       "year": 2015,
+       "value": 23.023
+      },
+      {
+       "year": 2016,
+       "value": 23.018
+      },
+      {
+       "year": 2017,
+       "value": 22.94
+      },
+      {
+       "year": 2018,
+       "value": 22.564
+      },
+      {
+       "year": 2019,
+       "value": 23.053
+      },
+      {
+       "year": 2020,
+       "value": 22.857
+      },
+      {
+       "year": 2021,
+       "value": 22.671
+      },
+      {
+       "year": 2022,
+       "value": 22.729
+      },
+      {
+       "year": 2023,
+       "value": 23.413
+      },
+      {
+       "year": 2024,
+       "value": 23.662
+      },
+      {
+       "year": 2025,
+       "value": 23.012
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 22.978,
+       "low80": 22.808,
+       "high80": 23.359
+      },
+      {
+       "year": 2027,
+       "value": 22.998,
+       "low80": 22.828,
+       "high80": 23.38
+      },
+      {
+       "year": 2028,
+       "value": 23.018,
+       "low80": 22.848,
+       "high80": 23.4
+      },
+      {
+       "year": 2029,
+       "value": 23.038,
+       "low80": 22.869,
+       "high80": 23.42
+      },
+      {
+       "year": 2030,
+       "value": 23.059,
+       "low80": 22.889,
+       "high80": 23.44
+      }
+     ],
+     "selected_model": "theil_sen_trend",
+     "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
+     "cv_mae_by_model": {
+      "historical_mean": 0.403,
+      "recent_mean": 0.258,
+      "linear_trend": 0.217,
+      "theil_sen_trend": 0.212
+     },
+     "context": {
+      "normal_1991_2020": 22.553,
+      "mean_2016_2025": 22.992,
+      "forecast_mean_2026_2030": 23.018,
+      "change_vs_normal": 0.465,
+      "trend_per_decade_1981_2025": 0.201
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "theil_sen_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 22.856,
+        "low80": 22.688,
+        "high80": 23.162,
+        "observed": 22.671
+       },
+       {
+        "year": 2022,
+        "value": 22.875,
+        "low80": 22.706,
+        "high80": 23.181,
+        "observed": 22.729
+       },
+       {
+        "year": 2023,
+        "value": 22.893,
+        "low80": 22.725,
+        "high80": 23.2,
+        "observed": 23.413
+       },
+       {
+        "year": 2024,
+        "value": 22.912,
+        "low80": 22.744,
+        "high80": 23.218,
+        "observed": 23.662
+       },
+       {
+        "year": 2025,
+        "value": 22.931,
+        "low80": 22.762,
+        "high80": 23.237,
+        "observed": 23.012
+       }
+      ],
+      "mae": 0.336,
+      "mae_if_no_change": 0.632,
+      "skill_vs_no_change": 0.467,
+      "years_inside_80_interval": 2
+     },
+     "available": true,
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 23.0 °C (80% range for 2030: 22.9–23.4 °C), above the 1991–2020 average of 22.6 °C (+0.47 °C)."
+    },
+    "cloud_cover": {
+     "observed": [
+      {
+       "year": 1984,
+       "value": 70.934
+      },
+      {
+       "year": 1985,
+       "value": 69.215
+      },
+      {
+       "year": 1986,
+       "value": 71.691
+      },
+      {
+       "year": 1987,
+       "value": 72.567
+      },
+      {
+       "year": 1988,
+       "value": 72.782
+      },
+      {
+       "year": 1989,
+       "value": 67.948
+      },
+      {
+       "year": 1990,
+       "value": 71.228
+      },
+      {
+       "year": 1991,
+       "value": 67.569
+      },
+      {
+       "year": 1992,
+       "value": 68.821
+      },
+      {
+       "year": 1993,
+       "value": 73.786
+      },
+      {
+       "year": 1994,
+       "value": 73.173
+      },
+      {
+       "year": 1995,
+       "value": 70.999
+      },
+      {
+       "year": 1996,
+       "value": 72.121
+      },
+      {
+       "year": 1997,
+       "value": 67.911
+      },
+      {
+       "year": 1998,
+       "value": 70.993
+      },
+      {
+       "year": 1999,
+       "value": 74.436
+      },
+      {
+       "year": 2000,
+       "value": 71.256
+      },
+      {
+       "year": 2001,
+       "value": 76.051
+      },
+      {
+       "year": 2002,
+       "value": 74.199
+      },
+      {
+       "year": 2003,
+       "value": 75.287
+      },
+      {
+       "year": 2004,
+       "value": 71.855
+      },
+      {
+       "year": 2005,
+       "value": 76.84
+      },
+      {
+       "year": 2006,
+       "value": 74.243
+      },
+      {
+       "year": 2007,
+       "value": 74.454
+      },
+      {
+       "year": 2008,
+       "value": 75.307
+      },
+      {
+       "year": 2009,
+       "value": 73.817
+      },
+      {
+       "year": 2010,
+       "value": 79.441
+      },
+      {
+       "year": 2011,
+       "value": 76.064
+      },
+      {
+       "year": 2012,
+       "value": 73.464
+      },
+      {
+       "year": 2013,
+       "value": 74.124
+      },
+      {
+       "year": 2014,
+       "value": 73.524
+      },
+      {
+       "year": 2015,
+       "value": 70.775
+      },
+      {
+       "year": 2016,
+       "value": 72.505
+      },
+      {
+       "year": 2017,
+       "value": 72.807
+      },
+      {
+       "year": 2018,
+       "value": 74.217
+      },
+      {
+       "year": 2019,
+       "value": 73.907
+      },
+      {
+       "year": 2020,
+       "value": 72.42
+      },
+      {
+       "year": 2021,
+       "value": 76.569
+      },
+      {
+       "year": 2022,
+       "value": 76.645
+      },
+      {
+       "year": 2023,
+       "value": 71.974
+      },
+      {
+       "year": 2024,
+       "value": 74.967
+      },
+      {
+       "year": 2025,
+       "value": 78.549
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 74.456,
+       "low80": 72.431,
+       "high80": 77.911
+      },
+      {
+       "year": 2027,
+       "value": 74.456,
+       "low80": 72.431,
+       "high80": 77.911
+      },
+      {
+       "year": 2028,
+       "value": 74.456,
+       "low80": 72.431,
+       "high80": 77.911
+      },
+      {
+       "year": 2029,
+       "value": 74.456,
+       "low80": 72.431,
+       "high80": 77.911
+      },
+      {
+       "year": 2030,
+       "value": 74.456,
+       "low80": 72.431,
+       "high80": 77.911
+      }
+     ],
+     "selected_model": "recent_mean",
+     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "cv_mae_by_model": {
+      "historical_mean": 2.313,
+      "recent_mean": 2.139,
+      "linear_trend": 2.176,
+      "theil_sen_trend": 2.272
+     },
+     "context": {
+      "normal_1991_2020": 73.212,
+      "mean_2016_2025": 74.456,
+      "forecast_mean_2026_2030": 74.456,
+      "change_vs_normal": 1.244,
+      "trend_per_decade_1981_2025": 1.223
+     },
+     "backtest": {
+      "train_period": [
+       1984,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "recent_mean",
+      "years": [
+       {
+        "year": 2021,
+        "value": 73.381,
+        "low80": 71.356,
+        "high80": 78.404,
+        "observed": 76.569
+       },
+       {
+        "year": 2022,
+        "value": 73.381,
+        "low80": 71.356,
+        "high80": 78.404,
+        "observed": 76.645
+       },
+       {
+        "year": 2023,
+        "value": 73.381,
+        "low80": 71.356,
+        "high80": 78.404,
+        "observed": 71.974
+       },
+       {
+        "year": 2024,
+        "value": 73.381,
+        "low80": 71.356,
+        "high80": 78.404,
+        "observed": 74.967
+       },
+       {
+        "year": 2025,
+        "value": 73.381,
+        "low80": 71.356,
+        "high80": 78.404,
+        "observed": 78.549
+       }
+      ],
+      "mae": 2.923,
+      "mae_if_no_change": 3.285,
+      "skill_vs_no_change": 0.11,
+      "years_inside_80_interval": 4
+     },
+     "available": true,
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 74.5 % (80% range for 2030: 72.4–77.9 %), above the 1991–2020 average of 73.2 % (+1.24 %)."
+    },
+    "thermal_range": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 9.096
+      },
+      {
+       "year": 1982,
+       "value": 9.115
+      },
+      {
+       "year": 1983,
+       "value": 9.583
+      },
+      {
+       "year": 1984,
+       "value": 9.306
+      },
+      {
+       "year": 1985,
+       "value": 9.724
+      },
+      {
+       "year": 1986,
+       "value": 9.551
+      },
+      {
+       "year": 1987,
+       "value": 9.283
+      },
+      {
+       "year": 1988,
+       "value": 9.201
+      },
+      {
+       "year": 1989,
+       "value": 9.392
+      },
+      {
+       "year": 1990,
+       "value": 9.136
+      },
+      {
+       "year": 1991,
+       "value": 9.483
+      },
+      {
+       "year": 1992,
+       "value": 9.596
+      },
+      {
+       "year": 1993,
+       "value": 9.066
+      },
+      {
+       "year": 1994,
+       "value": 9.078
+      },
+      {
+       "year": 1995,
+       "value": 8.819
+      },
+      {
+       "year": 1996,
+       "value": 8.834
+      },
+      {
+       "year": 1997,
+       "value": 9.156
+      },
+      {
+       "year": 1998,
+       "value": 9.168
+      },
+      {
+       "year": 1999,
+       "value": 8.186
+      },
+      {
+       "year": 2000,
+       "value": 8.606
+      },
+      {
+       "year": 2001,
+       "value": 8.934
+      },
+      {
+       "year": 2002,
+       "value": 8.359
+      },
+      {
+       "year": 2003,
+       "value": 8.952
+      },
+      {
+       "year": 2004,
+       "value": 8.537
+      },
+      {
+       "year": 2005,
+       "value": 8.889
+      },
+      {
+       "year": 2006,
+       "value": 8.509
+      },
+      {
+       "year": 2007,
+       "value": 8.547
+      },
+      {
+       "year": 2008,
+       "value": 8.682
+      },
+      {
+       "year": 2009,
+       "value": 8.518
+      },
+      {
+       "year": 2010,
+       "value": 8.964
+      },
+      {
+       "year": 2011,
+       "value": 9.197
+      },
+      {
+       "year": 2012,
+       "value": 8.905
+      },
+      {
+       "year": 2013,
+       "value": 9.399
+      },
+      {
+       "year": 2014,
+       "value": 8.994
+      },
+      {
+       "year": 2015,
+       "value": 8.769
+      },
+      {
+       "year": 2016,
+       "value": 9.028
+      },
+      {
+       "year": 2017,
+       "value": 8.584
+      },
+      {
+       "year": 2018,
+       "value": 8.548
+      },
+      {
+       "year": 2019,
+       "value": 9.027
+      },
+      {
+       "year": 2020,
+       "value": 9.161
+      },
+      {
+       "year": 2021,
+       "value": 8.775
+      },
+      {
+       "year": 2022,
+       "value": 8.897
+      },
+      {
+       "year": 2023,
+       "value": 9.135
+      },
+      {
+       "year": 2024,
+       "value": 9.005
+      },
+      {
+       "year": 2025,
+       "value": 8.298
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 8.846,
+       "low80": 8.578,
+       "high80": 9.178
+      },
+      {
+       "year": 2027,
+       "value": 8.846,
+       "low80": 8.578,
+       "high80": 9.178
+      },
+      {
+       "year": 2028,
+       "value": 8.846,
+       "low80": 8.578,
+       "high80": 9.178
+      },
+      {
+       "year": 2029,
+       "value": 8.846,
+       "low80": 8.578,
+       "high80": 9.178
+      },
+      {
+       "year": 2030,
+       "value": 8.846,
+       "low80": 8.578,
+       "high80": 9.178
+      }
+     ],
+     "selected_model": "recent_mean",
+     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "cv_mae_by_model": {
+      "historical_mean": 0.268,
+      "recent_mean": 0.259,
+      "linear_trend": 0.344,
+      "theil_sen_trend": 0.343
+     },
+     "context": {
+      "normal_1991_2020": 8.883,
+      "mean_2016_2025": 8.846,
+      "forecast_mean_2026_2030": 8.846,
+      "change_vs_normal": -0.037,
+      "trend_per_decade_1981_2025": -0.131
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "recent_mean",
+      "years": [
+       {
+        "year": 2021,
+        "value": 8.961,
+        "low80": 8.645,
+        "high80": 9.293,
+        "observed": 8.775
+       },
+       {
+        "year": 2022,
+        "value": 8.961,
+        "low80": 8.645,
+        "high80": 9.293,
+        "observed": 8.897
+       },
+       {
+        "year": 2023,
+        "value": 8.961,
+        "low80": 8.645,
+        "high80": 9.293,
+        "observed": 9.135
+       },
+       {
+        "year": 2024,
+        "value": 8.961,
+        "low80": 8.645,
+        "high80": 9.293,
+        "observed": 9.005
+       },
+       {
+        "year": 2025,
+        "value": 8.961,
+        "low80": 8.645,
+        "high80": 9.293,
+        "observed": 8.298
+       }
+      ],
+      "mae": 0.226,
+      "mae_if_no_change": 0.233,
+      "skill_vs_no_change": 0.031,
+      "years_inside_80_interval": 4
+     },
+     "available": true,
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 8.85 °C (80% range for 2030: 8.58–9.18 °C), about the same as the 1991–2020 average of 8.88 °C."
+    }
+   }
+  },
+  {
+   "location_id": "funafuti",
+   "name": "Funafuti",
+   "role": "relocation_candidate",
+   "grid_elevation_m": 0,
+   "indicators": {
+    "t2m_mean": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 28.076
+      },
+      {
+       "year": 1982,
+       "value": 28.146
+      },
+      {
+       "year": 1983,
+       "value": 27.765
+      },
+      {
+       "year": 1984,
+       "value": 27.688
+      },
+      {
+       "year": 1985,
+       "value": 27.564
+      },
+      {
+       "year": 1986,
+       "value": 27.924
+      },
+      {
+       "year": 1987,
+       "value": 27.807
+      },
+      {
+       "year": 1988,
+       "value": 27.945
+      },
+      {
+       "year": 1989,
+       "value": 27.549
+      },
+      {
+       "year": 1990,
+       "value": 28.069
+      },
+      {
+       "year": 1991,
+       "value": 28.214
+      },
+      {
+       "year": 1992,
+       "value": 28.09
+      },
+      {
+       "year": 1993,
+       "value": 27.893
+      },
+      {
+       "year": 1994,
+       "value": 28.205
+      },
+      {
+       "year": 1995,
+       "value": 28.18
+      },
+      {
+       "year": 1996,
+       "value": 27.936
+      },
+      {
+       "year": 1997,
+       "value": 28.064
+      },
+      {
+       "year": 1998,
+       "value": 27.968
+      },
+      {
+       "year": 1999,
+       "value": 27.807
+      },
+      {
+       "year": 2000,
+       "value": 27.891
+      },
+      {
+       "year": 2001,
+       "value": 28.184
+      },
+      {
+       "year": 2002,
+       "value": 28.463
+      },
+      {
+       "year": 2003,
+       "value": 28.501
+      },
+      {
+       "year": 2004,
+       "value": 28.502
+      },
+      {
+       "year": 2005,
+       "value": 28.731
+      },
+      {
+       "year": 2006,
+       "value": 28.403
+      },
+      {
+       "year": 2007,
+       "value": 28.41
+      },
+      {
+       "year": 2008,
+       "value": 28.008
+      },
+      {
+       "year": 2009,
+       "value": 28.328
+      },
+      {
+       "year": 2010,
+       "value": 28.427
+      },
+      {
+       "year": 2011,
+       "value": 27.954
+      },
+      {
+       "year": 2012,
+       "value": 28.21
+      },
+      {
+       "year": 2013,
+       "value": 28.392
+      },
+      {
+       "year": 2014,
+       "value": 28.45
+      },
+      {
+       "year": 2015,
+       "value": 28.525
+      },
+      {
+       "year": 2016,
+       "value": 28.625
+      },
+      {
+       "year": 2017,
+       "value": 28.589
+      },
+      {
+       "year": 2018,
+       "value": 28.479
+      },
+      {
+       "year": 2019,
+       "value": 28.703
+      },
+      {
+       "year": 2020,
+       "value": 28.622
+      },
+      {
+       "year": 2021,
+       "value": 28.275
+      },
+      {
+       "year": 2022,
+       "value": 28.154
+      },
+      {
+       "year": 2023,
+       "value": 28.811
+      },
+      {
+       "year": 2024,
+       "value": 29.153
+      },
+      {
+       "year": 2025,
+       "value": 28.634
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 28.693,
+       "low80": 28.273,
+       "high80": 28.864
+      },
+      {
+       "year": 2027,
+       "value": 28.713,
+       "low80": 28.293,
+       "high80": 28.884
+      },
+      {
+       "year": 2028,
+       "value": 28.734,
+       "low80": 28.313,
+       "high80": 28.904
+      },
+      {
+       "year": 2029,
+       "value": 28.754,
+       "low80": 28.333,
+       "high80": 28.924
+      },
+      {
+       "year": 2030,
+       "value": 28.774,
+       "low80": 28.353,
+       "high80": 28.945
+      }
+     ],
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "historical_mean": 0.367,
+      "recent_mean": 0.247,
+      "linear_trend": 0.178,
+      "theil_sen_trend": 0.197
+     },
+     "context": {
+      "normal_1991_2020": 28.292,
+      "mean_2016_2025": 28.604,
+      "forecast_mean_2026_2030": 28.734,
+      "change_vs_normal": 0.442,
+      "trend_per_decade_1981_2025": 0.202
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "linear_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 28.602,
+        "low80": 28.34,
+        "high80": 29.07,
+        "observed": 28.275
+       },
+       {
+        "year": 2022,
+        "value": 28.622,
+        "low80": 28.361,
+        "high80": 29.091,
+        "observed": 28.154
+       },
+       {
+        "year": 2023,
+        "value": 28.643,
+        "low80": 28.381,
+        "high80": 29.111,
+        "observed": 28.811
+       },
+       {
+        "year": 2024,
+        "value": 28.663,
+        "low80": 28.402,
+        "high80": 29.132,
+        "observed": 29.153
+       },
+       {
+        "year": 2025,
+        "value": 28.684,
+        "low80": 28.422,
+        "high80": 29.152,
+        "observed": 28.634
+       }
+      ],
+      "mae": 0.301,
+      "mae_if_no_change": 0.435,
+      "skill_vs_no_change": 0.308,
+      "years_inside_80_interval": 2
+     },
+     "available": true,
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 28.7 °C (80% range for 2030: 28.4–28.9 °C), above the 1991–2020 average of 28.3 °C (+0.44 °C)."
+    },
+    "cloud_cover": {
+     "observed": [
+      {
+       "year": 1984,
+       "value": 79.004
+      },
+      {
+       "year": 1985,
+       "value": 75.202
+      },
+      {
+       "year": 1986,
+       "value": 76.769
+      },
+      {
+       "year": 1987,
+       "value": 82.603
+      },
+      {
+       "year": 1988,
+       "value": 76.004
+      },
+      {
+       "year": 1989,
+       "value": 71.648
+      },
+      {
+       "year": 1990,
+       "value": 74.441
+      },
+      {
+       "year": 1991,
+       "value": 78.645
+      },
+      {
+       "year": 1992,
+       "value": 79.141
+      },
+      {
+       "year": 1993,
+       "value": 82.606
+      },
+      {
+       "year": 1994,
+       "value": 77.994
+      },
+      {
+       "year": 1995,
+       "value": 75.947
+      },
+      {
+       "year": 1996,
+       "value": 68.233
+      },
+      {
+       "year": 1997,
+       "value": 77.011
+      },
+      {
+       "year": 1998,
+       "value": 76.818
+      },
+      {
+       "year": 1999,
+       "value": 62.902
+      },
+      {
+       "year": 2000,
+       "value": 60.944
+      },
+      {
+       "year": 2001,
+       "value": 72.504
+      },
+      {
+       "year": 2002,
+       "value": 75.513
+      },
+      {
+       "year": 2003,
+       "value": 75.444
+      },
+      {
+       "year": 2004,
+       "value": 74.095
+      },
+      {
+       "year": 2005,
+       "value": 71.253
+      },
+      {
+       "year": 2006,
+       "value": 71.383
+      },
+      {
+       "year": 2007,
+       "value": 71.961
+      },
+      {
+       "year": 2008,
+       "value": 66.574
+      },
+      {
+       "year": 2009,
+       "value": 74.827
+      },
+      {
+       "year": 2010,
+       "value": 67.639
+      },
+      {
+       "year": 2011,
+       "value": 53.049
+      },
+      {
+       "year": 2012,
+       "value": 71.281
+      },
+      {
+       "year": 2013,
+       "value": 68.844
+      },
+      {
+       "year": 2014,
+       "value": 69.105
+      },
+      {
+       "year": 2015,
+       "value": 79.598
+      },
+      {
+       "year": 2016,
+       "value": 74.905
+      },
+      {
+       "year": 2017,
+       "value": 71.672
+      },
+      {
+       "year": 2018,
+       "value": 72.544
+      },
+      {
+       "year": 2019,
+       "value": 76.408
+      },
+      {
+       "year": 2020,
+       "value": 70.829
+      },
+      {
+       "year": 2021,
+       "value": 66.831
+      },
+      {
+       "year": 2022,
+       "value": 60.019
+      },
+      {
+       "year": 2023,
+       "value": 71.61
+      },
+      {
+       "year": 2024,
+       "value": 76.212
+      },
+      {
+       "year": 2025,
+       "value": 69.707
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 71.074,
+       "low80": 65.585,
+       "high80": 76.703
+      },
+      {
+       "year": 2027,
+       "value": 71.074,
+       "low80": 65.585,
+       "high80": 76.703
+      },
+      {
+       "year": 2028,
+       "value": 71.074,
+       "low80": 65.585,
+       "high80": 76.703
+      },
+      {
+       "year": 2029,
+       "value": 71.074,
+       "low80": 65.585,
+       "high80": 76.703
+      },
+      {
+       "year": 2030,
+       "value": 71.074,
+       "low80": 65.585,
+       "high80": 76.703
+      }
+     ],
+     "selected_model": "recent_mean",
+     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "cv_mae_by_model": {
+      "historical_mean": 4.876,
+      "recent_mean": 4.383,
+      "linear_trend": 4.938,
+      "theil_sen_trend": 4.565
+     },
+     "context": {
+      "normal_1991_2020": 72.322,
+      "mean_2016_2025": 71.074,
+      "forecast_mean_2026_2030": 71.074,
+      "change_vs_normal": -1.248,
+      "trend_per_decade_1981_2025": -2.083
+     },
+     "backtest": {
+      "train_period": [
+       1984,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "recent_mean",
+      "years": [
+       {
+        "year": 2021,
+        "value": 70.823,
+        "low80": 66.884,
+        "high80": 76.453,
+        "observed": 66.831
+       },
+       {
+        "year": 2022,
+        "value": 70.823,
+        "low80": 66.884,
+        "high80": 76.453,
+        "observed": 60.019
+       },
+       {
+        "year": 2023,
+        "value": 70.823,
+        "low80": 66.884,
+        "high80": 76.453,
+        "observed": 71.61
+       },
+       {
+        "year": 2024,
+        "value": 70.823,
+        "low80": 66.884,
+        "high80": 76.453,
+        "observed": 76.212
+       },
+       {
+        "year": 2025,
+        "value": 70.823,
+        "low80": 66.884,
+        "high80": 76.453,
+        "observed": 69.707
+       }
+      ],
+      "mae": 4.418,
+      "mae_if_no_change": 5.479,
+      "skill_vs_no_change": 0.194,
+      "years_inside_80_interval": 3
+     },
+     "available": true,
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 71.1 % (80% range for 2030: 65.6–76.7 %), below the 1991–2020 average of 72.3 % (-1.25 %)."
+    },
+    "thermal_range": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 2.359
+      },
+      {
+       "year": 1982,
+       "value": 2.864
+      },
+      {
+       "year": 1983,
+       "value": 2.69
+      },
+      {
+       "year": 1984,
+       "value": 2.727
+      },
+      {
+       "year": 1985,
+       "value": 2.651
+      },
+      {
+       "year": 1986,
+       "value": 2.676
+      },
+      {
+       "year": 1987,
+       "value": 2.715
+      },
+      {
+       "year": 1988,
+       "value": 2.768
+      },
+      {
+       "year": 1989,
+       "value": 2.226
+      },
+      {
+       "year": 1990,
+       "value": 2.45
+      },
+      {
+       "year": 1991,
+       "value": 2.643
+      },
+      {
+       "year": 1992,
+       "value": 2.529
+      },
+      {
+       "year": 1993,
+       "value": 2.491
+      },
+      {
+       "year": 1994,
+       "value": 2.564
+      },
+      {
+       "year": 1995,
+       "value": 2.702
+      },
+      {
+       "year": 1996,
+       "value": 2.652
+      },
+      {
+       "year": 1997,
+       "value": 2.38
+      },
+      {
+       "year": 1998,
+       "value": 2.163
+      },
+      {
+       "year": 1999,
+       "value": 2.553
+      },
+      {
+       "year": 2000,
+       "value": 2.633
+      },
+      {
+       "year": 2001,
+       "value": 2.752
+      },
+      {
+       "year": 2002,
+       "value": 2.511
+      },
+      {
+       "year": 2003,
+       "value": 2.688
+      },
+      {
+       "year": 2004,
+       "value": 2.709
+      },
+      {
+       "year": 2005,
+       "value": 2.663
+      },
+      {
+       "year": 2006,
+       "value": 2.527
+      },
+      {
+       "year": 2007,
+       "value": 2.752
+      },
+      {
+       "year": 2008,
+       "value": 2.327
+      },
+      {
+       "year": 2009,
+       "value": 2.498
+      },
+      {
+       "year": 2010,
+       "value": 2.498
+      },
+      {
+       "year": 2011,
+       "value": 2.078
+      },
+      {
+       "year": 2012,
+       "value": 2.351
+      },
+      {
+       "year": 2013,
+       "value": 2.606
+      },
+      {
+       "year": 2014,
+       "value": 2.532
+      },
+      {
+       "year": 2015,
+       "value": 2.555
+      },
+      {
+       "year": 2016,
+       "value": 2.317
+      },
+      {
+       "year": 2017,
+       "value": 2.478
+      },
+      {
+       "year": 2018,
+       "value": 2.502
+      },
+      {
+       "year": 2019,
+       "value": 2.493
+      },
+      {
+       "year": 2020,
+       "value": 2.449
+      },
+      {
+       "year": 2021,
+       "value": 2.33
+      },
+      {
+       "year": 2022,
+       "value": 2.329
+      },
+      {
+       "year": 2023,
+       "value": 2.456
+      },
+      {
+       "year": 2024,
+       "value": 2.588
+      },
+      {
+       "year": 2025,
+       "value": 2.585
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 2.43,
+       "low80": 2.246,
+       "high80": 2.592
+      },
+      {
+       "year": 2027,
+       "value": 2.425,
+       "low80": 2.241,
+       "high80": 2.587
+      },
+      {
+       "year": 2028,
+       "value": 2.421,
+       "low80": 2.237,
+       "high80": 2.583
+      },
+      {
+       "year": 2029,
+       "value": 2.416,
+       "low80": 2.232,
+       "high80": 2.578
+      },
+      {
+       "year": 2030,
+       "value": 2.412,
+       "low80": 2.228,
+       "high80": 2.574
+      }
+     ],
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "historical_mean": 0.132,
+      "recent_mean": 0.112,
+      "linear_trend": 0.108,
+      "theil_sen_trend": 0.12
+     },
+     "context": {
+      "normal_1991_2020": 2.52,
+      "mean_2016_2025": 2.453,
+      "forecast_mean_2026_2030": 2.421,
+      "change_vs_normal": -0.099,
+      "trend_per_decade_1981_2025": -0.05
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "recent_mean",
+      "years": [
+       {
+        "year": 2021,
+        "value": 2.436,
+        "low80": 2.194,
+        "high80": 2.615,
+        "observed": 2.33
+       },
+       {
+        "year": 2022,
+        "value": 2.436,
+        "low80": 2.194,
+        "high80": 2.615,
+        "observed": 2.329
+       },
+       {
+        "year": 2023,
+        "value": 2.436,
+        "low80": 2.194,
+        "high80": 2.615,
+        "observed": 2.456
+       },
+       {
+        "year": 2024,
+        "value": 2.436,
+        "low80": 2.194,
+        "high80": 2.615,
+        "observed": 2.588
+       },
+       {
+        "year": 2025,
+        "value": 2.436,
+        "low80": 2.194,
+        "high80": 2.615,
+        "observed": 2.585
+       }
+      ],
+      "mae": 0.107,
+      "mae_if_no_change": 0.12,
+      "skill_vs_no_change": 0.112,
+      "years_inside_80_interval": 5
+     },
+     "available": true,
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 2.42 °C (80% range for 2030: 2.23–2.57 °C), about the same as the 1991–2020 average of 2.52 °C."
+    }
+   }
+  },
+  {
+   "location_id": "alice-springs",
+   "name": "Alice Springs",
+   "role": "relocation_candidate",
+   "grid_elevation_m": 685.1,
+   "indicators": {
+    "t2m_mean": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 21.825
+      },
+      {
+       "year": 1982,
+       "value": 20.965
+      },
+      {
+       "year": 1983,
+       "value": 21.205
+      },
+      {
+       "year": 1984,
+       "value": 20.897
+      },
+      {
+       "year": 1985,
+       "value": 21.827
+      },
+      {
+       "year": 1986,
+       "value": 21.726
+      },
+      {
+       "year": 1987,
+       "value": 21.789
+      },
+      {
+       "year": 1988,
+       "value": 21.974
+      },
+      {
+       "year": 1989,
+       "value": 21.014
+      },
+      {
+       "year": 1990,
+       "value": 22.274
+      },
+      {
+       "year": 1991,
+       "value": 22.623
+      },
+      {
+       "year": 1992,
+       "value": 21.614
+      },
+      {
+       "year": 1993,
+       "value": 21.52
+      },
+      {
+       "year": 1994,
+       "value": 21.27
+      },
+      {
+       "year": 1995,
+       "value": 21.298
+      },
+      {
+       "year": 1996,
+       "value": 22.458
+      },
+      {
+       "year": 1997,
+       "value": 21.499
+      },
+      {
+       "year": 1998,
+       "value": 22.448
+      },
+      {
+       "year": 1999,
+       "value": 22.193
+      },
+      {
+       "year": 2000,
+       "value": 20.808
+      },
+      {
+       "year": 2001,
+       "value": 20.806
+      },
+      {
+       "year": 2002,
+       "value": 22.259
+      },
+      {
+       "year": 2003,
+       "value": 22.12
+      },
+      {
+       "year": 2004,
+       "value": 22.373
+      },
+      {
+       "year": 2005,
+       "value": 22.724
+      },
+      {
+       "year": 2006,
+       "value": 22.161
+      },
+      {
+       "year": 2007,
+       "value": 21.929
+      },
+      {
+       "year": 2008,
+       "value": 21.928
+      },
+      {
+       "year": 2009,
+       "value": 22.2
+      },
+      {
+       "year": 2010,
+       "value": 19.533
+      },
+      {
+       "year": 2011,
+       "value": 20.642
+      },
+      {
+       "year": 2012,
+       "value": 21.031
+      },
+      {
+       "year": 2013,
+       "value": 22.76
+      },
+      {
+       "year": 2014,
+       "value": 21.786
+      },
+      {
+       "year": 2015,
+       "value": 21.596
+      },
+      {
+       "year": 2016,
+       "value": 22.445
+      },
+      {
+       "year": 2017,
+       "value": 22.979
+      },
+      {
+       "year": 2018,
+       "value": 22.779
+      },
+      {
+       "year": 2019,
+       "value": 23.019
+      },
+      {
+       "year": 2020,
+       "value": 22.561
+      },
+      {
+       "year": 2021,
+       "value": 21.446
+      },
+      {
+       "year": 2022,
+       "value": 21.527
+      },
+      {
+       "year": 2023,
+       "value": 22.239
+      },
+      {
+       "year": 2024,
+       "value": 22.998
+      },
+      {
+       "year": 2025,
+       "value": 22.61
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 22.296,
+       "low80": 21.43,
+       "high80": 23.339
+      },
+      {
+       "year": 2027,
+       "value": 22.315,
+       "low80": 21.449,
+       "high80": 23.358
+      },
+      {
+       "year": 2028,
+       "value": 22.334,
+       "low80": 21.468,
+       "high80": 23.377
+      },
+      {
+       "year": 2029,
+       "value": 22.353,
+       "low80": 21.487,
+       "high80": 23.396
+      },
+      {
+       "year": 2030,
+       "value": 22.372,
+       "low80": 21.506,
+       "high80": 23.415
+      }
+     ],
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "historical_mean": 0.742,
+      "recent_mean": 0.738,
+      "linear_trend": 0.703,
+      "theil_sen_trend": 0.784
+     },
+     "context": {
+      "normal_1991_2020": 21.912,
+      "mean_2016_2025": 22.46,
+      "forecast_mean_2026_2030": 22.334,
+      "change_vs_normal": 0.422,
+      "trend_per_decade_1981_2025": 0.214
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "linear_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 22.229,
+        "low80": 21.144,
+        "high80": 23.272,
+        "observed": 21.446
+       },
+       {
+        "year": 2022,
+        "value": 22.249,
+        "low80": 21.164,
+        "high80": 23.292,
+        "observed": 21.527
+       },
+       {
+        "year": 2023,
+        "value": 22.269,
+        "low80": 21.184,
+        "high80": 23.312,
+        "observed": 22.239
+       },
+       {
+        "year": 2024,
+        "value": 22.289,
+        "low80": 21.204,
+        "high80": 23.332,
+        "observed": 22.998
+       },
+       {
+        "year": 2025,
+        "value": 22.309,
+        "low80": 21.224,
+        "high80": 23.351,
+        "observed": 22.61
+       }
+      ],
+      "mae": 0.509,
+      "mae_if_no_change": 0.611,
+      "skill_vs_no_change": 0.166,
+      "years_inside_80_interval": 5
+     },
+     "available": true,
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 22.3 °C (80% range for 2030: 21.5–23.4 °C), above the 1991–2020 average of 21.9 °C (+0.42 °C)."
+    },
+    "cloud_cover": {
+     "observed": [
+      {
+       "year": 1984,
+       "value": 40.938
+      },
+      {
+       "year": 1985,
+       "value": 36.47
+      },
+      {
+       "year": 1986,
+       "value": 37.4
+      },
+      {
+       "year": 1987,
+       "value": 41.448
+      },
+      {
+       "year": 1988,
+       "value": 38.548
+      },
+      {
+       "year": 1989,
+       "value": 37.91
+      },
+      {
+       "year": 1990,
+       "value": 34.921
+      },
+      {
+       "year": 1991,
+       "value": 34.623
+      },
+      {
+       "year": 1992,
+       "value": 39.66
+      },
+      {
+       "year": 1993,
+       "value": 42.741
+      },
+      {
+       "year": 1994,
+       "value": 26.898
+      },
+      {
+       "year": 1995,
+       "value": 37.705
+      },
+      {
+       "year": 1996,
+       "value": 33.2
+      },
+      {
+       "year": 1997,
+       "value": 39.895
+      },
+      {
+       "year": 1998,
+       "value": 41.275
+      },
+      {
+       "year": 1999,
+       "value": 36.044
+      },
+      {
+       "year": 2000,
+       "value": 40.605
+      },
+      {
+       "year": 2001,
+       "value": 41.031
+      },
+      {
+       "year": 2002,
+       "value": 35.477
+      },
+      {
+       "year": 2003,
+       "value": 33.961
+      },
+      {
+       "year": 2004,
+       "value": 39.551
+      },
+      {
+       "year": 2005,
+       "value": 41.661
+      },
+      {
+       "year": 2006,
+       "value": 29.434
+      },
+      {
+       "year": 2007,
+       "value": 26.715
+      },
+      {
+       "year": 2008,
+       "value": 29.515
+      },
+      {
+       "year": 2009,
+       "value": 26.148
+      },
+      {
+       "year": 2010,
+       "value": 33.639
+      },
+      {
+       "year": 2011,
+       "value": 35.181
+      },
+      {
+       "year": 2012,
+       "value": 27.553
+      },
+      {
+       "year": 2013,
+       "value": 31.159
+      },
+      {
+       "year": 2014,
+       "value": 30.019
+      },
+      {
+       "year": 2015,
+       "value": 30.591
+      },
+      {
+       "year": 2016,
+       "value": 38.892
+      },
+      {
+       "year": 2017,
+       "value": 29.265
+      },
+      {
+       "year": 2018,
+       "value": 24.465
+      },
+      {
+       "year": 2019,
+       "value": 17.173
+      },
+      {
+       "year": 2020,
+       "value": 29.091
+      },
+      {
+       "year": 2021,
+       "value": 26.949
+      },
+      {
+       "year": 2022,
+       "value": 34.574
+      },
+      {
+       "year": 2023,
+       "value": 28.669
+      },
+      {
+       "year": 2024,
+       "value": 34.377
+      },
+      {
+       "year": 2025,
+       "value": 24.434
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 27.227,
+       "low80": 15.871,
+       "high80": 34.437
+      },
+      {
+       "year": 2027,
+       "value": 26.921,
+       "low80": 15.565,
+       "high80": 34.131
+      },
+      {
+       "year": 2028,
+       "value": 26.616,
+       "low80": 15.259,
+       "high80": 33.825
+      },
+      {
+       "year": 2029,
+       "value": 26.31,
+       "low80": 14.953,
+       "high80": 33.519
+      },
+      {
+       "year": 2030,
+       "value": 26.004,
+       "low80": 14.647,
+       "high80": 33.213
+      }
+     ],
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "historical_mean": 6.92,
+      "recent_mean": 5.501,
+      "linear_trend": 5.042,
+      "theil_sen_trend": 5.248
+     },
+     "context": {
+      "normal_1991_2020": 33.439,
+      "mean_2016_2025": 28.789,
+      "forecast_mean_2026_2030": 26.616,
+      "change_vs_normal": -6.823,
+      "trend_per_decade_1981_2025": -3.0
+     },
+     "backtest": {
+      "train_period": [
+       1984,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "linear_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 27.76,
+        "low80": 16.404,
+        "high80": 31.653,
+        "observed": 26.949
+       },
+       {
+        "year": 2022,
+        "value": 27.414,
+        "low80": 16.057,
+        "high80": 31.307,
+        "observed": 34.574
+       },
+       {
+        "year": 2023,
+        "value": 27.067,
+        "low80": 15.71,
+        "high80": 30.96,
+        "observed": 28.669
+       },
+       {
+        "year": 2024,
+        "value": 26.72,
+        "low80": 15.364,
+        "high80": 30.613,
+        "observed": 34.377
+       },
+       {
+        "year": 2025,
+        "value": 26.374,
+        "low80": 15.017,
+        "high80": 30.267,
+        "observed": 24.434
+       }
+      ],
+      "mae": 3.834,
+      "mae_if_no_change": 4.649,
+      "skill_vs_no_change": 0.175,
+      "years_inside_80_interval": 3
+     },
+     "available": true,
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 26.6 % (80% range for 2030: 14.6–33.2 %), below the 1991–2020 average of 33.4 % (-6.82 %)."
+    },
+    "thermal_range": {
+     "observed": [
+      {
+       "year": 1981,
+       "value": 26.89
+      },
+      {
+       "year": 1982,
+       "value": 26.683
+      },
+      {
+       "year": 1983,
+       "value": 27.416
+      },
+      {
+       "year": 1984,
+       "value": 26.903
+      },
+      {
+       "year": 1985,
+       "value": 27.233
+      },
+      {
+       "year": 1986,
+       "value": 27.371
+      },
+      {
+       "year": 1987,
+       "value": 27.137
+      },
+      {
+       "year": 1988,
+       "value": 27.548
+      },
+      {
+       "year": 1989,
+       "value": 27.483
+      },
+      {
+       "year": 1990,
+       "value": 27.617
+      },
+      {
+       "year": 1991,
+       "value": 25.421
+      },
+      {
+       "year": 1992,
+       "value": 27.622
+      },
+      {
+       "year": 1993,
+       "value": 26.332
+      },
+      {
+       "year": 1994,
+       "value": 27.113
+      },
+      {
+       "year": 1995,
+       "value": 27.523
+      },
+      {
+       "year": 1996,
+       "value": 28.628
+      },
+      {
+       "year": 1997,
+       "value": 26.15
+      },
+      {
+       "year": 1998,
+       "value": 27.225
+      },
+      {
+       "year": 1999,
+       "value": 26.396
+      },
+      {
+       "year": 2000,
+       "value": 25.878
+      },
+      {
+       "year": 2001,
+       "value": 26.527
+      },
+      {
+       "year": 2002,
+       "value": 27.722
+      },
+      {
+       "year": 2003,
+       "value": 27.297
+      },
+      {
+       "year": 2004,
+       "value": 27.207
+      },
+      {
+       "year": 2005,
+       "value": 27.701
+      },
+      {
+       "year": 2006,
+       "value": 25.596
+      },
+      {
+       "year": 2007,
+       "value": 28.233
+      },
+      {
+       "year": 2008,
+       "value": 27.435
+      },
+      {
+       "year": 2009,
+       "value": 27.122
+      },
+      {
+       "year": 2010,
+       "value": 26.399
+      },
+      {
+       "year": 2011,
+       "value": 25.548
+      },
+      {
+       "year": 2012,
+       "value": 27.899
+      },
+      {
+       "year": 2013,
+       "value": 26.973
+      },
+      {
+       "year": 2014,
+       "value": 27.122
+      },
+      {
+       "year": 2015,
+       "value": 27.418
+      },
+      {
+       "year": 2016,
+       "value": 27.319
+      },
+      {
+       "year": 2017,
+       "value": 27.21
+      },
+      {
+       "year": 2018,
+       "value": 26.998
+      },
+      {
+       "year": 2019,
+       "value": 27.821
+      },
+      {
+       "year": 2020,
+       "value": 26.414
+      },
+      {
+       "year": 2021,
+       "value": 28.016
+      },
+      {
+       "year": 2022,
+       "value": 26.636
+      },
+      {
+       "year": 2023,
+       "value": 25.641
+      },
+      {
+       "year": 2024,
+       "value": 25.587
+      },
+      {
+       "year": 2025,
+       "value": 27.058
+      }
+     ],
+     "forecast": [
+      {
+       "year": 2026,
+       "value": 27.01,
+       "low80": 25.534,
+       "high80": 27.861
+      },
+      {
+       "year": 2027,
+       "value": 27.01,
+       "low80": 25.534,
+       "high80": 27.861
+      },
+      {
+       "year": 2028,
+       "value": 27.01,
+       "low80": 25.534,
+       "high80": 27.861
+      },
+      {
+       "year": 2029,
+       "value": 27.01,
+       "low80": 25.534,
+       "high80": 27.861
+      },
+      {
+       "year": 2030,
+       "value": 27.01,
+       "low80": 25.534,
+       "high80": 27.861
+      }
+     ],
+     "selected_model": "historical_mean",
+     "model_description": "Average of all training years (assumes no change)",
+     "cv_mae_by_model": {
+      "historical_mean": 0.637,
+      "recent_mean": 0.642,
+      "linear_trend": 0.641,
+      "theil_sen_trend": 0.67
+     },
+     "context": {
+      "normal_1991_2020": 27.008,
+      "mean_2016_2025": 26.87,
+      "forecast_mean_2026_2030": 27.01,
+      "change_vs_normal": 0.002,
+      "trend_per_decade_1981_2025": -0.047
+     },
+     "backtest": {
+      "train_period": [
+       1981,
+       2020
+      ],
+      "test_period": [
+       2021,
+       2025
+      ],
+      "selected_model": "theil_sen_trend",
+      "years": [
+       {
+        "year": 2021,
+        "value": 27.226,
+        "low80": 26.181,
+        "high80": 27.823,
+        "observed": 28.016
+       },
+       {
+        "year": 2022,
+        "value": 27.228,
+        "low80": 26.183,
+        "high80": 27.824,
+        "observed": 26.636
+       },
+       {
+        "year": 2023,
+        "value": 27.229,
+        "low80": 26.185,
+        "high80": 27.826,
+        "observed": 25.641
+       },
+       {
+        "year": 2024,
+        "value": 27.231,
+        "low80": 26.186,
+        "high80": 27.828,
+        "observed": 25.587
+       },
+       {
+        "year": 2025,
+        "value": 27.233,
+        "low80": 26.188,
+        "high80": 27.829,
+        "observed": 27.058
+       }
+      ],
+      "mae": 0.958,
+      "mae_if_no_change": 0.857,
+      "skill_vs_no_change": -0.118,
+      "years_inside_80_interval": 2
+     },
+     "available": true,
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 27.0 °C (80% range for 2030: 25.5–27.9 °C), about the same as the 1991–2020 average of 27.0 °C."
+    }
+   }
+  }
+ ]
+}

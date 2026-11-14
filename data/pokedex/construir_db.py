@@ -6,7 +6,11 @@ import pymannkendall as mk
 from scipy.stats import norm, theilslopes
 from seed import ROOT
 VARS=['T2M','RH2M','PRECTOTCORR']
-PERIODS={'archivo_1981_2008':(1981,2008),'retrospectivo_1981_2025':(1981,2025)}
+# El juego ocurre en 2015: el archivo visible antes de decidir termina en 2014.
+SCENARIO_YEAR=2015
+ARCHIVE_END=SCENARIO_YEAR-1
+ARCHIVE=f'archivo_1981_{ARCHIVE_END}'
+PERIODS={ARCHIVE:(1981,ARCHIVE_END),'retrospectivo_1981_2025':(1981,2025)}
 
 def jd(v):return json.dumps(v,ensure_ascii=False,allow_nan=False)
 def analyze(x):
@@ -19,9 +23,9 @@ def analyze(x):
     assert math.isclose(hr.slope,theilslopes(x,np.arange(len(x))).slope,abs_tol=1e-9)
     return dict(n=len(x),slope_per_decade=float(hr.slope*10),sen_intercept=float(hr.intercept),
                 p_original=float(2*norm.sf(abs(original.z))),p_corrected=float(2*norm.sf(abs(hr.z))) if valid else None,
-                corrected_test_valid=valid,invalid_reason=None if valid else 'Hamed–Rao con todos los rezagos produce varianza no positiva; no se emite p ni se sustituye silenciosamente otro método.',
+                corrected_test_valid=valid,invalid_reason=None if valid else 'Hamed–Rao with all lags gives a non-positive variance; no p-value is reported and no other method is silently substituted.',
                 tau=float(hr.Tau),s=float(hr.s),z=float(hr.z) if valid else None,variance_factor=float(hr.var_s/original.var_s),
-                method='Hamed–Rao 1998, todos los rezagos significativos sobre rangos sin tendencia',
+                method='Hamed–Rao 1998, all significant lags on detrended ranks',
                 p_sensitivity={lag:float(2*norm.sf(abs(test.z))) if test.var_s>0 and np.isfinite(test.z) else None for lag,test in sensitivity.items()})
 
 def main():
@@ -44,9 +48,9 @@ def main():
     CREATE TABLE scenario_locations(species_id TEXT REFERENCES scenarios(species_id),location_id TEXT REFERENCES locations(id),role TEXT CHECK(role IN ('reference','candidate')),PRIMARY KEY(species_id,location_id));
     CREATE TABLE audit(pdf_row INTEGER PRIMARY KEY,species_id TEXT REFERENCES species(id),pdf_threshold_claim TEXT,disposition TEXT);
     ''')
-    db.executemany('INSERT INTO metadata VALUES (?,?)',[('schema_version','1.0.0'),('review_date','2026-11-14'),('title','Biodiversidad y clima: colección de 15 fichas'),('climate_scope','NASA POWER: aire regional, no agua ni microhábitat')])
+    db.executemany('INSERT INTO metadata VALUES (?,?)',[('schema_version','1.0.0'),('review_date','2026-11-14'),('title','Biodiversity and climate: a collection of 15 species'),('climate_scope','NASA POWER: regional air climate, not water or microhabitat'),('scenario_year',str(SCENARIO_YEAR)),('archive_period',f'1981-{ARCHIVE_END}')])
     for src in cat['sources']:db.execute('INSERT INTO sources VALUES (?,?,?,?,NULL)',(src['id'],src['title'],src['url'],src['accessed']))
-    varmeta={'T2M':('Temperatura del aire a 2 m','°C','°C','air'),'RH2M':('Humedad relativa del aire a 2 m','%','%','air'),'PRECTOTCORR':('Precipitación','mm/mes','mm/año','precipitation')}
+    varmeta={'T2M':('Air temperature at 2 m','°C','°C','air'),'RH2M':('Relative humidity at 2 m','%','%','air'),'PRECTOTCORR':('Precipitation','mm/month','mm/year','precipitation')}
     for v,meta in varmeta.items():db.execute('INSERT INTO variables VALUES (?,?,?,?,?)',(v,*meta))
     series={};climates={};stats={};scales={}
     for loc in cat['locations']:
@@ -71,11 +75,11 @@ def main():
             years.append(a)
         series[lid]={'monthly':months,'annual':years};climates[lid]={};scales[lid]={}
         for v in VARS:
-            cycle=[float(np.mean([r[v] for r in months if r['year']<=2008 and r['month']==m])) for m in range(1,13)]
-            climates[lid][v]=cycle;scales[lid][v]=float(np.std([r[v] for r in months if r['year']<=2008],ddof=1))
-            for m,value in enumerate(cycle,1):db.execute('INSERT INTO climatology VALUES (?,?,?,?,?,?,?)',(lid,m,v,value,varmeta[v][1],1981,2008))
+            cycle=[float(np.mean([r[v] for r in months if r['year']<=ARCHIVE_END and r['month']==m])) for m in range(1,13)]
+            climates[lid][v]=cycle;scales[lid][v]=float(np.std([r[v] for r in months if r['year']<=ARCHIVE_END],ddof=1))
+            for m,value in enumerate(cycle,1):db.execute('INSERT INTO climatology VALUES (?,?,?,?,?,?,?)',(lid,m,v,value,varmeta[v][1],1981,ARCHIVE_END))
             for period,(start,end) in PERIODS.items():
-                t=analyze([r[v] for r in years if start<=r['year']<=end]);t.update(start_year=start,end_year=end,unit=varmeta[v][2],slope_unit=varmeta[v][2]+'/década')
+                t=analyze([r[v] for r in years if start<=r['year']<=end]);t.update(start_year=start,end_year=end,unit=varmeta[v][2],slope_unit=varmeta[v][2]+'/decade')
                 stats[(lid,v,period)]=t
                 db.execute('INSERT INTO trends VALUES (?,?,?,?,?,?)',(lid,v,period,start,end,jd(t)))
     scenarios={}
@@ -94,16 +98,16 @@ def main():
             best=min(r['score'] for r in scores)
             accepted=[r['location_id'] for r in scores if math.isclose(r['score'],best,abs_tol=1e-8)]
             if sid=='melomys':assert accepted==['erub']
-            scenario=dict(kind='climate_analogue_exercise',title='¿Qué opción reproduce mejor el ciclo climático regional?',
+            scenario=dict(kind='climate_analogue_exercise',title='Which option best matches the regional climate cycle?',
                 reference_location=ref,candidate_locations=candidates,accepted_answers=accepted,scores=scores,
-                period='archivo_1981_2008',scenario_year=2009 if sid=='melomys' else None,
-                period_note='Recreación educativa con archivo 1981–2008; no supone que la especie siguiera viva ni que estos datos estuvieran disponibles entonces.',
-                question='Compara los 12 meses típicos de las tres variables. Elige el candidato con menor distancia climática estandarizada.',
-                model_rule='Media de RMSE de 12 meses por variable dividida por desviación estándar mensual 1981–2008 del sitio de referencia; tres pesos iguales. Regla didáctica, no modelo ecológico.',
-                feedback='El menor índice identifica el análogo regional entre estas tres opciones. Los p prueban tendencia, no adecuación. Aún se requieren '+', '.join(sp['required_local_evidence'])+'.',
-                limitations='Las parcelas y condiciones de manejo son ficticias. No es recomendación de translocación ni predicción de supervivencia.',
+                period=ARCHIVE,scenario_year=SCENARIO_YEAR,
+                period_note=f'Educational recreation set in {SCENARIO_YEAR} with the 1981–{ARCHIVE_END} archive; it does not assume the species was still alive or that these data were available at the time.',
+                question='Compare the 12 typical months of the three variables. Choose the candidate with the smallest standardized climate distance.',
+                model_rule=f'Mean of the 12-month RMSE per variable divided by the reference site’s 1981–{ARCHIVE_END} monthly standard deviation; three equal weights. A teaching rule, not an ecological model.',
+                feedback='The lowest index identifies the regional climate analogue among these three options. p-values test for trends, not suitability. Still needed: '+', '.join(sp['required_local_evidence'])+'.',
+                limitations='The plots and management conditions are fictional. This is not a translocation recommendation or a survival prediction.',
                 habitat_decision_validated=False,
-                game_assumptions='Para comparar clima, todos los candidatos se suponen con las demás condiciones equivalentes y apropiadas; este supuesto no ha sido comprobado en terreno.',
+                game_assumptions='To compare climate, all candidates are assumed to have otherwise equivalent and suitable conditions; this has not been checked in the field.',
                 adjusted_tests={})
             for period in PERIODS:
                 family=[]
@@ -112,18 +116,18 @@ def main():
                 ordered=sorted(family,key=lambda r:r['p_corrected'] if r['p_corrected'] is not None else 1);last=0
                 for idx,t in enumerate(ordered):
                     if t['p_corrected'] is None:
-                        t['p_holm']=None;t['stamp']='NO EVALUABLE';continue
+                        t['p_holm']=None;t['stamp']='NOT TESTABLE';continue
                     last=min(1,max(last,(len(ordered)-idx)*t['p_corrected']));t['p_holm']=last
-                    t['stamp']=('REAL ↑' if t['slope_per_decade']>0 else 'REAL ↓') if last<.05 else 'NO PROBADO'
+                    t['stamp']=('REAL ↑' if t['slope_per_decade']>0 else 'REAL ↓') if last<.05 else 'NOT PROVEN'
                 scenario['adjusted_tests'][period]=family
         else:
-            water='marina y del fondo' if sp['system']=='marine' else 'del manantial'
-            scenario=dict(kind='evidence_gap_exercise',title='¿Qué evidencia falta antes de comparar refugios acuáticos?',
-                reference_location=ref,candidate_locations=[],accepted_answers=['water_data'],period='archivo_1981_2008',scenario_year=None,
-                question='Tenemos temperatura y humedad del aire y lluvia de NASA POWER. ¿Qué harías antes de decidir sobre el hábitat acuático?',
-                choices=[dict(id='air_equals_water',label='Usar temperatura del aire como temperatura del agua'),dict(id='lowest_p',label='Elegir el lugar con el p más pequeño'),dict(id='water_data',label='Pedir series del agua y evidencia del hábitat')],
-                feedback='Correcto: se requieren '+', '.join(sp['required_local_evidence'])+'. La temperatura del aire no sustituye a la '+water+'.',
-                limitations='Ficha completa y ejercicio de evidencia; no hay todavía tres arriendos acuáticos ni series acuáticas validadas.',
+            water='sea and seabed temperature' if sp['system']=='marine' else 'spring water temperature'
+            scenario=dict(kind='evidence_gap_exercise',title='What evidence is missing before comparing aquatic refuges?',
+                reference_location=ref,candidate_locations=[],accepted_answers=['water_data'],period=ARCHIVE,scenario_year=SCENARIO_YEAR,
+                question='We have air temperature, humidity and rainfall from NASA POWER. What would you do before deciding on the aquatic habitat?',
+                choices=[dict(id='air_equals_water',label='Use air temperature as water temperature'),dict(id='lowest_p',label='Pick the site with the smallest p-value'),dict(id='water_data',label='Ask for water data series and habitat evidence')],
+                feedback='Correct: still needed: '+', '.join(sp['required_local_evidence'])+'. Air temperature is not a substitute for '+water+'.',
+                limitations='Complete species card and evidence exercise; there are not yet three aquatic refuge options or validated water series.',
                 habitat_decision_validated=False)
         scenarios[sid]=scenario
         db.execute('INSERT INTO scenarios VALUES (?,?,?)',(sid,scenario['kind'],jd(scenario)))

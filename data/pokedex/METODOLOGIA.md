@@ -39,13 +39,19 @@ El documento no es una lista científicamente validada de 15 extinciones causada
 
 La lluvia mensual se convierte de mm/día a mm/mes multiplicando por los días reales; los totales anuales suman esos meses. Temperatura y humedad anual se ponderan por días. En `observations`, la columna `unit` evita confundir tasas y acumulados.
 
-Sen mide cambio por década sobre años completos. MK original y Hamed–Rao son variantes del mismo test, no dos pruebas independientes. Hamed–Rao usa los rezagos significativos de los rangos tras quitar Sen; se guarda sensibilidad con máximos 1/3 rezagos. **Tres resultados tienen corrección de varianza no positiva**: Tasmania/HR/1981–2025, El Valle/T/1981–2025 y Santa Fe/T/1981–2008. En ellos `p_corrected` es null, con razón explícita; no se sustituye otro método silenciosamente ni se muestra p=0. Se necesita revisión estadística adicional para inferencia en esos casos.
+Sen mide cambio por década sobre años completos. MK original y Hamed–Rao son variantes del mismo test, no dos pruebas independientes. Hamed–Rao usa los rezagos significativos de los rangos tras quitar Sen; se guarda sensibilidad con máximos 1/3 rezagos. **Cuatro resultados tienen corrección de varianza no positiva**: Tasmania/HR/1981–2025, El Valle/T/1981–2025, El Valle/T/1981–2014 y Santa Fe/T/1981–2014. En ellos `p_corrected` es null, con razón explícita; no se sustituye otro método silenciosamente ni se muestra p=0. Se necesita revisión estadística adicional para inferencia en esos casos.
 
 Holm usa una familia de 12 pruebas por ronda terrestre y período (referencia + 3 candidatos × 3 variables). Los tests no evaluables conservan su lugar en el tamaño familiar, no reciben p ajustado ni sello significativo. Esto evita reducir artificialmente el número de pruebas. Los resultados individuales se muestran con su p sin ajuste; Holm va en detalles. No confundir p pequeño con hábitat favorable.
 
-Semejanza: RMSE entre los 12 meses típicos de cada candidato y la referencia, separado por variable. El índice del ejercicio es la media de esos RMSE divididos por la desviación estándar de los 336 valores mensuales de la referencia en 1981–2008. Los pesos iguales son una regla didáctica, **no pesos fisiológicos ni un modelo de supervivencia**. Se aceptan empates numéricos. El clima más parecido entre estos tres candidatos puede ser inadecuado biológicamente.
+Semejanza: RMSE entre los 12 meses típicos de cada candidato y la referencia, separado por variable. El índice del ejercicio es la media de esos RMSE divididos por la desviación estándar de los 408 valores mensuales de la referencia en 1981–2014. Los pesos iguales son una regla didáctica, **no pesos fisiológicos ni un modelo de supervivencia**. Se aceptan empates numéricos. El clima más parecido entre estos tres candidatos puede ser inadecuado biológicamente.
 
-La fecha de escenario del melomys es 2009. En las otras fichas se usa una recreación retrospectiva, sin fecha histórica de reubicación inventada: varias especies desaparecieron antes o durante la cobertura NASA. Las series posteriores no constituyen datos que se conocían entonces. La vista permite cambiar al análisis 1981–2025, pero la comparación del ejercicio usa siempre 1981–2008 y lo indica explícitamente.
+Todas las rondas se ambientan en 2015 (`scenario_year`), con el archivo 1981–2014 como información disponible antes de decidir. Es una recreación: varias especies desaparecieron antes o durante la cobertura NASA, y no se inventa una fecha histórica de reubicación. Las series posteriores no constituyen datos que se conocían entonces. La vista permite cambiar al análisis 1981–2025, pero la comparación del ejercicio usa siempre 1981–2014 y lo indica explícitamente.
+
+## Pronóstico y calidad de la lluvia
+
+El pronóstico 2026–2030 vive en el módulo independiente [`ml/`](../../ml/README.md).
+
+**Precaución con la lluvia posterior a 2014.** En varias localizaciones, la lluvia media 2015–2025 difiere mucho de la de 1981–2014, en ambas direcciones (lluvia anual: Bramble Cay ×0,58; Monteverde ×2,08). La serie de NASA POWER combina MERRA-2 con datos GEOS-IT agregados al final para baja latencia, y los reanálisis pueden tener discontinuidades por cambios en las observaciones. Un test de punto de cambio (Pettitt) ubica esos saltos en años distintos según el sitio (1998–2015), así que no apuntan a un único cambio de fuente, pero no se ha descartado que parte sea artificial. Antes de presentarlos como cambio climático real, compararlos con estaciones locales.
 
 ## Modelo de datos
 
@@ -59,7 +65,7 @@ SELECT date,value,unit FROM observations
 WHERE location_id='bramble-cay' AND variable='T2M' AND frequency='annual'
 ORDER BY date;
 SELECT payload FROM trends
-WHERE location_id='erub' AND variable='T2M' AND period='archivo_1981_2008';
+WHERE location_id='erub' AND variable='T2M' AND period='archivo_1981_2014';
 ```
 
 ## Integración y reproducción

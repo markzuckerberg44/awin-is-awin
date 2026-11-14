@@ -10,7 +10,7 @@
     "RH2M": "%",
     "PRECTOTCORR": "mm/day"
   },
-  "scenario_year": 2009,
+  "scenario_year": 2015,
   "preferred_site": "erub",
   "sites": [
     {
@@ -19,10 +19,10 @@
       "game_role": "reference",
       "latitude": -9.142,
       "longitude": 143.877,
-      "mean_1981_2008": {
-        "T2M": 26.804,
-        "RH2M": 82.387,
-        "PRECTOTCORR": 5.598
+      "mean_1981_2014": {
+        "T2M": 26.866,
+        "RH2M": 82.39,
+        "PRECTOTCORR": 5.516
       },
       "series": [
         {
@@ -3333,10 +3333,10 @@
       "game_role": "preferred",
       "latitude": -9.589,
       "longitude": 143.771,
-      "mean_1981_2008": {
-        "T2M": 26.684,
-        "RH2M": 82.766,
-        "PRECTOTCORR": 5.081
+      "mean_1981_2014": {
+        "T2M": 26.751,
+        "RH2M": 82.749,
+        "PRECTOTCORR": 5.122
       },
       "series": [
         {
@@ -6647,10 +6647,10 @@
       "game_role": "distractor_inundation",
       "latitude": -8.524,
       "longitude": 179.195,
-      "mean_1981_2008": {
-        "T2M": 28.071,
-        "RH2M": 80.387,
-        "PRECTOTCORR": 7.399
+      "mean_1981_2014": {
+        "T2M": 28.11,
+        "RH2M": 80.302,
+        "PRECTOTCORR": 7.181
       },
       "series": [
         {
@@ -9961,10 +9961,10 @@
       "game_role": "distractor_aridity",
       "latitude": -23.698,
       "longitude": 133.88,
-      "mean_1981_2008": {
-        "T2M": 21.804,
-        "RH2M": 35.682,
-        "PRECTOTCORR": 0.81
+      "mean_1981_2014": {
+        "T2M": 21.725,
+        "RH2M": 36.586,
+        "PRECTOTCORR": 0.864
       },
       "series": [
         {

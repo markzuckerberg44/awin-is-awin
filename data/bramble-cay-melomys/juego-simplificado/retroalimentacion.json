@@ -3,8 +3,9 @@
   "correct_site_id": "erub",
   "period": [
     1981,
-    2008
+    2014
   ],
+  "scenario_year": 2015,
   "dry_months": [
     6,
     7,
@@ -24,51 +25,51 @@
           "points": [
             {
               "x": 1,
-              "y": 28.007499999999997
+              "y": 28.035294117647055
             },
             {
               "x": 2,
-              "y": 27.846785714285716
+              "y": 27.884999999999998
             },
             {
               "x": 3,
-              "y": 27.768571428571427
+              "y": 27.803823529411762
             },
             {
               "x": 4,
-              "y": 27.583571428571428
+              "y": 27.658823529411762
             },
             {
               "x": 5,
-              "y": 26.926071428571426
+              "y": 27.013235294117646
             },
             {
               "x": 6,
-              "y": 26.041785714285712
+              "y": 26.106176470588235
             },
             {
               "x": 7,
-              "y": 25.26464285714286
+              "y": 25.345588235294116
             },
             {
               "x": 8,
-              "y": 24.970357142857143
+              "y": 25.05470588235294
             },
             {
               "x": 9,
-              "y": 25.507857142857144
+              "y": 25.578823529411768
             },
             {
               "x": 10,
-              "y": 26.35821428571429
+              "y": 26.437352941176474
             },
             {
               "x": 11,
-              "y": 27.356071428571425
+              "y": 27.413529411764703
             },
             {
               "x": 12,
-              "y": 28.014285714285712
+              "y": 28.062941176470584
             }
           ]
         },
@@ -78,51 +79,51 @@
           "points": [
             {
               "x": 1,
-              "y": 27.956428571428575
+              "y": 27.992058823529412
             },
             {
               "x": 2,
-              "y": 27.79785714285714
+              "y": 27.83911764705882
             },
             {
               "x": 3,
-              "y": 27.705357142857146
+              "y": 27.748529411764707
             },
             {
               "x": 4,
-              "y": 27.539642857142855
+              "y": 27.628529411764706
             },
             {
               "x": 5,
-              "y": 26.86714285714286
+              "y": 26.96264705882353
             },
             {
               "x": 6,
-              "y": 25.958214285714284
+              "y": 26.029411764705884
             },
             {
               "x": 7,
-              "y": 25.180714285714288
+              "y": 25.266470588235297
             },
             {
               "x": 8,
-              "y": 24.826071428571424
+              "y": 24.91529411764706
             },
             {
               "x": 9,
-              "y": 25.292499999999997
+              "y": 25.363235294117647
             },
             {
               "x": 10,
-              "y": 26.09857142857143
+              "y": 26.183235294117647
             },
             {
               "x": 11,
-              "y": 27.1125
+              "y": 27.171470588235294
             },
             {
               "x": 12,
-              "y": 27.86892857142857
+              "y": 27.91529411764706
             }
           ]
         },
@@ -132,51 +133,51 @@
           "points": [
             {
               "x": 1,
-              "y": 28.154642857142857
+              "y": 28.17205882352941
             },
             {
               "x": 2,
-              "y": 28.07464285714286
+              "y": 28.075
             },
             {
               "x": 3,
-              "y": 27.9275
+              "y": 27.94205882352941
             },
             {
               "x": 4,
-              "y": 27.993214285714284
+              "y": 28.070294117647062
             },
             {
               "x": 5,
-              "y": 28.183571428571433
+              "y": 28.25235294117647
             },
             {
               "x": 6,
-              "y": 28.18892857142857
+              "y": 28.267352941176473
             },
             {
               "x": 7,
-              "y": 27.939642857142854
+              "y": 28.00882352941177
             },
             {
               "x": 8,
-              "y": 27.829642857142854
+              "y": 27.88058823529412
             },
             {
               "x": 9,
-              "y": 28.037857142857145
+              "y": 28.085
             },
             {
               "x": 10,
-              "y": 28.06
+              "y": 28.07852941176471
             },
             {
               "x": 11,
-              "y": 28.215714285714284
+              "y": 28.235
             },
             {
               "x": 12,
-              "y": 28.24892857142857
+              "y": 28.257352941176467
             }
           ]
         },
@@ -186,51 +187,51 @@
           "points": [
             {
               "x": 1,
-              "y": 29.751785714285713
+              "y": 29.65705882352941
             },
             {
               "x": 2,
-              "y": 28.630714285714284
+              "y": 28.398823529411764
             },
             {
               "x": 3,
-              "y": 25.810714285714287
+              "y": 25.61970588235294
             },
             {
               "x": 4,
-              "y": 21.322499999999998
+              "y": 21.252647058823527
             },
             {
               "x": 5,
-              "y": 16.40714285714286
+              "y": 16.30705882352941
             },
             {
               "x": 6,
-              "y": 12.525357142857144
+              "y": 12.43705882352941
             },
             {
               "x": 7,
-              "y": 12.180714285714284
+              "y": 12.152058823529412
             },
             {
               "x": 8,
-              "y": 14.88464285714286
+              "y": 14.966176470588234
             },
             {
               "x": 9,
-              "y": 20.236071428571424
+              "y": 20.22941176470588
             },
             {
               "x": 10,
-              "y": 24.08535714285714
+              "y": 23.980588235294118
             },
             {
               "x": 11,
-              "y": 26.966785714285713
+              "y": 26.949117647058827
             },
             {
               "x": 12,
-              "y": 28.841785714285717
+              "y": 28.74764705882353
             }
           ]
         }
@@ -246,51 +247,51 @@
           "points": [
             {
               "x": 1,
-              "y": 81.37714285714286
+              "y": 81.28382352941176
             },
             {
               "x": 2,
-              "y": 82.30892857142858
+              "y": 82.0535294117647
             },
             {
               "x": 3,
-              "y": 82.0692857142857
+              "y": 81.89823529411764
             },
             {
               "x": 4,
-              "y": 82.53785714285713
+              "y": 82.31970588235293
             },
             {
               "x": 5,
-              "y": 83.43321428571427
+              "y": 83.64999999999998
             },
             {
               "x": 6,
-              "y": 83.73892857142859
+              "y": 84.03264705882353
             },
             {
               "x": 7,
-              "y": 83.39678571428571
+              "y": 83.42676470588238
             },
             {
               "x": 8,
-              "y": 82.8782142857143
+              "y": 83.01088235294117
             },
             {
               "x": 9,
-              "y": 83.19535714285713
+              "y": 83.30676470588234
             },
             {
               "x": 10,
-              "y": 82.65107142857141
+              "y": 82.65970588235294
             },
             {
               "x": 11,
-              "y": 80.76928571428573
+              "y": 80.87794117647059
             },
             {
               "x": 12,
-              "y": 80.29214285714285
+              "y": 80.15970588235295
             }
           ]
         },
@@ -300,51 +301,51 @@
           "points": [
             {
               "x": 1,
-              "y": 82.03392857142856
+              "y": 81.90764705882351
             },
             {
               "x": 2,
-              "y": 82.75071428571428
+              "y": 82.52529411764706
             },
             {
               "x": 3,
-              "y": 82.4075
+              "y": 82.24088235294117
             },
             {
               "x": 4,
-              "y": 82.60392857142857
+              "y": 82.37823529411764
             },
             {
               "x": 5,
-              "y": 83.2907142857143
+              "y": 83.42588235294116
             },
             {
               "x": 6,
-              "y": 83.52785714285714
+              "y": 83.76323529411765
             },
             {
               "x": 7,
-              "y": 83.09357142857142
+              "y": 83.09970588235294
             },
             {
               "x": 8,
-              "y": 82.9542857142857
+              "y": 83.0291176470588
             },
             {
               "x": 9,
-              "y": 83.7182142857143
+              "y": 83.81441176470588
             },
             {
               "x": 10,
-              "y": 83.57714285714285
+              "y": 83.56764705882354
             },
             {
               "x": 11,
-              "y": 81.98785714285712
+              "y": 82.10000000000001
             },
             {
               "x": 12,
-              "y": 81.24964285714285
+              "y": 81.13647058823528
             }
           ]
         },
@@ -354,51 +355,51 @@
           "points": [
             {
               "x": 1,
-              "y": 80.67642857142857
+              "y": 80.60852941176469
             },
             {
               "x": 2,
-              "y": 81.24535714285716
+              "y": 81.1470588235294
             },
             {
               "x": 3,
-              "y": 81.5375
+              "y": 81.53529411764707
             },
             {
               "x": 4,
-              "y": 81.54821428571428
+              "y": 81.43529411764708
             },
             {
               "x": 5,
-              "y": 81.10785714285716
+              "y": 80.98764705882351
             },
             {
               "x": 6,
-              "y": 80.67357142857144
+              "y": 80.62382352941178
             },
             {
               "x": 7,
-              "y": 80.24214285714287
+              "y": 80.04499999999999
             },
             {
               "x": 8,
-              "y": 80.10785714285714
+              "y": 79.99705882352941
             },
             {
               "x": 9,
-              "y": 79.34821428571429
+              "y": 79.26558823529412
             },
             {
               "x": 10,
-              "y": 79.35464285714285
+              "y": 79.18411764705883
             },
             {
               "x": 11,
-              "y": 78.78357142857142
+              "y": 78.79529411764707
             },
             {
               "x": 12,
-              "y": 80.01750000000001
+              "y": 79.9970588235294
             }
           ]
         },
@@ -408,51 +409,51 @@
           "points": [
             {
               "x": 1,
-              "y": 31.051071428571436
+              "y": 32.28911764705883
             },
             {
               "x": 2,
-              "y": 35.0575
+              "y": 36.28882352941177
             },
             {
               "x": 3,
-              "y": 33.72392857142857
+              "y": 35.815
             },
             {
               "x": 4,
-              "y": 35.731785714285714
+              "y": 37.21735294117647
             },
             {
               "x": 5,
-              "y": 43.762499999999996
+              "y": 44.768823529411776
             },
             {
               "x": 6,
-              "y": 50.16749999999998
+              "y": 50.905
             },
             {
               "x": 7,
-              "y": 45.60178571428572
+              "y": 46.74794117647059
             },
             {
               "x": 8,
-              "y": 36.90892857142857
+              "y": 37.16058823529412
             },
             {
               "x": 9,
-              "y": 29.27214285714286
+              "y": 29.74411764705882
             },
             {
               "x": 10,
-              "y": 27.54928571428571
+              "y": 27.638823529411766
             },
             {
               "x": 11,
-              "y": 28.84071428571428
+              "y": 29.351764705882353
             },
             {
               "x": 12,
-              "y": 30.514285714285712
+              "y": 31.100882352941177
             }
           ]
         }
@@ -460,7 +461,7 @@
     },
     {
       "variable": "PRECTOTCORR",
-      "unit": "mm/mes",
+      "unit": "mm/month",
       "series": [
         {
           "site_id": "bramble-cay",
@@ -468,51 +469,51 @@
           "points": [
             {
               "x": 1,
-              "y": 287.54714285714283
+              "y": 292.22058823529414
             },
             {
               "x": 2,
-              "y": 287.42892857142857
+              "y": 275.3635294117647
             },
             {
               "x": 3,
-              "y": 307.08821428571434
+              "y": 304.40176470588233
             },
             {
               "x": 4,
-              "y": 317.1
+              "y": 313.3588235294117
             },
             {
               "x": 5,
-              "y": 180.49749999999997
+              "y": 191.20617647058825
             },
             {
               "x": 6,
-              "y": 104.59285714285716
+              "y": 102.52058823529413
             },
             {
               "x": 7,
-              "y": 65.43214285714285
+              "y": 61.77205882352941
             },
             {
               "x": 8,
-              "y": 41.04178571428571
+              "y": 40.4185294117647
             },
             {
               "x": 9,
-              "y": 47.089285714285715
+              "y": 47.982352941176465
             },
             {
               "x": 10,
-              "y": 86.09142857142857
+              "y": 81.685
             },
             {
               "x": 11,
-              "y": 99.6107142857143
+              "y": 92.47058823529412
             },
             {
               "x": 12,
-              "y": 211.78535714285712
+              "y": 202.80382352941177
             }
           ]
         },
@@ -522,51 +523,51 @@
           "points": [
             {
               "x": 1,
-              "y": 279.7971428571429
+              "y": 293.46058823529415
             },
             {
               "x": 2,
-              "y": 284.39178571428573
+              "y": 277.7294117647059
             },
             {
               "x": 3,
-              "y": 299.09464285714284
+              "y": 302.28647058823526
             },
             {
               "x": 4,
-              "y": 286.21071428571423
+              "y": 292.17352941176466
             },
             {
               "x": 5,
-              "y": 149.27607142857144
+              "y": 162.18470588235294
             },
             {
               "x": 6,
-              "y": 81.41785714285713
+              "y": 80.41764705882352
             },
             {
               "x": 7,
-              "y": 51.24964285714285
+              "y": 48.970882352941175
             },
             {
               "x": 8,
-              "y": 31.04428571428571
+              "y": 31.027352941176467
             },
             {
               "x": 9,
-              "y": 32.11071428571429
+              "y": 33.370588235294115
             },
             {
               "x": 10,
-              "y": 64.72357142857143
+              "y": 62.875294117647066
             },
             {
               "x": 11,
-              "y": 86.02499999999999
+              "y": 81.65294117647059
             },
             {
               "x": 12,
-              "y": 200.80249999999998
+              "y": 195.64647058823527
             }
           ]
         },
@@ -576,51 +577,51 @@
           "points": [
             {
               "x": 1,
-              "y": 344.77535714285716
+              "y": 347.40970588235297
             },
             {
               "x": 2,
-              "y": 290.69714285714286
+              "y": 283.2411764705882
             },
             {
               "x": 3,
-              "y": 304.43107142857144
+              "y": 301.1194117647059
             },
             {
               "x": 4,
-              "y": 190.73571428571427
+              "y": 180.74117647058824
             },
             {
               "x": 5,
-              "y": 176.8660714285714
+              "y": 166.73441176470587
             },
             {
               "x": 6,
-              "y": 167.54999999999998
+              "y": 161.57647058823528
             },
             {
               "x": 7,
-              "y": 187.50571428571425
+              "y": 176.6179411764706
             },
             {
               "x": 8,
-              "y": 182.74499999999998
+              "y": 171.2020588235294
             },
             {
               "x": 9,
-              "y": 155.03571428571428
+              "y": 145.20882352941177
             },
             {
               "x": 10,
-              "y": 198.52178571428567
+              "y": 194.70735294117645
             },
             {
               "x": 11,
-              "y": 217.43571428571434
+              "y": 215.13529411764708
             },
             {
               "x": 12,
-              "y": 282.8860714285714
+              "y": 275.89088235294116
             }
           ]
         },
@@ -630,51 +631,51 @@
           "points": [
             {
               "x": 1,
-              "y": 43.089999999999996
+              "y": 48.33264705882354
             },
             {
               "x": 2,
-              "y": 42.067499999999995
+              "y": 48.93382352941177
             },
             {
               "x": 3,
-              "y": 33.92285714285715
+              "y": 35.394705882352945
             },
             {
               "x": 4,
-              "y": 20.078571428571426
+              "y": 21.608823529411765
             },
             {
               "x": 5,
-              "y": 18.8325
+              "y": 18.855294117647055
             },
             {
               "x": 6,
-              "y": 15.760714285714286
+              "y": 13.738235294117647
             },
             {
               "x": 7,
-              "y": 9.85357142857143
+              "y": 13.49411764705882
             },
             {
               "x": 8,
-              "y": 4.240357142857143
+              "y": 4.567941176470589
             },
             {
               "x": 9,
-              "y": 6.021428571428571
+              "y": 7.96764705882353
             },
             {
               "x": 10,
-              "y": 21.589285714285715
+              "y": 21.37176470588235
             },
             {
               "x": 11,
-              "y": 35.19642857142857
+              "y": 34.57058823529412
             },
             {
               "x": 12,
-              "y": 44.075357142857136
+              "y": 45.06852941176471
             }
           ]
         }
@@ -682,22 +683,22 @@
     }
   ],
   "dry_season_precipitation_mm": {
-    "bramble-cay": 443.85821428571427,
-    "erub": 346.57107142857143,
-    "funafuti": 1108.7939285714285,
-    "alice-springs": 92.66178571428571
+    "bramble-cay": 426.84911764705885,
+    "erub": 338.31470588235294,
+    "funafuti": 1064.4479411764705,
+    "alice-springs": 95.71029411764705
   },
   "by_choice": {
     "erub": {
       "selected_site": "erub",
       "correct": true,
-      "title": "Elección correcta para esta simulación",
-      "message": "Erub reproduce mejor el ciclo de temperatura, humedad y lluvia de Bramble Cay. Aun así, entre junio y noviembre recibe 346.6 mm frente a 443.9 mm: aproximadamente 22 % menos. El arriendo ficticio interior elevado responde a la amenaza de inundación marina.",
+      "title": "Correct choice for this simulation",
+      "message": "Erub best matches Bramble Cay’s cycle of temperature, humidity and rainfall. Even so, from June to November it gets 338.3 mm versus 426.8 mm: about 21 % less. The fictional raised inland plot answers the threat of seawater flooding.",
       "show_comparative_charts": true,
       "comparison_source": "retroalimentacion.json",
       "comparison_period": [
         1981,
-        2008
+        2014
       ],
       "highlight_site_ids": [
         "bramble-cay",
@@ -714,21 +715,21 @@
         },
         {
           "variable": "PRECTOTCORR",
-          "unit": "mm/mes"
+          "unit": "mm/month"
         }
       ],
-      "simulation_note": "La altura y vegetación del arriendo son supuestos de la demo. Esta elección no demuestra supervivencia real."
+      "simulation_note": "The plot’s height and vegetation are demo assumptions. This choice does not prove real survival."
     },
     "funafuti": {
       "selected_site": "funafuti",
       "correct": false,
-      "title": "Revisa la estación seca y la inundación",
-      "message": "Funafuti es cálido y húmedo, pero su ciclo de lluvia difiere: acumula 1108.8 mm entre junio y noviembre, frente a 443.9 mm en Bramble Cay. Además, la ficha ofrece un arriendo ficticio en atolón bajo. Compara con el clima y el terreno interior elevado de Erub.",
+      "title": "Check the dry season and the flooding",
+      "message": "Funafuti is warm and humid, but its rainfall cycle differs: it gets 1064.4 mm from June to November, versus 426.8 mm at Bramble Cay. The listing also offers a fictional plot on a low-lying atoll. Compare with Erub’s climate and raised inland ground.",
       "show_comparative_charts": true,
       "comparison_source": "retroalimentacion.json",
       "comparison_period": [
         1981,
-        2008
+        2014
       ],
       "highlight_site_ids": [
         "bramble-cay",
@@ -746,21 +747,21 @@
         },
         {
           "variable": "PRECTOTCORR",
-          "unit": "mm/mes"
+          "unit": "mm/month"
         }
       ],
-      "simulation_note": "La altura y vegetación del arriendo son supuestos de la demo. Esta elección no demuestra supervivencia real."
+      "simulation_note": "The plot’s height and vegetation are demo assumptions. This choice does not prove real survival."
     },
     "alice-springs": {
       "selected_site": "alice-springs",
       "correct": false,
-      "title": "Estar lejos del mar no basta",
-      "message": "Alice Springs muestra mayor contraste térmico estacional y mucha menos humedad. Entre junio y noviembre acumula 92.7 mm, frente a 443.9 mm en Bramble Cay. La menor exposición marina no compensa esas diferencias en la regla de esta demo.",
+      "title": "Being far from the sea is not enough",
+      "message": "Alice Springs has a much larger seasonal temperature swing and far less humidity. From June to November it gets 95.7 mm, versus 426.8 mm at Bramble Cay. Less exposure to the sea does not make up for those differences under this demo’s rule.",
       "show_comparative_charts": true,
       "comparison_source": "retroalimentacion.json",
       "comparison_period": [
         1981,
-        2008
+        2014
       ],
       "highlight_site_ids": [
         "bramble-cay",
@@ -778,16 +779,16 @@
         },
         {
           "variable": "PRECTOTCORR",
-          "unit": "mm/mes"
+          "unit": "mm/month"
         }
       ],
-      "simulation_note": "La altura y vegetación del arriendo son supuestos de la demo. Esta elección no demuestra supervivencia real."
+      "simulation_note": "The plot’s height and vegetation are demo assumptions. This choice does not prove real survival."
     }
   },
   "teaching_points": [
-    "Los p evalúan tendencia temporal, no semejanza ni calidad del hábitat.",
-    "La pendiente de Sen cuantifica la magnitud; no es un segundo test con p.",
-    "Mann–Kendall original y Hamed–Rao son variantes del mismo contraste, no dos evidencias independientes.",
-    "No rechazar una tendencia no demuestra estabilidad; ninguna tendencia garantiza supervivencia."
+    "p-values test for a trend over time, not similarity or habitat quality.",
+    "The Sen slope measures the size of the change; it is not a second test with a p-value.",
+    "Original Mann–Kendall and Hamed–Rao are versions of the same test, not two independent pieces of evidence.",
+    "Failing to reject a trend does not prove stability; no trend guarantees survival."
   ]
 }

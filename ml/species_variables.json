@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Three key climate indicators per species, chosen from the 'favorable conditions' listed in the project brief (15 Especies Extintas... PDF) and mapped to what NASA POWER can measure. The brief's numeric ranges are kept for display only: they are NOT validated survival limits.",
+  "indicators": {
+    "t2m_mean": {
+      "label": "Mean air temperature",
+      "unit": "°C",
+      "source": "T2M",
+      "aggregation": "Day-weighted annual mean of monthly means"
+    },
+    "t2m_max_mean": {
+      "label": "Average monthly maximum temperature",
+      "unit": "°C",
+      "source": "T2M_MAX",
+      "aggregation": "Annual mean of each month's hottest-day temperature"
+    },
+    "t2m_min_mean": {
+      "label": "Average monthly minimum temperature",
+      "unit": "°C",
+      "source": "T2M_MIN",
+      "aggregation": "Annual mean of each month's coldest-day temperature"
+    },
+    "thermal_range": {
+      "label": "Monthly temperature range",
+      "unit": "°C",
+      "source": "T2M_MAX − T2M_MIN",
+      "aggregation": "Annual mean of (monthly maximum − monthly minimum)"
+    },
+    "rh2m_mean": {
+      "label": "Mean relative humidity",
+      "unit": "%",
+      "source": "RH2M",
+      "aggregation": "Day-weighted annual mean"
+    },
+    "precip_annual": {
+      "label": "Annual rainfall",
+      "unit": "mm/year",
+      "source": "PRECTOTCORR",
+      "aggregation": "Sum of mm/day × days in month"
+    },
+    "precip_dry_season": {
+      "label": "Dry-season rainfall",
+      "unit": "mm",
+      "source": "PRECTOTCORR",
+      "aggregation": "Rainfall summed over the location's 4 driest months (1981–2025 average cycle)"
+    },
+    "soil_wetness": {
+      "label": "Root-zone soil wetness",
+      "unit": "0–1",
+      "source": "GWETROOT",
+      "aggregation": "Annual mean (0 = dry, 1 = saturated)"
+    },
+    "cloud_cover": {
+      "label": "Cloud cover",
+      "unit": "%",
+      "source": "CLOUD_AMT",
+      "aggregation": "Annual mean"
+    },
+    "surface_temp_mean": {
+      "label": "Mean surface (skin) temperature",
+      "unit": "°C",
+      "source": "TS",
+      "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature"
+    },
+    "surface_temp_warmest_month": {
+      "label": "Warmest-month surface temperature",
+      "unit": "°C",
+      "source": "TS",
+      "aggregation": "Highest monthly mean of the year (heat-stress proxy)"
+    },
+    "wind_speed": {
+      "label": "Wind speed at 2 m",
+      "unit": "m/s",
+      "source": "WS2M",
+      "aggregation": "Annual mean"
+    }
+  },
+  "species": {
+    "melomys": {
+      "variables": [
+        "t2m_max_mean",
+        "precip_annual",
+        "soil_wetness"
+      ],
+      "brief_favorable_conditions": "Elevation > 15 m a.s.l., tropical maritime climate (25–31 °C), non-salinized halophytic grassland, no invasive rats.",
+      "rationale": "Heat and water supply for the herbaceous vegetation it fed and sheltered in. Sea-level rise and storm surge, the main documented threat, are not measured by NASA POWER and are not forecast here."
+    },
+    "sapo-dorado": {
+      "variables": [
+        "rh2m_mean",
+        "t2m_mean",
+        "precip_dry_season"
+      ],
+      "brief_favorable_conditions": "Constant mist (humidity > 90 %), cool temperatures (14–19 °C), predictable seasonal rain and clean temporary pools.",
+      "rationale": "Mist/humidity, cool cloud-forest temperature and the dry-season rain that keeps breeding pools from drying out.",
+      "absolute_value_caution": "Cloud-forest species: the NASA grid cell averages 381 m, far below the cloud forest (around 1,500 m), so absolute temperatures and humidity are several degrees warmer/drier than the habitat. Use the change versus normal, not the absolute value."
+    },
+    "arlequin-chiriqui": {
+      "variables": [
+        "t2m_mean",
+        "cloud_cover",
+        "thermal_range"
+      ],
+      "brief_favorable_conditions": "Cold, well-oxygenated mountain streams (12–17 °C), continuous cloudy canopy and stable daily temperatures.",
+      "rationale": "Air temperature as a stream-temperature proxy, cloudiness and thermal stability (the brief links thermal swings to chytrid outbreaks). Water temperature and oxygen are not available.",
+      "absolute_value_caution": "Montane species: the NASA grid cell is a regional average and cannot resolve mountain-stream microclimates. Prefer the change versus normal over absolute values."
+    },
+    "rana-gastrica": {
+      "variables": [
+        "t2m_mean",
+        "precip_dry_season",
+        "soil_wetness"
+      ],
+      "brief_favorable_conditions": "Shaded rocky streams (15–20 °C), permanent year-round flow, intact pathogen-free rainforest.",
+      "rationale": "Temperature plus dry-season rain and soil water, which together indicate whether streams keep flowing all year."
+    },
+    "darwin-norte": {
+      "variables": [
+        "t2m_mean",
+        "rh2m_mean",
+        "precip_dry_season"
+      ],
+      "brief_favorable_conditions": "Cold ravine microclimate (10–18 °C), humidity > 80 %, native forest and clean streams for larvae.",
+      "rationale": "Cool and humid conditions and the summer-dry-season rain that keeps ravines from drying out.",
+      "absolute_value_caution": "Ravine microclimate species: the regional grid cell cannot resolve shaded ravines. Prefer the change versus normal."
+    },
+    "caracol-oahu": {
+      "variables": [
+        "t2m_mean",
+        "rh2m_mean",
+        "precip_dry_season"
+      ],
+      "brief_favorable_conditions": "Humid montane forest (16–22 °C), constant night dew, bark with epiphytic fungi, no invasive snails.",
+      "rationale": "Temperature, humidity (dew) and dry-season rain, since the brief cites ridge aridification.",
+      "absolute_value_caution": "Montane forest species: the NASA grid cell averages 78 m, so absolute temperatures are warmer than the ridge habitat. Use the change versus normal."
+    },
+    "poouli": {
+      "variables": [
+        "t2m_mean",
+        "t2m_min_mean",
+        "precip_annual"
+      ],
+      "brief_favorable_conditions": "High-elevation cloud forest (> 1,500 m, 11–16 °C), a cold thermal barrier against mosquito vectors, abundant native snails.",
+      "rationale": "Mean and night-time cold, which limit mosquitoes that carry avian malaria, plus rainfall for mosquito breeding and forest.",
+      "absolute_value_caution": "High-elevation species (> 1,500 m in the brief): the NASA grid cell averages 154 m, so absolute temperatures are much warmer than the habitat. Use the change versus normal, not the absolute value."
+    },
+    "pupo-tecopa": {
+      "variables": [
+        "t2m_max_mean",
+        "precip_annual",
+        "soil_wetness"
+      ],
+      "brief_favorable_conditions": "Desert springs with a stable thermal gradient (26–36 °C, never > 40 °C), continuous flow and shallow oxygenated pools.",
+      "rationale": "Context only: extreme heat and water balance around the springs. The springs are geothermal and were altered by people; spring temperature and flow are not available."
+    },
+    "millepora": {
+      "variables": [
+        "surface_temp_mean",
+        "surface_temp_warmest_month",
+        "wind_speed"
+      ],
+      "brief_favorable_conditions": "Clear tropical water with stable temperature (25–28 °C), no prolonged anomalies (> 30 °C), no severe acidification.",
+      "rationale": "Sea-surface temperature and warmest-month heat stress; calm winds favour bleaching. Acidification is not available."
+    },
+    "damisela-galapagos": {
+      "variables": [
+        "surface_temp_mean",
+        "surface_temp_warmest_month",
+        "wind_speed"
+      ],
+      "brief_favorable_conditions": "Cold, nutrient-rich currents (18–23 °C), constant upwelling of zooplankton, shallow rocky reefs.",
+      "rationale": "Sea-surface temperature, El Niño-type warm peaks and winds that drive upwelling. Plankton and currents are not available."
+    },
+    "eslizón-christmas": {
+      "variables": [
+        "t2m_max_mean",
+        "rh2m_mean",
+        "precip_dry_season"
+      ],
+      "brief_favorable_conditions": "Not in the brief (replaces the pika/rabbit row). Forest of Christmas Island.",
+      "rationale": "General forest-climate indicators. Its extinction is attributed to introduced predators, not climate."
+    },
+    "pupo-catarina": {
+      "variables": [
+        "precip_annual",
+        "t2m_max_mean",
+        "soil_wetness"
+      ],
+      "brief_favorable_conditions": "Not in the brief (replaces the lake-cichlid row, whose favorable condition was a positive water balance: rain > evaporation).",
+      "rationale": "Water-balance proxies around the spring. Groundwater extraction, the documented cause, is not climatic."
+    },
+    "pez-mano": {
+      "variables": [
+        "surface_temp_mean",
+        "surface_temp_warmest_month",
+        "wind_speed"
+      ],
+      "brief_favorable_conditions": "Cold temperate sandy bottoms and reefs (11–16 °C), clean coastal water, no trawling.",
+      "rationale": "Sea-surface temperature (Tasmanian waters warm fast) and wind-driven mixing. Seabed temperature is not available."
+    },
+    "pipistrelo-christmas": {
+      "variables": [
+        "t2m_mean",
+        "precip_dry_season",
+        "rh2m_mean"
+      ],
+      "brief_favorable_conditions": "Humid rainforest with regular seasonal rain (24–28 °C), mature hollow trees, high insect biomass.",
+      "rationale": "Temperature, dry-season rain (the brief cites harsher dry seasons cutting insects) and humidity."
+    },
+    "rana-rabbs": {
+      "variables": [
+        "t2m_mean",
+        "precip_dry_season",
+        "cloud_cover"
+      ],
+      "brief_favorable_conditions": "Premontane rainforest (18–23 °C), water-filled tree holes (phytotelmata), stable humid microclimate.",
+      "rationale": "Temperature, dry-season rain that refills tree holes, and cloudiness (the brief cites changing cloud patterns).",
+      "absolute_value_caution": "Premontane species: the NASA grid cell averages 129 m, below the habitat, so absolute temperatures are warmer. Use the change versus normal."
+    }
+  },
+  "rainfall_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact."
+}
