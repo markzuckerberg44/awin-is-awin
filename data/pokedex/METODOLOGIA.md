@@ -47,9 +47,9 @@ Semejanza: RMSE entre los 12 meses típicos de cada candidato y la referencia, s
 
 Todas las rondas se ambientan en 2015 (`scenario_year`), con el archivo 1981–2014 como información disponible antes de decidir. Es una recreación: varias especies desaparecieron antes o durante la cobertura NASA, y no se inventa una fecha histórica de reubicación. Las series posteriores no constituyen datos que se conocían entonces. La vista permite cambiar al análisis 1981–2025, pero la comparación del ejercicio usa siempre 1981–2014 y lo indica explícitamente.
 
-## Fichas de supervivencia
+## Evidencia ecológica adicional
 
-Cada especie tiene 3 requisitos de supervivencia tomados de las «variables favorables» del PDF. Cada uno se contrastó con fuentes publicadas (revisión del 14-11-2026) y se clasificó como `confirmed`, `corrected`, `partly_supported` o `no_published_data`. Solo los valores confirmados o corregidos deben usarse como regla de juego. La mayoría de los rangos de temperatura del PDF no tienen respaldo, porque nadie midió la tolerancia de esas especies antes de su desaparición; se muestran como referencia del documento. Cada requisito climático se enlaza con su variable clave NASA (`nasa_proxy`) cuando existe.
+Los requisitos descriptivos de la revisión anterior se conservan en `requisitos-ecologicos.json`. Sus estados editoriales no validan límites fisiológicos y no deben usarse como reglas numéricas. Para comparar indicadores NASA se utilizan las nuevas fichas numéricas descritas al final.
 
 ## Variables clave por especie
 
@@ -80,3 +80,8 @@ WHERE location_id='erub' AND variable='T2M' AND period='archivo_1981_2014';
 
 Consultar [README.md](README.md) para JSON, SQLite y comandos de validación. Este paquete contiene datos y análisis; la interfaz y el progreso del jugador pertenecen al juego que desarrolle el equipo.
 
+
+
+## Fichas numéricas (esquema 2.0.0)
+
+Las fichas comparables se generan con tres indicadores numéricos por especie. `value` es la media de sus indicadores anuales, con mínimo y máximo observados hasta 2014. La nubosidad usa los años disponibles desde 1984. La lluvia seca de cada ficha fija los meses a partir de la referencia 1981–2014 y los conserva para todos los candidatos; no usa años futuros para definirlos. Las comparaciones emparejan años y unidades. Véase [FICHAS-NUMERICAS.md](FICHAS-NUMERICAS.md) para el contrato, las fuentes y la distinción frente a las series de lluvia seca heredadas del módulo ML. Los requisitos ecológicos narrativos son evidencia adicional, no reglas duras ni tolerancias validadas.
