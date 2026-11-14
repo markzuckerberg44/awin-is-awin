@@ -1,5 +1,10 @@
 # Melomys de Bramble Cay
 
+## Versión simplificada para el juego
+
+La entrega para integrar está en [juego-simplificado/LEEME.md](juego-simplificado/LEEME.md): datos para las series mensual y anual, línea de Sen, Mann–Kendall original y corregido, y retroalimentación comparativa para las tres elecciones. Incluye una vista previa local (`vista-previa.html`): descarga la carpeta y abre el HTML en un navegador. Los p evalúan tendencia, no adecuación del hábitat. La elección combina semejanza climática y condiciones del arriendo ficticio.
+
+
 ## Entrega de análisis e integración
 
 Ver [GUIA-INTEGRACION.md](GUIA-INTEGRACION.md) para el contrato de los JSON, código JavaScript de ejemplo, regla de decisión, interpretación, metodología y fuentes. Las [tablas calculadas](RESULTADOS.md) incluyen pendientes de Sen y Mann–Kendall con corrección de autocorrelación para 1981–2008 y 1981–2025.
