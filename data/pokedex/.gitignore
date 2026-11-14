@@ -1,0 +1,6 @@
+progreso.sqlite*
+*.build.sqlite
+server*.log
+__pycache__/
+tmp/
+test-results.txt

@@ -1,0 +1,873 @@
+{
+  "analysis_date": "2026-11-14",
+  "period": [
+    1981,
+    2025
+  ],
+  "sources": [
+    {
+      "location_id": "bramble-cay",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=143.877&latitude=-9.14244&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/bramble-cay.json",
+      "sha256": "ad32fd930a4f8bc04a029df436c78556e359caf9e00fba6fb73c843c8cf6caa3",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": false
+    },
+    {
+      "location_id": "erub",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=143.771&latitude=-9.589&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/erub.json",
+      "sha256": "b7a9abcc1bc165b2b222e7cd1411679ade89a67e217a3af5a89b270fd7396dc5",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": false
+    },
+    {
+      "location_id": "funafuti",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/funafuti.json",
+      "sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": false
+    },
+    {
+      "location_id": "alice-springs",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/alice-springs.json",
+      "sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": false
+    },
+    {
+      "location_id": "monteverde",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-84.8&latitude=10.3&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/monteverde.json",
+      "sha256": "0ceba3a608f4bd82744f93b60cc05cf1a010e3c9c470255cee978fd38ea3bf18",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "san-gerardo",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-83.8&latitude=9.55&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/san-gerardo.json",
+      "sha256": "4e71de0a74f228c6e6ac988945ef1a67b0e9b0c420a11d1814ee0b12aa3c464c",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "talamanca",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/talamanca.json",
+      "sha256": "05086d7d1b26ac3d9f7b7177fb72ecc4c4e783f1f1b651fa0bd106d2031b1929",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "boquete",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/boquete.json",
+      "sha256": "d7e83afbf90f9d5f6041cb5f67268a48384f179d10a35058a4e1fa3340978cd5",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "conondale",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=152.6&latitude=-26.7&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/conondale.json",
+      "sha256": "0f8ccdc998c7f9a7e02b5b10f921b2917763d7fcd51c468bf64c4cb339cd23ed",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "lamington",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=153.13&latitude=-28.23&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/lamington.json",
+      "sha256": "74d55d9e9ff5dac0fe0da066cfd3ed28c7d0712721b22eb8dd0b16833bf45118",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "nahuelbuta",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.0&latitude=-37.8&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/nahuelbuta.json",
+      "sha256": "d90840a174afe09b8765ba4e95eed9edb1ba74640a720723ab1b3775769048d5",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "valdivia",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.25&latitude=-39.81&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/valdivia.json",
+      "sha256": "c2afff6ea287fa90ac0750e8c3941cf43b6156f5d3147e1ca0393958e422241c",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "koolau",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-157.85&latitude=21.45&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/koolau.json",
+      "sha256": "000c05b8c452aa111f9c3c9f52eaa0c4005905f85e0c02ce89b661127b942a33",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "hanawi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-156.15&latitude=20.75&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/hanawi.json",
+      "sha256": "24404a7308ec2a45ac0db6f59b8a12811e5b648a3fcbb33a5adb2d8cfdb3fba7",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "hakalau",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-155.3&latitude=19.82&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/hakalau.json",
+      "sha256": "f94e407c49d0e998e9c784def4119782ca9ed5dcd5866f3ef0e62b53f99148cc",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "tecopa",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/tecopa.json",
+      "sha256": "7d2b1ad30314e6cbdcd60849e7677f3231ee576925f3afccc06c9e45d82a6924",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "coiba",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/coiba.json",
+      "sha256": "cfff7338355d63a42b5b3d93bcb31dc86da44004f74a97824eb72a2559345513",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "galapagos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/galapagos.json",
+      "sha256": "f4f03f2e29ff4d55ce15895cee241c43b0a4d2e48c81c1e1aa3493d224e8588b",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "christmas",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=105.62&latitude=-10.48&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/christmas.json",
+      "sha256": "d4a0aea14e9472874e244f331a2208c9fd1105e587400777535a51973be97f0a",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "cocos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=96.87&latitude=-12.16&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/cocos.json",
+      "sha256": "4fca9d01e583e0130f5cc924e21ccd336c16abcdea2212e115e695ffc5abe3d0",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "el-potosi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-100.33&latitude=24.87&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/el-potosi.json",
+      "sha256": "2a80a94c024465d5da2bcc121e5a1694ad4ac867bb48f2797a2d956b4bb83400",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "tasmania",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/tasmania.json",
+      "sha256": "2e9623d4f77c25ae95d8a80d0d3f4a4ee1acbcb99c14fb8427a2c54a7e6856e2",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "el-valle",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-80.08&latitude=8.63&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/el-valle.json",
+      "sha256": "ca3829a3a28f19b00a47a81ab5daa35881c2534122d001d3dfdd205339869a3e",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    },
+    {
+      "location_id": "santa-fe",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-81.08&latitude=8.51&format=JSON&start=1981&end=2025",
+      "path": "nasa-power/santa-fe.json",
+      "sha256": "c19071c9460bbd75dd2ee0b3befa4ea82df21c6fa0bae1e531174c017083e80e",
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      },
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "retrieved_for_this_build": true
+    }
+  ]
+}

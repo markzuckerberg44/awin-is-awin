@@ -1,0 +1,809 @@
+{
+  "species": [
+    {
+      "id": "melomys",
+      "number": 1,
+      "name": "Melomys de Bramble Cay",
+      "scientific_name": "Melomys rubicola",
+      "taxonomic_rank": "species",
+      "group": "Mamífero",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "Evaluación australiana 2018 / listado federal 2019",
+      "region": "Australia · estrecho de Torres",
+      "reference_location": "bramble-cay",
+      "last_wild_record_year": 2009,
+      "habitat": "Vegetación herbácea de un cayo bajo.",
+      "threat_summary": "La inundación marina y la pérdida de vegetación sustentan el vínculo climático de este caso.",
+      "climate_attribution": "documented",
+      "source_ids": [
+        "melomys",
+        "erub"
+      ],
+      "pdf_threshold_claim": "Elevación >15 m; 25–31 °C: no usar como tolerancias demostradas.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "elevación de parcela",
+        "inundación marina",
+        "vegetación/alimento",
+        "depredadores invasores"
+      ],
+      "analogue_candidate": "erub",
+      "pdf_row": 1,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "sapo-dorado",
+      "number": 2,
+      "name": "Sapo dorado de Monteverde",
+      "scientific_name": "Incilius periglenes",
+      "taxonomic_rank": "species",
+      "group": "Anfibio",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "UICN, ficha de especie",
+      "region": "Costa Rica · Monteverde",
+      "reference_location": "monteverde",
+      "last_wild_record_year": 1989,
+      "habitat": "Bosque nuboso y charcas temporales de reproducción.",
+      "threat_summary": "Sequía asociada a ENSO y enfermedad se han propuesto; la atribución específica al calentamiento antropogénico es discutida.",
+      "climate_attribution": "disputed",
+      "source_ids": [
+        "golden",
+        "golden_climate"
+      ],
+      "pdf_threshold_claim": "14–19 °C; HR >90 %: sin fuente de tolerancia en el PDF.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "niebla",
+        "hidroperíodo de charcas",
+        "cobertura de bosque",
+        "quitridio"
+      ],
+      "analogue_candidate": "san-gerardo",
+      "pdf_row": 2,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "arlequin-chiriqui",
+      "number": 3,
+      "name": "Rana arlequín de Chiriquí",
+      "scientific_name": "Atelopus chiriquiensis",
+      "taxonomic_rank": "species",
+      "group": "Anfibio",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "UICN ASG, 2020",
+      "region": "Costa Rica y Panamá · Talamanca",
+      "reference_location": "talamanca",
+      "last_wild_record_year": 1996,
+      "habitat": "Bosque montano y arroyos.",
+      "threat_summary": "El declive se atribuye al menos parcialmente a quitridiomicosis; no está demostrado aquí que el calentamiento sea la causa única.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "atelopus"
+      ],
+      "pdf_threshold_claim": "12–17 °C en arroyos: rango no validado.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura del agua",
+        "oxígeno disuelto",
+        "caudal",
+        "quitridio"
+      ],
+      "analogue_candidate": "boquete",
+      "pdf_row": 3,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "rana-gastrica",
+      "number": 4,
+      "name": "Rana incubadora gástrica del sur",
+      "scientific_name": "Rheobatrachus silus",
+      "taxonomic_rank": "species",
+      "group": "Anfibio",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "Australian Museum / IUCN 2022",
+      "region": "Australia · Queensland",
+      "reference_location": "conondale",
+      "last_wild_record_year": 1981,
+      "habitat": "Arroyos de bosque en las cordilleras Conondale y Blackall.",
+      "threat_summary": "Las causas no se resolvieron antes de desaparecer; la enfermedad es una hipótesis relevante. No atribuir causalidad climática con estas series.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "gastric"
+      ],
+      "pdf_threshold_claim": "15–20 °C de agua: no verificado como tolerancia.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura del agua",
+        "caudal",
+        "bosque ribereño",
+        "patógenos"
+      ],
+      "analogue_candidate": "lamington",
+      "pdf_row": 4,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "darwin-norte",
+      "number": 5,
+      "name": "Ranita de Darwin del norte",
+      "scientific_name": "Rhinoderma rufum",
+      "taxonomic_rank": "species",
+      "group": "Anfibio",
+      "system": "terrestrial",
+      "status": "En peligro crítico, posiblemente extinta",
+      "status_basis": "Plan oficial chileno, 2026",
+      "region": "Chile · zona central y centro-sur",
+      "reference_location": "nahuelbuta",
+      "last_wild_record_year": 1981,
+      "habitat": "Bosque nativo y cursos de agua; punto climático regional, no población actual confirmada.",
+      "threat_summary": "No registrada desde 1981. Pérdida de hábitat y enfermedad requieren evaluación; las series modernas no reconstruyen por sí solas su desaparición.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "rufum"
+      ],
+      "pdf_threshold_claim": "10–18 °C; HR >80 %: no verificados.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "bosque nativo",
+        "agua para larvas",
+        "quitridio",
+        "microclima"
+      ],
+      "analogue_candidate": "valdivia",
+      "pdf_row": 5,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "caracol-oahu",
+      "number": 6,
+      "name": "Caracol arbóreo de Oʻahu",
+      "scientific_name": "Achatinella apexfulva",
+      "taxonomic_rank": "species",
+      "group": "Molusco",
+      "system": "terrestrial",
+      "status": "Último individuo conocido muerto",
+      "status_basis": "Hawaii DLNR, 2019; no sustituye una categoría UICN",
+      "region": "Estados Unidos · Oʻahu",
+      "reference_location": "koolau",
+      "last_wild_record_year": null,
+      "habitat": "Bosques de las montañas Koʻolau.",
+      "threat_summary": "El último individuo conocido murió en cautiverio en 2019. Las amenazas a caracoles hawaianos incluyen invasoras y clima; no se prueba causalidad climática exclusiva para esta especie.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "snail"
+      ],
+      "pdf_threshold_claim": "16–22 °C: sin respaldo de tolerancia en el documento.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "depredadores introducidos",
+        "bosque huésped",
+        "humedad microambiental",
+        "alimento epífito"
+      ],
+      "analogue_candidate": "hanawi",
+      "pdf_row": 6,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "poouli",
+      "number": 7,
+      "name": "Poʻouli",
+      "scientific_name": "Melamprosops phaeosoma",
+      "taxonomic_rank": "species",
+      "group": "Ave",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "USFWS, retiro por extinción en 2023",
+      "region": "Estados Unidos · Maui",
+      "reference_location": "hanawi",
+      "last_wild_record_year": 2004,
+      "habitat": "Bosque húmedo montano de Maui.",
+      "threat_summary": "La pérdida de hábitat, especies introducidas y enfermedad son relevantes; el documento no demuestra que la malaria causada por calentamiento explique por sí sola la extinción.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "poouli",
+        "poouli_habitat"
+      ],
+      "pdf_threshold_claim": "11–16 °C y >1500 m: no tratar como barrera garantizada contra mosquitos.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "enfermedad y vectores",
+        "bosque",
+        "caracoles/alimento",
+        "depredadores"
+      ],
+      "analogue_candidate": "hakalau",
+      "pdf_row": 7,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "pupo-tecopa",
+      "number": 8,
+      "name": "Pupo de Tecopa",
+      "scientific_name": "Cyprinodon nevadensis calidae",
+      "taxonomic_rank": "subspecies",
+      "group": "Pez · subespecie",
+      "system": "freshwater",
+      "status": "Extinta",
+      "status_basis": "USFWS, 1981",
+      "region": "Estados Unidos · California",
+      "reference_location": "tecopa",
+      "last_wild_record_year": null,
+      "habitat": "Efluentes de dos manantiales termales de Tecopa.",
+      "threat_summary": "La modificación de manantiales para baños alteró el flujo y las condiciones térmicas; también se consideran peces introducidos. No es evidencia de extinción por calentamiento global.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "tecopa"
+      ],
+      "pdf_threshold_claim": "26–36 °C y nunca >40 °C: no adoptado; el informe oficial contiene otra descripción térmica.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura del agua",
+        "caudal",
+        "salinidad",
+        "oxígeno",
+        "peces introducidos"
+      ],
+      "analogue_candidate": null,
+      "pdf_row": 8,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "millepora",
+      "number": 9,
+      "name": "Hidrocoral Millepora",
+      "scientific_name": "Millepora boschmai",
+      "taxonomic_rank": "species",
+      "group": "Cnidario",
+      "system": "marine",
+      "status": "Datos insuficientes",
+      "status_basis": "UICN, publicada 2024 (evaluación 2022)",
+      "region": "Panamá e Indo-Pacífico",
+      "reference_location": "coiba",
+      "last_wild_record_year": null,
+      "habitat": "Arrecifes someros; distribución y taxonomía inciertas.",
+      "threat_summary": "Fuertes declives y posible extirpación en Panamá asociados a ENSO; no equivale a extinción global. La evaluación más reciente consultada es DD.",
+      "climate_attribution": "regional_documented",
+      "source_ids": [
+        "millepora"
+      ],
+      "pdf_threshold_claim": "25–28 °C, anomalías >30 °C: no usados como umbrales universales.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura superficial marina",
+        "estrés térmico acumulado",
+        "pH",
+        "hábitat arrecifal"
+      ],
+      "analogue_candidate": null,
+      "pdf_row": 9,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "damisela-galapagos",
+      "number": 10,
+      "name": "Damisela de las Galápagos",
+      "scientific_name": "Azurina eupalama",
+      "taxonomic_rank": "species",
+      "group": "Pez",
+      "system": "marine",
+      "status": "En peligro crítico; posible extinción en fuentes citadas",
+      "status_basis": "Fundación Charles Darwin / anotación IUCN 2019",
+      "region": "Ecuador · Galápagos",
+      "reference_location": "galapagos",
+      "last_wild_record_year": 1983,
+      "habitat": "Aguas costeras, costas rocosas y zonas de arrecife.",
+      "threat_summary": "ENSO se relaciona con su desaparición aparente; estado y evidencia deben distinguir extinción posible de confirmada.",
+      "climate_attribution": "regional_documented",
+      "source_ids": [
+        "azurina",
+        "azurina_pe"
+      ],
+      "pdf_threshold_claim": "18–23 °C: no verificado como tolerancia.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura del mar",
+        "productividad/plancton",
+        "surgencia",
+        "oxígeno"
+      ],
+      "analogue_candidate": null,
+      "pdf_row": 10,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "eslizón-christmas",
+      "number": 11,
+      "name": "Eslizón forestal de Christmas",
+      "scientific_name": "Emoia nativitatis",
+      "taxonomic_rank": "species",
+      "group": "Reptil",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "Australia, declaración 2021",
+      "region": "Australia · Christmas Island",
+      "reference_location": "christmas",
+      "last_wild_record_year": 2010,
+      "habitat": "Bosque de Christmas Island.",
+      "threat_summary": "Extinción confirmada; depredación por especies introducidas es relevante. No se atribuye aquí a cambio climático. Reemplaza la fila que mezclaba pika y conejo.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "skink",
+        "skink_detail"
+      ],
+      "pdf_threshold_claim": "No se transfieren rangos del pika/conejo a este reptil.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "depredadores invasores",
+        "bosque",
+        "refugios",
+        "alimento"
+      ],
+      "analogue_candidate": "cocos",
+      "pdf_row": 11,
+      "replacement_of": "Pika / conejo; dos taxones mezclados",
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "pupo-catarina",
+      "number": 12,
+      "name": "Pupo de Catarina",
+      "scientific_name": "Megupsilon aporus",
+      "taxonomic_rank": "species",
+      "group": "Pez",
+      "system": "freshwater",
+      "status": "Extinta",
+      "status_basis": "Valdés González et al., Oryx",
+      "region": "México · Nuevo León",
+      "reference_location": "el-potosi",
+      "last_wild_record_year": 1994,
+      "habitat": "Manantial de El Potosí y su entorno acuático.",
+      "threat_summary": "La extracción de agua y degradación del hábitat están documentadas; murió el último cautivo en 2014. Reemplaza la fila sin especie precisa de peces lacustres.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "catarina"
+      ],
+      "pdf_threshold_claim": "No se transfieren rangos del conjunto Chirostoma/Menidia.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "nivel freático",
+        "caudal",
+        "temperatura del agua",
+        "oxígeno",
+        "peces invasores"
+      ],
+      "analogue_candidate": null,
+      "pdf_row": 12,
+      "replacement_of": "Cíclido / Chirostoma / Menidia; sin especie definida",
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "pez-mano",
+      "number": 13,
+      "name": "Pez mano liso",
+      "scientific_name": "Sympterichthys unipennis",
+      "taxonomic_rank": "species",
+      "group": "Pez",
+      "system": "marine",
+      "status": "Datos insuficientes",
+      "status_basis": "Revisión UICN, 2021",
+      "region": "Australia · Tasmania",
+      "reference_location": "tasmania",
+      "last_wild_record_year": null,
+      "habitat": "Entorno marino costero de Tasmania; registros limitados.",
+      "threat_summary": "La clasificación EX de 2020 fue revisada a DD. No hay base para afirmar una extinción climática confirmada.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "handfish"
+      ],
+      "pdf_threshold_claim": "11–16 °C: sin respaldo como límite biológico.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "temperatura del fondo",
+        "sustrato",
+        "presiones pesqueras",
+        "muestreos de presencia"
+      ],
+      "analogue_candidate": null,
+      "pdf_row": 13,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "pipistrelo-christmas",
+      "number": 14,
+      "name": "Pipistrelo de Christmas",
+      "scientific_name": "Pipistrellus murrayi",
+      "taxonomic_rank": "species",
+      "group": "Mamífero",
+      "system": "terrestrial",
+      "status": "Extinta",
+      "status_basis": "Australia, listado 2021",
+      "region": "Australia · Christmas Island",
+      "reference_location": "christmas",
+      "last_wild_record_year": 2009,
+      "habitat": "Selva tropical, árboles de refugio y zonas de alimentación de insectos.",
+      "threat_summary": "La causa del declive es incierta y multifactorial; invasoras y perturbación son hipótesis importantes. No presentar sequía como causa demostrada.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "bat",
+        "bat_habitat"
+      ],
+      "pdf_threshold_claim": "24–28 °C: no adoptado como tolerancia.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "refugios arbóreos",
+        "insectos",
+        "invasoras",
+        "enfermedad"
+      ],
+      "analogue_candidate": "cocos",
+      "pdf_row": 14,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    },
+    {
+      "id": "rana-rabbs",
+      "number": 15,
+      "name": "Rana arbórea de Rabbs",
+      "scientific_name": "Ecnomiohyla rabborum",
+      "taxonomic_rank": "species",
+      "group": "Anfibio",
+      "system": "terrestrial",
+      "status": "En peligro crítico, posiblemente extinta",
+      "status_basis": "UICN, publicada 2019",
+      "region": "Panamá · El Valle de Antón",
+      "reference_location": "el-valle",
+      "last_wild_record_year": 2008,
+      "habitat": "Bosque nuboso montano; cavidades arbóreas con agua.",
+      "threat_summary": "El declive y la enfermedad requieren distinguirse de una atribución causal al calentamiento. La muerte del último cautivo conocido no equivale por sí sola a categoría EX.",
+      "climate_attribution": "not_established",
+      "source_ids": [
+        "rabbs",
+        "rabbs_habitat"
+      ],
+      "pdf_threshold_claim": "18–23 °C: no validado como límite de supervivencia.",
+      "validated_tolerance_limits": null,
+      "required_local_evidence": [
+        "fitotelmas",
+        "bosque y árboles",
+        "quitridio",
+        "microclima"
+      ],
+      "analogue_candidate": "santa-fe",
+      "pdf_row": 15,
+      "replacement_of": null,
+      "review_date": "2026-11-14"
+    }
+  ],
+  "locations": [
+    {
+      "id": "bramble-cay",
+      "name": "Bramble Cay",
+      "latitude": -9.14244,
+      "longitude": 143.877,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "erub",
+      "name": "Erub",
+      "latitude": -9.589,
+      "longitude": 143.771,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "funafuti",
+      "name": "Funafuti",
+      "latitude": -8.524,
+      "longitude": 179.195,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "alice-springs",
+      "name": "Alice Springs",
+      "latitude": -23.698,
+      "longitude": 133.88,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "monteverde",
+      "name": "Monteverde, entorno regional",
+      "latitude": 10.3,
+      "longitude": -84.8,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "san-gerardo",
+      "name": "San Gerardo de Dota, entorno regional",
+      "latitude": 9.55,
+      "longitude": -83.8,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "talamanca",
+      "name": "Talamanca, entorno regional",
+      "latitude": 9.4,
+      "longitude": -83.5,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "boquete",
+      "name": "Boquete, entorno regional",
+      "latitude": 8.78,
+      "longitude": -82.43,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "conondale",
+      "name": "Conondale, entorno regional",
+      "latitude": -26.7,
+      "longitude": 152.6,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "lamington",
+      "name": "Lamington, entorno regional",
+      "latitude": -28.23,
+      "longitude": 153.13,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "nahuelbuta",
+      "name": "Nahuelbuta, entorno regional histórico",
+      "latitude": -37.8,
+      "longitude": -73.0,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "valdivia",
+      "name": "Valdivia, comparación regional",
+      "latitude": -39.81,
+      "longitude": -73.25,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "koolau",
+      "name": "Koʻolau, Oʻahu, entorno regional",
+      "latitude": 21.45,
+      "longitude": -157.85,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "hanawi",
+      "name": "Hanawi, Maui, entorno regional",
+      "latitude": 20.75,
+      "longitude": -156.15,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "hakalau",
+      "name": "Hakalau, Hawaiʻi, comparación regional",
+      "latitude": 19.82,
+      "longitude": -155.3,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "tecopa",
+      "name": "Tecopa Hot Springs, entorno regional",
+      "latitude": 35.88,
+      "longitude": -116.23,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "coiba",
+      "name": "Coiba, entorno regional marino",
+      "latitude": 7.6,
+      "longitude": -81.7,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "galapagos",
+      "name": "Santa Cruz, Galápagos, entorno regional",
+      "latitude": -0.75,
+      "longitude": -90.3,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "christmas",
+      "name": "Christmas Island, entorno regional",
+      "latitude": -10.48,
+      "longitude": 105.62,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "cocos",
+      "name": "Cocos (Keeling), comparación regional",
+      "latitude": -12.16,
+      "longitude": 96.87,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "el-potosi",
+      "name": "El Potosí, Nuevo León, entorno regional",
+      "latitude": 24.87,
+      "longitude": -100.33,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "tasmania",
+      "name": "Canal D’Entrecasteaux, entorno regional",
+      "latitude": -43.2,
+      "longitude": 147.2,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "el-valle",
+      "name": "El Valle de Antón, entorno regional",
+      "latitude": 8.63,
+      "longitude": -80.08,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    },
+    {
+      "id": "santa-fe",
+      "name": "Santa Fe, Panamá, comparación regional",
+      "latitude": 8.51,
+      "longitude": -81.08,
+      "coordinate_basis": "Punto aproximado seleccionado por el analista dentro del entorno regional citado; no observación de parcela ni microhábitat."
+    }
+  ],
+  "sources": [
+    {
+      "id": "melomys",
+      "title": "Evaluación australiana del melomys, 2018",
+      "url": "https://www.dcceew.gov.au/sites/default/files/env/consultations/d678432e-1ee8-4316-b1ef-af29634401d7/files/consultation-document-bramble-cay-melomys-2018.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "erub",
+      "title": "Plan municipal de Erub",
+      "url": "https://tsirc.qld.gov.au/wp-content/uploads/2024/11/Part-7-Erub-Darnley-Island-local-plan-code.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "golden",
+      "title": "IUCN: Golden Toad",
+      "url": "https://nc.iucnredlist.org/redlist/amazing-species/incilius-periglenes/pdfs/original/incilius-periglenes.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "golden_climate",
+      "title": "Anchukaitis y Evans, 2010: variabilidad y sapo dorado",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20194772/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "atelopus",
+      "title": "IUCN Amphibian Specialist Group, actualización 2020",
+      "url": "https://www.iucn-amphibians.org/iucn-red-list-update/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "gastric",
+      "title": "Australian Museum: Australia’s Lost Frogs",
+      "url": "https://australian.museum/learn/animals/frogs/herpetology-collection-australias-lost-frogs/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "rufum",
+      "title": "Chile: plan de recuperación de ranitas de Darwin, 2026",
+      "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2026/04/09/44420/01/2791873.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "snail",
+      "title": "Hawaii DLNR: muerte del último Achatinella apexfulva conocido, 2019",
+      "url": "https://dlnr.hawaii.gov/blog/2019/01/04/nr19-001/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "poouli",
+      "title": "USFWS: especies retiradas por extinción",
+      "url": "https://ecos.fws.gov/ecp/report/species-delisted",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "poouli_habitat",
+      "title": "Hawaii DLNR: Poʻouli",
+      "url": "https://dlnr.hawaii.gov/wildlife/birds/poouli/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "tecopa",
+      "title": "USFWS: extinción del pupo de Tecopa, 1981",
+      "url": "https://www.fws.gov/sites/default/files/documents/historic-news-releases/1981/19811118.PDF",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "millepora",
+      "title": "IUCN Millepora boschmai, evaluación publicada 2024",
+      "url": "https://doi.org/10.2305/IUCN.UK.2024-2.RLTS.T133300A174746646.en",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "azurina",
+      "title": "Fundación Charles Darwin: Azurina eupalama",
+      "url": "https://datazone.darwinfoundation.org/en/checklist/?species=13668",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "azurina_pe",
+      "title": "IUCN: especies posiblemente extintas, 2019",
+      "url": "https://nc.iucnredlist.org/redlist/content/attachment_files/2019_1_RL_Stats_Table_9.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "skink",
+      "title": "Australia State of the Environment 2021: biodiversidad",
+      "url": "https://soe.dcceew.gov.au/overview/environment/biodiversity",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "skink_detail",
+      "title": "Evaluación australiana de Emoia nativitatis",
+      "url": "https://www.dcceew.gov.au/sites/default/files/env/consultations/27bdb669-bdd2-4778-b679-652da87c20c1/files/consultation-document-emoia-nativitatus.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "catarina",
+      "title": "Valdés González et al.: extinción de Megupsilon aporus, Oryx",
+      "url": "https://www.cambridge.org/core/journals/oryx/article/extinction-of-the-catarina-pupfish-megupsilon-aporus-and-the-implications-for-the-conservation-of-freshwater-fish-in-mexico/B13134408D6EDDA38FEB6D9A474E2154",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "handfish",
+      "title": "IUCN Sympterichthys unipennis, revisión 2021",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-3.RLTS.T123423283A207621852.en",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "bat",
+      "title": "Australia State of the Environment 2021: mamíferos",
+      "url": "https://soe.dcceew.gov.au/sites/default/files/2022-07/soe2021-biodiversity.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "bat_habitat",
+      "title": "Plan australiano del pipistrelo de Christmas",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/pipistrelle-murrayi.pdf",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "rabbs",
+      "title": "IUCN Ecnomiohyla rabborum, publicada 2019",
+      "url": "https://doi.org/10.2305/IUCN.UK.2019-1.RLTS.T85341796A54357363.en",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "rabbs_habitat",
+      "title": "AMNH: Ecnomiohyla rabborum",
+      "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Anura/Hylidae/Ecnomiohyla/Ecnomiohyla-rabborum",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "power",
+      "title": "NASA POWER, metodología meteorológica",
+      "url": "https://power.larc.nasa.gov/docs/methodology/data/sources_meteorology/",
+      "accessed": "2026-11-14"
+    },
+    {
+      "id": "hamed",
+      "title": "Hamed y Rao, 1998",
+      "url": "https://doi.org/10.1016/S0022-1694(97)00125-X",
+      "accessed": "2026-11-14"
+    }
+  ]
+}
