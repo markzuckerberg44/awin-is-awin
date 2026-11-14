@@ -11,8 +11,8 @@ For each of the 15 species, a forecast of its **three key survival indicators** 
 | `output/<species_id>.json` | Observed 1981–2025, forecast 2026–2030 with an 80 % range, comparison with the 1991–2020 average, an English `summary_text`, and a backtest |
 | `output/summary.json` | One row per species × location × indicator: 2030 forecast, change vs. normal, backtest skill |
 | `output/charts/<species_id>.png` | Ready-made chart of the habitat's three indicators |
-| `species_variables.json` | The three indicators per species, why they were chosen, and the project brief's favorable conditions |
-| `data/power_extra_annual.json` | Extra NASA POWER indicators (max/min temperature, surface/sea temperature, soil wetness, cloud cover, wind) with source hashes |
+
+The species' key variables themselves (which three, why, and their 1981–2025 values) live in the Pokédex data, not here: `data/pokedex/variables-clave.json`, the `key_indicator_values` table of `pokedex.sqlite`, and `key_variables` / `key_variable_series` in each `data/pokedex/export/<species_id>.json`. This module only reads them.
 
 ## Using it in the game
 
@@ -43,7 +43,7 @@ Two ways to integrate:
 
 ## Method
 
-**Data.** NASA POWER monthly data 1981–2025 for 24 locations. Temperature, humidity and rainfall come from the project database. The other indicators come from `data/power_extra_annual.json`. Each indicator is turned into one value per year; the aggregation rule is in `species_variables.json`.
+**Data.** Annual key-indicator values 1981–2025 for 24 locations, read from `data/pokedex/pokedex.sqlite` (table `key_indicator_values`). They are built from NASA POWER monthly data; the aggregation rule for each indicator is in `data/pokedex/variables-clave.json`.
 
 **Models.** Four simple, explainable models compete for each series:
 
@@ -68,7 +68,7 @@ Selected models: 49 linear trend, 29 Theil–Sen, 28 recent mean, 27 historical 
 ## Limits
 
 - **Regional climate only.** These are statistical extrapolations of a regional grid cell, not climate-model projections (CMIP6). There are no emission scenarios, El Niño forecasts or abrupt changes.
-- **Rainfall data.** Reanalysis rainfall can contain artificial shifts; see `rainfall_caution` in `species_variables.json`.
+- **Rainfall data.** Reanalysis rainfall can contain artificial shifts; see `rainfall_caution` in `data/pokedex/variables-clave.json`.
 - **Missing variables.** Water temperature, stream flow, oxygen, sea level and acidification are not available. For aquatic species the indicators are proxies, and `why_these_variables` says so.
 - **Sea-surface temperature.** It is skin temperature from the grid cell. It behaves like sea temperature at Coiba and Galápagos; Tasmania's cell is likely influenced by land.
 
@@ -79,7 +79,6 @@ From the repository root, with Python 3 and `numpy` (`matplotlib` only for chart
 ```sh
 python ml/forecast.py --charts   # rebuilds ml/output/
 python ml/verify.py              # checks outputs, intervals and the backtest
-python ml/fetch_power.py         # optional: re-download the extra NASA variables (internet)
 ```
 
-`forecast.py` is deterministic. To change a species' indicators, edit `species_variables.json` and rerun. A new indicator needs to be added to `forecast.py` or `fetch_power.py` first.
+`forecast.py` is deterministic. To change a species' indicators, edit `data/pokedex/variables-clave.json`, rebuild the database (`python construir_db.py` in `data/pokedex`) and rerun the forecast. A new NASA indicator must first be added to `data/pokedex/descargar_nasa_extra.py`.

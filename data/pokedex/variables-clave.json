@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "description": "Three key climate indicators per species, chosen from the 'favorable conditions' listed in the project brief (15 Especies Extintas... PDF) and mapped to what NASA POWER can measure. The brief's numeric ranges are kept for display only: they are NOT validated survival limits.",
+  "description": "Three key survival indicators per species, chosen from the favorable conditions in the project brief (\"15 Especies Extintas por Cambio Climático y sus Variables de Supervivencia\") and mapped to what NASA POWER can measure. Annual values 1981–2025 are stored in pokedex.sqlite (key_indicator_values) and in each species export. The brief's numeric ranges are shown for context only: they are NOT validated survival limits.",
   "indicators": {
     "t2m_mean": {
       "label": "Mean air temperature",

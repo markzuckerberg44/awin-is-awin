@@ -28,6 +28,41 @@ def analyze(x):
                 method='Hamed–Rao 1998, all significant lags on detrended ranks',
                 p_sensitivity={lag:float(2*norm.sf(abs(test.z))) if test.var_s>0 and np.isfinite(test.z) else None for lag,test in sensitivity.items()})
 
+LOCAL_KEY={'t2m_mean','rh2m_mean','precip_annual','precip_dry_season'}
+def build_key_variables(db,cat,series):
+    """Variables clave por especie: definición en variables-clave.json; valores anuales 1981–2025.
+    Temperatura, humedad y lluvia se calculan aquí desde las series mensuales; las demás vienen de
+    nasa-power-extra-anual.json (descargar_nasa_extra.py)."""
+    spec=json.loads((ROOT/'variables-clave.json').read_text(encoding='utf-8'))
+    extra=json.loads((ROOT/'nasa-power-extra-anual.json').read_text(encoding='utf-8'))
+    assert {s['id'] for s in cat['species']}==set(spec['species'])
+    for iid,m in spec['indicators'].items():db.execute('INSERT INTO key_indicators VALUES (?,?,?,?,?)',(iid,m['label'],m['unit'],m['source'],m['aggregation']))
+    for sid,s in spec['species'].items():
+        assert len(s['variables'])==3 and len(set(s['variables']))==3
+        for rank,iid in enumerate(s['variables'],1):db.execute('INSERT INTO species_key_variables VALUES (?,?,?)',(sid,rank,iid))
+    values={};dry={}
+    for lid,ser in series.items():
+        monthly=ser['monthly'];cycle={m:sum(r['PRECTOTCORR'] for r in monthly if r['month']==m)/45 for m in range(1,13)}
+        dry[lid]=sorted(sorted(cycle,key=lambda m:(cycle[m],m))[:4])
+        for m in dry[lid]:db.execute('INSERT INTO dry_season VALUES (?,?)',(lid,m))
+        v={k:{} for k in LOCAL_KEY}
+        for a in ser['annual']:
+            y=a['year'];v['t2m_mean'][y]=a['T2M'];v['rh2m_mean'][y]=a['RH2M'];v['precip_annual'][y]=a['PRECTOTCORR']
+            v['precip_dry_season'][y]=sum(r['PRECTOTCORR'] for r in monthly if r['year']==y and r['month'] in dry[lid])
+        for iid,per in extra['series'].get(lid,{}).items():v[iid]={int(y):x for y,x in per.items() if x is not None}
+        values[lid]=v
+        for iid,per in v.items():
+            for y,x in per.items():db.execute('INSERT INTO key_indicator_values VALUES (?,?,?,?)',(lid,iid,y,x))
+    return spec,values,dry
+def key_card(spec,sid,dry,lids,values):
+    s=spec['species'][sid]
+    return dict(variables=[dict(id=i,rank=k,**spec['indicators'][i]) for k,i in enumerate(s['variables'],1)],
+                brief_favorable_conditions=s['brief_favorable_conditions'],brief_ranges_validated=False,why_these_variables=s['rationale'],
+                absolute_value_caution=s.get('absolute_value_caution'),
+                rainfall_caution=spec['rainfall_caution'] if any(i.startswith('precip') for i in s['variables']) else None,
+                dry_season_months={l:dry[l] for l in lids} if 'precip_dry_season' in s['variables'] else None,
+                not_available={l:[i for i in s['variables'] if not values[l].get(i)] for l in lids if any(not values[l].get(i) for i in s['variables'])} or None,
+                cloud_cover_starts=1984 if 'cloud_cover' in s['variables'] else None)
 def main():
     cat=json.loads((ROOT/'catalogo-curado.json').read_text(encoding='utf-8'));manifest=json.loads((ROOT/'manifest-nasa.json').read_text(encoding='utf-8'))
     tmp=ROOT/'pokedex.build.sqlite'
@@ -46,6 +81,10 @@ def main():
     CREATE TABLE climatology(location_id TEXT REFERENCES locations(id),month INTEGER CHECK(month BETWEEN 1 AND 12),variable TEXT REFERENCES variables(id),value REAL NOT NULL,unit TEXT NOT NULL,start_year INTEGER,end_year INTEGER,PRIMARY KEY(location_id,month,variable));
     CREATE TABLE scenarios(species_id TEXT PRIMARY KEY REFERENCES species(id),kind TEXT NOT NULL,payload TEXT NOT NULL CHECK(json_valid(payload)));
     CREATE TABLE scenario_locations(species_id TEXT REFERENCES scenarios(species_id),location_id TEXT REFERENCES locations(id),role TEXT CHECK(role IN ('reference','candidate')),PRIMARY KEY(species_id,location_id));
+    CREATE TABLE key_indicators(id TEXT PRIMARY KEY,label TEXT NOT NULL,unit TEXT NOT NULL,source TEXT NOT NULL,aggregation TEXT NOT NULL);
+    CREATE TABLE species_key_variables(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank BETWEEN 1 AND 3),indicator_id TEXT REFERENCES key_indicators(id),PRIMARY KEY(species_id,rank),UNIQUE(species_id,indicator_id));
+    CREATE TABLE key_indicator_values(location_id TEXT REFERENCES locations(id),indicator_id TEXT REFERENCES key_indicators(id),year INTEGER CHECK(year BETWEEN 1981 AND 2025),value REAL NOT NULL,PRIMARY KEY(location_id,indicator_id,year));
+    CREATE TABLE dry_season(location_id TEXT REFERENCES locations(id),month INTEGER CHECK(month BETWEEN 1 AND 12),PRIMARY KEY(location_id,month));
     CREATE TABLE audit(pdf_row INTEGER PRIMARY KEY,species_id TEXT REFERENCES species(id),pdf_threshold_claim TEXT,disposition TEXT);
     ''')
     db.executemany('INSERT INTO metadata VALUES (?,?)',[('schema_version','1.0.0'),('review_date','2026-11-14'),('title','Biodiversity and climate: a collection of 15 species'),('climate_scope','NASA POWER: regional air climate, not water or microhabitat'),('scenario_year',str(SCENARIO_YEAR)),('archive_period',f'1981-{ARCHIVE_END}')])
@@ -135,13 +174,14 @@ def main():
         for lid in scenario['candidate_locations']:db.execute('INSERT INTO scenario_locations VALUES (?,?,?)',(sid,lid,'candidate'))
     assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
     assert not db.execute('PRAGMA foreign_key_check').fetchall()
-    db.commit();counts={t:db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0] for t in ['species','locations','observations','trends','climatology','scenarios','sources']};db.close();os.replace(tmp,ROOT/'pokedex.sqlite')
+    key_spec,key_values,dry=build_key_variables(db,cat,series)
+    db.commit();counts={t:db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0] for t in ['species','locations','observations','trends','climatology','scenarios','sources','key_indicator_values']};db.close();os.replace(tmp,ROOT/'pokedex.sqlite')
     export=ROOT/'export';export.mkdir(exist_ok=True)
     (export/'catalogo.json').write_text(jd(dict(schema_version='1.0.0',species=cat['species'],locations=cat['locations'],sources=cat['sources'],variables=varmeta,counts=counts)),encoding='utf-8')
     for sp in cat['species']:
         sid=sp['id'];scenario=scenarios[sid];lids=[scenario['reference_location']]+scenario['candidate_locations']
-        payload=dict(species=sp,scenario=scenario,locations=[l for l in cat['locations'] if l['id'] in lids],series={lid:series[lid] for lid in lids},climatology={lid:climates[lid] for lid in lids},reference_trends={period:{v:stats[(scenario['reference_location'],v,period)] for v in VARS} for period in PERIODS},sources=[s for s in cat['sources'] if s['id'] in sp['source_ids']+['power','hamed']])
+        payload=dict(species=sp,scenario=scenario,locations=[l for l in cat['locations'] if l['id'] in lids],series={lid:series[lid] for lid in lids},climatology={lid:climates[lid] for lid in lids},reference_trends={period:{v:stats[(scenario['reference_location'],v,period)] for v in VARS} for period in PERIODS},sources=[s for s in cat['sources'] if s['id'] in sp['source_ids']+['power','hamed']],key_variables=key_card(key_spec,sid,dry,lids,key_values),key_variable_series={lid:{v:[dict(year=y,value=x) for y,x in sorted(key_values[lid].get(v,{}).items())] for v in key_spec['species'][sid]['variables']} for lid in lids})
         (export/(sid+'.json')).write_text(jd(payload),encoding='utf-8')
-    (ROOT/'validacion.json').write_text(jd(dict(counts=counts,sqlite_integrity='ok',foreign_keys='ok',nasa_months_per_location=540,annual_years_per_location=45,climate_rounds=10,evidence_rounds=5,physical_tolerance_thresholds_validated=0)),encoding='utf-8')
+    (ROOT/'validacion.json').write_text(jd(dict(counts=counts,sqlite_integrity='ok',foreign_keys='ok',nasa_months_per_location=540,annual_years_per_location=45,climate_rounds=10,evidence_rounds=5,key_variables_per_species=3,physical_tolerance_thresholds_validated=0)),encoding='utf-8')
     print(counts)
 if __name__=='__main__':main()

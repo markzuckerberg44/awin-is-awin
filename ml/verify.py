@@ -9,8 +9,8 @@ import forecast as F
 
 
 def main():
-    spec = json.loads((ML / 'species_variables.json').read_text(encoding='utf-8'))
-    catalog = json.loads((F.ROOT / 'data/pokedex/export/catalogo.json').read_text(encoding='utf-8'))
+    spec = json.loads((F.POKEDEX / 'variables-clave.json').read_text(encoding='utf-8'))
+    catalog = json.loads((F.POKEDEX / 'export/catalogo.json').read_text(encoding='utf-8'))
     db = sqlite3.connect(F.DB.as_uri() + '?mode=ro', uri=True)
     data, _ = F.load_series(db)
     rng = np.random.default_rng(1)

@@ -11,6 +11,8 @@ Este directorio es un **paquete de datos**, no la interfaz del juego ni una API 
 | `pokedex.sqlite` | Consultas SQL sobre el catálogo completo y las 24 localizaciones |
 | `manifest-nasa.json` y `nasa-power/` | Consultas NASA, unidades originales, respuestas originales y hashes |
 | `catalogo-curado.json` | Fichas revisadas y trazabilidad de las sustituciones |
+| `variables-clave.json` | Las 3 variables principales de supervivencia de cada especie, con su justificación |
+| `nasa-power-extra-anual.json` | Variables NASA adicionales (máx./mín., mar, suelo, nubes, viento) en valores anuales, con hashes |
 | `METODOLOGIA.md` | Cálculos, interpretación, supuestos y límites científicos |
 
 Hay 15 entradas totales (incluido el melomys), 24 localizaciones y datos de 1981–2025. Diez fichas tienen comparación climática entre tres candidatos. Las cinco acuáticas tienen ejercicios sobre evidencia faltante: **aún no incluyen tres refugios acuáticos validados ni series del agua**.
@@ -48,6 +50,59 @@ Para una inspección rápida también se pueden descargar desde GitHub Raw, por 
 https://raw.githubusercontent.com/markzuckerberg44/awin-is-awin/data-analysis/data/pokedex/export/catalogo.json
 
 Para distribuir el juego, copiar una versión fija de los datos o fijar el SHA de un commit en la URL; una rama puede cambiar. GitHub almacena los archivos: **no ejecuta consultas SQL ni el backend del juego**.
+
+## Variables clave por especie
+
+Cada especie tiene **sus propias 3 variables principales de supervivencia**. Salen de las «variables favorables» del PDF del proyecto, traducidas a lo que NASA POWER puede medir. La definición, el motivo de cada elección y las condiciones del PDF están en [`variables-clave.json`](variables-clave.json). Los rangos numéricos del PDF se muestran solo como contexto: no son límites de supervivencia validados.
+
+| Especie | Variable 1 | Variable 2 | Variable 3 |
+|---|---|---|---|
+| `melomys` · Bramble Cay melomys | Average monthly maximum temperature (`t2m_max_mean`) | Annual rainfall (`precip_annual`) | Root-zone soil wetness (`soil_wetness`) |
+| `sapo-dorado` · Golden toad | Mean relative humidity (`rh2m_mean`) | Mean air temperature (`t2m_mean`) | Dry-season rainfall (`precip_dry_season`) |
+| `arlequin-chiriqui` · Chiriquí harlequin frog | Mean air temperature (`t2m_mean`) | Cloud cover (`cloud_cover`) | Monthly temperature range (`thermal_range`) |
+| `rana-gastrica` · Southern gastric-brooding frog | Mean air temperature (`t2m_mean`) | Dry-season rainfall (`precip_dry_season`) | Root-zone soil wetness (`soil_wetness`) |
+| `darwin-norte` · Northern Darwin’s frog | Mean air temperature (`t2m_mean`) | Mean relative humidity (`rh2m_mean`) | Dry-season rainfall (`precip_dry_season`) |
+| `caracol-oahu` · Oʻahu tree snail | Mean air temperature (`t2m_mean`) | Mean relative humidity (`rh2m_mean`) | Dry-season rainfall (`precip_dry_season`) |
+| `poouli` · Poʻouli | Mean air temperature (`t2m_mean`) | Average monthly minimum temperature (`t2m_min_mean`) | Annual rainfall (`precip_annual`) |
+| `pupo-tecopa` · Tecopa pupfish | Average monthly maximum temperature (`t2m_max_mean`) | Annual rainfall (`precip_annual`) | Root-zone soil wetness (`soil_wetness`) |
+| `millepora` · Millepora hydrocoral | Mean surface (skin) temperature (`surface_temp_mean`) | Warmest-month surface temperature (`surface_temp_warmest_month`) | Wind speed at 2 m (`wind_speed`) |
+| `damisela-galapagos` · Galápagos damsel | Mean surface (skin) temperature (`surface_temp_mean`) | Warmest-month surface temperature (`surface_temp_warmest_month`) | Wind speed at 2 m (`wind_speed`) |
+| `eslizón-christmas` · Christmas Island forest skink | Average monthly maximum temperature (`t2m_max_mean`) | Mean relative humidity (`rh2m_mean`) | Dry-season rainfall (`precip_dry_season`) |
+| `pupo-catarina` · Catarina pupfish | Annual rainfall (`precip_annual`) | Average monthly maximum temperature (`t2m_max_mean`) | Root-zone soil wetness (`soil_wetness`) |
+| `pez-mano` · Smooth handfish | Mean surface (skin) temperature (`surface_temp_mean`) | Warmest-month surface temperature (`surface_temp_warmest_month`) | Wind speed at 2 m (`wind_speed`) |
+| `pipistrelo-christmas` · Christmas Island pipistrelle | Mean air temperature (`t2m_mean`) | Dry-season rainfall (`precip_dry_season`) | Mean relative humidity (`rh2m_mean`) |
+| `rana-rabbs` · Rabbs’ fringe-limbed treefrog | Mean air temperature (`t2m_mean`) | Dry-season rainfall (`precip_dry_season`) | Cloud cover (`cloud_cover`) |
+
+**En cada ficha** (`export/<id>.json`):
+
+- `key_variables`: las 3 variables con `label`, `unit` y cómo se calculan. Incluye además:
+  - las condiciones del PDF (`brief_favorable_conditions`, con `brief_ranges_validated: false`);
+  - el motivo de la elección (`why_these_variables`);
+  - avisos: `absolute_value_caution` para especies de montaña, `rainfall_caution`, `not_available` y `dry_season_months`.
+- `key_variable_series`: un valor por año (1981–2025) de cada variable, para el hábitat y, en las especies terrestres, sus 3 refugios candidatos. Una lista vacía significa que NASA no tiene esa variable en ese lugar; en ese caso `not_available` lo indica.
+
+```js
+const ficha = await cargarJSON(`${base}/${encodeURIComponent(id)}.json`);
+for (const v of ficha.key_variables.variables) {
+  const serie = ficha.key_variable_series[ficha.scenario.reference_location][v.id]; // [{year, value}, ...]
+  mostrarVariable(v.label, v.unit, serie);
+}
+```
+
+**En SQLite:** `key_indicators` (definiciones), `species_key_variables` (3 por especie, con `rank`), `key_indicator_values` (valor anual por localización) y `dry_season` (meses secos de cada lugar).
+
+```sql
+SELECT k.label, k.unit, v.year, v.value
+FROM species_key_variables s
+JOIN key_indicators k ON k.id = s.indicator_id
+JOIN key_indicator_values v ON v.indicator_id = s.indicator_id
+WHERE s.species_id = 'sapo-dorado' AND v.location_id = 'monteverde'
+ORDER BY s.rank, v.year;
+```
+
+**Origen de los datos.** Temperatura media, humedad, lluvia anual y lluvia de la estación seca se calculan desde las series de este paquete. Las otras (temperatura máxima y mínima, temperatura de superficie o del mar, humedad del suelo, nubosidad y viento) vienen de [`nasa-power-extra-anual.json`](nasa-power-extra-anual.json), con los hashes de las respuestas de NASA; `descargar_nasa_extra.py` las vuelve a descargar. La nubosidad empieza en 1984. La humedad del suelo no existe sobre océano (Funafuti, Cocos).
+
+El pronóstico 2026–2030 de estas mismas variables está en [`ml/`](../../ml/README.md).
 
 ## Predicciones (machine learning)
 

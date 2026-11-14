@@ -1,18 +1,20 @@
 """Climate forecast 2026–2030 for each species' three key survival indicators.
 
-Self-contained module: reads the project database (data/pokedex/pokedex.sqlite) and
-ml/data/power_extra_annual.json, and writes ml/output/. It does not change the game data.
+Self-contained module: reads the species' key variables from the project data
+(data/pokedex/variables-clave.json and the key_indicator_values table of pokedex.sqlite)
+and writes ml/output/. It does not change the game data.
 
 Usage (from the repository root):  python ml/forecast.py        (requires numpy only)
 Optional charts:                     python ml/forecast.py --charts   (also requires matplotlib)
 """
-import calendar, json, sqlite3, sys
+import json, sqlite3, sys
 from pathlib import Path
 import numpy as np
 
 ML = Path(__file__).resolve().parent
 ROOT = ML.parent
-DB = ROOT / 'data/pokedex/pokedex.sqlite'
+POKEDEX = ROOT / 'data/pokedex'
+DB = POKEDEX / 'pokedex.sqlite'
 OUT = ML / 'output'
 
 FIRST_YEAR, LAST_OBSERVED = 1981, 2025
@@ -33,34 +35,14 @@ MODELS = {
 
 # ---------- data ----------
 
-def local_indicators(db):
-    """Indicators computed from T2M, RH2M and PRECTOTCORR already stored in the project database."""
-    out = {}
-    for (lid,) in db.execute('SELECT id FROM locations'):
-        monthly = {}
-        for date, var, value in db.execute("SELECT date,variable,value FROM observations WHERE location_id=? AND frequency='monthly'", (lid,)):
-            monthly.setdefault(var, {})[(int(date[:4]), int(date[5:]))] = value  # PRECTOTCORR here is mm/month
-        cycle = {m: np.mean([monthly['PRECTOTCORR'][(y, m)] for y in range(FIRST_YEAR, LAST_OBSERVED + 1)]) for m in range(1, 13)}
-        dry = sorted(sorted(cycle, key=cycle.get)[:4])
-        series = {k: {} for k in ('t2m_mean', 'rh2m_mean', 'precip_annual', 'precip_dry_season')}
-        for y in range(FIRST_YEAR, LAST_OBSERVED + 1):
-            days = [calendar.monthrange(y, m)[1] for m in range(1, 13)]
-            for key, var in (('t2m_mean', 'T2M'), ('rh2m_mean', 'RH2M')):
-                series[key][y] = sum(monthly[var][(y, m)] * d for m, d in zip(range(1, 13), days)) / sum(days)
-            series['precip_annual'][y] = sum(monthly['PRECTOTCORR'][(y, m)] for m in range(1, 13))
-            series['precip_dry_season'][y] = sum(monthly['PRECTOTCORR'][(y, m)] for m in dry)
-        out[lid] = dict(series=series, dry_months=dry)
-    return out
-
-
 def load_series(db):
-    local = local_indicators(db)
-    extra = json.loads((ML / 'data/power_extra_annual.json').read_text(encoding='utf-8'))
-    data = {lid: dict(v['series']) for lid, v in local.items()}
-    for lid, per in extra['series'].items():
-        for ind, values in per.items():
-            data[lid][ind] = {int(y): v for y, v in values.items()}
-    return data, {lid: v['dry_months'] for lid, v in local.items()}
+    """Annual key-indicator values (1981–2025) and dry-season months, as stored in the project database."""
+    data, dry = {}, {}
+    for lid, iid, year, value in db.execute('SELECT location_id, indicator_id, year, value FROM key_indicator_values'):
+        data.setdefault(lid, {}).setdefault(iid, {})[year] = value
+    for lid, month in db.execute('SELECT location_id, month FROM dry_season ORDER BY month'):
+        dry.setdefault(lid, []).append(month)
+    return data, dry
 
 
 # ---------- models ----------
@@ -164,12 +146,12 @@ def summary_text(meta, s):
 
 def main(charts=False):
     db = sqlite3.connect(DB.as_uri() + '?mode=ro', uri=True)
-    spec = json.loads((ML / 'species_variables.json').read_text(encoding='utf-8'))
-    catalog = json.loads((ROOT / 'data/pokedex/export/catalogo.json').read_text(encoding='utf-8'))
+    spec = json.loads((POKEDEX / 'variables-clave.json').read_text(encoding='utf-8'))
+    catalog = json.loads((POKEDEX / 'export/catalogo.json').read_text(encoding='utf-8'))
     names = {l['id']: l['name'] for l in catalog['locations']}
     scen = {sid: json.loads(p) for sid, p in db.execute('SELECT species_id,payload FROM scenarios')}
     data, dry_months = load_series(db)
-    elev = json.loads((ML / 'data/power_extra_annual.json').read_text(encoding='utf-8'))['grid_elevation_m']
+    elev = json.loads((POKEDEX / 'nasa-power-extra-anual.json').read_text(encoding='utf-8'))['grid_elevation_m']
     OUT.mkdir(exist_ok=True)
     summary = []
     for sp in catalog['species']:

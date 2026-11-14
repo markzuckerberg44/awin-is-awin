@@ -1,13 +1,13 @@
-"""Re-downloads the extra NASA POWER variables and rebuilds ml/data/power_extra_annual.json.
+"""Re-downloads the extra NASA POWER variables and rebuilds nasa-power-extra-anual.json.
 
-Only needed to refresh or audit the data (the archived file is enough to run forecast.py).
-Usage (repository root, internet required):  python ml/fetch_power.py
+Only needed to refresh or audit the data (the archived file is enough to build the database).
+Usage (from data/pokedex, internet required):  python descargar_nasa_extra.py   then   python construir_db.py
 """
 import calendar, hashlib, json, time, urllib.request
 from pathlib import Path
 
-ML = Path(__file__).resolve().parent
-PATH = ML / 'data/power_extra_annual.json'
+ROOT = Path(__file__).resolve().parent
+PATH = ROOT / 'nasa-power-extra-anual.json'
 PARAMS = 'T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN'
 
 
@@ -29,7 +29,7 @@ def indicator(P, name, y, fill):
 
 def main():
     archive = json.loads(PATH.read_text(encoding='utf-8'))
-    catalog = json.loads((ML.parent / 'data/pokedex/export/catalogo.json').read_text(encoding='utf-8'))
+    catalog = json.loads((ROOT / 'export/catalogo.json').read_text(encoding='utf-8'))
     coords = {l['id']: (l['latitude'], l['longitude']) for l in catalog['locations']}
     changed = []
     for lid, per in archive['series'].items():

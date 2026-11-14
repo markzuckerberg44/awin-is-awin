@@ -47,6 +47,10 @@ Semejanza: RMSE entre los 12 meses típicos de cada candidato y la referencia, s
 
 Todas las rondas se ambientan en 2015 (`scenario_year`), con el archivo 1981–2014 como información disponible antes de decidir. Es una recreación: varias especies desaparecieron antes o durante la cobertura NASA, y no se inventa una fecha histórica de reubicación. Las series posteriores no constituyen datos que se conocían entonces. La vista permite cambiar al análisis 1981–2025, pero la comparación del ejercicio usa siempre 1981–2014 y lo indica explícitamente.
 
+## Variables clave por especie
+
+Cada especie tiene 3 variables principales tomadas de las «variables favorables» del PDF y llevadas a indicadores anuales de NASA POWER. La regla de cálculo de cada indicador está en `variables-clave.json` (campo `aggregation`). La estación seca de cada lugar son sus 4 meses de menor lluvia media en 1981–2025. Los valores de aire (temperatura, humedad, lluvia) se derivan de las series mensuales ya auditadas. Los demás se agregaron a partir de respuestas mensuales de NASA POWER calculadas en el navegador. Se archivaron solo los valores anuales con el SHA-256 de cada respuesta, y el cálculo se comprobó contra una muestra mensual. `verificar_datos.py` recalcula todos los valores. Los rangos del PDF no se validaron y no se usan como umbrales.
+
 ## Pronóstico y calidad de la lluvia
 
 El pronóstico 2026–2030 vive en el módulo independiente [`ml/`](../../ml/README.md).

@@ -30,7 +30,7 @@
   "tecopa": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
   "valdivia": "930be05f626b5a39dc7fbf3df313121ffd4b22cbb6f3097542a173a651d39b3e"
  },
- "raw_note": "Raw responses were fetched in a browser and aggregated there; only annual indicators were archived. fetch_power.py re-downloads the raw responses, checks these SHA-256 hashes (a new download may differ if NASA revises data) and recomputes the indicators.",
+ "raw_note": "Raw responses were fetched in a browser and aggregated there; only annual indicators were archived. descargar_nasa_extra.py re-downloads the raw responses, checks these SHA-256 hashes (a new download may differ if NASA revises data) and recomputes the indicators.",
  "surface_temp_seasonal_range_c": {
   "alice-springs": 19.44,
   "boquete": 1.79,
