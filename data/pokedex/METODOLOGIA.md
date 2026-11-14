@@ -47,6 +47,10 @@ Semejanza: RMSE entre los 12 meses típicos de cada candidato y la referencia, s
 
 Todas las rondas se ambientan en 2015 (`scenario_year`), con el archivo 1981–2014 como información disponible antes de decidir. Es una recreación: varias especies desaparecieron antes o durante la cobertura NASA, y no se inventa una fecha histórica de reubicación. Las series posteriores no constituyen datos que se conocían entonces. La vista permite cambiar al análisis 1981–2025, pero la comparación del ejercicio usa siempre 1981–2014 y lo indica explícitamente.
 
+## Fichas de supervivencia
+
+Cada especie tiene 3 requisitos de supervivencia tomados de las «variables favorables» del PDF. Cada uno se contrastó con fuentes publicadas (revisión del 14-11-2026) y se clasificó como `confirmed`, `corrected`, `partly_supported` o `no_published_data`. Solo los valores confirmados o corregidos deben usarse como regla de juego. La mayoría de los rangos de temperatura del PDF no tienen respaldo, porque nadie midió la tolerancia de esas especies antes de su desaparición; se muestran como referencia del documento. Cada requisito climático se enlaza con su variable clave NASA (`nasa_proxy`) cuando existe.
+
 ## Variables clave por especie
 
 Cada especie tiene 3 variables principales tomadas de las «variables favorables» del PDF y llevadas a indicadores anuales de NASA POWER. La regla de cálculo de cada indicador está en `variables-clave.json` (campo `aggregation`). La estación seca de cada lugar son sus 4 meses de menor lluvia media en 1981–2025. Los valores de aire (temperatura, humedad, lluvia) se derivan de las series mensuales ya auditadas. Los demás se agregaron a partir de respuestas mensuales de NASA POWER calculadas en el navegador. Se archivaron solo los valores anuales con el SHA-256 de cada respuesta, y el cálculo se comprobó contra una muestra mensual. `verificar_datos.py` recalcula todos los valores. Los rangos del PDF no se validaron y no se usan como umbrales.

@@ -54,6 +54,22 @@ def build_key_variables(db,cat,series):
         for iid,per in v.items():
             for y,x in per.items():db.execute('INSERT INTO key_indicator_values VALUES (?,?,?,?)',(lid,iid,y,x))
     return spec,values,dry
+def build_survival_cards(db,key_spec):
+    """Ficha de supervivencia: 3 requisitos por especie, verificados contra fuentes (fichas-supervivencia.json)."""
+    cards=json.loads((ROOT/'fichas-supervivencia.json').read_text(encoding='utf-8'))
+    assert set(cards['species'])==set(key_spec['species'])
+    for sid,card in cards['species'].items():
+        reqs=card['requirements'];assert [r['rank'] for r in reqs]==[1,2,3]
+        for r in reqs:
+            assert r['status'] in cards['status_labels'] and r['sources'] and all(s['url'].startswith('https://') for s in r['sources'])
+            assert r['nasa_proxy'] is None or r['nasa_proxy'] in key_spec['species'][sid]['variables']
+            g=r['range'] or {}
+            db.execute('INSERT INTO survival_requirements VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',(sid,r['rank'],r['requirement'],r['category'],r['brief_value'],r['value'],g.get('min'),g.get('max'),g.get('unit'),r['status'],r['evidence'],r['nasa_proxy'],jd(r['sources'])))
+    return cards
+def survival_card(cards,sid):
+    c=cards['species'][sid]
+    return dict(requirements=[dict(r,status_label=cards['status_labels'][r['status']]) for r in c['requirements']],
+                brief_claims_not_supported=c['brief_claims_not_supported'],use_rule=cards['use_rule'],review_date=cards['review_date'])
 def key_card(spec,sid,dry,lids,values):
     s=spec['species'][sid]
     return dict(variables=[dict(id=i,rank=k,**spec['indicators'][i]) for k,i in enumerate(s['variables'],1)],
@@ -85,6 +101,7 @@ def main():
     CREATE TABLE species_key_variables(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank BETWEEN 1 AND 3),indicator_id TEXT REFERENCES key_indicators(id),PRIMARY KEY(species_id,rank),UNIQUE(species_id,indicator_id));
     CREATE TABLE key_indicator_values(location_id TEXT REFERENCES locations(id),indicator_id TEXT REFERENCES key_indicators(id),year INTEGER CHECK(year BETWEEN 1981 AND 2025),value REAL NOT NULL,PRIMARY KEY(location_id,indicator_id,year));
     CREATE TABLE dry_season(location_id TEXT REFERENCES locations(id),month INTEGER CHECK(month BETWEEN 1 AND 12),PRIMARY KEY(location_id,month));
+    CREATE TABLE survival_requirements(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank BETWEEN 1 AND 3),requirement TEXT NOT NULL,category TEXT NOT NULL,brief_value TEXT NOT NULL,value TEXT NOT NULL,range_min REAL,range_max REAL,range_unit TEXT,status TEXT NOT NULL CHECK(status IN ('confirmed','corrected','partly_supported','no_published_data')),evidence TEXT NOT NULL,nasa_proxy TEXT REFERENCES key_indicators(id),sources TEXT NOT NULL CHECK(json_valid(sources)),PRIMARY KEY(species_id,rank));
     CREATE TABLE audit(pdf_row INTEGER PRIMARY KEY,species_id TEXT REFERENCES species(id),pdf_threshold_claim TEXT,disposition TEXT);
     ''')
     db.executemany('INSERT INTO metadata VALUES (?,?)',[('schema_version','1.0.0'),('review_date','2026-11-14'),('title','Biodiversity and climate: a collection of 15 species'),('climate_scope','NASA POWER: regional air climate, not water or microhabitat'),('scenario_year',str(SCENARIO_YEAR)),('archive_period',f'1981-{ARCHIVE_END}')])
@@ -175,12 +192,13 @@ def main():
     assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
     assert not db.execute('PRAGMA foreign_key_check').fetchall()
     key_spec,key_values,dry=build_key_variables(db,cat,series)
-    db.commit();counts={t:db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0] for t in ['species','locations','observations','trends','climatology','scenarios','sources','key_indicator_values']};db.close();os.replace(tmp,ROOT/'pokedex.sqlite')
+    survival=build_survival_cards(db,key_spec)
+    db.commit();counts={t:db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0] for t in ['species','locations','observations','trends','climatology','scenarios','sources','key_indicator_values','survival_requirements']};db.close();os.replace(tmp,ROOT/'pokedex.sqlite')
     export=ROOT/'export';export.mkdir(exist_ok=True)
     (export/'catalogo.json').write_text(jd(dict(schema_version='1.0.0',species=cat['species'],locations=cat['locations'],sources=cat['sources'],variables=varmeta,counts=counts)),encoding='utf-8')
     for sp in cat['species']:
         sid=sp['id'];scenario=scenarios[sid];lids=[scenario['reference_location']]+scenario['candidate_locations']
-        payload=dict(species=sp,scenario=scenario,locations=[l for l in cat['locations'] if l['id'] in lids],series={lid:series[lid] for lid in lids},climatology={lid:climates[lid] for lid in lids},reference_trends={period:{v:stats[(scenario['reference_location'],v,period)] for v in VARS} for period in PERIODS},sources=[s for s in cat['sources'] if s['id'] in sp['source_ids']+['power','hamed']],key_variables=key_card(key_spec,sid,dry,lids,key_values),key_variable_series={lid:{v:[dict(year=y,value=x) for y,x in sorted(key_values[lid].get(v,{}).items())] for v in key_spec['species'][sid]['variables']} for lid in lids})
+        payload=dict(species=sp,scenario=scenario,locations=[l for l in cat['locations'] if l['id'] in lids],series={lid:series[lid] for lid in lids},climatology={lid:climates[lid] for lid in lids},reference_trends={period:{v:stats[(scenario['reference_location'],v,period)] for v in VARS} for period in PERIODS},sources=[s for s in cat['sources'] if s['id'] in sp['source_ids']+['power','hamed']],key_variables=key_card(key_spec,sid,dry,lids,key_values),survival_card=survival_card(survival,sid),key_variable_series={lid:{v:[dict(year=y,value=x) for y,x in sorted(key_values[lid].get(v,{}).items())] for v in key_spec['species'][sid]['variables']} for lid in lids})
         (export/(sid+'.json')).write_text(jd(payload),encoding='utf-8')
     (ROOT/'validacion.json').write_text(jd(dict(counts=counts,sqlite_integrity='ok',foreign_keys='ok',nasa_months_per_location=540,annual_years_per_location=45,climate_rounds=10,evidence_rounds=5,key_variables_per_species=3,physical_tolerance_thresholds_validated=0)),encoding='utf-8')
     print(counts)

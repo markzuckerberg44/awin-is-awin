@@ -1,0 +1,1061 @@
+{
+  "schema_version": "1.0.0",
+  "review_date": "2026-11-14",
+  "description": "Survival card for each species: its 3 main survival requirements. Each starts from the \"favorable conditions\" in the project brief (\"15 Especies Extintas por Cambio Climático y sus Variables de Supervivencia\") and was checked against published sources. Requirements may be non-climatic (vegetation, sea level, predators, disease); nasa_proxy names the NASA key variable that can track it, when one exists.",
+  "status_labels": {
+    "confirmed": "Confirmed by sources",
+    "corrected": "Corrected (the brief was wrong)",
+    "partly_supported": "Partly supported (qualitative or related-species evidence)",
+    "no_published_data": "Brief only (no published data)"
+  },
+  "use_rule": "Only confirmed or corrected ranges may be used as hard rules in the game. Show partly_supported and no_published_data values as approximate guidance with their label.",
+  "species": {
+    "melomys": {
+      "requirements": [
+        {
+          "requirement": "Land that seawater does not reach",
+          "category": "sea_level",
+          "brief_value": "Elevation > 15 m a.s.l.",
+          "value": "Vegetated ground above storm-surge level. Bramble Cay itself rose only about 3 m above high tide.",
+          "range": null,
+          "status": "corrected",
+          "evidence": "The species lived on a ~4 ha sand cay with a maximum elevation of about 3 m above high tide; repeated ocean inundation from storm surges destroyed its vegetation.",
+          "sources": [
+            {
+              "title": "Waller et al. 2017, Wildlife Research: The Bramble Cay melomys, a first mammalian extinction caused by human-induced climate change?",
+              "url": "https://publish.csiro.au/wr/WR16157"
+            },
+            {
+              "title": "Christian Science Monitor 2016: first mammal to go extinct from man-made climate change",
+              "url": "https://m.csmonitor.com/Science/2016/0615/Meet-the-first-known-mammal-to-go-extinct-from-manmade-climate-change"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Sea level and storm surge are not in NASA POWER; the melomys package includes global sea-level data.",
+          "rank": 1
+        },
+        {
+          "requirement": "Herbaceous vegetation for food and shelter",
+          "category": "vegetation",
+          "brief_value": "Non-salinized halophytic grassland",
+          "value": "Herb cover on the cay fell from 2.16 ha (2004) to 0.065 ha (March 2014).",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Vegetation was its primary food; its collapse preceded the extinction.",
+          "sources": [
+            {
+              "title": "Waller et al. 2017 (ANU research portal summary)",
+              "url": "https://researchportalplus.anu.edu.au/en/publications/the-bramble-cay-melomys-melomys-rubicola-rodentiamuridae-a-first-/"
+            },
+            {
+              "title": "Waller et al. 2017, Wildlife Research: The Bramble Cay melomys, a first mammalian extinction caused by human-induced climate change?",
+              "url": "https://publish.csiro.au/wr/WR16157"
+            }
+          ],
+          "nasa_proxy": "soil_wetness",
+          "proxy_note": "Root-zone soil wetness is only an indirect proxy for plant growth.",
+          "rank": 2
+        },
+        {
+          "requirement": "Warm tropical maritime climate",
+          "category": "temperature",
+          "brief_value": "25–31 °C",
+          "value": "25–31 °C (regional climate, not a measured tolerance)",
+          "range": {
+            "min": 25,
+            "max": 31,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "No study measured this rodent's temperature tolerance; the range simply matches the tropical climate where it lived.",
+          "sources": [
+            {
+              "title": "Waller et al. 2017, Wildlife Research: The Bramble Cay melomys, a first mammalian extinction caused by human-induced climate change?",
+              "url": "https://publish.csiro.au/wr/WR16157"
+            }
+          ],
+          "nasa_proxy": "t2m_max_mean",
+          "proxy_note": "Comparable: the grid cell is at sea level, like the cay. NASA uses average monthly maximum temperature, while the brief's range is general.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": [
+        "Elevation > 15 m: the cay never reached that height."
+      ]
+    },
+    "sapo-dorado": {
+      "requirements": [
+        {
+          "requirement": "Cold, wet elfin cloud forest at 1,500–1,620 m",
+          "category": "habitat",
+          "brief_value": "Constant mist (humidity > 90 %)",
+          "value": "Elfin cloud forest on a cold, wet ridge (Brillante), 1,500–1,620 m. Humidity was never measured for the species.",
+          "range": {
+            "min": 1500,
+            "max": 1620,
+            "unit": "m"
+          },
+          "status": "partly_supported",
+          "evidence": "Its whole range was a few km² of cold, wet ridge-top cloud forest; the >90 % humidity figure has no species-specific source.",
+          "sources": [
+            {
+              "title": "Wikipedia: Golden toad",
+              "url": "https://en.wikipedia.org/wiki/Golden_toad"
+            },
+            {
+              "title": "AmphibiaWeb: Incilius periglenes",
+              "url": "https://amphibiaweb.org/species/253"
+            }
+          ],
+          "nasa_proxy": "rh2m_mean",
+          "proxy_note": "Not comparable in absolute terms: NASA's cell averages 381 m. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 1
+        },
+        {
+          "requirement": "Cool temperatures",
+          "category": "temperature",
+          "brief_value": "14–19 °C",
+          "value": "14–19 °C (from the project brief; no tolerance study)",
+          "range": {
+            "min": 14,
+            "max": 19,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "No temperature tolerance was ever measured. Before the 1987 collapse, local temperature anomalies reached record highs.",
+          "sources": [
+            {
+              "title": "Pounds & Crump 1994, Conservation Biology: Amphibian declines and climate disturbance",
+              "url": "https://research.fit.edu/media/site-specific/researchfitedu/coast-climate-adaptation-library/latin-america-and-caribbean/central-america/Pounds--Crump.--1994.--Amphibian-Declines--Climate-Disturbances..pdf"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Use the change versus normal: the NASA cell is far warmer than the ridge. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 2
+        },
+        {
+          "requirement": "Shallow rain pools during the April–June breeding season",
+          "category": "water",
+          "brief_value": "Predictable seasonal rain and clean temporary pools",
+          "value": "Rain-filled pools among tree roots, often no deeper than about 2.5 cm (one inch), that last through April–June.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Toads bred in very shallow rainwater pools; in 1987 the dry season was unusually warm and dry and local stream flow hit a record low.",
+          "sources": [
+            {
+              "title": "Wikipedia: Golden toad",
+              "url": "https://en.wikipedia.org/wiki/Golden_toad"
+            },
+            {
+              "title": "Pounds & Crump 1994, Conservation Biology: Amphibian declines and climate disturbance",
+              "url": "https://research.fit.edu/media/site-specific/researchfitedu/coast-climate-adaptation-library/latin-america-and-caribbean/central-america/Pounds--Crump.--1994.--Amphibian-Declines--Climate-Disturbances..pdf"
+            }
+          ],
+          "nasa_proxy": "precip_dry_season",
+          "proxy_note": "Dry-season rainfall trend only; pool depth is not measured.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "arlequin-chiriqui": {
+      "requirements": [
+        {
+          "requirement": "Montane forest streams at 1,400–2,500 m",
+          "category": "habitat",
+          "brief_value": "Cold, well-oxygenated mountain streams (12–17 °C)",
+          "value": "Stream margins in cool, humid montane forest at 1,400–2,500 m; eggs and tadpoles develop in forest streams. Water temperature and oxygen were never measured.",
+          "range": {
+            "min": 1400,
+            "max": 2500,
+            "unit": "m"
+          },
+          "status": "partly_supported",
+          "evidence": "Elevation and stream breeding are documented; the 12–17 °C water range has no source.",
+          "sources": [
+            {
+              "title": "AmphibiaWeb: Atelopus chiriquiensis",
+              "url": "https://amphibiaweb.org/species/40"
+            },
+            {
+              "title": "Artensterben: Chiriqui harlequin frog (citing Savage 2002)",
+              "url": "https://www.artensterben.de/en/chiriqui-harlequin-frog/"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Air temperature of a 1,018 m grid cell; not stream temperature.",
+          "rank": 1
+        },
+        {
+          "requirement": "Shaded, cloudy forest canopy",
+          "category": "habitat",
+          "brief_value": "Continuous cloud canopy",
+          "value": "Cool, humid cloud forest; females favour shaded forest away from streams.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "The habitat is described as cool, humid cloud forest; canopy cover was never quantified.",
+          "sources": [
+            {
+              "title": "AmphibiaWeb: Atelopus chiriquiensis",
+              "url": "https://amphibiaweb.org/species/40"
+            }
+          ],
+          "nasa_proxy": "cloud_cover",
+          "proxy_note": "NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 2
+        },
+        {
+          "requirement": "Freedom from chytrid fungus",
+          "category": "disease",
+          "brief_value": "Daily thermal stability",
+          "value": "No chytrid fungus (Batrachochytrium dendrobatidis); stable temperature was not shown to matter for this species.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "The decline is probably linked to chytridiomycosis; habitat loss and introduced trout were also threats. A thermal-stability link is a hypothesis.",
+          "sources": [
+            {
+              "title": "Wikipedia: Atelopus chiriquiensis (citing IUCN ASG 2020)",
+              "url": "https://en.wikipedia-on-ipfs.org/wiki/Atelopus_chiriquiensis"
+            }
+          ],
+          "nasa_proxy": "thermal_range",
+          "proxy_note": "Monthly temperature range is a regional proxy for thermal stability.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "rana-gastrica": {
+      "requirements": [
+        {
+          "requirement": "Rocky rainforest streams and rock pools",
+          "category": "habitat",
+          "brief_value": "Shaded rocky watercourses",
+          "value": "Rocky creek beds, adjacent pools and rock pools in rainforest and wet eucalypt forest of the Conondale and Blackall ranges (type locality 500 m).",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "It was mostly aquatic and lived along rocky streams.",
+          "sources": [
+            {
+              "title": "Animal Diversity Web: Rheobatrachus silus",
+              "url": "https://animaldiversity.org/accounts/Rheobatrachus_silus"
+            },
+            {
+              "title": "Amphibian Species of the World: Rheobatrachus silus",
+              "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Anura/Myobatrachoidea/Myobatrachidae/Rheobatrachus/Rheobatrachus-silus"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "Cool water",
+          "category": "temperature",
+          "brief_value": "15–20 °C",
+          "value": "15–20 °C (from the project brief; no measurement)",
+          "range": {
+            "min": 15,
+            "max": 20,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "No water-temperature data exist for the species.",
+          "sources": [
+            {
+              "title": "Animal Diversity Web: Rheobatrachus silus",
+              "url": "https://animaldiversity.org/accounts/Rheobatrachus_silus"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Air temperature, not water temperature. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 2
+        },
+        {
+          "requirement": "Streams that keep flowing all year",
+          "category": "water",
+          "brief_value": "Permanent flow all year",
+          "value": "Permanent stream flow (inferred from its aquatic, stream-dwelling life).",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "Its aquatic habits imply permanent water, but flow was never measured.",
+          "sources": [
+            {
+              "title": "Animal Diversity Web: Rheobatrachus silus",
+              "url": "https://animaldiversity.org/accounts/Rheobatrachus_silus"
+            }
+          ],
+          "nasa_proxy": "precip_dry_season",
+          "proxy_note": "Dry-season rain and soil wetness hint at stream flow.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "darwin-norte": {
+      "requirements": [
+        {
+          "requirement": "Wet southern-beech (Nothofagus) forest",
+          "category": "habitat",
+          "brief_value": "Native sclerophyll/temperate forest",
+          "value": "Wet southern-beech forests of central Chile, about 33°30'–37°50'S.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Its known range was wet Nothofagus forest; it has not been recorded since about 1981.",
+          "sources": [
+            {
+              "title": "Wikipedia: Chile Darwin's frog",
+              "url": "https://en.wikipedia.org/wiki/Chile_Darwin%27s_frog"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "Cool temperatures",
+          "category": "temperature",
+          "brief_value": "10–18 °C (cool ravine microclimate)",
+          "value": "Cool streamside conditions; the only measured data are for its sister species, R. darwinii (5–21 °C).",
+          "range": {
+            "min": 10,
+            "max": 18,
+            "unit": "°C"
+          },
+          "status": "partly_supported",
+          "evidence": "No data exist for R. rufum itself; the sister species lives along cool (5–21 °C), wet stream banks.",
+          "sources": [
+            {
+              "title": "AmphibiaWeb: Rhinoderma darwinii (sister species; notes on R. rufum larvae)",
+              "url": "https://amphibiaweb.org/species/4322"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 2
+        },
+        {
+          "requirement": "Humid ground and clean water for free-living tadpoles",
+          "category": "water",
+          "brief_value": "Humidity > 80 %, clean streams for larvae",
+          "value": "Moist ground and clean water: unlike R. darwinii, its tadpoles finish developing free in water.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "Larval development in water is documented; the >80 % humidity figure is not.",
+          "sources": [
+            {
+              "title": "AmphibiaWeb: Rhinoderma darwinii (sister species; notes on R. rufum larvae)",
+              "url": "https://amphibiaweb.org/species/4322"
+            },
+            {
+              "title": "Wikipedia: Chile Darwin's frog",
+              "url": "https://en.wikipedia.org/wiki/Chile_Darwin%27s_frog"
+            }
+          ],
+          "nasa_proxy": "rh2m_mean",
+          "proxy_note": "NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "caracol-oahu": {
+      "requirements": [
+        {
+          "requirement": "Native forest trees with leaf fungi to graze",
+          "category": "food",
+          "brief_value": "Bark with epiphytic fungi",
+          "value": "Native trees whose leaves carry the fungi the snails eat.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Hawaiian tree snails do not eat leaves; they graze the fungus growing on them.",
+          "sources": [
+            {
+              "title": "Hawaiʻi Public Radio / NPR 2024: Hawaii's jewels of the forest",
+              "url": "https://www.hawaiipublicradio.org/national-international/2024-10-20/meet-hawaiis-jewels-of-the-forest-some-of-the-rarest-animals-on-earth"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "No introduced snail predators or rats",
+          "category": "biotic",
+          "brief_value": "Isolation from invasive snails",
+          "value": "No rosy wolf snails, rats or other introduced predators.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "The introduced rosy wolf snail and rats are major causes of Hawaiian tree-snail losses.",
+          "sources": [
+            {
+              "title": "GPB / NPR: Hawaii's tree snails and the rosy wolf snail",
+              "url": "https://www.gpb.org/node/1214551"
+            },
+            {
+              "title": "Hawaiʻi Public Radio / NPR 2024: Hawaii's jewels of the forest",
+              "url": "https://www.hawaiipublicradio.org/national-international/2024-10-20/meet-hawaiis-jewels-of-the-forest-some-of-the-rarest-animals-on-earth"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 2
+        },
+        {
+          "requirement": "Humid, misty montane microclimate",
+          "category": "humidity",
+          "brief_value": "16–22 °C, constant night dew",
+          "value": "Cool, humid, misty forest (captive programmes simulate it with temperature control and mist). 16–22 °C is not a measured tolerance.",
+          "range": {
+            "min": 16,
+            "max": 22,
+            "unit": "°C"
+          },
+          "status": "partly_supported",
+          "evidence": "Captive snails are kept in chambers that control temperature and release mist; no numeric tolerance was published.",
+          "sources": [
+            {
+              "title": "Hawaiʻi Public Radio / NPR 2024: Hawaii's jewels of the forest",
+              "url": "https://www.hawaiipublicradio.org/national-international/2024-10-20/meet-hawaiis-jewels-of-the-forest-some-of-the-rarest-animals-on-earth"
+            },
+            {
+              "title": "West Hawaii Today 2019: last Achatinella apexfulva dies",
+              "url": "https://www.westhawaiitoday.com/?p=142207"
+            }
+          ],
+          "nasa_proxy": "rh2m_mean",
+          "proxy_note": "Use the change versus normal: the NASA cell (78 m) is lower than the ridges. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "poouli": {
+      "requirements": [
+        {
+          "requirement": "Montane wet ʻōhiʻa forest at 1,400–2,100 m",
+          "category": "habitat",
+          "brief_value": "High cloud forest (> 1,500 m)",
+          "value": "Wet ʻōhiʻa rainforest at 1,400–2,100 m; 80 % of sightings at 1,800–2,050 m.",
+          "range": {
+            "min": 1400,
+            "max": 2100,
+            "unit": "m"
+          },
+          "status": "confirmed",
+          "evidence": "All known sightings were in ʻōhiʻa rainforest in this elevation band of Haleakalā (fossils show it once lived lower, before mosquitoes arrived).",
+          "sources": [
+            {
+              "title": "Mountainspring et al. 1990, Wilson Bulletin: ecology of the Poʻouli",
+              "url": "https://sora.unm.edu/sites/default/files/journals/wilson/v102n01/p0109-p0122.pdf"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Not comparable in absolute terms: NASA's cell averages 154 m. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 1
+        },
+        {
+          "requirement": "Cold enough to stop avian malaria",
+          "category": "temperature",
+          "brief_value": "11–16 °C, a cold barrier against mosquitoes",
+          "value": "Air cold enough that the malaria parasite cannot develop: below about 13 °C.",
+          "range": {
+            "min": null,
+            "max": 13,
+            "unit": "°C"
+          },
+          "status": "confirmed",
+          "evidence": "Plasmodium relictum cannot complete development in mosquitoes below about 13 °C; the summer 13 °C isotherm matches the high-forest refuges on Maui and Hawaiʻi.",
+          "sources": [
+            {
+              "title": "LaPointe et al. 2010 (USGS): thermal constraints on avian malaria in Hawaiʻi",
+              "url": "https://www.usgs.gov/publications/thermal-constraints-sporogonic-development-and-altitudinal-distribution-avian-malaria"
+            },
+            {
+              "title": "Pacific RISA: climate and Hawaiian forest birds",
+              "url": "https://www.pacificrisa.org/wp-content/uploads/2012/01/EO-Case-Studies-Hawaiian-Birds.pdf"
+            }
+          ],
+          "nasa_proxy": "t2m_min_mean",
+          "proxy_note": "Use the change versus normal: the NASA cell is far warmer than the refuge.",
+          "rank": 2
+        },
+        {
+          "requirement": "Native land snails as main food",
+          "category": "food",
+          "brief_value": "Abundance of native snails",
+          "value": "Native land snails, plus insects and spiders, gleaned from moss and bark.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Its chief food items were land snails and insects; its specialised diet made it vulnerable.",
+          "sources": [
+            {
+              "title": "Mountainspring et al. 1990, Wilson Bulletin: ecology of the Poʻouli",
+              "url": "https://sora.unm.edu/sites/default/files/journals/wilson/v102n01/p0109-p0122.pdf"
+            },
+            {
+              "title": "Maui Forest Bird Recovery Project: Poʻouli",
+              "url": "https://www.mauiforestbirds.org/poouli"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "pupo-tecopa": {
+      "requirements": [
+        {
+          "requirement": "Hot spring outflow water",
+          "category": "temperature",
+          "brief_value": "26–36 °C, never > 40 °C",
+          "value": "Hot-spring outflows with water around 43 °C (110 °F); the fish could survive 43 °C or more.",
+          "range": null,
+          "status": "corrected",
+          "evidence": "The brief's '< 40 °C' limit is wrong: the species lived in hotter water than that.",
+          "sources": [
+            {
+              "title": "Wikipedia: Tecopa pupfish (citing USFWS 1981)",
+              "url": "https://en.wikipedia.org/wiki/Tecopa_pupfish"
+            }
+          ],
+          "nasa_proxy": "t2m_max_mean",
+          "proxy_note": "Air temperature does not describe geothermal spring water.",
+          "rank": 1
+        },
+        {
+          "requirement": "Natural, slow-flowing outflow channels",
+          "category": "water",
+          "brief_value": "Continuous flow and shallow oxygenated pools",
+          "value": "Unaltered spring outflows. Channelling them for bathhouses made the water faster and hotter downstream than the fish could stand.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Altering the natural outflows, not climate, changed the water conditions that killed off the species.",
+          "sources": [
+            {
+              "title": "Wikipedia: Tecopa pupfish (citing USFWS 1981)",
+              "url": "https://en.wikipedia.org/wiki/Tecopa_pupfish"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 2
+        },
+        {
+          "requirement": "No other pupfish or introduced fish",
+          "category": "biotic",
+          "brief_value": "Not in the brief",
+          "value": "No Amargosa River pupfish (it hybridised with them) and no introduced fish.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Channel changes let a related pupfish move upstream and hybridise; introduced species also contributed.",
+          "sources": [
+            {
+              "title": "Wikipedia: Tecopa pupfish (citing USFWS 1981)",
+              "url": "https://en.wikipedia.org/wiki/Tecopa_pupfish"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": [
+        "Never > 40 °C: it lived in water around 43 °C."
+      ]
+    },
+    "millepora": {
+      "requirements": [
+        {
+          "requirement": "No prolonged sea temperatures above ~30 °C",
+          "category": "temperature",
+          "brief_value": "No prolonged anomalies (> 30 °C)",
+          "value": "Sea temperature staying below about 30 °C, without long marine heatwaves.",
+          "range": {
+            "min": null,
+            "max": 30,
+            "unit": "°C"
+          },
+          "status": "confirmed",
+          "evidence": "Prolonged high sea temperatures during the 1982–83 El Niño eliminated it; later bleaching in the same gulf coincided with in-situ temperatures of 30 °C or more.",
+          "sources": [
+            {
+              "title": "Glynn & de Weerdt 1991, Science: elimination of two reef-building hydrocorals after the 1982–83 El Niño",
+              "url": "https://doi.org/10.1126/science.253.5015.69"
+            },
+            {
+              "title": "Glynn et al. 2001, Bulletin of Marine Science: coral bleaching in Panama and Ecuador, 1997–98",
+              "url": "https://www.ingentaconnect.com/contentone/umrsmas/bullmar/2001/00000069/00000001/art00007"
+            }
+          ],
+          "nasa_proxy": "surface_temp_warmest_month",
+          "proxy_note": "Skin temperature of an ocean cell, close to sea-surface temperature.",
+          "rank": 1
+        },
+        {
+          "requirement": "Stable warm water",
+          "category": "temperature",
+          "brief_value": "Stable 25–28 °C",
+          "value": "25–28 °C (from the project brief; no species-specific data)",
+          "range": {
+            "min": 25,
+            "max": 28,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "Only the upper heat limit is documented; the normal range was not measured for this species.",
+          "sources": [
+            {
+              "title": "de Weerdt & Glynn 1991: a new and presumably now extinct species of Millepora",
+              "url": "https://repository.naturalis.nl/pub/318045"
+            }
+          ],
+          "nasa_proxy": "surface_temp_mean",
+          "proxy_note": "Close to sea-surface temperature.",
+          "rank": 2
+        },
+        {
+          "requirement": "Shallow, sunlit reef (≤ 20 m)",
+          "category": "habitat",
+          "brief_value": "Clear tropical water",
+          "value": "Shallow reef in the sunlit zone, 20 m deep or less, in the Gulf of Chiriquí.",
+          "range": {
+            "min": 0,
+            "max": 20,
+            "unit": "m"
+          },
+          "status": "confirmed",
+          "evidence": "Its restriction to shallow depths, where El Niño warming was strongest, plus a tiny range and heat sensitivity, explain its loss.",
+          "sources": [
+            {
+              "title": "Glynn & de Weerdt 1991, Science: elimination of two reef-building hydrocorals after the 1982–83 El Niño",
+              "url": "https://doi.org/10.1126/science.253.5015.69"
+            },
+            {
+              "title": "de Weerdt & Glynn 1991: a new and presumably now extinct species of Millepora",
+              "url": "https://repository.naturalis.nl/pub/318045"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": [
+        "Severe acidification: no evidence it played a role."
+      ]
+    },
+    "damisela-galapagos": {
+      "requirements": [
+        {
+          "requirement": "Cold, nutrient-rich upwelling",
+          "category": "temperature",
+          "brief_value": "Cold, nutrient-rich currents (18–23 °C)",
+          "value": "Cold upwelled water around the islands. 18–23 °C is not a measured tolerance.",
+          "range": {
+            "min": 18,
+            "max": 23,
+            "unit": "°C"
+          },
+          "status": "partly_supported",
+          "evidence": "The 1982–83 El Niño suppressed the cold upwelling; the fish has not been seen since 1983.",
+          "sources": [
+            {
+              "title": "Mongabay 2026: is the Galápagos damselfish extinct?",
+              "url": "https://news.mongabay.com/2026/04/is-the-galapagos-damselfish-extinct/"
+            },
+            {
+              "title": "Wikipedia: Galapagos damsel",
+              "url": "https://en.wikipedia.com/wiki/Galapagos_damsel"
+            }
+          ],
+          "nasa_proxy": "surface_temp_mean",
+          "proxy_note": "Skin temperature of the Galápagos cell, close to sea-surface temperature.",
+          "rank": 1
+        },
+        {
+          "requirement": "Abundant zooplankton",
+          "category": "food",
+          "brief_value": "Constant upwelling of zooplankton",
+          "value": "Plenty of plankton carried by currents.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "It was an obligate plankton feeder, so the collapse of plankton production removed its food.",
+          "sources": [
+            {
+              "title": "Mongabay 2026: is the Galápagos damselfish extinct?",
+              "url": "https://news.mongabay.com/2026/04/is-the-galapagos-damselfish-extinct/"
+            },
+            {
+              "title": "Wikipedia: Galapagos damsel",
+              "url": "https://en.wikipedia.com/wiki/Galapagos_damsel"
+            }
+          ],
+          "nasa_proxy": "wind_speed",
+          "proxy_note": "Winds drive upwelling, an indirect proxy for plankton.",
+          "rank": 2
+        },
+        {
+          "requirement": "Shallow, exposed rocky shores",
+          "category": "habitat",
+          "brief_value": "Shallow rocky reefs",
+          "value": "Shallow, exposed rocky shorelines of the Galápagos.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "It occupied a narrow habitat confined to shallow, exposed shores.",
+          "sources": [
+            {
+              "title": "Mongabay 2026: is the Galápagos damselfish extinct?",
+              "url": "https://news.mongabay.com/2026/04/is-the-galapagos-damselfish-extinct/"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "eslizón-christmas": {
+      "requirements": [
+        {
+          "requirement": "Native rainforest of Christmas Island",
+          "category": "habitat",
+          "brief_value": "Not in the brief (row replaced)",
+          "value": "Tropical rainforest, which still covers most of the island.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "About a quarter of the native forest was lost after settlement and phosphate mining; the remaining forest is a national park.",
+          "sources": [
+            {
+              "title": "Artensterben: Christmas Island forest skink",
+              "url": "https://www.artensterben.de/en/christmas-island-forest-skink/"
+            },
+            {
+              "title": "Mongabay 2017: Christmas Island lizards",
+              "url": "https://news.mongabay.com/2017/03/a-christmas-miracle-perhaps-someday/"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "No introduced predators",
+          "category": "biotic",
+          "brief_value": "Not in the brief",
+          "value": "No wolf snakes, giant centipedes or yellow crazy ants.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "The wolf snake, introduced in the 1980s, is the main suspect, but the exact cause remains unclear.",
+          "sources": [
+            {
+              "title": "Emery et al.: the lost lizards of Christmas Island (NESP)",
+              "url": "https://www.nespthreatenedspecies.edu.au/media/xagnniyl/2-3-2-the-lost-lizards-of-christmas-island.pdf"
+            },
+            {
+              "title": "Mongabay 2017: Christmas Island lizards",
+              "url": "https://news.mongabay.com/2017/03/a-christmas-miracle-perhaps-someday/"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 2
+        },
+        {
+          "requirement": "Warm, humid island climate",
+          "category": "temperature",
+          "brief_value": "Not in the brief",
+          "value": "Climate of its native island; no tolerance data.",
+          "range": null,
+          "status": "no_published_data",
+          "evidence": "No temperature or humidity tolerance was studied; climate is not implicated in its extinction.",
+          "sources": [
+            {
+              "title": "Artensterben: Christmas Island forest skink",
+              "url": "https://www.artensterben.de/en/christmas-island-forest-skink/"
+            }
+          ],
+          "nasa_proxy": "t2m_max_mean",
+          "proxy_note": "Comparable: the grid cell is near sea level.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "pupo-catarina": {
+      "requirements": [
+        {
+          "requirement": "A spring that keeps flowing",
+          "category": "water",
+          "brief_value": "Positive water balance (rain > evaporation)",
+          "value": "Permanent groundwater flow into its single spring-fed pond.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "The pond dried up after its water was extracted for irrigation; the last captive fish died in 2014.",
+          "sources": [
+            {
+              "title": "Valdés González et al. 2018, Oryx: the extinction of the Catarina pupfish",
+              "url": "https://www.cambridge.org/core/product/B13134408D6EDDA38FEB6D9A474E2154/core-reader"
+            },
+            {
+              "title": "Seriously Fish: Cyprinodon alvarezi (same spring-fed pond)",
+              "url": "https://www.seriouslyfish.com/species/cyprinodon-alvarezi"
+            }
+          ],
+          "nasa_proxy": "precip_annual",
+          "proxy_note": "Rainfall and soil wetness only hint at aquifer recharge; extraction is not climatic.",
+          "rank": 1
+        },
+        {
+          "requirement": "No introduced predatory fish",
+          "category": "biotic",
+          "brief_value": "Not in the brief",
+          "value": "No bass or other introduced predators in the pond.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "The pupfish were considered threatened after bass were introduced.",
+          "sources": [
+            {
+              "title": "Desert Fishes Council 1978: status of Megupsilon aporus at El Potosí",
+              "url": "https://dnrweblink.state.co.us/CWCB/0/doc/133074/Page30.aspx"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 2
+        },
+        {
+          "requirement": "Clear, vegetated spring pool at about 1,880 m",
+          "category": "habitat",
+          "brief_value": "Not in the brief (row replaced)",
+          "value": "A clear spring-fed pool with sparse cattail and bulrush, at about 1,880 m. Water temperature is unknown.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "Described for the same pond, which it shared with the Potosí pupfish.",
+          "sources": [
+            {
+              "title": "Wikipedia: Potosi pupfish (same spring-fed pond)",
+              "url": "https://www.wikipedia.com/wiki/Potosi_pupfish"
+            },
+            {
+              "title": "Seriously Fish: Cyprinodon alvarezi (same spring-fed pond)",
+              "url": "https://www.seriouslyfish.com/species/cyprinodon-alvarezi"
+            }
+          ],
+          "nasa_proxy": "t2m_max_mean",
+          "proxy_note": "Air temperature of the regional cell, not spring water.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "pez-mano": {
+      "requirements": [
+        {
+          "requirement": "Shallow coastal seabed of south-east Tasmania",
+          "category": "habitat",
+          "brief_value": "Cold temperate sandy bottoms and reefs",
+          "value": "Shallow coastal water of south-east Tasmania; the exact habitat is unknown.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "It is known only from one specimen caught in shallow water in 1802; its status was revised to Data Deficient in 2021.",
+          "sources": [
+            {
+              "title": "Fishes of Australia: Smooth Handfish",
+              "url": "https://fishesofaustralia.net.au/home/species/4324"
+            },
+            {
+              "title": "Tasmania Threatened Species Link: Sympterichthys unipennis",
+              "url": "https://www.threatenedspecieslink.tas.gov.au/Pages/Sympterichthys-unipennis.aspx"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "Intact seabed without trawling or siltation",
+          "category": "habitat",
+          "brief_value": "Clean coastal water, no trawling",
+          "value": "Undisturbed seabed and clean coastal water.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "Habitat change from fishing, aquaculture, rising sea temperature and urban development was cited as evidence of its loss.",
+          "sources": [
+            {
+              "title": "Lynch et al. 2020, Biological Conservation: conservation challenges for handfishes",
+              "url": "https://ecite.utas.edu.au/141677"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": "Not a climate variable.",
+          "rank": 2
+        },
+        {
+          "requirement": "Cool temperate water",
+          "category": "temperature",
+          "brief_value": "11–16 °C",
+          "value": "11–16 °C (from the project brief; no data)",
+          "range": {
+            "min": 11,
+            "max": 16,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "Nothing is known about its tolerance; rising sea temperature is only listed among general habitat changes.",
+          "sources": [
+            {
+              "title": "Lynch et al. 2020, Biological Conservation: conservation challenges for handfishes",
+              "url": "https://ecite.utas.edu.au/141677"
+            }
+          ],
+          "nasa_proxy": "surface_temp_mean",
+          "proxy_note": "The Tasmania cell is likely influenced by land.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "pipistrelo-christmas": {
+      "requirements": [
+        {
+          "requirement": "Old-growth forest with roost sites",
+          "category": "habitat",
+          "brief_value": "Mature hollow trees for roosting",
+          "value": "Peeling bark, tree hollows, dead palm fronds and strangler figs in old-growth forest.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "These were its documented roosts; loss of roost trees (including to a 1988 cyclone) is one suspected factor in its decline.",
+          "sources": [
+            {
+              "title": "Wikipedia: Christmas Island pipistrelle",
+              "url": "https://en.wikipedia.org/wiki/Christmas_Island_pipistrelle"
+            },
+            {
+              "title": "Invasive Species Council: extinct Christmas Island pipistrelle",
+              "url": "https://invasives.org.au/our-work/ending-extinctions/extinct-christmas-island-pipistrelle/"
+            }
+          ],
+          "nasa_proxy": null,
+          "proxy_note": null,
+          "rank": 1
+        },
+        {
+          "requirement": "Abundant flying insects",
+          "category": "food",
+          "brief_value": "High insect biomass",
+          "value": "Enough night-flying insects; one bat ate roughly its body weight each night.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "It was an insectivore that needed a large daily intake.",
+          "sources": [
+            {
+              "title": "Mongabay 2012: island bat goes extinct",
+              "url": "https://news.mongabay.com/2012/05/island-bat-goes-extinct-after-australian-officials-hesitate/"
+            }
+          ],
+          "nasa_proxy": "precip_dry_season",
+          "proxy_note": "Dry-season rain is an indirect proxy for insect abundance.",
+          "rank": 2
+        },
+        {
+          "requirement": "Warm, seasonally rainy rainforest",
+          "category": "temperature",
+          "brief_value": "24–28 °C, regular seasonal rain",
+          "value": "24–28 °C (from the project brief; no data)",
+          "range": {
+            "min": 24,
+            "max": 28,
+            "unit": "°C"
+          },
+          "status": "no_published_data",
+          "evidence": "The cause of its decline is unknown; introduced predators such as the wolf snake are the main suspects, not climate.",
+          "sources": [
+            {
+              "title": "Wikipedia: Christmas Island pipistrelle",
+              "url": "https://en.wikipedia.org/wiki/Christmas_Island_pipistrelle"
+            },
+            {
+              "title": "Invasive Species Council: extinct Christmas Island pipistrelle",
+              "url": "https://invasives.org.au/our-work/ending-extinctions/extinct-christmas-island-pipistrelle/"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Comparable: the grid cell is near sea level.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    },
+    "rana-rabbs": {
+      "requirements": [
+        {
+          "requirement": "Water-filled tree holes for breeding",
+          "category": "water",
+          "brief_value": "Water-filled tree cavities (phytotelmata)",
+          "value": "Tree holes holding water, defended by males, where tadpoles develop.",
+          "range": null,
+          "status": "confirmed",
+          "evidence": "Breeding in tree holes, with male territoriality and tadpole care, is documented.",
+          "sources": [
+            {
+              "title": "Mendelson et al. 2008, Journal of Herpetology: new gliding Ecnomiohyla from Panama",
+              "url": "https://www.bioone.org/doi/abs/10.1670/08-025R1.1"
+            },
+            {
+              "title": "Wikipedia: Ecnomiohyla rabborum",
+              "url": "https://en.wikipedia.com/wiki/Ecnomiohyla_rabborum"
+            }
+          ],
+          "nasa_proxy": "precip_dry_season",
+          "proxy_note": "Dry-season rain is a proxy for tree holes staying full.",
+          "rank": 1
+        },
+        {
+          "requirement": "Cloud forest at 900–1,150 m around El Valle de Antón",
+          "category": "habitat",
+          "brief_value": "Premontane rainforest (18–23 °C)",
+          "value": "Cloud forest canopy at about 900–1,150 m. 18–23 °C is not a measured tolerance.",
+          "range": {
+            "min": 900,
+            "max": 1150,
+            "unit": "m"
+          },
+          "status": "partly_supported",
+          "evidence": "The elevation band is documented; the temperature range is not.",
+          "sources": [
+            {
+              "title": "AmphibiaWeb: Ecnomiohyla rabborum",
+              "url": "https://amphibiaweb.org/species/7233"
+            }
+          ],
+          "nasa_proxy": "t2m_mean",
+          "proxy_note": "Use the change versus normal: NASA's cell averages 129 m. NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 2
+        },
+        {
+          "requirement": "Freedom from chytrid fungus",
+          "category": "disease",
+          "brief_value": "Stable humid microclimate",
+          "value": "No chytrid fungus; a humid microclimate was not measured.",
+          "range": null,
+          "status": "partly_supported",
+          "evidence": "Wild numbers fell dramatically after the chytridiomycosis epidemic reached El Valle.",
+          "sources": [
+            {
+              "title": "Mendelson et al. 2008 (Smithsonian repository record)",
+              "url": "https://repository.si.edu/items/c10b0c8f-e971-4ec2-b50c-923b5b634a76/full"
+            }
+          ],
+          "nasa_proxy": "cloud_cover",
+          "proxy_note": "NASA values describe the regional grid cell, not the habitat itself.",
+          "rank": 3
+        }
+      ],
+      "brief_claims_not_supported": []
+    }
+  }
+}

@@ -11,7 +11,8 @@ Este directorio es un **paquete de datos**, no la interfaz del juego ni una API 
 | `pokedex.sqlite` | Consultas SQL sobre el catálogo completo y las 24 localizaciones |
 | `manifest-nasa.json` y `nasa-power/` | Consultas NASA, unidades originales, respuestas originales y hashes |
 | `catalogo-curado.json` | Fichas revisadas y trazabilidad de las sustituciones |
-| `variables-clave.json` | Las 3 variables principales de supervivencia de cada especie, con su justificación |
+| `fichas-supervivencia.json` | Ficha de supervivencia: 3 requisitos por especie con valor, fuentes y nivel de confianza |
+| `variables-clave.json` | Las 3 variables NASA con que se sigue a cada especie, con su justificación |
 | `nasa-power-extra-anual.json` | Variables NASA adicionales (máx./mín., mar, suelo, nubes, viento) en valores anuales, con hashes |
 | `METODOLOGIA.md` | Cálculos, interpretación, supuestos y límites científicos |
 
@@ -50,6 +51,57 @@ Para una inspección rápida también se pueden descargar desde GitHub Raw, por 
 https://raw.githubusercontent.com/markzuckerberg44/awin-is-awin/data-analysis/data/pokedex/export/catalogo.json
 
 Para distribuir el juego, copiar una versión fija de los datos o fijar el SHA de un commit en la URL; una rama puede cambiar. GitHub almacena los archivos: **no ejecuta consultas SQL ni el backend del juego**.
+
+## Ficha de supervivencia por especie
+
+Cada especie tiene una ficha con sus **3 requisitos principales para sobrevivir**. Pueden ser de temperatura, agua, vegetación, nivel del mar, alimento, depredadores o enfermedades. Cada requisito parte de las «variables favorables» del PDF del proyecto y se contrastó con fuentes publicadas. Están en [`fichas-supervivencia.json`](fichas-supervivencia.json), en la tabla `survival_requirements` de SQLite y en el campo `survival_card` de cada `export/<id>.json`.
+
+Cada requisito indica cuánto se puede confiar en él (`status`):
+
+| Estado | Significado | Uso en el juego |
+|---|---|---|
+| ✅ `confirmed` | Las fuentes lo respaldan | Puede usarse como regla |
+| ✏️ `corrected` | El PDF estaba equivocado; se da el valor correcto | Usar el valor corregido |
+| 🟡 `partly_supported` | Respaldo cualitativo o de una especie emparentada | Mostrar como aproximado |
+| ⚪ `no_published_data` | Solo lo dice el PDF; no hay datos publicados | Mostrar como referencia del PDF |
+
+Resultado: 21 confirmados, 2 corregidos, 15 con respaldo parcial y 7 sin datos publicados.
+
+| Especie | Requisito 1 | Requisito 2 | Requisito 3 |
+|---|---|---|---|
+| Bramble Cay melomys | ✏️ Land that seawater does not reach | ✅ Herbaceous vegetation for food and shelter | ⚪ Warm tropical maritime climate |
+| Golden toad | 🟡 Cold, wet elfin cloud forest at 1,500–1,620 m | ⚪ Cool temperatures | ✅ Shallow rain pools during the April–June breeding season |
+| Chiriquí harlequin frog | 🟡 Montane forest streams at 1,400–2,500 m | 🟡 Shaded, cloudy forest canopy | 🟡 Freedom from chytrid fungus |
+| Southern gastric-brooding frog | ✅ Rocky rainforest streams and rock pools | ⚪ Cool water | 🟡 Streams that keep flowing all year |
+| Northern Darwin’s frog | ✅ Wet southern-beech (Nothofagus) forest | 🟡 Cool temperatures | 🟡 Humid ground and clean water for free-living tadpoles |
+| Oʻahu tree snail | ✅ Native forest trees with leaf fungi to graze | ✅ No introduced snail predators or rats | 🟡 Humid, misty montane microclimate |
+| Poʻouli | ✅ Montane wet ʻōhiʻa forest at 1,400–2,100 m | ✅ Cold enough to stop avian malaria | ✅ Native land snails as main food |
+| Tecopa pupfish | ✏️ Hot spring outflow water | ✅ Natural, slow-flowing outflow channels | ✅ No other pupfish or introduced fish |
+| Millepora hydrocoral | ✅ No prolonged sea temperatures above ~30 °C | ⚪ Stable warm water | ✅ Shallow, sunlit reef (≤ 20 m) |
+| Galápagos damsel | 🟡 Cold, nutrient-rich upwelling | ✅ Abundant zooplankton | ✅ Shallow, exposed rocky shores |
+| Christmas Island forest skink | ✅ Native rainforest of Christmas Island | 🟡 No introduced predators | ⚪ Warm, humid island climate |
+| Catarina pupfish | ✅ A spring that keeps flowing | ✅ No introduced predatory fish | 🟡 Clear, vegetated spring pool at about 1,880 m |
+| Smooth handfish | 🟡 Shallow coastal seabed of south-east Tasmania | 🟡 Intact seabed without trawling or siltation | ⚪ Cool temperate water |
+| Christmas Island pipistrelle | ✅ Old-growth forest with roost sites | ✅ Abundant flying insects | ⚪ Warm, seasonally rainy rainforest |
+| Rabbs’ fringe-limbed treefrog | ✅ Water-filled tree holes for breeding | 🟡 Cloud forest at 900–1,150 m around El Valle de Antón | 🟡 Freedom from chytrid fungus |
+
+**Correcciones importantes al PDF**
+- **Melomys:** el cayo medía unos 3 m sobre la marea alta, no «más de 15 m». Lo que necesitaba era tierra con vegetación fuera del alcance del mar.
+- **Pupo de Tecopa:** vivía en agua de unos 43 °C, no «nunca sobre 40 °C».
+- **Millepora:** no hay evidencia de que la acidificación influyera; el límite documentado es no superar ~30 °C por períodos largos.
+
+**Campos de cada requisito:**
+- `requirement`, `category`, `value`, `range`: qué necesita la especie, de qué tipo es y, si corresponde, el rango numérico (`min`, `max` y `unit`).
+- `brief_value`: lo que decía el PDF.
+- `status`, `status_label`, `evidence`, `sources`: qué tan confiable es, por qué y con qué enlaces.
+- `nasa_proxy`: qué variable clave de la especie lo sigue con datos NASA, cuando existe. `proxy_note` explica si se puede comparar directamente; en especies de montaña conviene comparar cambios, no valores absolutos.
+
+```js
+for (const r of ficha.survival_card.requirements) {
+  mostrarRequisito(r.requirement, r.value, r.status_label);
+  if (r.nasa_proxy) enlazarConSerie(ficha.key_variable_series[ficha.scenario.reference_location][r.nasa_proxy]);
+}
+```
 
 ## Variables clave por especie
 

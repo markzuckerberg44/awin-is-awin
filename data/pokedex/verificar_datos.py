@@ -75,6 +75,16 @@ def main():
                 for iid, expected in checks.items():
                     actual = db.execute('SELECT value FROM key_indicator_values WHERE location_id=? AND indicator_id=? AND year=?', (lid, iid, year)).fetchone()[0]
                     assert math.isclose(actual, expected, abs_tol=1e-8)
+        cards = read(ROOT / 'fichas-supervivencia.json')
+        for species in catalog['species']:
+            sid = species['id']
+            card = read(ROOT / 'export' / (sid + '.json'))['survival_card']
+            assert len(card['requirements']) == 3
+            rows = db.execute('SELECT rank, requirement, status, nasa_proxy, sources FROM survival_requirements WHERE species_id=? ORDER BY rank', (sid,)).fetchall()
+            for r, row in zip(card['requirements'], rows):
+                assert (r['rank'], r['requirement'], r['status'], r['nasa_proxy']) == row[:4] and json.loads(row[4]) == r['sources']
+                assert r['status_label'] == cards['status_labels'][r['status']]
+                assert r['nasa_proxy'] is None or r['nasa_proxy'] in [v['id'] for v in read(ROOT / 'export' / (sid + '.json'))['key_variables']['variables']]
         invalid = 0
         for (payload,) in db.execute('SELECT payload FROM trends'):
             t = json.loads(payload)
@@ -85,7 +95,7 @@ def main():
                 invalid += 1
                 assert t['p_corrected'] is None and t['invalid_reason']
         assert invalid == 4
-        print('OK: integridad SQLite, conteos, 24 hashes NASA, 3240 agregaciones anuales, 15 exportaciones, 3 variables clave por especie recalculadas y resultados estadísticos.')
+        print('OK: integridad SQLite, conteos, 24 hashes NASA, 3240 agregaciones anuales, 15 exportaciones, 3 variables clave por especie recalculadas, 15 fichas de supervivencia y resultados estadísticos.')
     finally:
         db.close()
 
