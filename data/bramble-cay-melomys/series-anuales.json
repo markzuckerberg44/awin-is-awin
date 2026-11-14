@@ -1,0 +1,1634 @@
+{
+  "schema_version": "1.0.0",
+  "period": [
+    1981,
+    2025
+  ],
+  "units": {
+    "T2M": "°C",
+    "RH2M": "%",
+    "PRECTOTCORR": "mm/año"
+  },
+  "records": [
+    {
+      "site_id": "bramble-cay",
+      "year": 1981,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.107068493150685,
+      "RH2M": 81.77627397260274,
+      "PRECTOTCORR": 2080.57
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1982,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.198794520547946,
+      "RH2M": 80.5457808219178,
+      "PRECTOTCORR": 1173.92
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1983,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.03495890410959,
+      "RH2M": 82.0698904109589,
+      "PRECTOTCORR": 2392.71
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1984,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.556803278688527,
+      "RH2M": 82.56030054644809,
+      "PRECTOTCORR": 2530.28
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1985,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.458794520547944,
+      "RH2M": 83.34509589041096,
+      "PRECTOTCORR": 2076.27
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1986,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.710849315068497,
+      "RH2M": 81.80969863013699,
+      "PRECTOTCORR": 2758.44
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1987,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.73813698630137,
+      "RH2M": 81.94991780821918,
+      "PRECTOTCORR": 2619.2200000000003
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1988,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.281038251366123,
+      "RH2M": 83.02382513661202,
+      "PRECTOTCORR": 2072.62
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1989,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.830794520547943,
+      "RH2M": 83.65189041095891,
+      "PRECTOTCORR": 2280.09
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1990,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.73495890410959,
+      "RH2M": 82.3648493150685,
+      "PRECTOTCORR": 1797.3999999999999
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1991,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.274657534246575,
+      "RH2M": 82.56008219178082,
+      "PRECTOTCORR": 1285.46
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1992,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.641448087431694,
+      "RH2M": 81.61773224043716,
+      "PRECTOTCORR": 1441.04
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1993,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.312465753424654,
+      "RH2M": 81.50786301369862,
+      "PRECTOTCORR": 1311.75
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1994,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.40350684931507,
+      "RH2M": 82.25309589041096,
+      "PRECTOTCORR": 943.5
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1995,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.827205479452054,
+      "RH2M": 83.59950684931506,
+      "PRECTOTCORR": 1717.05
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1996,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.911639344262294,
+      "RH2M": 82.88267759562841,
+      "PRECTOTCORR": 2642.02
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1997,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.362246575342464,
+      "RH2M": 80.08221917808218,
+      "PRECTOTCORR": 1346.66
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1998,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.6253698630137,
+      "RH2M": 83.65564383561644,
+      "PRECTOTCORR": 2471.64
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 1999,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.709999999999997,
+      "RH2M": 84.25712328767123,
+      "PRECTOTCORR": 2648.41
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2000,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.70909836065574,
+      "RH2M": 83.90483606557376,
+      "PRECTOTCORR": 2143.56
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2001,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.968136986301367,
+      "RH2M": 82.72243835616439,
+      "PRECTOTCORR": 2691.79
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2002,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.982383561643836,
+      "RH2M": 80.84484931506849,
+      "PRECTOTCORR": 1520.44
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2003,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.100602739726032,
+      "RH2M": 81.61972602739726,
+      "PRECTOTCORR": 1977.92
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2004,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.852213114754097,
+      "RH2M": 81.32969945355191,
+      "PRECTOTCORR": 1781.22
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2005,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.156876712328767,
+      "RH2M": 82.11071232876712,
+      "PRECTOTCORR": 2456.59
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2006,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.761068493150688,
+      "RH2M": 82.64950684931507,
+      "PRECTOTCORR": 3163.08
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2007,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.10312328767123,
+      "RH2M": 82.84545205479452,
+      "PRECTOTCORR": 2056.2400000000002
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2008,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.98693989071038,
+      "RH2M": 83.27215846994535,
+      "PRECTOTCORR": 1608.66
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2009,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.15613698630137,
+      "RH2M": 81.4291506849315,
+      "PRECTOTCORR": 2037.82
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2010,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.773287671232875,
+      "RH2M": 83.27652054794521,
+      "PRECTOTCORR": 2420.7599999999998
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2011,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.909150684931507,
+      "RH2M": 82.30441095890411,
+      "PRECTOTCORR": 1890.5
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2012,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.93418032786885,
+      "RH2M": 82.49098360655738,
+      "PRECTOTCORR": 1741.2
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2013,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.236794520547946,
+      "RH2M": 82.59821917808219,
+      "PRECTOTCORR": 1840.25
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2014,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.905178082191778,
+      "RH2M": 82.35224657534246,
+      "PRECTOTCORR": 1291.85
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2015,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.85731506849315,
+      "RH2M": 80.89824657534247,
+      "PRECTOTCORR": 1350.55
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2016,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.872978142076505,
+      "RH2M": 81.28926229508197,
+      "PRECTOTCORR": 1362.89
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2017,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.357342465753426,
+      "RH2M": 82.3655890410959,
+      "PRECTOTCORR": 1313.52
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2018,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.230849315068493,
+      "RH2M": 81.40876712328767,
+      "PRECTOTCORR": 1229.03
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2019,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.04183561643836,
+      "RH2M": 81.91912328767123,
+      "PRECTOTCORR": 942.05
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2020,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.554508196721315,
+      "RH2M": 82.27986338797814,
+      "PRECTOTCORR": 980.97
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2021,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.742876712328766,
+      "RH2M": 82.4547397260274,
+      "PRECTOTCORR": 1187.41
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2022,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.058,
+      "RH2M": 81.53227397260274,
+      "PRECTOTCORR": 867.88
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2023,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.562657534246572,
+      "RH2M": 81.19791780821917,
+      "PRECTOTCORR": 983.22
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2024,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.955327868852457,
+      "RH2M": 82.63948087431694,
+      "PRECTOTCORR": 1062.84
+    },
+    {
+      "site_id": "bramble-cay",
+      "year": 2025,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.989643835616437,
+      "RH2M": 82.15479452054795,
+      "PRECTOTCORR": 1445.82
+    },
+    {
+      "site_id": "erub",
+      "year": 1981,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.99232876712329,
+      "RH2M": 82.43153424657534,
+      "PRECTOTCORR": 1959.12
+    },
+    {
+      "site_id": "erub",
+      "year": 1982,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.021890410958903,
+      "RH2M": 81.29638356164384,
+      "PRECTOTCORR": 1169.29
+    },
+    {
+      "site_id": "erub",
+      "year": 1983,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.93931506849315,
+      "RH2M": 82.53306849315068,
+      "PRECTOTCORR": 2277.2400000000002
+    },
+    {
+      "site_id": "erub",
+      "year": 1984,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.460983606557374,
+      "RH2M": 82.92751366120218,
+      "PRECTOTCORR": 2356.59
+    },
+    {
+      "site_id": "erub",
+      "year": 1985,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.326876712328765,
+      "RH2M": 83.87923287671232,
+      "PRECTOTCORR": 1890.96
+    },
+    {
+      "site_id": "erub",
+      "year": 1986,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.658109589041093,
+      "RH2M": 81.89487671232877,
+      "PRECTOTCORR": 2569.7400000000002
+    },
+    {
+      "site_id": "erub",
+      "year": 1987,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.624794520547944,
+      "RH2M": 82.49342465753425,
+      "PRECTOTCORR": 2461.84
+    },
+    {
+      "site_id": "erub",
+      "year": 1988,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.115601092896174,
+      "RH2M": 83.70967213114754,
+      "PRECTOTCORR": 1971.38
+    },
+    {
+      "site_id": "erub",
+      "year": 1989,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.69767123287671,
+      "RH2M": 84.0767397260274,
+      "PRECTOTCORR": 2068.48
+    },
+    {
+      "site_id": "erub",
+      "year": 1990,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.598794520547944,
+      "RH2M": 82.68221917808219,
+      "PRECTOTCORR": 1765.3799999999999
+    },
+    {
+      "site_id": "erub",
+      "year": 1991,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.06095890410959,
+      "RH2M": 83.35112328767123,
+      "PRECTOTCORR": 1366.44
+    },
+    {
+      "site_id": "erub",
+      "year": 1992,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.4670218579235,
+      "RH2M": 82.21620218579234,
+      "PRECTOTCORR": 1368.94
+    },
+    {
+      "site_id": "erub",
+      "year": 1993,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.147150684931503,
+      "RH2M": 82.10873972602741,
+      "PRECTOTCORR": 1197.78
+    },
+    {
+      "site_id": "erub",
+      "year": 1994,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.26287671232877,
+      "RH2M": 82.78230136986302,
+      "PRECTOTCORR": 807.52
+    },
+    {
+      "site_id": "erub",
+      "year": 1995,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.682027397260274,
+      "RH2M": 84.13608219178083,
+      "PRECTOTCORR": 1472.0
+    },
+    {
+      "site_id": "erub",
+      "year": 1996,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.822868852459017,
+      "RH2M": 82.9288524590164,
+      "PRECTOTCORR": 2263.95
+    },
+    {
+      "site_id": "erub",
+      "year": 1997,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.202136986301372,
+      "RH2M": 80.69482191780823,
+      "PRECTOTCORR": 1171.44
+    },
+    {
+      "site_id": "erub",
+      "year": 1998,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.499945205479452,
+      "RH2M": 84.02616438356164,
+      "PRECTOTCORR": 2074.03
+    },
+    {
+      "site_id": "erub",
+      "year": 1999,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.62049315068493,
+      "RH2M": 84.41753424657534,
+      "PRECTOTCORR": 2376.65
+    },
+    {
+      "site_id": "erub",
+      "year": 2000,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.579344262295084,
+      "RH2M": 84.28931693989071,
+      "PRECTOTCORR": 1891.21
+    },
+    {
+      "site_id": "erub",
+      "year": 2001,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.85964383561644,
+      "RH2M": 82.91030136986302,
+      "PRECTOTCORR": 2325.2
+    },
+    {
+      "site_id": "erub",
+      "year": 2002,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.860301369863013,
+      "RH2M": 81.32441095890411,
+      "PRECTOTCORR": 1269.69
+    },
+    {
+      "site_id": "erub",
+      "year": 2003,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.036109589041097,
+      "RH2M": 81.53575342465753,
+      "PRECTOTCORR": 1590.1100000000001
+    },
+    {
+      "site_id": "erub",
+      "year": 2004,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.7494262295082,
+      "RH2M": 81.54956284153005,
+      "PRECTOTCORR": 1532.03
+    },
+    {
+      "site_id": "erub",
+      "year": 2005,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.13531506849315,
+      "RH2M": 81.86805479452055,
+      "PRECTOTCORR": 2117.09
+    },
+    {
+      "site_id": "erub",
+      "year": 2006,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.66849315068493,
+      "RH2M": 82.76301369863013,
+      "PRECTOTCORR": 2962.28
+    },
+    {
+      "site_id": "erub",
+      "year": 2007,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.985150684931508,
+      "RH2M": 83.1209589041096,
+      "PRECTOTCORR": 1912.3
+    },
+    {
+      "site_id": "erub",
+      "year": 2008,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.894262295081965,
+      "RH2M": 83.45961748633879,
+      "PRECTOTCORR": 1503.3500000000001
+    },
+    {
+      "site_id": "erub",
+      "year": 2009,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.09046575342466,
+      "RH2M": 81.53142465753425,
+      "PRECTOTCORR": 2095.23
+    },
+    {
+      "site_id": "erub",
+      "year": 2010,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.73095890410959,
+      "RH2M": 83.45531506849316,
+      "PRECTOTCORR": 2596.34
+    },
+    {
+      "site_id": "erub",
+      "year": 2011,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.790904109589043,
+      "RH2M": 82.7027397260274,
+      "PRECTOTCORR": 2016.4
+    },
+    {
+      "site_id": "erub",
+      "year": 2012,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 26.843387978142076,
+      "RH2M": 82.71907103825137,
+      "PRECTOTCORR": 1751.61
+    },
+    {
+      "site_id": "erub",
+      "year": 2013,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.141917808219176,
+      "RH2M": 82.85498630136986,
+      "PRECTOTCORR": 1896.68
+    },
+    {
+      "site_id": "erub",
+      "year": 2014,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.770054794520547,
+      "RH2M": 82.77019178082192,
+      "PRECTOTCORR": 1252.77
+    },
+    {
+      "site_id": "erub",
+      "year": 2015,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.722520547945205,
+      "RH2M": 81.50673972602739,
+      "PRECTOTCORR": 1360.2
+    },
+    {
+      "site_id": "erub",
+      "year": 2016,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.716967213114753,
+      "RH2M": 82.05997267759562,
+      "PRECTOTCORR": 1502.59
+    },
+    {
+      "site_id": "erub",
+      "year": 2017,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.226520547945206,
+      "RH2M": 82.84210958904109,
+      "PRECTOTCORR": 1424.33
+    },
+    {
+      "site_id": "erub",
+      "year": 2018,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.060328767123288,
+      "RH2M": 82.31980821917809,
+      "PRECTOTCORR": 1192.34
+    },
+    {
+      "site_id": "erub",
+      "year": 2019,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 26.85153424657534,
+      "RH2M": 82.73534246575342,
+      "PRECTOTCORR": 901.9399999999999
+    },
+    {
+      "site_id": "erub",
+      "year": 2020,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.349316939890713,
+      "RH2M": 83.28472677595629,
+      "PRECTOTCORR": 918.66
+    },
+    {
+      "site_id": "erub",
+      "year": 2021,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.60572602739726,
+      "RH2M": 83.19065753424658,
+      "PRECTOTCORR": 1218.18
+    },
+    {
+      "site_id": "erub",
+      "year": 2022,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.89235616438356,
+      "RH2M": 82.69517808219179,
+      "PRECTOTCORR": 915.8599999999999
+    },
+    {
+      "site_id": "erub",
+      "year": 2023,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.404712328767122,
+      "RH2M": 82.04093150684932,
+      "PRECTOTCORR": 943.18
+    },
+    {
+      "site_id": "erub",
+      "year": 2024,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.747786885245905,
+      "RH2M": 83.67128415300547,
+      "PRECTOTCORR": 1080.6
+    },
+    {
+      "site_id": "erub",
+      "year": 2025,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.832931506849317,
+      "RH2M": 83.1388493150685,
+      "PRECTOTCORR": 1614.31
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1981,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.076027397260273,
+      "RH2M": 80.02876712328766,
+      "PRECTOTCORR": 2620.13
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1982,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.14558904109589,
+      "RH2M": 79.19397260273972,
+      "PRECTOTCORR": 2745.59
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1983,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.765095890410958,
+      "RH2M": 81.4367397260274,
+      "PRECTOTCORR": 3759.42
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1984,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.688032786885245,
+      "RH2M": 79.93516393442623,
+      "PRECTOTCORR": 2726.7
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1985,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.564219178082194,
+      "RH2M": 80.79238356164385,
+      "PRECTOTCORR": 2578.09
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1986,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.92386301369863,
+      "RH2M": 80.11093150684931,
+      "PRECTOTCORR": 2565.34
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1987,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.807479452054793,
+      "RH2M": 82.13205479452056,
+      "PRECTOTCORR": 4019.68
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1988,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.945437158469947,
+      "RH2M": 81.05010928961748,
+      "PRECTOTCORR": 2744.35
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1989,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.549123287671232,
+      "RH2M": 81.2749589041096,
+      "PRECTOTCORR": 1877.64
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1990,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.069095890410956,
+      "RH2M": 81.16709589041096,
+      "PRECTOTCORR": 2550.18
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1991,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.213753424657536,
+      "RH2M": 80.53169863013699,
+      "PRECTOTCORR": 2658.7400000000002
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1992,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.089699453551912,
+      "RH2M": 81.3077868852459,
+      "PRECTOTCORR": 3171.21
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1993,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.893150684931506,
+      "RH2M": 81.84602739726027,
+      "PRECTOTCORR": 3634.0
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1994,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.205315068493153,
+      "RH2M": 80.22375342465753,
+      "PRECTOTCORR": 2973.88
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1995,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.179890410958905,
+      "RH2M": 79.90268493150685,
+      "PRECTOTCORR": 2926.46
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1996,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.936147540983608,
+      "RH2M": 79.23516393442623,
+      "PRECTOTCORR": 2035.39
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1997,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.064301369863013,
+      "RH2M": 80.68353424657533,
+      "PRECTOTCORR": 3099.47
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1998,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.96764383561644,
+      "RH2M": 82.03016438356164,
+      "PRECTOTCORR": 3515.68
+    },
+    {
+      "site_id": "funafuti",
+      "year": 1999,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.806657534246575,
+      "RH2M": 78.94723287671232,
+      "PRECTOTCORR": 1483.04
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2000,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 27.89147540983607,
+      "RH2M": 79.10415300546448,
+      "PRECTOTCORR": 1428.5
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2001,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.183698630136984,
+      "RH2M": 80.34964383561643,
+      "PRECTOTCORR": 2262.45
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2002,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.462520547945203,
+      "RH2M": 80.61484931506848,
+      "PRECTOTCORR": 2927.77
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2003,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.500821917808217,
+      "RH2M": 79.77049315068493,
+      "PRECTOTCORR": 2914.95
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2004,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.50188524590164,
+      "RH2M": 80.22234972677596,
+      "PRECTOTCORR": 2705.78
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2005,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.73057534246575,
+      "RH2M": 79.29912328767124,
+      "PRECTOTCORR": 2737.05
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2006,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.40287671232877,
+      "RH2M": 80.17578082191781,
+      "PRECTOTCORR": 2798.63
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2007,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.41,
+      "RH2M": 79.43405479452055,
+      "PRECTOTCORR": 2387.79
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2008,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.007732240437157,
+      "RH2M": 79.92620218579235,
+      "PRECTOTCORR": 1729.28
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2009,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.32758904109589,
+      "RH2M": 80.59408219178083,
+      "PRECTOTCORR": 2402.13
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2010,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.427260273972603,
+      "RH2M": 79.47065753424658,
+      "PRECTOTCORR": 2321.23
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2011,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 27.953890410958905,
+      "RH2M": 79.07320547945206,
+      "PRECTOTCORR": 1035.1200000000001
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2012,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.209617486338797,
+      "RH2M": 80.23199453551912,
+      "PRECTOTCORR": 2485.48
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2013,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.39158904109589,
+      "RH2M": 80.34898630136986,
+      "PRECTOTCORR": 2707.98
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2014,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.450328767123285,
+      "RH2M": 79.67783561643836,
+      "PRECTOTCORR": 2536.75
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2015,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.524931506849317,
+      "RH2M": 80.36495890410959,
+      "PRECTOTCORR": 3351.19
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2016,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.624754098360654,
+      "RH2M": 79.44830601092896,
+      "PRECTOTCORR": 2517.92
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2017,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.588520547945205,
+      "RH2M": 79.58016438356165,
+      "PRECTOTCORR": 2418.18
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2018,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.478575342465753,
+      "RH2M": 79.77016438356165,
+      "PRECTOTCORR": 2141.63
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2019,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.703123287671232,
+      "RH2M": 80.6861095890411,
+      "PRECTOTCORR": 3475.26
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2020,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 28.62169398907104,
+      "RH2M": 80.39904371584699,
+      "PRECTOTCORR": 2781.9900000000002
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2021,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.27509589041096,
+      "RH2M": 80.05383561643836,
+      "PRECTOTCORR": 1963.15
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2022,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.153589041095888,
+      "RH2M": 79.22860273972603,
+      "PRECTOTCORR": 1291.0
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2023,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.811452054794522,
+      "RH2M": 80.23613698630137,
+      "PRECTOTCORR": 1979.6699999999998
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2024,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 29.15256830601093,
+      "RH2M": 80.1803005464481,
+      "PRECTOTCORR": 2824.94
+    },
+    {
+      "site_id": "funafuti",
+      "year": 2025,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 28.633698630136983,
+      "RH2M": 79.70608219178082,
+      "PRECTOTCORR": 2082.2400000000002
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1981,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.82495890410959,
+      "RH2M": 34.95630136986301,
+      "PRECTOTCORR": 296.95
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1982,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 20.965479452054794,
+      "RH2M": 36.55284931506849,
+      "PRECTOTCORR": 311.93
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1983,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.205013698630136,
+      "RH2M": 41.128630136986295,
+      "PRECTOTCORR": 485.76
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1984,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 20.89685792349727,
+      "RH2M": 36.71549180327869,
+      "PRECTOTCORR": 349.99
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1985,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.827013698630136,
+      "RH2M": 30.36112328767123,
+      "PRECTOTCORR": 143.35
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1986,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.725726027397258,
+      "RH2M": 34.45758904109589,
+      "PRECTOTCORR": 327.63
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1987,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.789397260273972,
+      "RH2M": 34.64369863013699,
+      "PRECTOTCORR": 182.75
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1988,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 21.973688524590163,
+      "RH2M": 35.73273224043716,
+      "PRECTOTCORR": 332.07
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1989,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.01394520547945,
+      "RH2M": 39.313890410958905,
+      "PRECTOTCORR": 260.07
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1990,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.27419178082192,
+      "RH2M": 35.280986301369865,
+      "PRECTOTCORR": 222.37
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1991,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.623424657534244,
+      "RH2M": 33.66156164383561,
+      "PRECTOTCORR": 235.39000000000001
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1992,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 21.613688524590163,
+      "RH2M": 36.05609289617487,
+      "PRECTOTCORR": 212.92
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1993,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.520410958904108,
+      "RH2M": 39.70558904109589,
+      "PRECTOTCORR": 378.36
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1994,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.27049315068493,
+      "RH2M": 29.938438356164387,
+      "PRECTOTCORR": 96.78
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1995,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.29827397260274,
+      "RH2M": 38.44293150684931,
+      "PRECTOTCORR": 380.09000000000003
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1996,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 22.457540983606556,
+      "RH2M": 30.39363387978142,
+      "PRECTOTCORR": 106.72
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1997,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.499479452054796,
+      "RH2M": 39.127753424657534,
+      "PRECTOTCORR": 376.31
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1998,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.44819178082192,
+      "RH2M": 37.70909589041096,
+      "PRECTOTCORR": 312.33
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 1999,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.19304109589041,
+      "RH2M": 34.27865753424658,
+      "PRECTOTCORR": 238.32000000000002
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2000,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 20.80841530054645,
+      "RH2M": 47.847759562841524,
+      "PRECTOTCORR": 687.0799999999999
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2001,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 20.806027397260273,
+      "RH2M": 43.61145205479452,
+      "PRECTOTCORR": 615.37
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2002,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.259424657534247,
+      "RH2M": 28.717397260273973,
+      "PRECTOTCORR": 207.29
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2003,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.120027397260273,
+      "RH2M": 32.94490410958904,
+      "PRECTOTCORR": 209.61
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2004,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 22.37273224043716,
+      "RH2M": 34.39795081967213,
+      "PRECTOTCORR": 223.35999999999999
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2005,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.724328767123286,
+      "RH2M": 32.67372602739726,
+      "PRECTOTCORR": 289.1
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2006,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.161315068493153,
+      "RH2M": 33.47821917808219,
+      "PRECTOTCORR": 207.04999999999998
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2007,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.92895890410959,
+      "RH2M": 35.31638356164383,
+      "PRECTOTCORR": 274.92
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2008,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 21.9277868852459,
+      "RH2M": 31.658633879781423,
+      "PRECTOTCORR": 288.53
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2009,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.19994520547945,
+      "RH2M": 33.5961095890411,
+      "PRECTOTCORR": 118.79
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2010,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 19.53304109589041,
+      "RH2M": 54.604164383561645,
+      "PRECTOTCORR": 894.9300000000001
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2011,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 20.642191780821918,
+      "RH2M": 46.96367123287671,
+      "PRECTOTCORR": 516.24
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2012,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 21.031256830601095,
+      "RH2M": 37.39521857923497,
+      "PRECTOTCORR": 341.05
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2013,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.75964383561644,
+      "RH2M": 34.36704109589041,
+      "PRECTOTCORR": 214.93
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2014,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.785561643835617,
+      "RH2M": 37.85164383561644,
+      "PRECTOTCORR": 334.4
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2015,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.59613698630137,
+      "RH2M": 35.421643835616436,
+      "PRECTOTCORR": 253.42999999999998
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2016,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 22.444617486338796,
+      "RH2M": 37.23901639344262,
+      "PRECTOTCORR": 183.57
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2017,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.97882191780822,
+      "RH2M": 30.913835616438355,
+      "PRECTOTCORR": 71.26
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2018,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.778794520547947,
+      "RH2M": 29.40350684931507,
+      "PRECTOTCORR": 69.2
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2019,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 23.0186301369863,
+      "RH2M": 27.43167123287671,
+      "PRECTOTCORR": 29.38
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2020,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 22.56139344262295,
+      "RH2M": 32.444426229508196,
+      "PRECTOTCORR": 207.38
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2021,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.446301369863015,
+      "RH2M": 35.145671232876715,
+      "PRECTOTCORR": 256.71
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2022,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 21.526849315068493,
+      "RH2M": 37.46572602739726,
+      "PRECTOTCORR": 332.33
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2023,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.23868493150685,
+      "RH2M": 36.96413698630137,
+      "PRECTOTCORR": 317.81
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2024,
+      "months_used": 12,
+      "days_used": 366,
+      "T2M": 22.998360655737702,
+      "RH2M": 39.192540983606555,
+      "PRECTOTCORR": 290.40000000000003
+    },
+    {
+      "site_id": "alice-springs",
+      "year": 2025,
+      "months_used": 12,
+      "days_used": 365,
+      "T2M": 22.60953424657534,
+      "RH2M": 34.86,
+      "PRECTOTCORR": 184.9
+    }
+  ]
+}

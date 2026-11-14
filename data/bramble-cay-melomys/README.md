@@ -1,5 +1,17 @@
 # Melomys de Bramble Cay
 
+## Entrega de análisis e integración
+
+Ver [GUIA-INTEGRACION.md](GUIA-INTEGRACION.md) para el contrato de los JSON, código JavaScript de ejemplo, regla de decisión, interpretación, metodología y fuentes. Las [tablas calculadas](RESULTADOS.md) incluyen pendientes de Sen y Mann–Kendall con corrección de autocorrelación para 1981–2008 y 1981–2025.
+
+- [tendencias.json](tendencias.json): pendiente por década, significancia y sellos del juego para 4 sitios × 3 variables × 2 períodos.
+- [series-anuales.json](series-anuales.json): 45 años completos por sitio, lluvia en mm/año y medias ponderadas por días.
+- [ciclo-mensual.json](ciclo-mensual.json): los 12 meses típicos de 1981–2008, comparación de la estación seca y semejanza regional.
+- [fuentes-analisis.json](fuentes-analisis.json): consultas NASA, referencias y hashes de los datos originales.
+- [Ciclos mensuales](figuras/ciclo-mensual.png), [tendencias para la decisión](figuras/tendencias-decision_2009.png) y [tendencias para la revelación](figuras/tendencias-revelacion.png).
+
+Reproducir con `python scripts/analizar_melomys.py` desde la raíz; dependencias en `scripts/requirements-analysis.txt`. Validar con `python scripts/verificar_melomys.py`. Erub es el más semejante también estacionalmente, aunque su lluvia de junio–noviembre es aproximadamente 22 % menor que la de Bramble Cay. Los sellos usan corrección de Holm para las 12 comparaciones de cada período; `NO PROBADO` no significa ausencia de cambio.
+
 El melomys de Bramble Cay (*Melomys rubicola*) ocupaba un cayo bajo del estrecho de Torres. Dependía de la vegetación herbácea para alimento y refugio. La evaluación australiana identifica la inundación marina recurrente como la explicación principal de la pérdida de vegetación y del declive. Para el juego, 2009 corresponde al último avistamiento reportado. La declaración federal de extinción fue en 2019.
 
 ## Comparación de los arriendos
