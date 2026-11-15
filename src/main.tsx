@@ -611,6 +611,7 @@ function App() {
         {(stage === 'escaped' || stage === 'credits') && <EvacuationResult language={language} stage={stage} rentalId={save.rental?.id} paused={settingsOpen}
           onPageTurn={() => audio.current?.openDeskTool('notebook')}
           onAnswer={correct => correct ? audio.current?.rentalReply() : audio.current?.click()}
+          onMenu={() => { clearScene(); setScreen('title') }}
           onContinue={() => stage === 'escaped' ? advance('credits') : toLevels()} />}
       </div>
       <footer className="controls">

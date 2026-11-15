@@ -4,12 +4,13 @@ import { CreditsEpilogue } from './CreditsEpilogue'
 import { erubPlots } from './ErubTerrain'
 import { listings } from './habitat'
 
-export function EvacuationResult({ language, stage, rentalId, paused, onContinue, onPageTurn, onAnswer }: {
+export function EvacuationResult({ language, stage, rentalId, paused, onContinue, onMenu, onPageTurn, onAnswer }: {
   language: Language
   stage: 'escaped' | 'credits'
   rentalId?: string
   paused: boolean
   onContinue: () => void
+  onMenu: () => void
   onPageTurn: () => void
   onAnswer: (correct: boolean) => void
 }) {
@@ -23,7 +24,7 @@ export function EvacuationResult({ language, stage, rentalId, paused, onContinue
   useEffect(() => { if (!showEpilogue) heading.current?.focus({ preventScroll: true }) }, [stage, showEpilogue])
 
   if (showEpilogue) return <CreditsEpilogue language={language} rentalId={rentalId} paused={paused} onBack={() => setShowEpilogue(false)}
-    onFinish={onContinue} onPageTurn={onPageTurn} onAnswer={onAnswer} />
+    onFinish={onContinue} onMenu={onMenu} onPageTurn={onPageTurn} onAnswer={onAnswer} />
 
   return <section className="evac-result" aria-labelledby="evac-result-title">
     <article className="end-card">

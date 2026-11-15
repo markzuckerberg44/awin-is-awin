@@ -14,12 +14,13 @@ const vegetation = [{ year: 2004, hectares: 2.2 }, { year: 2014, hectares: .065 
 const reducedMotion = '(prefers-reduced-motion: reduce)'
 const pixelsPerMs = .037
 
-export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, onPageTurn, onAnswer }: {
+export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, onMenu, onPageTurn, onAnswer }: {
   language: Language
   rentalId?: string
   paused: boolean
   onBack: () => void
   onFinish: () => void
+  onMenu: () => void
   onPageTurn: () => void
   onAnswer: (correct: boolean) => void
 }) {
@@ -30,7 +31,6 @@ export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, 
   const openingTitle = useRef<HTMLHeadingElement>(null)
   const quiz = useRef<HTMLFieldSetElement>(null)
   const globe = useRef<HTMLElement>(null)
-  const closingTitle = useRef<HTMLHeadingElement>(null)
   const number = new Intl.NumberFormat(language, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
   const hectares = new Intl.NumberFormat(language, { maximumFractionDigits: 3 })
 
@@ -77,16 +77,6 @@ export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, 
     frame = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(frame)
   }, [rolling, paused])
-
-  function jumpToClosing() {
-    setRolling(false)
-    onPageTurn()
-    const root = scroll.current
-    const title = closingTitle.current
-    if (!root || !title) return
-    root.scrollTop += title.getBoundingClientRect().top - root.getBoundingClientRect().top - 16
-    title.focus({ preventScroll: true })
-  }
 
   return <section className="evac-result credit-roll" aria-label={t('Créditos', 'Credits')}>
     <div className="credit-scroll" ref={scroll} tabIndex={0}
@@ -154,7 +144,7 @@ export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, 
         <CreditsGlobe language={language} active={globeVisible && !paused} />
       </article>
       <article className="credit-epilogue" data-page="closing" aria-labelledby="credit-closing-title">
-        <h2 id="credit-closing-title" ref={closingTitle} tabIndex={-1}>
+        <h2 id="credit-closing-title">
           {t('El melomys de Bramble Cay se extinguió.', 'The Bramble Cay melomys went extinct.')}
         </h2>
         <div className="credit-closing">
@@ -175,7 +165,7 @@ export function CreditsEpilogue({ language, rentalId, paused, onBack, onFinish, 
       <button type="button" className="primary" onClick={() => setRolling(value => !value)}>
         {rolling ? t('Pausar créditos', 'Pause credits') : t('Reanudar créditos', 'Resume credits')}
       </button>
-      <button type="button" onClick={jumpToClosing}>{t('Ir al cierre', 'Skip to ending')}</button>
+      <button type="button" onClick={() => { onPageTurn(); onMenu() }}>{t('Volver al menú', 'Back to main menu')}</button>
     </nav>
   </section>
 }
