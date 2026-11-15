@@ -1,3 +1,4 @@
 *.json text eol=lf
 nasa-power/*.json -text
+nasa-power-extra/*.json -text
 *.sqlite binary

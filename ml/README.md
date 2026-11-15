@@ -1,84 +1,68 @@
-# Climate forecast 2026–2030 (machine learning module)
+# Forecasts tied to the species cards (2025–2030)
 
-A self-contained module: it **reads** the project data and **writes only to `ml/output/`**. The game can load these JSON files in its main flow or in a separate screen; nothing in `data/` depends on this folder.
+The module reads `data/pokedex/pokedex.sqlite:species_comparison_values`: exactly the annual values in each species' `survival_card.comparison_series`. The selected targets come from `variables-clave.json.species[id].variables`; their definitions and units must match the card. It supports a variable number of targets. The current catalogue still selects three per species.
 
-## What it gives you
+## Outputs
 
-For each of the 15 species, a forecast of its **three key survival indicators** for **2026, 2027, 2028, 2029 and 2030**, at the species' habitat and, for the ten land species, at its three relocation candidates.
+- `output/<species_id>.json`: historical NASA values, `hindcast_2025`, future `forecast`, model selection, sources and backtest.
+- `output/summary.json`: 133 available species/location/indicator series and empirical interval coverage.
+- `output/charts/<species_id>.png`: rebuilt diagnostic plots.
 
-| File | Content |
-|---|---|
-| `output/<species_id>.json` | Observed 1981–2025, forecast 2026–2030 with an 80 % range, comparison with the 1991–2020 average, an English `summary_text`, and a backtest |
-| `output/summary.json` | One row per species × location × indicator: 2030 forecast, change vs. normal, backtest skill |
-| `output/charts/<species_id>.png` | Ready-made chart of the habitat's three indicators |
-
-The species' key variables themselves (which three, why, and their 1981–2025 values) live in the Pokédex data, not here: `data/pokedex/variables-clave.json`, the `key_indicator_values` table of `pokedex.sqlite`, and `key_variables` / `key_variable_series` in each `data/pokedex/export/<species_id>.json`. This module only reads them.
-
-## Using it in the game
+**2025 is already observed.** `hindcast_2025` trains only through 2024 and compares its prediction against known 2025. `forecast` trains through 2025 and covers 2026–2030. NASA supplies the historical products; the project produces the forecasts. These are exploratory regional statistical extrapolations, not NASA forecasts, emission-scenario projections or survival predictions.
 
 ```js
-const f = await fetch(`/data/ml/${encodeURIComponent(speciesId)}.json`).then(r => r.json());
-const habitat = f.locations.find(l => l.role === 'species_habitat');
-for (const v of f.variables) {
-  const s = habitat.indicators[v.id];
-  if (!s.available) continue;                        // e.g. soil wetness over ocean
-  const history  = s.observed.map(o => ({x: o.year, y: o.value}));
-  const forecast = s.forecast.map(o => ({x: o.year, y: o.value, min: o.low80, max: o.high80}));
-  showCard(v.label, v.unit, s.summary_text, s.context.change_vs_normal);
+const d = await fetch(`/data/ml/${encodeURIComponent(speciesId)}.json`).then(r => r.json());
+const location = d.locations.find(l => l.location_id === locationId);
+for (const variable of d.variables) {
+  const s = location.indicators[variable.id];
+  if (!s.available) continue;
+  const validation2025 = s.hindcast_2025.prediction; // value, observed, low80, high80
+  const future = s.forecast;                      // 2026–2030
+  // Draw historical values and forecasts as distinct series; display unit and uncertainty.
 }
-// Optional: compare candidates — f.locations.filter(l => l.role === 'relocation_candidate')
 ```
 
-Two ways to integrate:
-- **Main flow:** after a round, show "What happens next? 2026–2030" for the habitat or the chosen refuge.
-- **Separate feature:** a "Forecast lab" screen that reads `summary.json` and the charts.
+## Models and validation
 
-### Display rules
+Six candidates compete by temporal cross-validation MAE:
 
-- Always show the 80 % range, not just the line. In the backtest (see below) real values fell inside that range in about 66 % of cases, not 80 %. The range is a minimum estimate of the uncertainty.
-- When the file includes `absolute_value_caution` (mountain species), show the **change versus 1991–2020** (`context.change_vs_normal`), not the absolute value. NASA's grid cell sits far below cloud forests: Monteverde's cell averages 381 m, so its temperature reads about 25 °C instead of the 14–19 °C of the toad's forest.
-- Rainfall indicators carry `data_caution`: present them as uncertain.
-- `brief_favorable_conditions` comes from the project brief and is **not validated** (`brief_ranges_validated: false`). Do not turn it into a "survives / dies" rule.
-- This is not a survival prediction. Threats such as chytrid fungus, invasive predators, sea-level rise or water extraction are not in the data.
-
-## Method
-
-**Data.** Annual key-indicator values 1981–2025 for 24 locations, read from `data/pokedex/pokedex.sqlite` (table `key_indicator_values`). They are built from NASA POWER monthly data; the aggregation rule for each indicator is in `data/pokedex/variables-clave.json`.
-
-**Models.** Four simple, explainable models compete for each series:
-
-| Model | Idea |
+| Model | Definition |
 |---|---|
-| `historical_mean` | No change: average of all years |
-| `recent_mean` | Recent conditions persist: average of the last 10 years |
-| `linear_trend` | Least-squares straight line |
-| `theil_sen_trend` | Robust straight line, less sensitive to extreme years |
+| Persistence | Last observed annual value |
+| Historical mean | Mean of training years |
+| Recent mean | Mean of last ten training years |
+| Linear trend | Least-squares regression on time |
+| Theil–Sen trend | Robust linear trend |
+| Autoregressive Ridge | Three annual lags, training-only standardization, fixed L2=1, recursive forecasts |
 
-**Selection (the machine-learning step).** Time-series cross-validation. The script trains up to 2005, 2010, 2015 and 2020, predicts the following 5 years each time, and keeps the model with the lowest mean absolute error. That model is retrained on 1981–2025 to forecast 2026–2030. The 80 % range comes from the 10th and 90th percentiles of those out-of-sample errors.
+Forecasts are univariate. Adding targets to the card does not create a multivariate model. Ridge uses past values of the same indicator, not future values of other environmental variables.
 
-**Backtest.** The same procedure is run as if it were 2020: train up to 2020 and predict 2021–2025, which already happened. `verify.py` checks that the backtest never sees 2021–2025.
+For ordinary indicators, final validation origins are 2005/2010/2015/2020; backtest selection uses 2000/2005/2010/2015. Each origin trains only on preceding years and evaluates up to five following years available within the outer training period.
 
-Results across 133 series:
-- **Beats "no change":** in 73 % of series. Median error reduction is 17 %.
-- **By variable:** temperature does best (31 %), rainfall barely improves (6 %).
-- **80 % range:** contained 66 % of real values.
+Dry-season rainfall uses the species reference's four driest months selected from 1981–2014, with the same months applied to candidates. Because this definition was not known earlier, final selection origins are 2014/2015/2020 and backtest origins 2014/2015. There are few overlapping validation windows: skill and uncertainty estimates remain provisional. Legacy `key_indicator_values.precip_dry_season` is no longer a forecast input.
 
-Selected models: 49 linear trend, 29 Theil–Sen, 28 recent mean, 27 historical mean.
+The outer backtest trains through 2020 and evaluates 2021–2025. The output reports MAE and skill against historical-mean and persistence baselines. Negative skill means the model was worse. The separate 2025 hindcast is a retrospective diagnostic; its data are excluded from its training and selection.
 
-## Limits
+Intervals use pooled 10th/90th percentiles of validation residuals and respect physical bounds. They are **nominal**, not calibrated guarantees. In the current backtest they contain about **64.2%** of outcomes, below the nominal 80%. The sample is small, windows overlap and repeated locations/indicators are correlated. Do not interpret the pooled coverage as independent trials or the band as a validated probability.
 
-- **Regional climate only.** These are statistical extrapolations of a regional grid cell, not climate-model projections (CMIP6). There are no emission scenarios, El Niño forecasts or abrupt changes.
-- **Rainfall data.** Reanalysis rainfall can contain artificial shifts; see `rainfall_caution` in `data/pokedex/variables-clave.json`.
-- **Missing variables.** Water temperature, stream flow, oxygen, sea level and acidification are not available. For aquatic species the indicators are proxies, and `why_these_variables` says so.
-- **Sea-surface temperature.** It is skin temperature from the grid cell. It behaves like sea temperature at Coiba and Galápagos; Tasmania's cell is likely influenced by land.
+## Scientific limits
+
+- Grid values can differ substantially from mountain, forest, spring and coastal microhabitats.
+- Surface skin temperature is not confirmed water temperature at the animal's depth.
+- Historical ranges are not physiological limits. Habitat, pathogens, predators, groundwater extraction and flooding remain separate evidence.
+- Reanalysis precipitation may have discontinuities. Verify against local gauges before strong causal interpretation.
+- No model selection result establishes that one site supports survival.
+- No monthly multivariate model or long-term climate-model scenario has been implemented.
 
 ## Reproduce
 
-From the repository root, with Python 3 and `numpy` (`matplotlib` only for charts):
+Python with numpy; matplotlib is needed only for charts. From the repository root:
 
 ```sh
-python ml/forecast.py --charts   # rebuilds ml/output/
-python ml/verify.py              # checks outputs, intervals and the backtest
+python data/pokedex/construir_db.py
+python data/pokedex/verificar_datos.py
+python ml/forecast.py --charts
+python ml/verify.py
 ```
 
-`forecast.py` is deterministic. To change a species' indicators, edit `data/pokedex/variables-clave.json`, rebuild the database (`python construir_db.py` in `data/pokedex`) and rerun the forecast. A new NASA indicator must first be added to `data/pokedex/descargar_nasa_extra.py`.
+`verify.py` checks that model inputs match the cards, output horizons and bounds are coherent, and perturbing held-out observations cannot alter backtest or 2025-hindcast predictions. Sources and a live NASA audit are in [AUDITORIA-Y-AMPLIACION.md](../data/pokedex/AUDITORIA-Y-AMPLIACION.md).

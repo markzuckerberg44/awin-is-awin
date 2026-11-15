@@ -13,6 +13,9 @@
           "indicator_id": "t2m_max_mean",
           "label": "Average monthly maximum temperature",
           "value": 28.318211764705882,
+          "nasa_parameters": [
+            "T2M_MAX"
+          ],
           "unit": "°C",
           "range": {
             "min": 27.6733,
@@ -39,7 +42,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "795bc630b701b6b28a568818efa40bf599c0f8dcb5aa79d0d42f407384849e56",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/bramble-cay.json",
+              "verification_response_sha256": "b7e13024b9fd51d56adb01447ab85cd5c088e1f641caccd426db9c34f22f0685",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -49,6 +55,9 @@
           "indicator_id": "precip_annual",
           "label": "Annual rainfall",
           "value": 2006.2038235294117,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm/year",
           "range": {
             "min": 943.5,
@@ -84,6 +93,9 @@
           "indicator_id": "soil_wetness",
           "label": "Root-zone soil wetness",
           "value": 0.7601617647058824,
+          "nasa_parameters": [
+            "GWETROOT"
+          ],
           "unit": "0–1",
           "range": {
             "min": 0.6398,
@@ -110,7 +122,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "795bc630b701b6b28a568818efa40bf599c0f8dcb5aa79d0d42f407384849e56",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/bramble-cay.json",
+              "verification_response_sha256": "b7e13024b9fd51d56adb01447ab85cd5c088e1f641caccd426db9c34f22f0685",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -175,7 +190,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "795bc630b701b6b28a568818efa40bf599c0f8dcb5aa79d0d42f407384849e56",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/bramble-cay.json",
+              "verification_response_sha256": "b7e13024b9fd51d56adb01447ab85cd5c088e1f641caccd426db9c34f22f0685",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -296,7 +314,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "795bc630b701b6b28a568818efa40bf599c0f8dcb5aa79d0d42f407384849e56",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/bramble-cay.json",
+              "verification_response_sha256": "b7e13024b9fd51d56adb01447ab85cd5c088e1f641caccd426db9c34f22f0685",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -359,7 +380,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "1ecfff7bd38d571ea49f59f148bc83880c2c7801dc69951b2ccd9370b64a4311",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/erub.json",
+              "verification_response_sha256": "b85b764baa7dbac599748781649622010cfdcc508e04dbd0ca2674f57a70bb02",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -480,7 +504,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "1ecfff7bd38d571ea49f59f148bc83880c2c7801dc69951b2ccd9370b64a4311",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/erub.json",
+              "verification_response_sha256": "b85b764baa7dbac599748781649622010cfdcc508e04dbd0ca2674f57a70bb02",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -543,7 +570,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -629,7 +659,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -692,7 +725,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -813,7 +849,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -2847,6 +2886,9 @@
           "indicator_id": "rh2m_mean",
           "label": "Mean relative humidity",
           "value": 77.2435241498351,
+          "nasa_parameters": [
+            "RH2M"
+          ],
           "unit": "%",
           "range": {
             "min": 69.46534246575342,
@@ -2882,6 +2924,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 25.193334453970223,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 24.189890410958903,
@@ -2917,6 +2962,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 32.08147058823529,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 1.21,
@@ -5912,6 +5960,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 21.172477510204622,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 20.453342465753426,
@@ -5947,6 +5998,9 @@
           "indicator_id": "cloud_cover",
           "label": "Cloud cover",
           "value": 75.68260967741935,
+          "nasa_parameters": [
+            "CLOUD_AMT"
+          ],
           "unit": "%",
           "range": {
             "min": 73.194,
@@ -5973,7 +6027,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/talamanca.json",
+              "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -5983,6 +6040,10 @@
           "indicator_id": "thermal_range",
           "label": "Monthly temperature range",
           "value": 10.120382352941176,
+          "nasa_parameters": [
+            "T2M_MAX",
+            "T2M_MIN"
+          ],
           "unit": "°C",
           "range": {
             "min": 9.1275,
@@ -6009,7 +6070,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
-              "parameter": "T2M_MAX − T2M_MIN"
+              "parameter": "T2M_MAX − T2M_MIN",
+              "verification_response_file": "nasa-power-extra/talamanca.json",
+              "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -6131,7 +6195,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/talamanca.json",
+              "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -6192,7 +6259,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
-              "parameter": "T2M_MAX − T2M_MIN"
+              "parameter": "T2M_MAX − T2M_MIN",
+              "verification_response_file": "nasa-power-extra/talamanca.json",
+              "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -6312,7 +6382,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45b20de0f76c7c7150928effde118b499d1dbb775091b696fdeec308fd2200f0",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/boquete.json",
+              "verification_response_sha256": "4d741e4922e66ff6fede9c969e4e8ee333282ac28ba14f72423ea2f15633a46d",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -6373,7 +6446,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45b20de0f76c7c7150928effde118b499d1dbb775091b696fdeec308fd2200f0",
-              "parameter": "T2M_MAX − T2M_MIN"
+              "parameter": "T2M_MAX − T2M_MIN",
+              "verification_response_file": "nasa-power-extra/boquete.json",
+              "verification_response_sha256": "4d741e4922e66ff6fede9c969e4e8ee333282ac28ba14f72423ea2f15633a46d",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -6493,7 +6569,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -6554,7 +6633,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "T2M_MAX − T2M_MIN"
+              "parameter": "T2M_MAX − T2M_MIN",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -6674,7 +6756,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -6735,7 +6820,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "T2M_MAX − T2M_MIN"
+              "parameter": "T2M_MAX − T2M_MIN",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -8902,6 +8990,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 19.09571907240327,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 18.17917808219178,
@@ -8937,6 +9028,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 205.20470588235295,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 57.65,
@@ -8977,6 +9071,9 @@
           "indicator_id": "soil_wetness",
           "label": "Root-zone soil wetness",
           "value": 0.5208558823529412,
+          "nasa_parameters": [
+            "GWETROOT"
+          ],
           "unit": "0–1",
           "range": {
             "min": 0.4657,
@@ -9003,7 +9100,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5cd2de0d225482454df5eba85a9a5c865034b394f6a40efa21eaa49fb74201c2",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/conondale.json",
+              "verification_response_sha256": "7cbb319ccaf554056f5c4f67aeaf4a813ea551a128fd6a5de47c6b80142ff8b8",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -9193,7 +9293,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5cd2de0d225482454df5eba85a9a5c865034b394f6a40efa21eaa49fb74201c2",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/conondale.json",
+              "verification_response_sha256": "7cbb319ccaf554056f5c4f67aeaf4a813ea551a128fd6a5de47c6b80142ff8b8",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -9381,7 +9484,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "5505e267606e11da6bb7e69ccf0e721b850c14b360314a5a001afced3339784d",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/lamington.json",
+              "verification_response_sha256": "c4b489241d203143c161ebd9dc5a03fd495df3009122692c58319c46e815b245",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -9534,7 +9640,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -9722,7 +9831,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -11756,6 +11868,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 10.78174969507228,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 10.07090410958904,
@@ -11791,6 +11906,9 @@
           "indicator_id": "rh2m_mean",
           "label": "Mean relative humidity",
           "value": 80.5915702720792,
+          "nasa_parameters": [
+            "RH2M"
+          ],
           "unit": "%",
           "range": {
             "min": 77.39284931506849,
@@ -11826,6 +11944,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 130.33970588235294,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 48.87,
@@ -14821,6 +14942,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 24.210448851402226,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 23.196054794520546,
@@ -14856,6 +14980,9 @@
           "indicator_id": "rh2m_mean",
           "label": "Mean relative humidity",
           "value": 74.66817551067138,
+          "nasa_parameters": [
+            "RH2M"
+          ],
           "unit": "%",
           "range": {
             "min": 71.46917808219177,
@@ -14891,6 +15018,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 141.2744117647059,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 25.310000000000002,
@@ -17886,6 +18016,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 23.352679227046757,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 22.626684931506848,
@@ -17921,6 +18054,9 @@
           "indicator_id": "t2m_min_mean",
           "label": "Average monthly minimum temperature",
           "value": 21.23050588235294,
+          "nasa_parameters": [
+            "T2M_MIN"
+          ],
           "unit": "°C",
           "range": {
             "min": 20.2375,
@@ -17947,7 +18083,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "46e15bf480da5389ce4c2e5a37389800ca980f20e9eeb0067cdeacdb07907338",
-              "parameter": "T2M_MIN"
+              "parameter": "T2M_MIN",
+              "verification_response_file": "nasa-power-extra/hanawi.json",
+              "verification_response_sha256": "8f955cdadddfecfb07ff8f0c8d4971f8f11154bee781004f4a2ef776393d6925",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -17957,6 +18096,9 @@
           "indicator_id": "precip_annual",
           "label": "Annual rainfall",
           "value": 502.4655882352941,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm/year",
           "range": {
             "min": 172.41,
@@ -18107,7 +18249,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "46e15bf480da5389ce4c2e5a37389800ca980f20e9eeb0067cdeacdb07907338",
-              "parameter": "T2M_MIN"
+              "parameter": "T2M_MIN",
+              "verification_response_file": "nasa-power-extra/hanawi.json",
+              "verification_response_sha256": "8f955cdadddfecfb07ff8f0c8d4971f8f11154bee781004f4a2ef776393d6925",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -18290,7 +18435,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "e38611afcea14dd7ba038db76e209ae30490750ac62c9e1ffbddef9c9947cf0d",
-              "parameter": "T2M_MIN"
+              "parameter": "T2M_MIN",
+              "verification_response_file": "nasa-power-extra/hakalau.json",
+              "verification_response_sha256": "f0aacfa05297499ac40bf161ad6d8ad8523552cb867218e6281052670d0aefd1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -18473,7 +18621,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "T2M_MIN"
+              "parameter": "T2M_MIN",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -18656,7 +18807,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "T2M_MIN"
+              "parameter": "T2M_MIN",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -20931,6 +21085,9 @@
           "indicator_id": "t2m_max_mean",
           "label": "Average monthly maximum temperature",
           "value": 32.620464705882355,
+          "nasa_parameters": [
+            "T2M_MAX"
+          ],
           "unit": "°C",
           "range": {
             "min": 30.8642,
@@ -20957,7 +21114,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/tecopa.json",
+              "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -20967,6 +21127,9 @@
           "indicator_id": "precip_annual",
           "label": "Annual rainfall",
           "value": 140.46558823529412,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm/year",
           "range": {
             "min": 42.54,
@@ -21002,6 +21165,9 @@
           "indicator_id": "soil_wetness",
           "label": "Root-zone soil wetness",
           "value": 0.37938529411764704,
+          "nasa_parameters": [
+            "GWETROOT"
+          ],
           "unit": "0–1",
           "range": {
             "min": 0.3649,
@@ -21028,7 +21194,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/tecopa.json",
+              "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -21093,7 +21262,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/tecopa.json",
+              "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -21214,7 +21386,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/tecopa.json",
+              "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -21785,6 +21960,9 @@
           "indicator_id": "surface_temp_mean",
           "label": "Mean surface (skin) temperature",
           "value": 28.440691176470587,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 27.6393,
@@ -21811,7 +21989,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -21821,6 +22002,9 @@
           "indicator_id": "surface_temp_warmest_month",
           "label": "Warmest-month surface temperature",
           "value": 30.038235294117648,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 29.24,
@@ -21847,7 +22031,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -21857,6 +22044,9 @@
           "indicator_id": "wind_speed",
           "label": "Wind speed at 2 m",
           "value": 4.051244117647059,
+          "nasa_parameters": [
+            "WS2M"
+          ],
           "unit": "m/s",
           "range": {
             "min": 3.4913,
@@ -21883,7 +22073,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -21948,7 +22141,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -22009,7 +22205,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -22070,7 +22269,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/coiba.json",
+              "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -22641,6 +22843,9 @@
           "indicator_id": "surface_temp_mean",
           "label": "Mean surface (skin) temperature",
           "value": 24.46039411764706,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 22.8749,
@@ -22667,7 +22872,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -22677,6 +22885,9 @@
           "indicator_id": "surface_temp_warmest_month",
           "label": "Warmest-month surface temperature",
           "value": 27.411470588235293,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 25.51,
@@ -22703,7 +22914,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -22713,6 +22927,9 @@
           "indicator_id": "wind_speed",
           "label": "Wind speed at 2 m",
           "value": 3.9281323529411765,
+          "nasa_parameters": [
+            "WS2M"
+          ],
           "unit": "m/s",
           "range": {
             "min": 3.5717,
@@ -22739,7 +22956,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -22804,7 +23024,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -22865,7 +23088,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -22926,7 +23152,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/galapagos.json",
+              "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -23497,6 +23726,9 @@
           "indicator_id": "t2m_max_mean",
           "label": "Average monthly maximum temperature",
           "value": 27.936858823529413,
+          "nasa_parameters": [
+            "T2M_MAX"
+          ],
           "unit": "°C",
           "range": {
             "min": 27.3317,
@@ -23523,7 +23755,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "7b9d16335b6816b9909cc7ad4e916aafc3894e827922ac4d69ac3f1afad3252d",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/christmas.json",
+              "verification_response_sha256": "a09032c629534e2f9e6d4368769b16875268a42ea22270c4b651215021196613",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -23533,6 +23768,9 @@
           "indicator_id": "rh2m_mean",
           "label": "Mean relative humidity",
           "value": 79.30322929683888,
+          "nasa_parameters": [
+            "RH2M"
+          ],
           "unit": "%",
           "range": {
             "min": 78.31515068493151,
@@ -23568,6 +23806,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 132.35882352941175,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 27.76,
@@ -23663,7 +23904,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "7b9d16335b6816b9909cc7ad4e916aafc3894e827922ac4d69ac3f1afad3252d",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/christmas.json",
+              "verification_response_sha256": "a09032c629534e2f9e6d4368769b16875268a42ea22270c4b651215021196613",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -23851,7 +24095,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "7f9c880e58c27ae2f1f9bf30ac093756392472eb4d73cf5678edaf053421a6f9",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/cocos.json",
+              "verification_response_sha256": "a9fd19fc7f274a27fb3da7fdd56c86d228f1cc9a2385bce60c9ac497a024c2a9",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -24039,7 +24286,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -24227,7 +24477,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -26567,6 +26820,9 @@
           "indicator_id": "precip_annual",
           "label": "Annual rainfall",
           "value": 460.5235294117647,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm/year",
           "range": {
             "min": 207.77,
@@ -26602,6 +26858,9 @@
           "indicator_id": "t2m_max_mean",
           "label": "Average monthly maximum temperature",
           "value": 28.657864705882353,
+          "nasa_parameters": [
+            "T2M_MAX"
+          ],
           "unit": "°C",
           "range": {
             "min": 27.3108,
@@ -26628,7 +26887,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "4fb0a4ba746405e5fada5b2206f530eee45bdde314d50792cd6ff061bd9e439b",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/el-potosi.json",
+              "verification_response_sha256": "71026f4ce44e9bde9ef13337e613a3fecca03b182b43fd672b1c6732974580bd",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -26638,6 +26900,9 @@
           "indicator_id": "soil_wetness",
           "label": "Root-zone soil wetness",
           "value": 0.5174852941176471,
+          "nasa_parameters": [
+            "GWETROOT"
+          ],
           "unit": "0–1",
           "range": {
             "min": 0.4719,
@@ -26664,7 +26929,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "4fb0a4ba746405e5fada5b2206f530eee45bdde314d50792cd6ff061bd9e439b",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/el-potosi.json",
+              "verification_response_sha256": "71026f4ce44e9bde9ef13337e613a3fecca03b182b43fd672b1c6732974580bd",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -26789,7 +27057,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "4fb0a4ba746405e5fada5b2206f530eee45bdde314d50792cd6ff061bd9e439b",
-              "parameter": "T2M_MAX"
+              "parameter": "T2M_MAX",
+              "verification_response_file": "nasa-power-extra/el-potosi.json",
+              "verification_response_sha256": "71026f4ce44e9bde9ef13337e613a3fecca03b182b43fd672b1c6732974580bd",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -26850,7 +27121,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "4fb0a4ba746405e5fada5b2206f530eee45bdde314d50792cd6ff061bd9e439b",
-              "parameter": "GWETROOT"
+              "parameter": "GWETROOT",
+              "verification_response_file": "nasa-power-extra/el-potosi.json",
+              "verification_response_sha256": "71026f4ce44e9bde9ef13337e613a3fecca03b182b43fd672b1c6732974580bd",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -27421,6 +27695,9 @@
           "indicator_id": "surface_temp_mean",
           "label": "Mean surface (skin) temperature",
           "value": 12.504329411764706,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 11.4896,
@@ -27447,7 +27724,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -27457,6 +27737,9 @@
           "indicator_id": "surface_temp_warmest_month",
           "label": "Warmest-month surface temperature",
           "value": 17.571176470588235,
+          "nasa_parameters": [
+            "TS"
+          ],
           "unit": "°C",
           "range": {
             "min": 15.47,
@@ -27483,7 +27766,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -27493,6 +27779,9 @@
           "indicator_id": "wind_speed",
           "label": "Wind speed at 2 m",
           "value": 4.0280676470588235,
+          "nasa_parameters": [
+            "WS2M"
+          ],
           "unit": "m/s",
           "range": {
             "min": 3.5598,
@@ -27519,7 +27808,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -27584,7 +27876,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -27645,7 +27940,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "TS"
+              "parameter": "TS",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           },
@@ -27706,7 +28004,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
-              "parameter": "WS2M"
+              "parameter": "WS2M",
+              "verification_response_file": "nasa-power-extra/tasmania.json",
+              "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -28277,6 +28578,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 26.86100451557223,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 26.163972602739726,
@@ -28312,6 +28616,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 132.35882352941175,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 27.76,
@@ -28352,6 +28659,9 @@
           "indicator_id": "rh2m_mean",
           "label": "Mean relative humidity",
           "value": 79.30322929683888,
+          "nasa_parameters": [
+            "RH2M"
+          ],
           "unit": "%",
           "range": {
             "min": 78.31515068493151,
@@ -31342,6 +31652,9 @@
           "indicator_id": "t2m_mean",
           "label": "Mean air temperature",
           "value": 26.197117605227586,
+          "nasa_parameters": [
+            "T2M"
+          ],
           "unit": "°C",
           "range": {
             "min": 25.523808219178083,
@@ -31377,6 +31690,9 @@
           "indicator_id": "precip_dry_season",
           "label": "Dry-season rainfall",
           "value": 135.10117647058823,
+          "nasa_parameters": [
+            "PRECTOTCORR"
+          ],
           "unit": "mm",
           "range": {
             "min": 36.22,
@@ -31417,6 +31733,9 @@
           "indicator_id": "cloud_cover",
           "label": "Cloud cover",
           "value": 68.55576129032258,
+          "nasa_parameters": [
+            "CLOUD_AMT"
+          ],
           "unit": "%",
           "range": {
             "min": 64.2201,
@@ -31443,7 +31762,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "d492117ccc21b35f9e19ea239aa4d88d9fe73d569890e8a3a181d2785a4b8bb5",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/el-valle.json",
+              "verification_response_sha256": "e0f2aef0152c2386dbf8797228207972a37865f854fed90fcf390691bf501b14",
+              "verification_report": "auditoria-nasa.json"
             }
           ],
           "months": null
@@ -31630,7 +31952,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "d492117ccc21b35f9e19ea239aa4d88d9fe73d569890e8a3a181d2785a4b8bb5",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/el-valle.json",
+              "verification_response_sha256": "e0f2aef0152c2386dbf8797228207972a37865f854fed90fcf390691bf501b14",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -31815,7 +32140,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "3105cdfa608c0ab2de5b735bd88ed7002aa08623fa07fd8a669b8e4eb4480a60",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/santa-fe.json",
+              "verification_response_sha256": "706e27bc204e32828e191d557ba0df613acbcdf920f39700792ce885eacee739",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -32000,7 +32328,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/funafuti.json",
+              "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }
@@ -32185,7 +32516,10 @@
               "file": "nasa-power-extra-anual.json",
               "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
               "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
-              "parameter": "CLOUD_AMT"
+              "parameter": "CLOUD_AMT",
+              "verification_response_file": "nasa-power-extra/alice-springs.json",
+              "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+              "verification_report": "auditoria-nasa.json"
             },
             "survival_verdict": null
           }

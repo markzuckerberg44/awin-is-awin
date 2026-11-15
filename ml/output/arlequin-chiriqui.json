@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "arlequin-chiriqui",
  "species_name": "Chiriquí harlequin frog",
  "scientific_name": "Atelopus chiriquiensis",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,31 @@
    "label": "Mean air temperature",
    "unit": "°C",
    "source": "T2M",
-   "aggregation": "Day-weighted annual mean of monthly means"
+   "aggregation": "Day-weighted annual mean of monthly means",
+   "nasa_parameters": [
+    "T2M"
+   ]
   },
   {
    "id": "cloud_cover",
    "label": "Cloud cover",
    "unit": "%",
    "source": "CLOUD_AMT",
-   "aggregation": "Annual mean"
+   "aggregation": "Annual mean",
+   "nasa_parameters": [
+    "CLOUD_AMT"
+   ]
   },
   {
    "id": "thermal_range",
    "label": "Monthly temperature range",
    "unit": "°C",
    "source": "T2M_MAX − T2M_MIN",
-   "aggregation": "Annual mean of (monthly maximum − monthly minimum)"
+   "aggregation": "Annual mean of (monthly maximum − monthly minimum)",
+   "nasa_parameters": [
+    "T2M_MAX",
+    "T2M_MIN"
+   ]
   }
  ],
  "locations": [
@@ -234,48 +247,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 21.519,
-       "low80": 21.32,
-       "high80": 21.995
+       "value": 21.58,
+       "low80": 21.261,
+       "high80": 22.02
       },
       {
        "year": 2027,
-       "value": 21.53,
-       "low80": 21.331,
-       "high80": 22.006
+       "value": 21.58,
+       "low80": 21.261,
+       "high80": 22.02
       },
       {
        "year": 2028,
-       "value": 21.541,
-       "low80": 21.342,
-       "high80": 22.017
+       "value": 21.58,
+       "low80": 21.261,
+       "high80": 22.02
       },
       {
        "year": 2029,
-       "value": 21.552,
-       "low80": 21.353,
-       "high80": 22.028
+       "value": 21.58,
+       "low80": 21.261,
+       "high80": 22.02
       },
       {
        "year": 2030,
-       "value": 21.563,
-       "low80": 21.364,
-       "high80": 22.039
+       "value": 21.58,
+       "low80": 21.261,
+       "high80": 22.02
       }
      ],
-     "selected_model": "linear_trend",
-     "model_description": "Least-squares straight line through the training years",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "persistence",
+      "prediction": {
+       "year": 2025,
+       "value": 22.073,
+       "low80": 21.752,
+       "high80": 22.518,
+       "observed": 21.58
+      },
+      "absolute_error": 0.493,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "persistence",
+     "model_description": "Last observed annual value",
      "cv_mae_by_model": {
+      "persistence": 0.227,
       "historical_mean": 0.264,
       "recent_mean": 0.245,
       "linear_trend": 0.23,
-      "theil_sen_trend": 0.241
+      "theil_sen_trend": 0.241,
+      "autoregressive_ridge": 0.271
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 21.271,
       "mean_2016_2025": 21.532,
-      "forecast_mean_2026_2030": 21.541,
-      "change_vs_normal": 0.27,
+      "forecast_mean_2026_2030": 21.58,
+      "change_vs_normal": 0.309,
       "trend_per_decade_1981_2025": 0.111
      },
      "backtest": {
@@ -328,10 +364,25 @@
       "mae": 0.349,
       "mae_if_no_change": 0.401,
       "skill_vs_no_change": 0.13,
+      "mae_persistence": 0.351,
+      "skill_vs_persistence": 0.007,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 1
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 21.5 °C (80% range for 2030: 21.4–22.0 °C), above the 1991–2020 average of 21.3 °C (+0.27 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/talamanca.json",
+      "file_sha256": "05086d7d1b26ac3d9f7b7177fb72ecc4c4e783f1f1b651fa0bd106d2031b1929",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 21.6 °C (nominal 80% band for 2030: 21.3–22.0 °C; coverage is not guaranteed), above the 1991–2020 average of 21.3 °C (+0.31 °C)."
     },
     "cloud_cover": {
      "observed": [
@@ -536,14 +587,37 @@
        "high80": 78.277
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "theil_sen_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 74.284,
+       "low80": 71.904,
+       "high80": 77.387,
+       "observed": 80.638
+      },
+      "absolute_error": 6.354,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 3.139,
       "historical_mean": 2.036,
       "recent_mean": 2.136,
       "linear_trend": 2.206,
-      "theil_sen_trend": 2.105
+      "theil_sen_trend": 2.105,
+      "autoregressive_ridge": 2.169
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 75.251,
       "mean_2016_2025": 75.238,
@@ -601,10 +675,29 @@
       "mae": 3.515,
       "mae_if_no_change": 2.214,
       "skill_vs_no_change": -0.587,
+      "mae_persistence": 3.858,
+      "skill_vs_persistence": 0.089,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 0
      },
      "available": true,
-     "summary_text": "Cloud cover in 2026–2030 is forecast to average 75.5 % (80% range for 2030: 72.8–78.3 %), above the 1991–2020 average of 75.3 % (+0.28 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
+      "parameter": "CLOUD_AMT",
+      "verification_response_file": "nasa-power-extra/talamanca.json",
+      "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 75.5 % (nominal 80% band for 2030: 72.8–78.3 %; coverage is not guaranteed), above the 1991–2020 average of 75.3 % (+0.28 %)."
     },
     "thermal_range": {
      "observed": [
@@ -821,14 +914,37 @@
        "high80": 9.717
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "recent_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 9.522,
+       "low80": 9.099,
+       "high80": 9.787,
+       "observed": 8.818
+      },
+      "absolute_error": 0.704,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.318,
       "historical_mean": 0.578,
       "recent_mean": 0.282,
       "linear_trend": 0.297,
-      "theil_sen_trend": 0.293
+      "theil_sen_trend": 0.293,
+      "autoregressive_ridge": 0.289
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 9.873,
       "mean_2016_2025": 9.452,
@@ -845,51 +961,70 @@
        2021,
        2025
       ],
-      "selected_model": "linear_trend",
+      "selected_model": "autoregressive_ridge",
       "years": [
        {
         "year": 2021,
-        "value": 9.339,
-        "low80": 9.062,
-        "high80": 9.885,
+        "value": 9.627,
+        "low80": 9.128,
+        "high80": 10.032,
         "observed": 9.282
        },
        {
         "year": 2022,
-        "value": 9.305,
-        "low80": 9.028,
-        "high80": 9.851,
+        "value": 9.724,
+        "low80": 9.225,
+        "high80": 10.129,
         "observed": 9.309
        },
        {
         "year": 2023,
-        "value": 9.271,
-        "low80": 8.994,
-        "high80": 9.817,
+        "value": 9.732,
+        "low80": 9.233,
+        "high80": 10.137,
         "observed": 9.783
        },
        {
         "year": 2024,
-        "value": 9.238,
-        "low80": 8.96,
-        "high80": 9.784,
+        "value": 9.733,
+        "low80": 9.234,
+        "high80": 10.138,
         "observed": 9.68
        },
        {
         "year": 2025,
-        "value": 9.204,
-        "low80": 8.926,
-        "high80": 9.75,
+        "value": 9.754,
+        "low80": 9.255,
+        "high80": 10.159,
         "observed": 8.818
        }
       ],
-      "mae": 0.28,
+      "mae": 0.36,
       "mae_if_no_change": 0.657,
-      "skill_vs_no_change": 0.574,
+      "skill_vs_no_change": 0.452,
+      "mae_persistence": 0.345,
+      "skill_vs_persistence": -0.044,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 9.45 °C (80% range for 2030: 8.99–9.72 °C), below the 1991–2020 average of 9.87 °C (-0.42 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
+      "parameter": "T2M_MAX − T2M_MIN",
+      "verification_response_file": "nasa-power-extra/talamanca.json",
+      "verification_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 9.45 °C (nominal 80% band for 2030: 8.99–9.72 °C; coverage is not guaranteed), below the 1991–2020 average of 9.87 °C (-0.42 °C)."
     }
    }
   },
@@ -1085,48 +1220,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 22.978,
-       "low80": 22.808,
-       "high80": 23.359
+       "value": 23.012,
+       "low80": 22.804,
+       "high80": 23.395
       },
       {
        "year": 2027,
-       "value": 22.998,
-       "low80": 22.828,
-       "high80": 23.38
+       "value": 23.012,
+       "low80": 22.804,
+       "high80": 23.395
       },
       {
        "year": 2028,
-       "value": 23.018,
-       "low80": 22.848,
-       "high80": 23.4
+       "value": 23.012,
+       "low80": 22.804,
+       "high80": 23.395
       },
       {
        "year": 2029,
-       "value": 23.038,
-       "low80": 22.869,
-       "high80": 23.42
+       "value": 23.012,
+       "low80": 22.804,
+       "high80": 23.395
       },
       {
        "year": 2030,
-       "value": 23.059,
-       "low80": 22.889,
-       "high80": 23.44
+       "value": 23.012,
+       "low80": 22.804,
+       "high80": 23.395
       }
      ],
-     "selected_model": "theil_sen_trend",
-     "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "persistence",
+      "prediction": {
+       "year": 2025,
+       "value": 23.662,
+       "low80": 23.44,
+       "high80": 24.064,
+       "observed": 23.012
+      },
+      "absolute_error": 0.65,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "persistence",
+     "model_description": "Last observed annual value",
      "cv_mae_by_model": {
+      "persistence": 0.204,
       "historical_mean": 0.403,
       "recent_mean": 0.258,
       "linear_trend": 0.217,
-      "theil_sen_trend": 0.212
+      "theil_sen_trend": 0.212,
+      "autoregressive_ridge": 0.308
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 22.553,
       "mean_2016_2025": 22.992,
-      "forecast_mean_2026_2030": 23.018,
-      "change_vs_normal": 0.465,
+      "forecast_mean_2026_2030": 23.012,
+      "change_vs_normal": 0.459,
       "trend_per_decade_1981_2025": 0.201
      },
      "backtest": {
@@ -1179,10 +1337,25 @@
       "mae": 0.336,
       "mae_if_no_change": 0.632,
       "skill_vs_no_change": 0.467,
+      "mae_persistence": 0.366,
+      "skill_vs_persistence": 0.081,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 23.0 °C (80% range for 2030: 22.9–23.4 °C), above the 1991–2020 average of 22.6 °C (+0.47 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/boquete.json",
+      "file_sha256": "d7e83afbf90f9d5f6041cb5f67268a48384f179d10a35058a4e1fa3340978cd5",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 23.0 °C (nominal 80% band for 2030: 22.8–23.4 °C; coverage is not guaranteed), above the 1991–2020 average of 22.6 °C (+0.46 °C)."
     },
     "cloud_cover": {
      "observed": [
@@ -1358,48 +1531,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 74.456,
-       "low80": 72.431,
-       "high80": 77.911
+       "value": 74.604,
+       "low80": 72.765,
+       "high80": 78.33
       },
       {
        "year": 2027,
-       "value": 74.456,
-       "low80": 72.431,
-       "high80": 77.911
+       "value": 74.913,
+       "low80": 73.074,
+       "high80": 78.639
       },
       {
        "year": 2028,
-       "value": 74.456,
-       "low80": 72.431,
-       "high80": 77.911
+       "value": 75.433,
+       "low80": 73.595,
+       "high80": 79.159
       },
       {
        "year": 2029,
-       "value": 74.456,
-       "low80": 72.431,
-       "high80": 77.911
+       "value": 74.55,
+       "low80": 72.711,
+       "high80": 78.275
       },
       {
        "year": 2030,
-       "value": 74.456,
-       "low80": 72.431,
-       "high80": 77.911
+       "value": 74.486,
+       "low80": 72.648,
+       "high80": 78.212
       }
      ],
-     "selected_model": "recent_mean",
-     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "autoregressive_ridge",
+      "prediction": {
+       "year": 2025,
+       "value": 74.128,
+       "low80": 72.202,
+       "high80": 77.472,
+       "observed": 78.549
+      },
+      "absolute_error": 4.421,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "autoregressive_ridge",
+     "model_description": "Recursive ridge regression on the previous three annual values (fixed L2=1)",
      "cv_mae_by_model": {
+      "persistence": 3.543,
       "historical_mean": 2.313,
       "recent_mean": 2.139,
       "linear_trend": 2.176,
-      "theil_sen_trend": 2.272
+      "theil_sen_trend": 2.272,
+      "autoregressive_ridge": 2.122
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 73.212,
       "mean_2016_2025": 74.456,
-      "forecast_mean_2026_2030": 74.456,
-      "change_vs_normal": 1.244,
+      "forecast_mean_2026_2030": 74.797,
+      "change_vs_normal": 1.585,
       "trend_per_decade_1981_2025": 1.223
      },
      "backtest": {
@@ -1452,10 +1648,29 @@
       "mae": 2.923,
       "mae_if_no_change": 3.285,
       "skill_vs_no_change": 0.11,
+      "mae_persistence": 3.499,
+      "skill_vs_persistence": 0.165,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Cloud cover in 2026–2030 is forecast to average 74.5 % (80% range for 2030: 72.4–77.9 %), above the 1991–2020 average of 73.2 % (+1.24 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "45b20de0f76c7c7150928effde118b499d1dbb775091b696fdeec308fd2200f0",
+      "parameter": "CLOUD_AMT",
+      "verification_response_file": "nasa-power-extra/boquete.json",
+      "verification_response_sha256": "4d741e4922e66ff6fede9c969e4e8ee333282ac28ba14f72423ea2f15633a46d",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 74.8 % (nominal 80% band for 2030: 72.6–78.2 %; coverage is not guaranteed), above the 1991–2020 average of 73.2 % (+1.58 %)."
     },
     "thermal_range": {
      "observed": [
@@ -1643,48 +1858,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 8.846,
-       "low80": 8.578,
-       "high80": 9.178
+       "value": 8.803,
+       "low80": 8.453,
+       "high80": 9.058
       },
       {
        "year": 2027,
-       "value": 8.846,
-       "low80": 8.578,
-       "high80": 9.178
+       "value": 8.833,
+       "low80": 8.483,
+       "high80": 9.088
       },
       {
        "year": 2028,
-       "value": 8.846,
-       "low80": 8.578,
-       "high80": 9.178
+       "value": 8.681,
+       "low80": 8.33,
+       "high80": 8.935
       },
       {
        "year": 2029,
-       "value": 8.846,
-       "low80": 8.578,
-       "high80": 9.178
+       "value": 8.795,
+       "low80": 8.444,
+       "high80": 9.049
       },
       {
        "year": 2030,
-       "value": 8.846,
-       "low80": 8.578,
-       "high80": 9.178
+       "value": 8.82,
+       "low80": 8.469,
+       "high80": 9.074
       }
      ],
-     "selected_model": "recent_mean",
-     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "autoregressive_ridge",
+      "prediction": {
+       "year": 2025,
+       "value": 8.973,
+       "low80": 8.642,
+       "high80": 9.249,
+       "observed": 8.298
+      },
+      "absolute_error": 0.675,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "autoregressive_ridge",
+     "model_description": "Recursive ridge regression on the previous three annual values (fixed L2=1)",
      "cv_mae_by_model": {
+      "persistence": 0.267,
       "historical_mean": 0.268,
       "recent_mean": 0.259,
       "linear_trend": 0.344,
-      "theil_sen_trend": 0.343
+      "theil_sen_trend": 0.343,
+      "autoregressive_ridge": 0.235
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 8.883,
       "mean_2016_2025": 8.846,
-      "forecast_mean_2026_2030": 8.846,
-      "change_vs_normal": -0.037,
+      "forecast_mean_2026_2030": 8.786,
+      "change_vs_normal": -0.097,
       "trend_per_decade_1981_2025": -0.131
      },
      "backtest": {
@@ -1696,51 +1934,70 @@
        2021,
        2025
       ],
-      "selected_model": "recent_mean",
+      "selected_model": "autoregressive_ridge",
       "years": [
        {
         "year": 2021,
-        "value": 8.961,
-        "low80": 8.645,
-        "high80": 9.293,
+        "value": 8.918,
+        "low80": 8.59,
+        "high80": 9.245,
         "observed": 8.775
        },
        {
         "year": 2022,
-        "value": 8.961,
-        "low80": 8.645,
-        "high80": 9.293,
+        "value": 8.989,
+        "low80": 8.661,
+        "high80": 9.316,
         "observed": 8.897
        },
        {
         "year": 2023,
-        "value": 8.961,
-        "low80": 8.645,
-        "high80": 9.293,
+        "value": 9.004,
+        "low80": 8.676,
+        "high80": 9.331,
         "observed": 9.135
        },
        {
         "year": 2024,
-        "value": 8.961,
-        "low80": 8.645,
-        "high80": 9.293,
+        "value": 8.959,
+        "low80": 8.631,
+        "high80": 9.286,
         "observed": 9.005
        },
        {
         "year": 2025,
-        "value": 8.961,
-        "low80": 8.645,
+        "value": 8.966,
+        "low80": 8.638,
         "high80": 9.293,
         "observed": 8.298
        }
       ],
-      "mae": 0.226,
+      "mae": 0.216,
       "mae_if_no_change": 0.233,
-      "skill_vs_no_change": 0.031,
+      "skill_vs_no_change": 0.075,
+      "mae_persistence": 0.339,
+      "skill_vs_persistence": 0.362,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 8.85 °C (80% range for 2030: 8.58–9.18 °C), about the same as the 1991–2020 average of 8.88 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "45b20de0f76c7c7150928effde118b499d1dbb775091b696fdeec308fd2200f0",
+      "parameter": "T2M_MAX − T2M_MIN",
+      "verification_response_file": "nasa-power-extra/boquete.json",
+      "verification_response_sha256": "4d741e4922e66ff6fede9c969e4e8ee333282ac28ba14f72423ea2f15633a46d",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 8.79 °C (nominal 80% band for 2030: 8.47–9.07 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 8.88 °C."
     }
    }
   },
@@ -1965,14 +2222,37 @@
        "high80": 28.945
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 28.677,
+       "low80": 28.251,
+       "high80": 28.849,
+       "observed": 28.634
+      },
+      "absolute_error": 0.043,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.248,
       "historical_mean": 0.367,
       "recent_mean": 0.247,
       "linear_trend": 0.178,
-      "theil_sen_trend": 0.197
+      "theil_sen_trend": 0.197,
+      "autoregressive_ridge": 0.271
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 28.292,
       "mean_2016_2025": 28.604,
@@ -2030,10 +2310,25 @@
       "mae": 0.301,
       "mae_if_no_change": 0.435,
       "skill_vs_no_change": 0.308,
+      "mae_persistence": 0.309,
+      "skill_vs_persistence": 0.029,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 28.7 °C (80% range for 2030: 28.4–28.9 °C), above the 1991–2020 average of 28.3 °C (+0.44 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/funafuti.json",
+      "file_sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 28.7 °C (nominal 80% band for 2030: 28.4–28.9 °C; coverage is not guaranteed), above the 1991–2020 average of 28.3 °C (+0.44 °C)."
     },
     "cloud_cover": {
      "observed": [
@@ -2209,48 +2504,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 71.074,
-       "low80": 65.585,
-       "high80": 76.703
+       "value": 69.844,
+       "low80": 61.533,
+       "high80": 72.469
       },
       {
        "year": 2027,
-       "value": 71.074,
-       "low80": 65.585,
-       "high80": 76.703
+       "value": 72.76,
+       "low80": 64.449,
+       "high80": 75.385
       },
       {
        "year": 2028,
-       "value": 71.074,
-       "low80": 65.585,
-       "high80": 76.703
+       "value": 72.302,
+       "low80": 63.991,
+       "high80": 74.927
       },
       {
        "year": 2029,
-       "value": 71.074,
-       "low80": 65.585,
-       "high80": 76.703
+       "value": 71.397,
+       "low80": 63.086,
+       "high80": 74.022
       },
       {
        "year": 2030,
-       "value": 71.074,
-       "low80": 65.585,
-       "high80": 76.703
+       "value": 71.879,
+       "low80": 63.568,
+       "high80": 74.504
       }
      ],
-     "selected_model": "recent_mean",
-     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "autoregressive_ridge",
+      "prediction": {
+       "year": 2025,
+       "value": 71.033,
+       "low80": 62.162,
+       "high80": 73.837,
+       "observed": 69.707
+      },
+      "absolute_error": 1.326,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "autoregressive_ridge",
+     "model_description": "Recursive ridge regression on the previous three annual values (fixed L2=1)",
      "cv_mae_by_model": {
+      "persistence": 4.964,
       "historical_mean": 4.876,
       "recent_mean": 4.383,
       "linear_trend": 4.938,
-      "theil_sen_trend": 4.565
+      "theil_sen_trend": 4.565,
+      "autoregressive_ridge": 4.052
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 72.322,
       "mean_2016_2025": 71.074,
-      "forecast_mean_2026_2030": 71.074,
-      "change_vs_normal": -1.248,
+      "forecast_mean_2026_2030": 71.636,
+      "change_vs_normal": -0.686,
       "trend_per_decade_1981_2025": -2.083
      },
      "backtest": {
@@ -2262,51 +2580,70 @@
        2021,
        2025
       ],
-      "selected_model": "recent_mean",
+      "selected_model": "autoregressive_ridge",
       "years": [
        {
         "year": 2021,
-        "value": 70.823,
-        "low80": 66.884,
-        "high80": 76.453,
+        "value": 71.0,
+        "low80": 64.636,
+        "high80": 76.023,
         "observed": 66.831
        },
        {
         "year": 2022,
-        "value": 70.823,
-        "low80": 66.884,
-        "high80": 76.453,
+        "value": 73.37,
+        "low80": 67.006,
+        "high80": 78.393,
         "observed": 60.019
        },
        {
         "year": 2023,
-        "value": 70.823,
-        "low80": 66.884,
-        "high80": 76.453,
+        "value": 72.708,
+        "low80": 66.343,
+        "high80": 77.73,
         "observed": 71.61
        },
        {
         "year": 2024,
-        "value": 70.823,
-        "low80": 66.884,
-        "high80": 76.453,
+        "value": 71.978,
+        "low80": 65.613,
+        "high80": 77.0,
         "observed": 76.212
        },
        {
         "year": 2025,
-        "value": 70.823,
-        "low80": 66.884,
-        "high80": 76.453,
+        "value": 72.499,
+        "low80": 66.134,
+        "high80": 77.521,
         "observed": 69.707
        }
       ],
-      "mae": 4.418,
+      "mae": 5.129,
       "mae_if_no_change": 5.479,
-      "skill_vs_no_change": 0.194,
-      "years_inside_80_interval": 3
+      "skill_vs_no_change": 0.064,
+      "mae_persistence": 4.419,
+      "skill_vs_persistence": -0.161,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
+      "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Cloud cover in 2026–2030 is forecast to average 71.1 % (80% range for 2030: 65.6–76.7 %), below the 1991–2020 average of 72.3 % (-1.25 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
+      "parameter": "CLOUD_AMT",
+      "verification_response_file": "nasa-power-extra/funafuti.json",
+      "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 71.6 % (nominal 80% band for 2030: 63.6–74.5 %; coverage is not guaranteed), below the 1991–2020 average of 72.3 % (-0.69 %)."
     },
     "thermal_range": {
      "observed": [
@@ -2523,14 +2860,37 @@
        "high80": 2.574
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 2.42,
+       "low80": 2.23,
+       "high80": 2.516,
+       "observed": 2.585
+      },
+      "absolute_error": 0.165,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.136,
       "historical_mean": 0.132,
       "recent_mean": 0.112,
       "linear_trend": 0.108,
-      "theil_sen_trend": 0.12
+      "theil_sen_trend": 0.12,
+      "autoregressive_ridge": 0.129
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 2.52,
       "mean_2016_2025": 2.453,
@@ -2588,10 +2948,29 @@
       "mae": 0.107,
       "mae_if_no_change": 0.12,
       "skill_vs_no_change": 0.112,
+      "mae_persistence": 0.104,
+      "skill_vs_persistence": -0.025,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 2.42 °C (80% range for 2030: 2.23–2.57 °C), about the same as the 1991–2020 average of 2.52 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
+      "parameter": "T2M_MAX − T2M_MIN",
+      "verification_response_file": "nasa-power-extra/funafuti.json",
+      "verification_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 2.42 °C (nominal 80% band for 2030: 2.23–2.57 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 2.52 °C."
     }
    }
   },
@@ -2816,14 +3195,37 @@
        "high80": 23.415
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 22.246,
+       "low80": 21.342,
+       "high80": 23.309,
+       "observed": 22.61
+      },
+      "absolute_error": 0.364,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 1.239,
       "historical_mean": 0.742,
       "recent_mean": 0.738,
       "linear_trend": 0.703,
-      "theil_sen_trend": 0.784
+      "theil_sen_trend": 0.784,
+      "autoregressive_ridge": 0.748
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 21.912,
       "mean_2016_2025": 22.46,
@@ -2881,10 +3283,25 @@
       "mae": 0.509,
       "mae_if_no_change": 0.611,
       "skill_vs_no_change": 0.166,
+      "mae_persistence": 0.591,
+      "skill_vs_persistence": 0.139,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 22.3 °C (80% range for 2030: 21.5–23.4 °C), above the 1991–2020 average of 21.9 °C (+0.42 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/alice-springs.json",
+      "file_sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 22.3 °C (nominal 80% band for 2030: 21.5–23.4 °C; coverage is not guaranteed), above the 1991–2020 average of 21.9 °C (+0.42 °C)."
     },
     "cloud_cover": {
      "observed": [
@@ -3089,14 +3506,37 @@
        "high80": 33.213
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 27.847,
+       "low80": 16.431,
+       "high80": 35.106,
+       "observed": 24.434
+      },
+      "absolute_error": 3.413,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 6.414,
       "historical_mean": 6.92,
       "recent_mean": 5.501,
       "linear_trend": 5.042,
-      "theil_sen_trend": 5.248
+      "theil_sen_trend": 5.248,
+      "autoregressive_ridge": 6.094
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 33.439,
       "mean_2016_2025": 28.789,
@@ -3154,10 +3594,29 @@
       "mae": 3.834,
       "mae_if_no_change": 4.649,
       "skill_vs_no_change": 0.175,
+      "mae_persistence": 3.598,
+      "skill_vs_persistence": -0.066,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 3
      },
      "available": true,
-     "summary_text": "Cloud cover in 2026–2030 is forecast to average 26.6 % (80% range for 2030: 14.6–33.2 %), below the 1991–2020 average of 33.4 % (-6.82 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
+      "parameter": "CLOUD_AMT",
+      "verification_response_file": "nasa-power-extra/alice-springs.json",
+      "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Cloud cover in 2026–2030 is forecast to average 26.6 % (nominal 80% band for 2030: 14.6–33.2 %; coverage is not guaranteed), below the 1991–2020 average of 33.4 % (-6.82 %)."
     },
     "thermal_range": {
      "observed": [
@@ -3374,14 +3833,37 @@
        "high80": 27.861
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 27.009,
+       "low80": 25.532,
+       "high80": 27.871,
+       "observed": 27.058
+      },
+      "absolute_error": 0.049,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 0.783,
       "historical_mean": 0.637,
       "recent_mean": 0.642,
       "linear_trend": 0.641,
-      "theil_sen_trend": 0.67
+      "theil_sen_trend": 0.67,
+      "autoregressive_ridge": 0.641
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 27.008,
       "mean_2016_2025": 26.87,
@@ -3439,10 +3921,29 @@
       "mae": 0.958,
       "mae_if_no_change": 0.857,
       "skill_vs_no_change": -0.118,
+      "mae_persistence": 0.814,
+      "skill_vs_persistence": -0.177,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 27.0 °C (80% range for 2030: 25.5–27.9 °C), about the same as the 1991–2020 average of 27.0 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
+      "parameter": "T2M_MAX − T2M_MIN",
+      "verification_response_file": "nasa-power-extra/alice-springs.json",
+      "verification_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Monthly temperature range in 2026–2030 is forecast to average 27.0 °C (nominal 80% band for 2030: 25.5–27.9 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 27.0 °C."
     }
    }
   }

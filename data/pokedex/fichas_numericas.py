@@ -32,6 +32,10 @@ def build_numeric_cards(db, root, catalog, spec, values, series, scenarios, arch
     extra = json.loads(extra_path.read_text(encoding='utf-8'))
     extra_sha = hashlib.sha256(extra_path.read_bytes()).hexdigest()
     locations = {loc['id']: loc for loc in catalog['locations']}
+    audit_path=root/'auditoria-nasa.json'
+    audit=json.loads(audit_path.read_text(encoding='utf-8')) if audit_path.exists() else None
+    verified={r['location_id']:r for r in audit['results'] if r['kind']=='extra'} if audit else {}
+    if audit: assert audit['all_numeric_values_match'], 'NASA audit requires review'
 
     def provenance(lid, iid):
         if iid in {'t2m_mean', 'rh2m_mean', 'precip_annual', 'precip_dry_season'}:
@@ -39,15 +43,20 @@ def build_numeric_cards(db, root, catalog, spec, values, series, scenarios, arch
             return dict(provider='NASA POWER', url=src['url'], file=src['path'],
                         file_sha256=src['sha256'], parameter=spec['indicators'][iid]['source'])
         loc = locations[lid]
-        return dict(provider='NASA POWER', url=extra['query_template'].format(
+        source=dict(provider='NASA POWER', url=extra['query_template'].format(
                     lat=format(loc['latitude'],'g'), lon=format(loc['longitude'],'g')),
                     file=extra_path.name, file_sha256=extra_sha,
                     original_response_sha256=extra['raw_response_sha256'].get(lid),
                     parameter=spec['indicators'][iid]['source'])
+        if lid in verified:
+            source.update(verification_response_file=f'nasa-power-extra/{lid}.json',
+                          verification_response_sha256=verified[lid]['live_response_sha256'],
+                          verification_report='auditoria-nasa.json')
+        return source
 
     db.executescript('''
     CREATE TABLE survival_requirements(
-      species_id TEXT REFERENCES species(id), rank INTEGER CHECK(rank BETWEEN 1 AND 3),
+      species_id TEXT REFERENCES species(id), rank INTEGER CHECK(rank >= 1),
       indicator_id TEXT REFERENCES key_indicators(id), value REAL NOT NULL CHECK(typeof(value) IN ('real','integer')),
       range_min REAL NOT NULL, range_max REAL NOT NULL, unit TEXT NOT NULL,
       start_year INTEGER NOT NULL, end_year INTEGER NOT NULL, n_years INTEGER NOT NULL,
@@ -70,6 +79,7 @@ def build_numeric_cards(db, root, catalog, spec, values, series, scenarios, arch
         dry = sorted(sorted(cycle, key=lambda m:(cycle[m],m))[:4])
         for rank, iid in enumerate(spec['species'][sid]['variables'],1):
             meta = spec['indicators'][iid]
+            assert meta['nasa_parameters'] and all(isinstance(p,str) for p in meta['nasa_parameters'])
             per_site = {}
             for lid in lids:
                 if iid=='precip_dry_season':
@@ -89,6 +99,7 @@ def build_numeric_cards(db, root, catalog, spec, values, series, scenarios, arch
             aggregation = (f'Annual rainfall sum over reference months {dry}; months selected using only 1981–{archive_end}, fixed for all locations.'
                            if iid=='precip_dry_season' else meta['aggregation'])
             req = dict(rank=rank, indicator_id=iid, label=meta['label'], value=stats['value'],
+                       nasa_parameters=meta['nasa_parameters'],
                        unit=meta['unit'], range=dict(min=stats['minimum'],max=stats['maximum'],unit=meta['unit']),
                        standard_deviation=stats['standard_deviation'], value_kind='regional_climate_reference',
                        range_kind='observed_min_max_of_annual_indicator', medium=MEDIA[iid],

@@ -1,5 +1,5 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +24,21 @@
    "location_id": "bramble-cay",
    "role": "species_habitat",
    "indicator": "precip_annual",
-   "model": "theil_sen_trend",
-   "forecast_2030": 995.317,
-   "change_vs_normal": -739.12,
-   "backtest_skill_vs_no_change": 0.614,
-   "backtest_years_inside_80": 5
+   "model": "persistence",
+   "forecast_2030": 1445.82,
+   "change_vs_normal": -341.127,
+   "backtest_skill_vs_no_change": 0.776,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "melomys",
    "location_id": "bramble-cay",
    "role": "species_habitat",
    "indicator": "soil_wetness",
-   "model": "recent_mean",
-   "forecast_2030": 0.639,
-   "change_vs_normal": -0.094,
-   "backtest_skill_vs_no_change": 0.004,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 0.686,
+   "change_vs_normal": -0.058,
+   "backtest_skill_vs_no_change": 0.589,
    "backtest_years_inside_80": 4
   },
   {
@@ -57,22 +57,22 @@
    "location_id": "erub",
    "role": "relocation_candidate",
    "indicator": "precip_annual",
-   "model": "recent_mean",
-   "forecast_2030": 1171.199,
-   "change_vs_normal": -499.171,
-   "backtest_skill_vs_no_change": 0.0,
-   "backtest_years_inside_80": 2
+   "model": "autoregressive_ridge",
+   "forecast_2030": 1552.156,
+   "change_vs_normal": -158.517,
+   "backtest_skill_vs_no_change": 0.538,
+   "backtest_years_inside_80": 5
   },
   {
    "species_id": "melomys",
    "location_id": "erub",
    "role": "relocation_candidate",
    "indicator": "soil_wetness",
-   "model": "recent_mean",
-   "forecast_2030": 0.647,
-   "change_vs_normal": -0.069,
-   "backtest_skill_vs_no_change": -0.0,
-   "backtest_years_inside_80": 3
+   "model": "autoregressive_ridge",
+   "forecast_2030": 0.691,
+   "change_vs_normal": -0.033,
+   "backtest_skill_vs_no_change": 0.521,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "melomys",
@@ -112,9 +112,9 @@
    "location_id": "alice-springs",
    "role": "relocation_candidate",
    "indicator": "precip_annual",
-   "model": "historical_mean",
-   "forecast_2030": 285.98,
-   "change_vs_normal": 0.177,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 279.336,
+   "change_vs_normal": -11.602,
    "backtest_skill_vs_no_change": -0.977,
    "backtest_years_inside_80": 5
   },
@@ -134,20 +134,20 @@
    "location_id": "monteverde",
    "role": "species_habitat",
    "indicator": "rh2m_mean",
-   "model": "theil_sen_trend",
-   "forecast_2030": 85.992,
-   "change_vs_normal": 6.371,
-   "backtest_skill_vs_no_change": 0.817,
-   "backtest_years_inside_80": 3
+   "model": "persistence",
+   "forecast_2030": 85.847,
+   "change_vs_normal": 6.795,
+   "backtest_skill_vs_no_change": 0.806,
+   "backtest_years_inside_80": 5
   },
   {
    "species_id": "sapo-dorado",
    "location_id": "monteverde",
    "role": "species_habitat",
    "indicator": "t2m_mean",
-   "model": "recent_mean",
-   "forecast_2030": 25.107,
-   "change_vs_normal": -0.042,
+   "model": "persistence",
+   "forecast_2030": 24.987,
+   "change_vs_normal": -0.162,
    "backtest_skill_vs_no_change": 0.079,
    "backtest_years_inside_80": 3
   },
@@ -156,11 +156,11 @@
    "location_id": "monteverde",
    "role": "species_habitat",
    "indicator": "precip_dry_season",
-   "model": "recent_mean",
-   "forecast_2030": 123.263,
-   "change_vs_normal": 75.478,
-   "backtest_skill_vs_no_change": 0.346,
-   "backtest_years_inside_80": 2
+   "model": "persistence",
+   "forecast_2030": 136.25,
+   "change_vs_normal": 88.465,
+   "backtest_skill_vs_no_change": 0.645,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "sapo-dorado",
@@ -170,17 +170,17 @@
    "model": "linear_trend",
    "forecast_2030": 86.847,
    "change_vs_normal": 2.373,
-   "backtest_skill_vs_no_change": 0.82,
-   "backtest_years_inside_80": 5
+   "backtest_skill_vs_no_change": 0.576,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "sapo-dorado",
    "location_id": "san-gerardo",
    "role": "relocation_candidate",
    "indicator": "t2m_mean",
-   "model": "linear_trend",
-   "forecast_2030": 21.563,
-   "change_vs_normal": 0.27,
+   "model": "persistence",
+   "forecast_2030": 21.58,
+   "change_vs_normal": 0.309,
    "backtest_skill_vs_no_change": 0.13,
    "backtest_years_inside_80": 1
   },
@@ -189,10 +189,10 @@
    "location_id": "san-gerardo",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "linear_trend",
-   "forecast_2030": 526.447,
-   "change_vs_normal": 220.939,
-   "backtest_skill_vs_no_change": 0.519,
+   "model": "recent_mean",
+   "forecast_2030": 431.157,
+   "change_vs_normal": 118.226,
+   "backtest_skill_vs_no_change": 0.754,
    "backtest_years_inside_80": 4
   },
   {
@@ -222,11 +222,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "linear_trend",
+   "forecast_2030": 920.116,
+   "change_vs_normal": -234.66,
+   "backtest_skill_vs_no_change": 0.229,
+   "backtest_years_inside_80": 0
   },
   {
    "species_id": "sapo-dorado",
@@ -256,19 +256,19 @@
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
    "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "forecast_2030": 115.852,
+   "change_vs_normal": -45.35,
+   "backtest_skill_vs_no_change": -0.159,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "arlequin-chiriqui",
    "location_id": "talamanca",
    "role": "species_habitat",
    "indicator": "t2m_mean",
-   "model": "linear_trend",
-   "forecast_2030": 21.563,
-   "change_vs_normal": 0.27,
+   "model": "persistence",
+   "forecast_2030": 21.58,
+   "change_vs_normal": 0.309,
    "backtest_skill_vs_no_change": 0.13,
    "backtest_years_inside_80": 1
   },
@@ -291,7 +291,7 @@
    "model": "recent_mean",
    "forecast_2030": 9.452,
    "change_vs_normal": -0.421,
-   "backtest_skill_vs_no_change": 0.574,
+   "backtest_skill_vs_no_change": 0.452,
    "backtest_years_inside_80": 4
   },
   {
@@ -299,9 +299,9 @@
    "location_id": "boquete",
    "role": "relocation_candidate",
    "indicator": "t2m_mean",
-   "model": "theil_sen_trend",
-   "forecast_2030": 23.059,
-   "change_vs_normal": 0.465,
+   "model": "persistence",
+   "forecast_2030": 23.012,
+   "change_vs_normal": 0.459,
    "backtest_skill_vs_no_change": 0.467,
    "backtest_years_inside_80": 2
   },
@@ -310,9 +310,9 @@
    "location_id": "boquete",
    "role": "relocation_candidate",
    "indicator": "cloud_cover",
-   "model": "recent_mean",
-   "forecast_2030": 74.456,
-   "change_vs_normal": 1.244,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 74.486,
+   "change_vs_normal": 1.585,
    "backtest_skill_vs_no_change": 0.11,
    "backtest_years_inside_80": 4
   },
@@ -321,10 +321,10 @@
    "location_id": "boquete",
    "role": "relocation_candidate",
    "indicator": "thermal_range",
-   "model": "recent_mean",
-   "forecast_2030": 8.846,
-   "change_vs_normal": -0.037,
-   "backtest_skill_vs_no_change": 0.031,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 8.82,
+   "change_vs_normal": -0.097,
+   "backtest_skill_vs_no_change": 0.075,
    "backtest_years_inside_80": 4
   },
   {
@@ -343,11 +343,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "cloud_cover",
-   "model": "recent_mean",
-   "forecast_2030": 71.074,
-   "change_vs_normal": -1.248,
-   "backtest_skill_vs_no_change": 0.194,
-   "backtest_years_inside_80": 3
+   "model": "autoregressive_ridge",
+   "forecast_2030": 71.879,
+   "change_vs_normal": -0.686,
+   "backtest_skill_vs_no_change": 0.064,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "arlequin-chiriqui",
@@ -409,22 +409,22 @@
    "location_id": "conondale",
    "role": "species_habitat",
    "indicator": "precip_dry_season",
-   "model": "recent_mean",
-   "forecast_2030": 129.582,
-   "change_vs_normal": -51.863,
-   "backtest_skill_vs_no_change": 0.0,
-   "backtest_years_inside_80": 3
+   "model": "persistence",
+   "forecast_2030": 131.91,
+   "change_vs_normal": -49.535,
+   "backtest_skill_vs_no_change": 0.539,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "rana-gastrica",
    "location_id": "conondale",
    "role": "species_habitat",
    "indicator": "soil_wetness",
-   "model": "historical_mean",
-   "forecast_2030": 0.514,
-   "change_vs_normal": 0.007,
-   "backtest_skill_vs_no_change": 0.068,
-   "backtest_years_inside_80": 4
+   "model": "persistence",
+   "forecast_2030": 0.512,
+   "change_vs_normal": 0.005,
+   "backtest_skill_vs_no_change": -0.07,
+   "backtest_years_inside_80": 3
   },
   {
    "species_id": "rana-gastrica",
@@ -442,10 +442,10 @@
    "location_id": "lamington",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "recent_mean",
-   "forecast_2030": 141.292,
-   "change_vs_normal": -68.358,
-   "backtest_skill_vs_no_change": 0.422,
+   "model": "persistence",
+   "forecast_2030": 166.09,
+   "change_vs_normal": -43.56,
+   "backtest_skill_vs_no_change": 0.495,
    "backtest_years_inside_80": 5
   },
   {
@@ -456,7 +456,7 @@
    "model": "historical_mean",
    "forecast_2030": 0.642,
    "change_vs_normal": 0.016,
-   "backtest_skill_vs_no_change": -0.569,
+   "backtest_skill_vs_no_change": -0.38,
    "backtest_years_inside_80": 3
   },
   {
@@ -475,11 +475,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "autoregressive_ridge",
+   "forecast_2030": 643.019,
+   "change_vs_normal": -48.362,
+   "backtest_skill_vs_no_change": 0.066,
+   "backtest_years_inside_80": 1
   },
   {
    "species_id": "rana-gastrica",
@@ -500,8 +500,8 @@
    "model": "theil_sen_trend",
    "forecast_2030": 15.608,
    "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "backtest_skill_vs_no_change": -0.584,
+   "backtest_years_inside_80": 1
   },
   {
    "species_id": "rana-gastrica",
@@ -522,19 +522,19 @@
    "model": "recent_mean",
    "forecast_2030": 11.022,
    "change_vs_normal": 0.198,
-   "backtest_skill_vs_no_change": 0.328,
-   "backtest_years_inside_80": 4
+   "backtest_skill_vs_no_change": -0.037,
+   "backtest_years_inside_80": 5
   },
   {
    "species_id": "darwin-norte",
    "location_id": "nahuelbuta",
    "role": "species_habitat",
    "indicator": "rh2m_mean",
-   "model": "recent_mean",
-   "forecast_2030": 77.576,
-   "change_vs_normal": -3.016,
-   "backtest_skill_vs_no_change": 0.254,
-   "backtest_years_inside_80": 1
+   "model": "persistence",
+   "forecast_2030": 78.025,
+   "change_vs_normal": -2.567,
+   "backtest_skill_vs_no_change": 0.546,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "darwin-norte",
@@ -544,8 +544,8 @@
    "model": "theil_sen_trend",
    "forecast_2030": 60.349,
    "change_vs_normal": -54.254,
-   "backtest_skill_vs_no_change": 0.332,
-   "backtest_years_inside_80": 4
+   "backtest_skill_vs_no_change": 0.372,
+   "backtest_years_inside_80": 5
   },
   {
    "species_id": "darwin-norte",
@@ -563,10 +563,10 @@
    "location_id": "valdivia",
    "role": "relocation_candidate",
    "indicator": "rh2m_mean",
-   "model": "recent_mean",
-   "forecast_2030": 80.187,
-   "change_vs_normal": -3.449,
-   "backtest_skill_vs_no_change": 0.213,
+   "model": "persistence",
+   "forecast_2030": 81.295,
+   "change_vs_normal": -2.341,
+   "backtest_skill_vs_no_change": 0.42,
    "backtest_years_inside_80": 1
   },
   {
@@ -578,7 +578,7 @@
    "forecast_2030": 97.47,
    "change_vs_normal": -94.945,
    "backtest_skill_vs_no_change": 0.371,
-   "backtest_years_inside_80": 2
+   "backtest_years_inside_80": 3
   },
   {
    "species_id": "darwin-norte",
@@ -607,11 +607,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "linear_trend",
+   "forecast_2030": 920.116,
+   "change_vs_normal": -234.66,
+   "backtest_skill_vs_no_change": 0.229,
+   "backtest_years_inside_80": 0
   },
   {
    "species_id": "darwin-norte",
@@ -641,19 +641,19 @@
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
    "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "forecast_2030": 115.852,
+   "change_vs_normal": -45.35,
+   "backtest_skill_vs_no_change": -0.159,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "caracol-oahu",
    "location_id": "koolau",
    "role": "species_habitat",
    "indicator": "t2m_mean",
-   "model": "linear_trend",
-   "forecast_2030": 25.218,
-   "change_vs_normal": 0.702,
+   "model": "persistence",
+   "forecast_2030": 25.606,
+   "change_vs_normal": 1.151,
    "backtest_skill_vs_no_change": 0.663,
    "backtest_years_inside_80": 4
   },
@@ -673,20 +673,20 @@
    "location_id": "koolau",
    "role": "species_habitat",
    "indicator": "precip_dry_season",
-   "model": "historical_mean",
-   "forecast_2030": 154.169,
-   "change_vs_normal": 21.931,
-   "backtest_skill_vs_no_change": -0.0,
-   "backtest_years_inside_80": 3
+   "model": "persistence",
+   "forecast_2030": 63.32,
+   "change_vs_normal": -75.859,
+   "backtest_skill_vs_no_change": -0.144,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "caracol-oahu",
    "location_id": "hanawi",
    "role": "relocation_candidate",
    "indicator": "t2m_mean",
-   "model": "linear_trend",
-   "forecast_2030": 24.076,
-   "change_vs_normal": 0.507,
+   "model": "persistence",
+   "forecast_2030": 24.431,
+   "change_vs_normal": 0.904,
    "backtest_skill_vs_no_change": 0.615,
    "backtest_years_inside_80": 3
   },
@@ -706,11 +706,11 @@
    "location_id": "hanawi",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "historical_mean",
-   "forecast_2030": 109.932,
-   "change_vs_normal": 2.435,
-   "backtest_skill_vs_no_change": -0.0,
-   "backtest_years_inside_80": 2
+   "model": "autoregressive_ridge",
+   "forecast_2030": 88.713,
+   "change_vs_normal": -23.109,
+   "backtest_skill_vs_no_change": 0.001,
+   "backtest_years_inside_80": 5
   },
   {
    "species_id": "caracol-oahu",
@@ -739,10 +739,10 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 633.389,
+   "change_vs_normal": -38.953,
+   "backtest_skill_vs_no_change": 0.07,
    "backtest_years_inside_80": 2
   },
   {
@@ -773,19 +773,19 @@
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
    "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "forecast_2030": 24.323,
+   "change_vs_normal": -22.863,
+   "backtest_skill_vs_no_change": -1.194,
+   "backtest_years_inside_80": 1
   },
   {
    "species_id": "poouli",
    "location_id": "hanawi",
    "role": "species_habitat",
    "indicator": "t2m_mean",
-   "model": "linear_trend",
-   "forecast_2030": 24.076,
-   "change_vs_normal": 0.507,
+   "model": "persistence",
+   "forecast_2030": 24.431,
+   "change_vs_normal": 0.904,
    "backtest_skill_vs_no_change": 0.615,
    "backtest_years_inside_80": 3
   },
@@ -805,9 +805,9 @@
    "location_id": "hanawi",
    "role": "species_habitat",
    "indicator": "precip_annual",
-   "model": "historical_mean",
-   "forecast_2030": 530.958,
-   "change_vs_normal": 32.885,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 440.913,
+   "change_vs_normal": -75.336,
    "backtest_skill_vs_no_change": 0.0,
    "backtest_years_inside_80": 3
   },
@@ -827,9 +827,9 @@
    "location_id": "hakalau",
    "role": "relocation_candidate",
    "indicator": "t2m_min_mean",
-   "model": "linear_trend",
-   "forecast_2030": 22.265,
-   "change_vs_normal": 0.505,
+   "model": "persistence",
+   "forecast_2030": 22.45,
+   "change_vs_normal": 0.734,
    "backtest_skill_vs_no_change": 0.656,
    "backtest_years_inside_80": 5
   },
@@ -838,9 +838,9 @@
    "location_id": "hakalau",
    "role": "relocation_candidate",
    "indicator": "precip_annual",
-   "model": "linear_trend",
-   "forecast_2030": 549.003,
-   "change_vs_normal": -479.021,
+   "model": "persistence",
+   "forecast_2030": 476.19,
+   "change_vs_normal": -605.816,
    "backtest_skill_vs_no_change": -0.0,
    "backtest_years_inside_80": 1
   },
@@ -904,9 +904,9 @@
    "location_id": "alice-springs",
    "role": "relocation_candidate",
    "indicator": "precip_annual",
-   "model": "historical_mean",
-   "forecast_2030": 285.98,
-   "change_vs_normal": 0.177,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 279.336,
+   "change_vs_normal": -11.602,
    "backtest_skill_vs_no_change": -0.977,
    "backtest_years_inside_80": 5
   },
@@ -937,7 +937,7 @@
    "location_id": "tecopa",
    "role": "species_habitat",
    "indicator": "soil_wetness",
-   "model": "historical_mean",
+   "model": "autoregressive_ridge",
    "forecast_2030": 0.381,
    "change_vs_normal": -0.002,
    "backtest_skill_vs_no_change": 0.008,
@@ -959,9 +959,9 @@
    "location_id": "coiba",
    "role": "species_habitat",
    "indicator": "surface_temp_warmest_month",
-   "model": "linear_trend",
-   "forecast_2030": 30.255,
-   "change_vs_normal": 0.151,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 30.083,
+   "change_vs_normal": -0.047,
    "backtest_skill_vs_no_change": 0.0,
    "backtest_years_inside_80": 4
   },
@@ -1025,10 +1025,10 @@
    "location_id": "christmas",
    "role": "species_habitat",
    "indicator": "rh2m_mean",
-   "model": "historical_mean",
-   "forecast_2030": 79.357,
-   "change_vs_normal": 0.187,
-   "backtest_skill_vs_no_change": -0.007,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 79.307,
+   "change_vs_normal": 0.156,
+   "backtest_skill_vs_no_change": -0.084,
    "backtest_years_inside_80": 3
   },
   {
@@ -1036,9 +1036,9 @@
    "location_id": "christmas",
    "role": "species_habitat",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 64.649,
-   "change_vs_normal": -67.852,
+   "model": "linear_trend",
+   "forecast_2030": 126.249,
+   "change_vs_normal": -7.783,
    "backtest_skill_vs_no_change": -0.341,
    "backtest_years_inside_80": 5
   },
@@ -1069,10 +1069,10 @@
    "location_id": "cocos",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 173.669,
-   "change_vs_normal": -47.005,
-   "backtest_skill_vs_no_change": -0.317,
+   "model": "linear_trend",
+   "forecast_2030": 209.993,
+   "change_vs_normal": -40.552,
+   "backtest_skill_vs_no_change": -0.179,
    "backtest_years_inside_80": 1
   },
   {
@@ -1102,11 +1102,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "autoregressive_ridge",
+   "forecast_2030": 694.174,
+   "change_vs_normal": -25.243,
+   "backtest_skill_vs_no_change": -0.0,
+   "backtest_years_inside_80": 3
   },
   {
    "species_id": "eslizón-christmas",
@@ -1135,11 +1135,11 @@
    "location_id": "alice-springs",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "model": "persistence",
+   "forecast_2030": 35.35,
+   "change_vs_normal": -8.01,
+   "backtest_skill_vs_no_change": -0.004,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "pupo-catarina",
@@ -1223,9 +1223,9 @@
    "location_id": "christmas",
    "role": "species_habitat",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 64.649,
-   "change_vs_normal": -67.852,
+   "model": "linear_trend",
+   "forecast_2030": 126.249,
+   "change_vs_normal": -7.783,
    "backtest_skill_vs_no_change": -0.341,
    "backtest_years_inside_80": 5
   },
@@ -1234,10 +1234,10 @@
    "location_id": "christmas",
    "role": "species_habitat",
    "indicator": "rh2m_mean",
-   "model": "historical_mean",
-   "forecast_2030": 79.357,
-   "change_vs_normal": 0.187,
-   "backtest_skill_vs_no_change": -0.007,
+   "model": "autoregressive_ridge",
+   "forecast_2030": 79.307,
+   "change_vs_normal": 0.156,
+   "backtest_skill_vs_no_change": -0.084,
    "backtest_years_inside_80": 3
   },
   {
@@ -1256,10 +1256,10 @@
    "location_id": "cocos",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 173.669,
-   "change_vs_normal": -47.005,
-   "backtest_skill_vs_no_change": -0.317,
+   "model": "linear_trend",
+   "forecast_2030": 209.993,
+   "change_vs_normal": -40.552,
+   "backtest_skill_vs_no_change": -0.179,
    "backtest_years_inside_80": 1
   },
   {
@@ -1289,11 +1289,11 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "autoregressive_ridge",
+   "forecast_2030": 694.174,
+   "change_vs_normal": -25.243,
+   "backtest_skill_vs_no_change": -0.0,
+   "backtest_years_inside_80": 3
   },
   {
    "species_id": "pipistrelo-christmas",
@@ -1322,11 +1322,11 @@
    "location_id": "alice-springs",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "model": "persistence",
+   "forecast_2030": 35.35,
+   "change_vs_normal": -8.01,
+   "backtest_skill_vs_no_change": -0.004,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "pipistrelo-christmas",
@@ -1388,10 +1388,10 @@
    "location_id": "santa-fe",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "historical_mean",
-   "forecast_2030": 145.62,
-   "change_vs_normal": 9.717,
-   "backtest_skill_vs_no_change": -0.112,
+   "model": "linear_trend",
+   "forecast_2030": 200.8,
+   "change_vs_normal": 55.113,
+   "backtest_skill_vs_no_change": 0.07,
    "backtest_years_inside_80": 2
   },
   {
@@ -1421,22 +1421,22 @@
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 528.585,
-   "change_vs_normal": -133.471,
-   "backtest_skill_vs_no_change": 0.057,
-   "backtest_years_inside_80": 2
+   "model": "linear_trend",
+   "forecast_2030": 802.204,
+   "change_vs_normal": -241.565,
+   "backtest_skill_vs_no_change": 0.208,
+   "backtest_years_inside_80": 1
   },
   {
    "species_id": "rana-rabbs",
    "location_id": "funafuti",
    "role": "relocation_candidate",
    "indicator": "cloud_cover",
-   "model": "recent_mean",
-   "forecast_2030": 71.074,
-   "change_vs_normal": -1.248,
-   "backtest_skill_vs_no_change": 0.194,
-   "backtest_years_inside_80": 3
+   "model": "autoregressive_ridge",
+   "forecast_2030": 71.879,
+   "change_vs_normal": -0.686,
+   "backtest_skill_vs_no_change": 0.064,
+   "backtest_years_inside_80": 4
   },
   {
    "species_id": "rana-rabbs",
@@ -1454,11 +1454,11 @@
    "location_id": "alice-springs",
    "role": "relocation_candidate",
    "indicator": "precip_dry_season",
-   "model": "theil_sen_trend",
-   "forecast_2030": 15.608,
-   "change_vs_normal": -18.028,
-   "backtest_skill_vs_no_change": 0.24,
-   "backtest_years_inside_80": 5
+   "model": "autoregressive_ridge",
+   "forecast_2030": 131.504,
+   "change_vs_normal": -9.989,
+   "backtest_skill_vs_no_change": -0.007,
+   "backtest_years_inside_80": 2
   },
   {
    "species_id": "rana-rabbs",
@@ -1471,5 +1471,7 @@
    "backtest_skill_vs_no_change": 0.175,
    "backtest_years_inside_80": 3
   }
- ]
+ ],
+ "empirical_interval_coverage": 0.6421052631578947,
+ "note": "Coverage is descriptive across overlapping sites/indicators, not independent trials."
 }

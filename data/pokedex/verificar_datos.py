@@ -5,6 +5,7 @@ import json
 import math
 import sqlite3
 import statistics
+from descargar_nasa_extra import indicator as nasa_indicator
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -24,7 +25,7 @@ def verify_numeric_cards(db, catalog):
         export = read(ROOT / 'export' / (sid + '.json'))
         card = cards['species'][sid]
         assert card == export['survival_card']
-        assert len(card['requirements']) == 3
+        assert len(card['requirements']) >= 1
         ref = card['reference_location']
         assert card['biological_limits_available'] is False
         assert [r['indicator_id'] for r in card['requirements']] == [v['id'] for v in export['key_variables']['variables']]
@@ -82,6 +83,23 @@ def main():
     catalog = read(ROOT / 'export/catalogo.json')
     db = sqlite3.connect((ROOT / 'pokedex.sqlite').as_uri() + '?mode=ro', uri=True)
     try:
+        audit_path=ROOT/'auditoria-nasa.json'
+        if audit_path.exists():
+            audit=read(audit_path)
+            assert audit['all_numeric_values_match']
+            extra_archive=read(ROOT/'nasa-power-extra-anual.json')
+            for result in audit['results']:
+                assert result['numeric_match']
+                if result['kind']!='extra': continue
+                lid=result['location_id']; path=ROOT/'nasa-power-extra'/f'{lid}.json'
+                assert hashlib.sha256(path.read_bytes()).hexdigest()==result['live_response_sha256']
+                raw=read(path)
+                for iid,values in extra_archive['series'][lid].items():
+                    for year in range(1981,2026):
+                        actual=nasa_indicator(raw['properties']['parameter'],iid,year,raw['header']['fill_value'])
+                        expected=values[str(year)]
+                        assert (actual is None)==(expected is None)
+                        if actual is not None: assert math.isclose(actual,expected,abs_tol=1e-4)
         assert db.execute('PRAGMA integrity_check').fetchone()[0] == 'ok'
         assert not db.execute('PRAGMA foreign_key_check').fetchall()
         for table, count in catalog['counts'].items():
@@ -116,7 +134,7 @@ def main():
         for species in catalog['species']:
             sid = species['id']
             ranks = db.execute('SELECT indicator_id FROM species_key_variables WHERE species_id=? ORDER BY rank', (sid,)).fetchall()
-            assert [r[0] for r in ranks] == spec['species'][sid]['variables'] and len(ranks) == 3
+            assert [r[0] for r in ranks] == spec['species'][sid]['variables'] and len(ranks) >= 1
             data = read(ROOT / 'export' / (sid + '.json'))
             assert [v['id'] for v in data['key_variables']['variables']] == spec['species'][sid]['variables']
             for lid, per in data['key_variable_series'].items():
@@ -145,7 +163,7 @@ def main():
         for species in catalog['species']:
             sid = species['id']
             card = read(ROOT / 'export' / (sid + '.json'))['habitat_evidence']
-            assert len(card['requirements']) == 3
+            assert len(card['requirements']) >= 1
             rows = db.execute('SELECT rank, requirement, status, nasa_proxy, sources FROM habitat_requirements WHERE species_id=? ORDER BY rank', (sid,)).fetchall()
             for r, row in zip(card['requirements'], rows):
                 assert (r['rank'], r['requirement'], r['status'], r['nasa_proxy']) == row[:4] and json.loads(row[4]) == r['sources']

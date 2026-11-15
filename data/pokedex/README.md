@@ -156,3 +156,8 @@ python verificar_datos.py
 ```
 
 El paquete no contiene progreso personal, servidor local ni interfaz. Las fuentes y los scripts permiten auditar y reconstruir el conjunto.
+
+
+## Auditoría y consulta guiada por especie
+
+[Informe, contrato de consulta y propuesta de ampliación](AUDITORIA-Y-AMPLIACION.md): 43 consultas oficiales y 40.635 valores coincidentes con NASA. El helper `consultar-series.mjs` obtiene las variables desde la ficha. El modelo en `ml/` utiliza ahora esas mismas series, separa la evaluación retrospectiva de 2025 del pronóstico 2026–2030 e incluye regresión autorregresiva Ridge.

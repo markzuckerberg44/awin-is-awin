@@ -1,0 +1,2076 @@
+{
+  "checked_at_utc": "2026-11-15T00:32:15.247189+00:00",
+  "provider": "NASA POWER",
+  "period": [
+    1981,
+    2025
+  ],
+  "requests": 43,
+  "all_numeric_values_match": true,
+  "checked_values": 40635,
+  "note": "Live response hashes may differ because request headers contain generation metadata. Numerical equality is tested separately. Input series were not overwritten.",
+  "results": [
+    {
+      "kind": "base",
+      "location_id": "bramble-cay",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=143.877&latitude=-9.14244&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "ad32fd930a4f8bc04a029df436c78556e359caf9e00fba6fb73c843c8cf6caa3",
+      "live_response_sha256": "113cd554f3eafc7d057aa71721572fe22488ed4fbc9a732fba35b64a0cce912f",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "erub",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=143.771&latitude=-9.589&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "b7a9abcc1bc165b2b222e7cd1411679ade89a67e217a3af5a89b270fd7396dc5",
+      "live_response_sha256": "d52ad0228f36c4b0e195e284960b6090f2e12a9bff9a77470b3213a3465d8da5",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "funafuti",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "live_response_sha256": "9e2cb2130aad55a06e87b219635d98cbd40e01cbe346c7da1b3d1e7d0c4a4145",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "alice-springs",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "live_response_sha256": "10424ab644c68dff25c5e38114611f1def961b7e1545b945fdc105251e93b0a3",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "monteverde",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-84.8&latitude=10.3&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "0ceba3a608f4bd82744f93b60cc05cf1a010e3c9c470255cee978fd38ea3bf18",
+      "live_response_sha256": "0c5dff5de7576005e75fb439f9dbb4240dfe41228cd2398b745578c2ffef293f",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "san-gerardo",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-83.8&latitude=9.55&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "4e71de0a74f228c6e6ac988945ef1a67b0e9b0c420a11d1814ee0b12aa3c464c",
+      "live_response_sha256": "cdc925a6d13c7f88026efd50ed1437afc7d26e64336faabc6daf921ade9105cb",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "talamanca",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "05086d7d1b26ac3d9f7b7177fb72ecc4c4e783f1f1b651fa0bd106d2031b1929",
+      "live_response_sha256": "b334f7c72a09e14d1020ca1b0cda869eba02a817600132df991a657ed4260977",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "boquete",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "d7e83afbf90f9d5f6041cb5f67268a48384f179d10a35058a4e1fa3340978cd5",
+      "live_response_sha256": "362dbb31547da41ff95965b16057585768d6dbe66b7d88e133d7a1cec0aa8160",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "conondale",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=152.6&latitude=-26.7&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "0f8ccdc998c7f9a7e02b5b10f921b2917763d7fcd51c468bf64c4cb339cd23ed",
+      "live_response_sha256": "cf1203fd79f4e93af4bcbcb4940de7db6bee4c956a1426a88b52d036022c2536",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "lamington",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=153.13&latitude=-28.23&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "74d55d9e9ff5dac0fe0da066cfd3ed28c7d0712721b22eb8dd0b16833bf45118",
+      "live_response_sha256": "c3cf45e9078d0d97ad7fef7ef738a791b001f14b708547d0dedc889fee6ee8c6",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "nahuelbuta",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.0&latitude=-37.8&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "d90840a174afe09b8765ba4e95eed9edb1ba74640a720723ab1b3775769048d5",
+      "live_response_sha256": "159448c3cd96ad89873e8671d42836d4ba9125177ccfbb4eed2483cef086f7cd",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "valdivia",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.25&latitude=-39.81&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "c2afff6ea287fa90ac0750e8c3941cf43b6156f5d3147e1ca0393958e422241c",
+      "live_response_sha256": "c555e6810e9d2ecc40cf080db9e24b98d92ef08451b2520bfffe2cfebbbd12d9",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "koolau",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-157.85&latitude=21.45&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "000c05b8c452aa111f9c3c9f52eaa0c4005905f85e0c02ce89b661127b942a33",
+      "live_response_sha256": "2a7187263a5347f21419895a545ffcd962f810b09ef7f5d7b091e1eed7389dac",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "hanawi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-156.15&latitude=20.75&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "24404a7308ec2a45ac0db6f59b8a12811e5b648a3fcbb33a5adb2d8cfdb3fba7",
+      "live_response_sha256": "f5f0db01739b21a6aa1a098b2395e267f8dc09c038110391f5160908f6d99cb9",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "hakalau",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-155.3&latitude=19.82&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "f94e407c49d0e998e9c784def4119782ca9ed5dcd5866f3ef0e62b53f99148cc",
+      "live_response_sha256": "9d4b49816d97f17d72af57640fa6c32466a75a463e70691f06ba561ca60eaa22",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "tecopa",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "7d2b1ad30314e6cbdcd60849e7677f3231ee576925f3afccc06c9e45d82a6924",
+      "live_response_sha256": "d40130d8b9eebed9bbb04aa891aac07355bc87088c0761775d7b2010999f4854",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "coiba",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "cfff7338355d63a42b5b3d93bcb31dc86da44004f74a97824eb72a2559345513",
+      "live_response_sha256": "7bcc9b4852d6fe92a0ff9a85e4e9fa78f17ca1447cc26531f1f157638dabc694",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "galapagos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "f4f03f2e29ff4d55ce15895cee241c43b0a4d2e48c81c1e1aa3493d224e8588b",
+      "live_response_sha256": "ea694e415d1ffa48461ea052343772802f59a8f4451500a0868eac515f34eae5",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "christmas",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=105.62&latitude=-10.48&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "d4a0aea14e9472874e244f331a2208c9fd1105e587400777535a51973be97f0a",
+      "live_response_sha256": "6337498dee164c756f023b6814b890b1ac653a13cece2a8e09d4ffcf8c378279",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "cocos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=96.87&latitude=-12.16&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "4fca9d01e583e0130f5cc924e21ccd336c16abcdea2212e115e695ffc5abe3d0",
+      "live_response_sha256": "64f01c1845a90bbb3f4abb12607aebc3ca96455d10d43145acd48af777b06cd9",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "el-potosi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-100.33&latitude=24.87&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "2a80a94c024465d5da2bcc121e5a1694ad4ac867bb48f2797a2d956b4bb83400",
+      "live_response_sha256": "e1356acac43b892cc3f370417e0575509d407aed281a44ef7ec07fa1f88905f0",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "tasmania",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "2e9623d4f77c25ae95d8a80d0d3f4a4ee1acbcb99c14fb8427a2c54a7e6856e2",
+      "live_response_sha256": "f9f3b85e145c205bf75cf84cca8e6e14b84bff50ad76b4617d7d9d25e671adb4",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "el-valle",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-80.08&latitude=8.63&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "ca3829a3a28f19b00a47a81ab5daa35881c2534122d001d3dfdd205339869a3e",
+      "live_response_sha256": "7569ee72c566ac521ecda4755f7d7b3af3db3e0cece21ea7f5f67b34f67a4a79",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "base",
+      "location_id": "santa-fe",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-81.08&latitude=8.51&format=JSON&start=1981&end=2025",
+      "checked_values": 1620,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "c19071c9460bbd75dd2ee0b3befa4ea82df21c6fa0bae1e531174c017083e80e",
+      "live_response_sha256": "a30ee16afac0046f30e32a258bf2402c289ea86927dd256be651499a1f210425",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "PRECTOTCORR": {
+          "units": "mm/day",
+          "longname": "Precipitation Corrected"
+        },
+        "RH2M": {
+          "units": "%",
+          "longname": "Relative Humidity at 2 Meters"
+        },
+        "T2M": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "bramble-cay",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=143.877&latitude=-9.14244&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "795bc630b701b6b28a568818efa40bf599c0f8dcb5aa79d0d42f407384849e56",
+      "live_response_sha256": "b7e13024b9fd51d56adb01447ab85cd5c088e1f641caccd426db9c34f22f0685",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SYN1DEG",
+          "SRB",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "erub",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=143.771&latitude=-9.589&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "1ecfff7bd38d571ea49f59f148bc83880c2c7801dc69951b2ccd9370b64a4311",
+      "live_response_sha256": "b85b764baa7dbac599748781649622010cfdcc508e04dbd0ca2674f57a70bb02",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "funafuti",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "checked_values": 225,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "c52f35e8238ac54a74609a3fb3f3cc1864211336db08936a7d27e33460b21069",
+      "live_response_sha256": "91d9ec5e2901c92df127074348f34e773fb55b11ba500dac0cce2030390992be",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "alice-springs",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "checked_values": 225,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "929fc6d2893c93ef1f7f5fe30cbd8e28d9467cfe03b652323a2454d3131925cc",
+      "live_response_sha256": "a58ab42f53c7e583d7e013c368daf1fccf0a398f4a084e2edfee79f3cd5ba4c1",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "talamanca",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-83.5&latitude=9.4&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "5be5a3602a3aa81e1aed3f1164b36fd10116f15959a566ecea4e49189135fb57",
+      "live_response_sha256": "0ad63e88c60c49f807ffbeeeb8ae974f4198d4cb20fff6be4a97fa14ed7cf7e4",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "boquete",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-82.43&latitude=8.78&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "45b20de0f76c7c7150928effde118b499d1dbb775091b696fdeec308fd2200f0",
+      "live_response_sha256": "4d741e4922e66ff6fede9c969e4e8ee333282ac28ba14f72423ea2f15633a46d",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "conondale",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=152.6&latitude=-26.7&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "5cd2de0d225482454df5eba85a9a5c865034b394f6a40efa21eaa49fb74201c2",
+      "live_response_sha256": "7cbb319ccaf554056f5c4f67aeaf4a813ea551a128fd6a5de47c6b80142ff8b8",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SYN1DEG",
+          "SRB",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "lamington",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=153.13&latitude=-28.23&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "5505e267606e11da6bb7e69ccf0e721b850c14b360314a5a001afced3339784d",
+      "live_response_sha256": "c4b489241d203143c161ebd9dc5a03fd495df3009122692c58319c46e815b245",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "hanawi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-156.15&latitude=20.75&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "46e15bf480da5389ce4c2e5a37389800ca980f20e9eeb0067cdeacdb07907338",
+      "live_response_sha256": "8f955cdadddfecfb07ff8f0c8d4971f8f11154bee781004f4a2ef776393d6925",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "SRB",
+          "SYN1DEG",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "hakalau",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-155.3&latitude=19.82&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "e38611afcea14dd7ba038db76e209ae30490750ac62c9e1ffbddef9c9947cf0d",
+      "live_response_sha256": "f0aacfa05297499ac40bf161ad6d8ad8523552cb867218e6281052670d0aefd1",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "tecopa",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
+      "live_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SYN1DEG",
+          "SRB",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "coiba",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "checked_values": 135,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
+      "live_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "galapagos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "checked_values": 135,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
+      "live_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "christmas",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=105.62&latitude=-10.48&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "7b9d16335b6816b9909cc7ad4e916aafc3894e827922ac4d69ac3f1afad3252d",
+      "live_response_sha256": "a09032c629534e2f9e6d4368769b16875268a42ea22270c4b651215021196613",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "cocos",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=96.87&latitude=-12.16&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "7f9c880e58c27ae2f1f9bf30ac093756392472eb4d73cf5678edaf053421a6f9",
+      "live_response_sha256": "a9fd19fc7f274a27fb3da7fdd56c86d228f1cc9a2385bce60c9ac497a024c2a9",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "MERRA2",
+          "SRB",
+          "SYN1DEG",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "el-potosi",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-100.33&latitude=24.87&format=JSON&start=1981&end=2025",
+      "checked_values": 90,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "4fb0a4ba746405e5fada5b2206f530eee45bdde314d50792cd6ff061bd9e439b",
+      "live_response_sha256": "71026f4ce44e9bde9ef13337e613a3fecca03b182b43fd672b1c6732974580bd",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "tasmania",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "checked_values": 135,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
+      "live_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SRB",
+          "SYN1DEG",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "el-valle",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-80.08&latitude=8.63&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "d492117ccc21b35f9e19ea239aa4d88d9fe73d569890e8a3a181d2785a4b8bb5",
+      "live_response_sha256": "e0f2aef0152c2386dbf8797228207972a37865f854fed90fcf390691bf501b14",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SYN1DEG",
+          "SRB",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    },
+    {
+      "kind": "extra",
+      "location_id": "santa-fe",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-81.08&latitude=8.51&format=JSON&start=1981&end=2025",
+      "checked_values": 45,
+      "numeric_match": true,
+      "differences": [],
+      "archived_response_sha256": "3105cdfa608c0ab2de5b735bd88ed7002aa08623fa07fd8a669b8e4eb4480a60",
+      "live_response_sha256": "706e27bc204e32828e191d557ba0df613acbcdf920f39700792ce885eacee739",
+      "exact_response_bytes_match": false,
+      "parameters": {
+        "ALLSKY_SFC_SW_DWN": {
+          "units": "MJ/m^2/day",
+          "longname": "All Sky Surface Shortwave Downward Irradiance"
+        },
+        "CLOUD_AMT": {
+          "units": "%",
+          "longname": "Cloud Amount"
+        },
+        "GWETROOT": {
+          "units": "1",
+          "longname": "Root Zone Soil Wetness"
+        },
+        "T2M_MAX": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Maximum"
+        },
+        "T2M_MIN": {
+          "units": "C",
+          "longname": "Temperature at 2 Meters Minimum"
+        },
+        "TS": {
+          "units": "C",
+          "longname": "Earth Skin Temperature"
+        },
+        "WS2M": {
+          "units": "m/s",
+          "longname": "Wind Speed at 2 Meters"
+        }
+      },
+      "header": {
+        "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+        "api": {
+          "version": "v2.10.0",
+          "name": "POWER Monthly and Annual API"
+        },
+        "sources": [
+          "SYN1DEG",
+          "SRB",
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "start": "19810101",
+        "end": "20251231"
+      }
+    }
+  ]
+}

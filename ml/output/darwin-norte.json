@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "darwin-norte",
  "species_name": "Northern Darwin’s frog",
  "scientific_name": "Rhinoderma rufum",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,30 @@
    "label": "Mean air temperature",
    "unit": "°C",
    "source": "T2M",
-   "aggregation": "Day-weighted annual mean of monthly means"
+   "aggregation": "Day-weighted annual mean of monthly means",
+   "nasa_parameters": [
+    "T2M"
+   ]
   },
   {
    "id": "rh2m_mean",
    "label": "Mean relative humidity",
    "unit": "%",
    "source": "RH2M",
-   "aggregation": "Day-weighted annual mean"
+   "aggregation": "Day-weighted annual mean",
+   "nasa_parameters": [
+    "RH2M"
+   ]
   },
   {
    "id": "precip_dry_season",
    "label": "Dry-season rainfall",
    "unit": "mm",
    "source": "PRECTOTCORR",
-   "aggregation": "Rainfall summed over the location's 4 driest months (1981–2025 average cycle)"
+   "aggregation": "Annual rainfall sum over reference months [1, 2, 3, 12]; months selected using only 1981–2014, fixed for all locations.",
+   "nasa_parameters": [
+    "PRECTOTCORR"
+   ]
   }
  ],
  "locations": [
@@ -263,14 +275,37 @@
        "high80": 11.467
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "recent_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 11.021,
+       "low80": 10.693,
+       "high80": 11.481,
+       "observed": 11.225
+      },
+      "absolute_error": 0.204,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.447,
       "historical_mean": 0.32,
       "recent_mean": 0.283,
       "linear_trend": 0.287,
-      "theil_sen_trend": 0.293
+      "theil_sen_trend": 0.293,
+      "autoregressive_ridge": 0.313
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 10.824,
       "mean_2016_2025": 11.022,
@@ -287,51 +322,66 @@
        2021,
        2025
       ],
-      "selected_model": "recent_mean",
+      "selected_model": "autoregressive_ridge",
       "years": [
        {
         "year": 2021,
-        "value": 10.989,
-        "low80": 10.731,
-        "high80": 11.534,
+        "value": 10.783,
+        "low80": 10.496,
+        "high80": 11.325,
         "observed": 11.233
        },
        {
         "year": 2022,
-        "value": 10.989,
-        "low80": 10.731,
-        "high80": 11.534,
+        "value": 10.8,
+        "low80": 10.513,
+        "high80": 11.342,
         "observed": 10.968
        },
        {
         "year": 2023,
-        "value": 10.989,
-        "low80": 10.731,
-        "high80": 11.534,
+        "value": 10.819,
+        "low80": 10.532,
+        "high80": 11.361,
         "observed": 11.186
        },
        {
         "year": 2024,
-        "value": 10.989,
-        "low80": 10.731,
-        "high80": 11.534,
+        "value": 10.827,
+        "low80": 10.54,
+        "high80": 11.369,
         "observed": 10.715
        },
        {
         "year": 2025,
-        "value": 10.989,
-        "low80": 10.731,
-        "high80": 11.534,
+        "value": 10.822,
+        "low80": 10.535,
+        "high80": 11.364,
         "observed": 11.225
        }
       ],
-      "mae": 0.194,
+      "mae": 0.3,
       "mae_if_no_change": 0.289,
-      "skill_vs_no_change": 0.328,
-      "years_inside_80_interval": 4
+      "skill_vs_no_change": -0.037,
+      "mae_persistence": 0.197,
+      "skill_vs_persistence": -0.522,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
+      "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 11.0 °C (80% range for 2030: 10.7–11.5 °C), about the same as the 1991–2020 average of 10.8 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.0&latitude=-37.8&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/nahuelbuta.json",
+      "file_sha256": "d90840a174afe09b8765ba4e95eed9edb1ba74640a720723ab1b3775769048d5",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 11.0 °C (nominal 80% band for 2030: 10.7–11.5 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 10.8 °C."
     },
     "rh2m_mean": {
      "observed": [
@@ -519,48 +569,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 77.576,
-       "low80": 73.665,
-       "high80": 78.229
+       "value": 78.025,
+       "low80": 75.213,
+       "high80": 78.939
       },
       {
        "year": 2027,
-       "value": 77.576,
-       "low80": 73.665,
-       "high80": 78.229
+       "value": 78.025,
+       "low80": 75.213,
+       "high80": 78.939
       },
       {
        "year": 2028,
-       "value": 77.576,
-       "low80": 73.665,
-       "high80": 78.229
+       "value": 78.025,
+       "low80": 75.213,
+       "high80": 78.939
       },
       {
        "year": 2029,
-       "value": 77.576,
-       "low80": 73.665,
-       "high80": 78.229
+       "value": 78.025,
+       "low80": 75.213,
+       "high80": 78.939
       },
       {
        "year": 2030,
-       "value": 77.576,
-       "low80": 73.665,
-       "high80": 78.229
+       "value": 78.025,
+       "low80": 75.213,
+       "high80": 78.939
       }
      ],
-     "selected_model": "recent_mean",
-     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "persistence",
+      "prediction": {
+       "year": 2025,
+       "value": 75.4,
+       "low80": 72.587,
+       "high80": 76.317,
+       "observed": 78.025
+      },
+      "absolute_error": 2.625,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "persistence",
+     "model_description": "Last observed annual value",
      "cv_mae_by_model": {
+      "persistence": 1.481,
       "historical_mean": 2.077,
       "recent_mean": 1.953,
       "linear_trend": 2.473,
-      "theil_sen_trend": 2.391
+      "theil_sen_trend": 2.391,
+      "autoregressive_ridge": 1.988
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 80.592,
       "mean_2016_2025": 77.576,
-      "forecast_mean_2026_2030": 77.576,
-      "change_vs_normal": -3.016,
+      "forecast_mean_2026_2030": 78.025,
+      "change_vs_normal": -2.567,
       "trend_per_decade_1981_2025": -0.629
      },
      "backtest": {
@@ -572,51 +645,66 @@
        2021,
        2025
       ],
-      "selected_model": "recent_mean",
+      "selected_model": "persistence",
       "years": [
        {
         "year": 2021,
-        "value": 79.294,
-        "low80": 76.949,
-        "high80": 80.297,
+        "value": 78.042,
+        "low80": 75.764,
+        "high80": 78.956,
         "observed": 76.828
        },
        {
         "year": 2022,
-        "value": 79.294,
-        "low80": 76.949,
-        "high80": 80.297,
+        "value": 78.042,
+        "low80": 75.764,
+        "high80": 78.956,
         "observed": 75.23
        },
        {
         "year": 2023,
-        "value": 79.294,
-        "low80": 76.949,
-        "high80": 80.297,
+        "value": 78.042,
+        "low80": 75.764,
+        "high80": 78.956,
         "observed": 75.029
        },
        {
         "year": 2024,
-        "value": 79.294,
-        "low80": 76.949,
-        "high80": 80.297,
+        "value": 78.042,
+        "low80": 75.764,
+        "high80": 78.956,
         "observed": 75.4
        },
        {
         "year": 2025,
-        "value": 79.294,
-        "low80": 76.949,
-        "high80": 80.297,
+        "value": 78.042,
+        "low80": 75.764,
+        "high80": 78.956,
         "observed": 78.025
        }
       ],
-      "mae": 3.192,
+      "mae": 1.94,
       "mae_if_no_change": 4.276,
-      "skill_vs_no_change": 0.254,
-      "years_inside_80_interval": 1
+      "skill_vs_no_change": 0.546,
+      "mae_persistence": 1.939,
+      "skill_vs_persistence": -0.0,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
+      "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 77.6 % (80% range for 2030: 73.7–78.2 %), below the 1991–2020 average of 80.6 % (-3.02 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.0&latitude=-37.8&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/nahuelbuta.json",
+      "file_sha256": "d90840a174afe09b8765ba4e95eed9edb1ba74640a720723ab1b3775769048d5",
+      "parameter": "RH2M"
+     },
+     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 78.0 % (nominal 80% band for 2030: 75.2–78.9 %; coverage is not guaranteed), below the 1991–2020 average of 80.6 % (-2.57 %)."
     },
     "precip_dry_season": {
      "observed": [
@@ -806,41 +894,63 @@
        "year": 2026,
        "value": 68.309,
        "low80": 0.0,
-       "high80": 112.499
+       "high80": 74.05
       },
       {
        "year": 2027,
        "value": 66.319,
        "low80": 0.0,
-       "high80": 110.509
+       "high80": 72.06
       },
       {
        "year": 2028,
        "value": 64.329,
        "low80": 0.0,
-       "high80": 108.519
+       "high80": 70.07
       },
       {
        "year": 2029,
        "value": 62.339,
        "low80": 0.0,
-       "high80": 106.529
+       "high80": 68.08
       },
       {
        "year": 2030,
        "value": 60.349,
        "low80": 0.0,
-       "high80": 104.539
+       "high80": 66.09
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "theil_sen_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 68.659,
+       "low80": 0.0,
+       "high80": 76.525,
+       "observed": 79.26
+      },
+      "absolute_error": 10.601,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "theil_sen_trend",
      "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
      "cv_mae_by_model": {
-      "historical_mean": 57.943,
-      "recent_mean": 51.164,
-      "linear_trend": 49.439,
-      "theil_sen_trend": 48.776
+      "persistence": 53.617,
+      "historical_mean": 59.536,
+      "recent_mean": 50.166,
+      "linear_trend": 48.124,
+      "theil_sen_trend": 46.934,
+      "autoregressive_ridge": 57.837
      },
+     "cv_origins": [
+      2014,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 118.583,
       "mean_2016_2025": 66.793,
@@ -857,48 +967,54 @@
        2021,
        2025
       ],
-      "selected_model": "linear_trend",
+      "selected_model": "theil_sen_trend",
       "years": [
        {
         "year": 2021,
-        "value": 99.597,
-        "low80": 28.115,
-        "high80": 171.221,
+        "value": 96.76,
+        "low80": 12.245,
+        "high80": 116.132,
         "observed": 45.55
        },
        {
         "year": 2022,
-        "value": 98.486,
-        "low80": 27.003,
-        "high80": 170.11,
+        "value": 95.547,
+        "low80": 11.031,
+        "high80": 114.918,
         "observed": 58.88
        },
        {
         "year": 2023,
-        "value": 97.375,
-        "low80": 25.892,
-        "high80": 168.999,
+        "value": 94.333,
+        "low80": 9.817,
+        "high80": 113.704,
         "observed": 15.66
        },
        {
         "year": 2024,
-        "value": 96.264,
-        "low80": 24.781,
-        "high80": 167.887,
+        "value": 93.119,
+        "low80": 8.604,
+        "high80": 112.49,
         "observed": 35.92
        },
        {
         "year": 2025,
-        "value": 95.152,
-        "low80": 23.67,
-        "high80": 166.776,
+        "value": 91.905,
+        "low80": 7.39,
+        "high80": 111.276,
         "observed": 79.26
        }
       ],
-      "mae": 50.321,
+      "mae": 47.279,
       "mae_if_no_change": 75.324,
-      "skill_vs_no_change": 0.332,
-      "years_inside_80_interval": 4
+      "skill_vs_no_change": 0.372,
+      "mae_persistence": 19.638,
+      "skill_vs_persistence": -1.408,
+      "cv_origins": [
+       2014,
+       2015
+      ],
+      "years_inside_80_interval": 5
      },
      "available": true,
      "dry_months": [
@@ -907,8 +1023,15 @@
       3,
       12
      ],
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.0&latitude=-37.8&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/nahuelbuta.json",
+      "file_sha256": "d90840a174afe09b8765ba4e95eed9edb1ba74640a720723ab1b3775769048d5",
+      "parameter": "PRECTOTCORR"
+     },
      "data_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact.",
-     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 64.3 mm (80% range for 2030: 0.00–104.5 mm), below the 1991–2020 average of 118.6 mm (-54.3 mm)."
+     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 64.3 mm (nominal 80% band for 2030: 0.00–66.1 mm; coverage is not guaranteed), below the 1991–2020 average of 118.6 mm (-54.3 mm)."
     }
    }
   },
@@ -1133,14 +1256,37 @@
        "high80": 11.782
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "recent_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 11.094,
+       "low80": 10.723,
+       "high80": 11.789,
+       "observed": 11.233
+      },
+      "absolute_error": 0.139,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.436,
       "historical_mean": 0.36,
       "recent_mean": 0.303,
       "linear_trend": 0.323,
-      "theil_sen_trend": 0.361
+      "theil_sen_trend": 0.361,
+      "autoregressive_ridge": 0.371
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 10.81,
       "mean_2016_2025": 11.089,
@@ -1198,10 +1344,25 @@
       "mae": 0.269,
       "mae_if_no_change": 0.392,
       "skill_vs_no_change": 0.314,
+      "mae_persistence": 0.234,
+      "skill_vs_persistence": -0.149,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 11.1 °C (80% range for 2030: 10.7–11.8 °C), above the 1991–2020 average of 10.8 °C (+0.28 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.25&latitude=-39.81&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/valdivia.json",
+      "file_sha256": "c2afff6ea287fa90ac0750e8c3941cf43b6156f5d3147e1ca0393958e422241c",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 11.1 °C (nominal 80% band for 2030: 10.7–11.8 °C; coverage is not guaranteed), above the 1991–2020 average of 10.8 °C (+0.28 °C)."
     },
     "rh2m_mean": {
      "observed": [
@@ -1389,48 +1550,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 80.187,
-       "low80": 75.093,
-       "high80": 80.279
+       "value": 81.295,
+       "low80": 77.029,
+       "high80": 82.347
       },
       {
        "year": 2027,
-       "value": 80.187,
-       "low80": 75.093,
-       "high80": 80.279
+       "value": 81.295,
+       "low80": 77.029,
+       "high80": 82.347
       },
       {
        "year": 2028,
-       "value": 80.187,
-       "low80": 75.093,
-       "high80": 80.279
+       "value": 81.295,
+       "low80": 77.029,
+       "high80": 82.347
       },
       {
        "year": 2029,
-       "value": 80.187,
-       "low80": 75.093,
-       "high80": 80.279
+       "value": 81.295,
+       "low80": 77.029,
+       "high80": 82.347
       },
       {
        "year": 2030,
-       "value": 80.187,
-       "low80": 75.093,
-       "high80": 80.279
+       "value": 81.295,
+       "low80": 77.029,
+       "high80": 82.347
       }
      ],
-     "selected_model": "recent_mean",
-     "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "persistence",
+      "prediction": {
+       "year": 2025,
+       "value": 76.765,
+       "low80": 72.482,
+       "high80": 77.914,
+       "observed": 81.295
+      },
+      "absolute_error": 4.53,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "persistence",
+     "model_description": "Last observed annual value",
      "cv_mae_by_model": {
+      "persistence": 2.123,
       "historical_mean": 2.891,
       "recent_mean": 2.559,
       "linear_trend": 2.969,
-      "theil_sen_trend": 3.186
+      "theil_sen_trend": 3.186,
+      "autoregressive_ridge": 2.836
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 83.636,
       "mean_2016_2025": 80.187,
-      "forecast_mean_2026_2030": 80.187,
-      "change_vs_normal": -3.449,
+      "forecast_mean_2026_2030": 81.295,
+      "change_vs_normal": -2.341,
       "trend_per_decade_1981_2025": -0.933
      },
      "backtest": {
@@ -1442,51 +1626,66 @@
        2021,
        2025
       ],
-      "selected_model": "recent_mean",
+      "selected_model": "persistence",
       "years": [
        {
         "year": 2021,
-        "value": 82.294,
-        "low80": 79.32,
-        "high80": 83.276,
+        "value": 81.014,
+        "low80": 77.944,
+        "high80": 82.067,
         "observed": 77.373
        },
        {
         "year": 2022,
-        "value": 82.294,
-        "low80": 79.32,
-        "high80": 83.276,
+        "value": 81.014,
+        "low80": 77.944,
+        "high80": 82.067,
         "observed": 77.248
        },
        {
         "year": 2023,
-        "value": 82.294,
-        "low80": 79.32,
-        "high80": 83.276,
+        "value": 81.014,
+        "low80": 77.944,
+        "high80": 82.067,
         "observed": 76.595
        },
        {
         "year": 2024,
-        "value": 82.294,
-        "low80": 79.32,
-        "high80": 83.276,
+        "value": 81.014,
+        "low80": 77.944,
+        "high80": 82.067,
         "observed": 76.765
        },
        {
         "year": 2025,
-        "value": 82.294,
-        "low80": 79.32,
-        "high80": 83.276,
+        "value": 81.014,
+        "low80": 77.944,
+        "high80": 82.067,
         "observed": 81.295
        }
       ],
-      "mae": 4.439,
+      "mae": 3.271,
       "mae_if_no_change": 5.637,
-      "skill_vs_no_change": 0.213,
+      "skill_vs_no_change": 0.42,
+      "mae_persistence": 3.271,
+      "skill_vs_persistence": -0.0,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 1
      },
      "available": true,
-     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 80.2 % (80% range for 2030: 75.1–80.3 %), below the 1991–2020 average of 83.6 % (-3.45 %)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.25&latitude=-39.81&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/valdivia.json",
+      "file_sha256": "c2afff6ea287fa90ac0750e8c3941cf43b6156f5d3147e1ca0393958e422241c",
+      "parameter": "RH2M"
+     },
+     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 81.3 % (nominal 80% band for 2030: 77.0–82.3 %; coverage is not guaranteed), below the 1991–2020 average of 83.6 % (-2.34 %)."
     },
     "precip_dry_season": {
      "observed": [
@@ -1675,42 +1874,64 @@
       {
        "year": 2026,
        "value": 109.074,
-       "low80": 0.933,
-       "high80": 186.934
+       "low80": 0.0,
+       "high80": 153.048
       },
       {
        "year": 2027,
        "value": 106.173,
        "low80": 0.0,
-       "high80": 184.033
+       "high80": 150.147
       },
       {
        "year": 2028,
        "value": 103.272,
        "low80": 0.0,
-       "high80": 181.132
+       "high80": 147.246
       },
       {
        "year": 2029,
        "value": 100.371,
        "low80": 0.0,
-       "high80": 178.231
+       "high80": 144.345
       },
       {
        "year": 2030,
        "value": 97.47,
        "low80": 0.0,
-       "high80": 175.329
+       "high80": 141.444
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "theil_sen_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 106.407,
+       "low80": 0.0,
+       "high80": 155.498,
+       "observed": 139.03
+      },
+      "absolute_error": 32.623,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "theil_sen_trend",
      "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
      "cv_mae_by_model": {
-      "historical_mean": 87.714,
-      "recent_mean": 76.801,
-      "linear_trend": 74.339,
-      "theil_sen_trend": 70.62
+      "persistence": 68.915,
+      "historical_mean": 91.587,
+      "recent_mean": 76.761,
+      "linear_trend": 73.988,
+      "theil_sen_trend": 67.278,
+      "autoregressive_ridge": 91.48
      },
+     "cv_origins": [
+      2014,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 198.217,
       "mean_2016_2025": 112.675,
@@ -1732,43 +1953,49 @@
        {
         "year": 2021,
         "value": 154.691,
-        "low80": 61.815,
-        "high80": 235.164,
+        "low80": 45.501,
+        "high80": 220.328,
         "observed": 45.41
        },
        {
         "year": 2022,
         "value": 153.023,
-        "low80": 60.147,
-        "high80": 233.496,
+        "low80": 43.833,
+        "high80": 218.66,
         "observed": 94.73
        },
        {
         "year": 2023,
         "value": 151.355,
-        "low80": 58.479,
-        "high80": 231.828,
+        "low80": 42.165,
+        "high80": 216.993,
         "observed": 32.5
        },
        {
         "year": 2024,
         "value": 149.688,
-        "low80": 56.811,
-        "high80": 230.16,
+        "low80": 40.498,
+        "high80": 215.325,
         "observed": 41.79
        },
        {
         "year": 2025,
         "value": 148.02,
-        "low80": 55.143,
-        "high80": 228.492,
+        "low80": 38.83,
+        "high80": 213.657,
         "observed": 139.03
        }
       ],
       "mae": 80.663,
       "mae_if_no_change": 128.224,
       "skill_vs_no_change": 0.371,
-      "years_inside_80_interval": 2
+      "mae_persistence": 53.782,
+      "skill_vs_persistence": -0.5,
+      "cv_origins": [
+       2014,
+       2015
+      ],
+      "years_inside_80_interval": 3
      },
      "available": true,
      "dry_months": [
@@ -1777,8 +2004,15 @@
       3,
       12
      ],
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-73.25&latitude=-39.81&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/valdivia.json",
+      "file_sha256": "c2afff6ea287fa90ac0750e8c3941cf43b6156f5d3147e1ca0393958e422241c",
+      "parameter": "PRECTOTCORR"
+     },
      "data_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact.",
-     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 103.3 mm (80% range for 2030: 0.00–175.3 mm), below the 1991–2020 average of 198.2 mm (-94.9 mm)."
+     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 103.3 mm (nominal 80% band for 2030: 0.00–141.4 mm; coverage is not guaranteed), below the 1991–2020 average of 198.2 mm (-94.9 mm)."
     }
    }
   },
@@ -2003,14 +2237,37 @@
        "high80": 28.945
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 28.677,
+       "low80": 28.251,
+       "high80": 28.849,
+       "observed": 28.634
+      },
+      "absolute_error": 0.043,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.248,
       "historical_mean": 0.367,
       "recent_mean": 0.247,
       "linear_trend": 0.178,
-      "theil_sen_trend": 0.197
+      "theil_sen_trend": 0.197,
+      "autoregressive_ridge": 0.271
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 28.292,
       "mean_2016_2025": 28.604,
@@ -2068,10 +2325,25 @@
       "mae": 0.301,
       "mae_if_no_change": 0.435,
       "skill_vs_no_change": 0.308,
+      "mae_persistence": 0.309,
+      "skill_vs_persistence": 0.029,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 28.7 °C (80% range for 2030: 28.4–28.9 °C), above the 1991–2020 average of 28.3 °C (+0.44 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/funafuti.json",
+      "file_sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 28.7 °C (nominal 80% band for 2030: 28.4–28.9 °C; coverage is not guaranteed), above the 1991–2020 average of 28.3 °C (+0.44 °C)."
     },
     "rh2m_mean": {
      "observed": [
@@ -2288,14 +2560,37 @@
        "high80": 80.408
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "recent_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 79.995,
+       "low80": 79.376,
+       "high80": 80.484,
+       "observed": 79.706
+      },
+      "absolute_error": 0.289,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.574,
       "historical_mean": 0.476,
       "recent_mean": 0.398,
       "linear_trend": 0.425,
-      "theil_sen_trend": 0.413
+      "theil_sen_trend": 0.413,
+      "autoregressive_ridge": 0.459
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 80.108,
       "mean_2016_2025": 79.929,
@@ -2353,240 +2648,277 @@
       "mae": 0.339,
       "mae_if_no_change": 0.378,
       "skill_vs_no_change": 0.103,
+      "mae_persistence": 0.518,
+      "skill_vs_persistence": 0.345,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 79.9 % (80% range for 2030: 79.3–80.4 %), about the same as the 1991–2020 average of 80.1 %."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/funafuti.json",
+      "file_sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "parameter": "RH2M"
+     },
+     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 79.9 % (nominal 80% band for 2030: 79.3–80.4 %; coverage is not guaranteed), about the same as the 1991–2020 average of 80.1 %."
     },
     "precip_dry_season": {
      "observed": [
       {
        "year": 1981,
-       "value": 539.57
+       "value": 1338.93
       },
       {
        "year": 1982,
-       "value": 660.53
+       "value": 982.78
       },
       {
        "year": 1983,
-       "value": 792.25
+       "value": 2010.04
       },
       {
        "year": 1984,
-       "value": 860.54
+       "value": 1094.93
       },
       {
        "year": 1985,
-       "value": 475.04
+       "value": 1543.75
       },
       {
        "year": 1986,
-       "value": 641.01
+       "value": 1130.27
       },
       {
        "year": 1987,
-       "value": 1286.79
+       "value": 1649.32
       },
       {
        "year": 1988,
-       "value": 760.57
+       "value": 1146.86
       },
       {
        "year": 1989,
-       "value": 421.57
+       "value": 914.54
       },
       {
        "year": 1990,
-       "value": 397.95
+       "value": 1484.89
       },
       {
        "year": 1991,
-       "value": 589.8
+       "value": 1188.12
       },
       {
        "year": 1992,
-       "value": 801.96
+       "value": 1350.0
       },
       {
        "year": 1993,
-       "value": 1289.9
+       "value": 1249.22
       },
       {
        "year": 1994,
-       "value": 885.06
+       "value": 1065.69
       },
       {
        "year": 1995,
-       "value": 786.98
+       "value": 1417.94
       },
       {
        "year": 1996,
-       "value": 517.55
+       "value": 999.84
       },
       {
        "year": 1997,
-       "value": 753.71
+       "value": 1570.51
       },
       {
        "year": 1998,
-       "value": 851.04
+       "value": 1686.28
       },
       {
        "year": 1999,
-       "value": 392.67
+       "value": 808.83
       },
       {
        "year": 2000,
-       "value": 410.47
+       "value": 593.41
       },
       {
        "year": 2001,
-       "value": 673.92
+       "value": 862.51
       },
       {
        "year": 2002,
-       "value": 806.99
+       "value": 1132.97
       },
       {
        "year": 2003,
-       "value": 839.32
+       "value": 1246.07
       },
       {
        "year": 2004,
-       "value": 629.43
+       "value": 1411.7
       },
       {
        "year": 2005,
-       "value": 502.8
+       "value": 1263.21
       },
       {
        "year": 2006,
-       "value": 726.72
+       "value": 1276.52
       },
       {
        "year": 2007,
-       "value": 545.95
+       "value": 940.43
       },
       {
        "year": 2008,
-       "value": 394.72
+       "value": 878.55
       },
       {
        "year": 2009,
-       "value": 533.34
+       "value": 878.19
       },
       {
        "year": 2010,
-       "value": 552.75
+       "value": 1457.98
       },
       {
        "year": 2011,
-       "value": 106.91
+       "value": 545.21
       },
       {
        "year": 2012,
-       "value": 535.42
+       "value": 1117.35
       },
       {
        "year": 2013,
-       "value": 581.07
+       "value": 1506.12
       },
       {
        "year": 2014,
-       "value": 560.38
+       "value": 1317.52
       },
       {
        "year": 2015,
-       "value": 850.14
+       "value": 1364.77
       },
       {
        "year": 2016,
-       "value": 1012.4
+       "value": 1007.5
       },
       {
        "year": 2017,
-       "value": 555.92
+       "value": 1001.4
       },
       {
        "year": 2018,
-       "value": 502.39
+       "value": 1007.39
       },
       {
        "year": 2019,
-       "value": 1110.88
+       "value": 1575.76
       },
       {
        "year": 2020,
-       "value": 726.03
+       "value": 1462.3
       },
       {
        "year": 2021,
-       "value": 311.28
+       "value": 881.59
       },
       {
        "year": 2022,
-       "value": 222.02
+       "value": 782.98
       },
       {
        "year": 2023,
-       "value": 541.36
+       "value": 715.35
       },
       {
        "year": 2024,
-       "value": 988.97
+       "value": 932.45
       },
       {
        "year": 2025,
-       "value": 670.98
+       "value": 548.65
       }
      ],
      "forecast": [
       {
        "year": 2026,
-       "value": 539.581,
-       "low80": 247.163,
-       "high80": 944.436
+       "value": 956.117,
+       "low80": 585.285,
+       "high80": 1425.339
       },
       {
        "year": 2027,
-       "value": 536.832,
-       "low80": 244.414,
-       "high80": 941.688
+       "value": 947.117,
+       "low80": 576.284,
+       "high80": 1416.338
       },
       {
        "year": 2028,
-       "value": 534.083,
-       "low80": 241.665,
-       "high80": 938.939
+       "value": 938.117,
+       "low80": 567.284,
+       "high80": 1407.338
       },
       {
        "year": 2029,
-       "value": 531.334,
-       "low80": 238.916,
-       "high80": 936.19
+       "value": 929.116,
+       "low80": 558.284,
+       "high80": 1398.338
       },
       {
        "year": 2030,
-       "value": 528.585,
-       "low80": 236.167,
-       "high80": 933.441
+       "value": 920.116,
+       "low80": 549.283,
+       "high80": 1389.337
       }
      ],
-     "selected_model": "theil_sen_trend",
-     "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
-     "cv_mae_by_model": {
-      "historical_mean": 214.983,
-      "recent_mean": 203.377,
-      "linear_trend": 202.161,
-      "theil_sen_trend": 198.699
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 1004.299,
+       "low80": 699.606,
+       "high80": 1484.161,
+       "observed": 548.65
+      },
+      "absolute_error": 455.649,
+      "kind": "retrospective_holdout_not_future_forecast"
      },
+     "selected_model": "linear_trend",
+     "model_description": "Least-squares straight line through the training years",
+     "cv_mae_by_model": {
+      "persistence": 405.252,
+      "historical_mean": 304.317,
+      "recent_mean": 285.601,
+      "linear_trend": 253.15,
+      "theil_sen_trend": 265.762,
+      "autoregressive_ridge": 282.431
+     },
+     "cv_origins": [
+      2014,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
-      "normal_1991_2020": 667.554,
-      "mean_2016_2025": 664.223,
-      "forecast_mean_2026_2030": 534.083,
-      "change_vs_normal": -133.471,
-      "trend_per_decade_1981_2025": -27.488
+      "normal_1991_2020": 1172.776,
+      "mean_2016_2025": 991.537,
+      "forecast_mean_2026_2030": 938.117,
+      "change_vs_normal": -234.66,
+      "trend_per_decade_1981_2025": -90.279
      },
      "backtest": {
       "train_period": [
@@ -2597,58 +2929,71 @@
        2021,
        2025
       ],
-      "selected_model": "theil_sen_trend",
+      "selected_model": "linear_trend",
       "years": [
        {
         "year": 2021,
-        "value": 594.923,
-        "low80": 431.558,
-        "high80": 908.124,
-        "observed": 311.28
+        "value": 1120.384,
+        "low80": 1043.6,
+        "high80": 1636.103,
+        "observed": 881.59
        },
        {
         "year": 2022,
-        "value": 593.414,
-        "low80": 430.049,
-        "high80": 906.614,
-        "observed": 222.02
+        "value": 1115.916,
+        "low80": 1039.132,
+        "high80": 1631.634,
+        "observed": 782.98
        },
        {
         "year": 2023,
-        "value": 591.904,
-        "low80": 428.539,
-        "high80": 905.105,
-        "observed": 541.36
+        "value": 1111.447,
+        "low80": 1034.663,
+        "high80": 1627.166,
+        "observed": 715.35
        },
        {
         "year": 2024,
-        "value": 590.395,
-        "low80": 427.03,
-        "high80": 903.596,
-        "observed": 988.97
+        "value": 1106.979,
+        "low80": 1030.194,
+        "high80": 1622.697,
+        "observed": 932.45
        },
        {
         "year": 2025,
-        "value": 588.886,
-        "low80": 425.52,
-        "high80": 902.086,
-        "observed": 670.98
+        "value": 1102.51,
+        "low80": 1025.726,
+        "high80": 1618.229,
+        "observed": 548.65
        }
       ],
-      "mae": 237.25,
-      "mae_if_no_change": 251.603,
-      "skill_vs_no_change": 0.057,
-      "years_inside_80_interval": 2
+      "mae": 339.243,
+      "mae_if_no_change": 439.786,
+      "skill_vs_no_change": 0.229,
+      "mae_persistence": 690.096,
+      "skill_vs_persistence": 0.508,
+      "cv_origins": [
+       2014,
+       2015
+      ],
+      "years_inside_80_interval": 0
      },
      "available": true,
      "dry_months": [
-      5,
-      6,
-      7,
-      9
+      1,
+      2,
+      3,
+      12
      ],
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=179.195&latitude=-8.524&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/funafuti.json",
+      "file_sha256": "3b1d4713734ce987f168fc4020fe0afbca7148391c433309634731b666b73469",
+      "parameter": "PRECTOTCORR"
+     },
      "data_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact.",
-     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 534.1 mm (80% range for 2030: 236.2–933.4 mm), below the 1991–2020 average of 667.6 mm (-133.5 mm)."
+     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 938.1 mm (nominal 80% band for 2030: 549.3–1,389 mm; coverage is not guaranteed), below the 1991–2020 average of 1,173 mm (-234.7 mm)."
     }
    }
   },
@@ -2873,14 +3218,37 @@
        "high80": 23.415
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 22.246,
+       "low80": 21.342,
+       "high80": 23.309,
+       "observed": 22.61
+      },
+      "absolute_error": 0.364,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 1.239,
       "historical_mean": 0.742,
       "recent_mean": 0.738,
       "linear_trend": 0.703,
-      "theil_sen_trend": 0.784
+      "theil_sen_trend": 0.784,
+      "autoregressive_ridge": 0.748
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 21.912,
       "mean_2016_2025": 22.46,
@@ -2938,10 +3306,25 @@
       "mae": 0.509,
       "mae_if_no_change": 0.611,
       "skill_vs_no_change": 0.166,
+      "mae_persistence": 0.591,
+      "skill_vs_persistence": 0.139,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 22.3 °C (80% range for 2030: 21.5–23.4 °C), above the 1991–2020 average of 21.9 °C (+0.42 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/alice-springs.json",
+      "file_sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "parameter": "T2M"
+     },
+     "summary_text": "Mean air temperature in 2026–2030 is forecast to average 22.3 °C (nominal 80% band for 2030: 21.5–23.4 °C; coverage is not guaranteed), above the 1991–2020 average of 21.9 °C (+0.42 °C)."
     },
     "rh2m_mean": {
      "observed": [
@@ -3158,14 +3541,37 @@
        "high80": 40.027
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 36.034,
+       "low80": 30.094,
+       "high80": 40.798,
+       "observed": 34.86
+      },
+      "absolute_error": 1.174,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 7.653,
       "historical_mean": 3.948,
       "recent_mean": 4.368,
       "linear_trend": 4.253,
-      "theil_sen_trend": 4.485
+      "theil_sen_trend": 4.485,
+      "autoregressive_ridge": 4.263
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 35.92,
       "mean_2016_2025": 34.106,
@@ -3223,240 +3629,277 @@
       "mae": 1.54,
       "mae_if_no_change": 1.54,
       "skill_vs_no_change": -0.0,
+      "mae_persistence": 4.281,
+      "skill_vs_persistence": 0.64,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 36.0 % (80% range for 2030: 30.2–40.0 %), about the same as the 1991–2020 average of 35.9 %."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/alice-springs.json",
+      "file_sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "parameter": "RH2M"
+     },
+     "summary_text": "Mean relative humidity in 2026–2030 is forecast to average 36.0 % (nominal 80% band for 2030: 30.2–40.0 %; coverage is not guaranteed), about the same as the 1991–2020 average of 35.9 %."
     },
     "precip_dry_season": {
      "observed": [
       {
        "year": 1981,
-       "value": 17.36
+       "value": 189.81
       },
       {
        "year": 1982,
-       "value": 11.42
+       "value": 297.16
       },
       {
        "year": 1983,
-       "value": 7.74
+       "value": 303.63
       },
       {
        "year": 1984,
-       "value": 47.87
+       "value": 266.03
       },
       {
        "year": 1985,
-       "value": 12.44
+       "value": 53.18
       },
       {
        "year": 1986,
-       "value": 220.63
+       "value": 35.9
       },
       {
        "year": 1987,
-       "value": 36.97
+       "value": 98.11
       },
       {
        "year": 1988,
-       "value": 21.31
+       "value": 249.72
       },
       {
        "year": 1989,
-       "value": 6.19
+       "value": 177.4
       },
       {
        "year": 1990,
-       "value": 14.86
+       "value": 80.45
       },
       {
        "year": 1991,
-       "value": 29.51
+       "value": 178.18
       },
       {
        "year": 1992,
-       "value": 22.13
+       "value": 61.45
       },
       {
        "year": 1993,
-       "value": 92.55
+       "value": 112.86
       },
       {
        "year": 1994,
-       "value": 8.7
+       "value": 59.26
       },
       {
        "year": 1995,
-       "value": 33.76
+       "value": 264.79
       },
       {
        "year": 1996,
-       "value": 34.97
+       "value": 49.05
       },
       {
        "year": 1997,
-       "value": 17.89
+       "value": 261.77
       },
       {
        "year": 1998,
-       "value": 51.68
+       "value": 72.85
       },
       {
        "year": 1999,
-       "value": 43.83
+       "value": 138.78
       },
       {
        "year": 2000,
-       "value": 0.93
+       "value": 343.97
       },
       {
        "year": 2001,
-       "value": 50.29
+       "value": 458.09
       },
       {
        "year": 2002,
-       "value": 1.2
+       "value": 94.37
       },
       {
        "year": 2003,
-       "value": 25.92
+       "value": 138.97
       },
       {
        "year": 2004,
-       "value": 13.97
+       "value": 103.59
       },
       {
        "year": 2005,
-       "value": 99.58
+       "value": 68.03
       },
       {
        "year": 2006,
-       "value": 26.66
+       "value": 112.65
       },
       {
        "year": 2007,
-       "value": 12.39
+       "value": 199.27
       },
       {
        "year": 2008,
-       "value": 41.78
+       "value": 99.04
       },
       {
        "year": 2009,
-       "value": 18.32
+       "value": 64.96
       },
       {
        "year": 2010,
-       "value": 230.94
+       "value": 428.58
       },
       {
        "year": 2011,
-       "value": 16.94
+       "value": 434.74
       },
       {
        "year": 2012,
-       "value": 5.71
+       "value": 245.25
       },
       {
        "year": 2013,
-       "value": 45.36
+       "value": 105.05
       },
       {
        "year": 2014,
-       "value": 30.31
+       "value": 195.87
       },
       {
        "year": 2015,
-       "value": 11.41
+       "value": 227.02
       },
       {
        "year": 2016,
-       "value": 41.58
+       "value": 116.34
       },
       {
        "year": 2017,
-       "value": 5.53
+       "value": 29.11
       },
       {
        "year": 2018,
-       "value": 0.91
+       "value": 42.79
       },
       {
        "year": 2019,
-       "value": 1.2
+       "value": 19.19
       },
       {
        "year": 2020,
-       "value": 3.41
+       "value": 154.55
       },
       {
        "year": 2021,
-       "value": 24.6
+       "value": 110.38
       },
       {
        "year": 2022,
-       "value": 15.91
+       "value": 260.51
       },
       {
        "year": 2023,
-       "value": 39.97
+       "value": 170.7
       },
       {
        "year": 2024,
-       "value": 21.32
+       "value": 235.75
       },
       {
        "year": 2025,
-       "value": 18.92
+       "value": 40.31
       }
      ],
      "forecast": [
       {
        "year": 2026,
-       "value": 16.294,
+       "value": 118.81,
        "low80": 0.0,
-       "high80": 33.46
+       "high80": 225.927
       },
       {
        "year": 2027,
-       "value": 16.122,
+       "value": 118.071,
        "low80": 0.0,
-       "high80": 33.288
+       "high80": 225.188
       },
       {
        "year": 2028,
-       "value": 15.951,
+       "value": 117.331,
        "low80": 0.0,
-       "high80": 33.116
+       "high80": 224.448
       },
       {
        "year": 2029,
-       "value": 15.779,
+       "value": 116.591,
        "low80": 0.0,
-       "high80": 32.945
+       "high80": 223.708
       },
       {
        "year": 2030,
-       "value": 15.608,
+       "value": 115.852,
        "low80": 0.0,
-       "high80": 32.773
+       "high80": 222.969
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "theil_sen_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 132.468,
+       "low80": 1.236,
+       "high80": 244.471,
+       "observed": 40.31
+      },
+      "absolute_error": 92.158,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "theil_sen_trend",
      "model_description": "Robust straight line (median of pairwise slopes), less sensitive to extreme years",
      "cv_mae_by_model": {
-      "historical_mean": 28.575,
-      "recent_mean": 30.382,
-      "linear_trend": 31.492,
-      "theil_sen_trend": 23.739
+      "persistence": 116.136,
+      "historical_mean": 95.798,
+      "recent_mean": 110.609,
+      "linear_trend": 111.057,
+      "theil_sen_trend": 86.99,
+      "autoregressive_ridge": 92.392
      },
+     "cv_origins": [
+      2014,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
-      "normal_1991_2020": 33.979,
-      "mean_2016_2025": 17.335,
-      "forecast_mean_2026_2030": 15.951,
-      "change_vs_normal": -18.028,
-      "trend_per_decade_1981_2025": -1.716
+      "normal_1991_2020": 162.681,
+      "mean_2016_2025": 117.963,
+      "forecast_mean_2026_2030": 117.331,
+      "change_vs_normal": -45.35,
+      "trend_per_decade_1981_2025": -7.396
      },
      "backtest": {
       "train_period": [
@@ -3471,54 +3914,67 @@
       "years": [
        {
         "year": 2021,
-        "value": 14.7,
+        "value": 112.448,
         "low80": 0.0,
-        "high80": 42.252,
-        "observed": 24.6
+        "high80": 116.071,
+        "observed": 110.38
        },
        {
         "year": 2022,
-        "value": 14.452,
+        "value": 111.328,
         "low80": 0.0,
-        "high80": 42.004,
-        "observed": 15.91
+        "high80": 114.951,
+        "observed": 260.51
        },
        {
         "year": 2023,
-        "value": 14.204,
+        "value": 110.209,
         "low80": 0.0,
-        "high80": 41.756,
-        "observed": 39.97
+        "high80": 113.832,
+        "observed": 170.7
        },
        {
         "year": 2024,
-        "value": 13.956,
+        "value": 109.09,
         "low80": 0.0,
-        "high80": 41.508,
-        "observed": 21.32
+        "high80": 112.713,
+        "observed": 235.75
        },
        {
         "year": 2025,
-        "value": 13.708,
+        "value": 107.97,
         "low80": 0.0,
-        "high80": 41.26,
-        "observed": 18.92
+        "high80": 111.593,
+        "observed": 40.31
        }
       ],
-      "mae": 9.94,
-      "mae_if_no_change": 13.086,
-      "skill_vs_no_change": 0.24,
-      "years_inside_80_interval": 5
+      "mae": 81.212,
+      "mae_if_no_change": 70.095,
+      "skill_vs_no_change": -0.159,
+      "mae_persistence": 72.344,
+      "skill_vs_persistence": -0.123,
+      "cv_origins": [
+       2014,
+       2015
+      ],
+      "years_inside_80_interval": 2
      },
      "available": true,
      "dry_months": [
-      6,
-      7,
-      8,
-      9
+      1,
+      2,
+      3,
+      12
      ],
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=133.88&latitude=-23.698&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/alice-springs.json",
+      "file_sha256": "9dcd3fd2bc9f9221a565515fcee3650596b2746cebb3d7d0a58c1a9e9a5b292e",
+      "parameter": "PRECTOTCORR"
+     },
      "data_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact.",
-     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 16.0 mm (80% range for 2030: 0.00–32.8 mm), below the 1991–2020 average of 34.0 mm (-18.0 mm)."
+     "summary_text": "Dry-season rainfall in 2026–2030 is forecast to average 117.3 mm (nominal 80% band for 2030: 0.00–223.0 mm; coverage is not guaranteed), below the 1991–2020 average of 162.7 mm (-45.4 mm)."
     }
    }
   }

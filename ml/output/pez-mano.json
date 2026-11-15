@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "pez-mano",
  "species_name": "Smooth handfish",
  "scientific_name": "Sympterichthys unipennis",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,30 @@
    "label": "Mean surface (skin) temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature"
+   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "surface_temp_warmest_month",
    "label": "Warmest-month surface temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Highest monthly mean of the year (heat-stress proxy)"
+   "aggregation": "Highest monthly mean of the year (heat-stress proxy)",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "wind_speed",
    "label": "Wind speed at 2 m",
    "unit": "m/s",
    "source": "WS2M",
-   "aggregation": "Annual mean"
+   "aggregation": "Annual mean",
+   "nasa_parameters": [
+    "WS2M"
+   ]
   }
  ],
  "locations": [
@@ -263,14 +275,37 @@
        "high80": 13.613
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "theil_sen_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 13.104,
+       "low80": 12.763,
+       "high80": 13.509,
+       "observed": 13.056
+      },
+      "absolute_error": 0.048,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.397,
       "historical_mean": 0.415,
       "recent_mean": 0.291,
       "linear_trend": 0.261,
-      "theil_sen_trend": 0.261
+      "theil_sen_trend": 0.261,
+      "autoregressive_ridge": 0.45
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 12.632,
       "mean_2016_2025": 13.066,
@@ -328,10 +363,29 @@
       "mae": 0.215,
       "mae_if_no_change": 0.479,
       "skill_vs_no_change": 0.552,
+      "mae_persistence": 0.591,
+      "skill_vs_persistence": 0.636,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 13.2 °C (80% range for 2030: 12.9–13.6 °C), above the 1991–2020 average of 12.6 °C (+0.52 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/tasmania.json",
+      "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 13.2 °C (nominal 80% band for 2030: 12.9–13.6 °C; coverage is not guaranteed), above the 1991–2020 average of 12.6 °C (+0.52 °C)."
     },
     "surface_temp_warmest_month": {
      "observed": [
@@ -548,14 +602,37 @@
        "high80": 19.862
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 18.624,
+       "low80": 18.061,
+       "high80": 19.664,
+       "observed": 18.77
+      },
+      "absolute_error": 0.146,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.734,
       "historical_mean": 0.853,
       "recent_mean": 0.571,
       "linear_trend": 0.534,
-      "theil_sen_trend": 0.561
+      "theil_sen_trend": 0.561,
+      "autoregressive_ridge": 0.997
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 17.867,
       "mean_2016_2025": 18.654,
@@ -613,10 +690,29 @@
       "mae": 0.279,
       "mae_if_no_change": 0.736,
       "skill_vs_no_change": 0.621,
+      "mae_persistence": 0.318,
+      "skill_vs_persistence": 0.123,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 18.7 °C (80% range for 2030: 18.3–19.9 °C), above the 1991–2020 average of 17.9 °C (+0.88 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/tasmania.json",
+      "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 18.7 °C (nominal 80% band for 2030: 18.3–19.9 °C; coverage is not guaranteed), above the 1991–2020 average of 17.9 °C (+0.88 °C)."
     },
     "wind_speed": {
      "observed": [
@@ -833,14 +929,37 @@
        "high80": 4.269
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 4.041,
+       "low80": 3.915,
+       "high80": 4.25,
+       "observed": 4.279
+      },
+      "absolute_error": 0.238,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 0.135,
       "historical_mean": 0.115,
       "recent_mean": 0.126,
       "linear_trend": 0.156,
-      "theil_sen_trend": 0.168
+      "theil_sen_trend": 0.168,
+      "autoregressive_ridge": 0.117
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 4.085,
       "mean_2016_2025": 4.104,
@@ -898,10 +1017,29 @@
       "mae": 0.154,
       "mae_if_no_change": 0.16,
       "skill_vs_no_change": 0.035,
+      "mae_persistence": 0.183,
+      "skill_vs_persistence": 0.156,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 3
      },
      "available": true,
-     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 4.05 m/s (80% range for 2030: 3.93–4.27 m/s), about the same as the 1991–2020 average of 4.08 m/s."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=147.2&latitude=-43.2&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "9befb4e4fe28841f8eba544b921a2b1634fa0935d0de2550ca4421bf6d35239e",
+      "parameter": "WS2M",
+      "verification_response_file": "nasa-power-extra/tasmania.json",
+      "verification_response_sha256": "13825bf473bccbafd53d89e3083ab2e09443966faacb9b20d0d297f763c1b0d0",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 4.05 m/s (nominal 80% band for 2030: 3.93–4.27 m/s; coverage is not guaranteed), about the same as the 1991–2020 average of 4.08 m/s."
     }
    }
   }

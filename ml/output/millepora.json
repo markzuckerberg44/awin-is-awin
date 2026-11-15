@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "millepora",
  "species_name": "Millepora hydrocoral",
  "scientific_name": "Millepora boschmai",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,30 @@
    "label": "Mean surface (skin) temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature"
+   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "surface_temp_warmest_month",
    "label": "Warmest-month surface temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Highest monthly mean of the year (heat-stress proxy)"
+   "aggregation": "Highest monthly mean of the year (heat-stress proxy)",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "wind_speed",
    "label": "Wind speed at 2 m",
    "unit": "m/s",
    "source": "WS2M",
-   "aggregation": "Annual mean"
+   "aggregation": "Annual mean",
+   "nasa_parameters": [
+    "WS2M"
+   ]
   }
  ],
  "locations": [
@@ -263,14 +275,37 @@
        "high80": 29.23
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "recent_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 28.788,
+       "low80": 28.626,
+       "high80": 29.282,
+       "observed": 28.91
+      },
+      "absolute_error": 0.122,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.368,
       "historical_mean": 0.278,
       "recent_mean": 0.239,
       "linear_trend": 0.255,
-      "theil_sen_trend": 0.244
+      "theil_sen_trend": 0.244,
+      "autoregressive_ridge": 0.312
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 28.511,
       "mean_2016_2025": 28.755,
@@ -328,10 +363,29 @@
       "mae": 0.335,
       "mae_if_no_change": 0.4,
       "skill_vs_no_change": 0.164,
+      "mae_persistence": 0.365,
+      "skill_vs_persistence": 0.083,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 28.8 °C (80% range for 2030: 28.6–29.2 °C), above the 1991–2020 average of 28.5 °C (+0.24 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/coiba.json",
+      "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 28.8 °C (nominal 80% band for 2030: 28.6–29.2 °C; coverage is not guaranteed), above the 1991–2020 average of 28.5 °C (+0.24 °C)."
     },
     "surface_temp_warmest_month": {
      "observed": [
@@ -519,48 +573,71 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 30.231,
-       "low80": 29.661,
-       "high80": 30.795
+       "value": 29.917,
+       "low80": 29.433,
+       "high80": 30.591
       },
       {
        "year": 2027,
-       "value": 30.237,
-       "low80": 29.667,
-       "high80": 30.801
+       "value": 30.016,
+       "low80": 29.532,
+       "high80": 30.69
       },
       {
        "year": 2028,
-       "value": 30.243,
-       "low80": 29.673,
-       "high80": 30.807
+       "value": 30.104,
+       "low80": 29.62,
+       "high80": 30.778
       },
       {
        "year": 2029,
-       "value": 30.249,
-       "low80": 29.679,
-       "high80": 30.813
+       "value": 30.102,
+       "low80": 29.618,
+       "high80": 30.776
       },
       {
        "year": 2030,
-       "value": 30.255,
-       "low80": 29.685,
-       "high80": 30.819
+       "value": 30.083,
+       "low80": 29.599,
+       "high80": 30.758
       }
      ],
-     "selected_model": "linear_trend",
-     "model_description": "Least-squares straight line through the training years",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "autoregressive_ridge",
+      "prediction": {
+       "year": 2025,
+       "value": 29.895,
+       "low80": 29.389,
+       "high80": 30.594,
+       "observed": 30.35
+      },
+      "absolute_error": 0.455,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "autoregressive_ridge",
+     "model_description": "Recursive ridge regression on the previous three annual values (fixed L2=1)",
      "cv_mae_by_model": {
+      "persistence": 0.528,
       "historical_mean": 0.388,
       "recent_mean": 0.387,
       "linear_trend": 0.378,
-      "theil_sen_trend": 0.382
+      "theil_sen_trend": 0.382,
+      "autoregressive_ridge": 0.377
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 30.092,
       "mean_2016_2025": 30.249,
-      "forecast_mean_2026_2030": 30.243,
-      "change_vs_normal": 0.151,
+      "forecast_mean_2026_2030": 30.044,
+      "change_vs_normal": -0.047,
       "trend_per_decade_1981_2025": 0.065
      },
      "backtest": {
@@ -613,10 +690,29 @@
       "mae": 0.372,
       "mae_if_no_change": 0.372,
       "skill_vs_no_change": 0.0,
+      "mae_persistence": 0.424,
+      "skill_vs_persistence": 0.123,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 30.2 °C (80% range for 2030: 29.7–30.8 °C), about the same as the 1991–2020 average of 30.1 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/coiba.json",
+      "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 30.0 °C (nominal 80% band for 2030: 29.6–30.8 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 30.1 °C."
     },
     "wind_speed": {
      "observed": [
@@ -833,14 +929,37 @@
        "high80": 4.043
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 3.999,
+       "low80": 3.46,
+       "high80": 4.114,
+       "observed": 3.533
+      },
+      "absolute_error": 0.466,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "recent_mean",
      "model_description": "Average of the last 10 training years (assumes recent conditions persist)",
      "cv_mae_by_model": {
+      "persistence": 0.428,
       "historical_mean": 0.273,
       "recent_mean": 0.271,
       "linear_trend": 0.337,
-      "theil_sen_trend": 0.347
+      "theil_sen_trend": 0.347,
+      "autoregressive_ridge": 0.276
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 4.027,
       "mean_2016_2025": 3.836,
@@ -898,10 +1017,29 @@
       "mae": 0.239,
       "mae_if_no_change": 0.287,
       "skill_vs_no_change": 0.167,
+      "mae_persistence": 0.273,
+      "skill_vs_persistence": 0.126,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 3
      },
      "available": true,
-     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 3.84 m/s (80% range for 2030: 3.26–4.04 m/s), about the same as the 1991–2020 average of 4.03 m/s."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-81.7&latitude=7.6&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "dae3ea72fcf6d551a08f3927e98763c4af9c09a66006cb6f8d7b15b3578065d5",
+      "parameter": "WS2M",
+      "verification_response_file": "nasa-power-extra/coiba.json",
+      "verification_response_sha256": "b4318860f0f997a52629c5540b77b726223f3a7ab42264a6e2ad3ca291439b8e",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 3.84 m/s (nominal 80% band for 2030: 3.26–4.04 m/s; coverage is not guaranteed), about the same as the 1991–2020 average of 4.03 m/s."
     }
    }
   }

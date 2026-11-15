@@ -39,7 +39,7 @@ def build_key_variables(db,cat,series):
     assert {s['id'] for s in cat['species']}==set(spec['species'])
     for iid,m in spec['indicators'].items():db.execute('INSERT INTO key_indicators VALUES (?,?,?,?,?)',(iid,m['label'],m['unit'],m['source'],m['aggregation']))
     for sid,s in spec['species'].items():
-        assert len(s['variables'])==3 and len(set(s['variables']))==3
+        assert len(s['variables'])>=1 and len(set(s['variables']))==len(s['variables'])
         for rank,iid in enumerate(s['variables'],1):db.execute('INSERT INTO species_key_variables VALUES (?,?,?)',(sid,rank,iid))
     values={};dry={}
     for lid,ser in series.items():
@@ -99,10 +99,10 @@ def main():
     CREATE TABLE scenarios(species_id TEXT PRIMARY KEY REFERENCES species(id),kind TEXT NOT NULL,payload TEXT NOT NULL CHECK(json_valid(payload)));
     CREATE TABLE scenario_locations(species_id TEXT REFERENCES scenarios(species_id),location_id TEXT REFERENCES locations(id),role TEXT CHECK(role IN ('reference','candidate')),PRIMARY KEY(species_id,location_id));
     CREATE TABLE key_indicators(id TEXT PRIMARY KEY,label TEXT NOT NULL,unit TEXT NOT NULL,source TEXT NOT NULL,aggregation TEXT NOT NULL);
-    CREATE TABLE species_key_variables(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank BETWEEN 1 AND 3),indicator_id TEXT REFERENCES key_indicators(id),PRIMARY KEY(species_id,rank),UNIQUE(species_id,indicator_id));
+    CREATE TABLE species_key_variables(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank >= 1),indicator_id TEXT REFERENCES key_indicators(id),PRIMARY KEY(species_id,rank),UNIQUE(species_id,indicator_id));
     CREATE TABLE key_indicator_values(location_id TEXT REFERENCES locations(id),indicator_id TEXT REFERENCES key_indicators(id),year INTEGER CHECK(year BETWEEN 1981 AND 2025),value REAL NOT NULL,PRIMARY KEY(location_id,indicator_id,year));
     CREATE TABLE dry_season(location_id TEXT REFERENCES locations(id),month INTEGER CHECK(month BETWEEN 1 AND 12),PRIMARY KEY(location_id,month));
-    CREATE TABLE habitat_requirements(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank BETWEEN 1 AND 3),requirement TEXT NOT NULL,category TEXT NOT NULL,brief_value TEXT NOT NULL,value TEXT NOT NULL,range_min REAL,range_max REAL,range_unit TEXT,status TEXT NOT NULL CHECK(status IN ('confirmed','corrected','partly_supported','no_published_data')),evidence TEXT NOT NULL,nasa_proxy TEXT REFERENCES key_indicators(id),sources TEXT NOT NULL CHECK(json_valid(sources)),PRIMARY KEY(species_id,rank));
+    CREATE TABLE habitat_requirements(species_id TEXT REFERENCES species(id),rank INTEGER CHECK(rank >= 1),requirement TEXT NOT NULL,category TEXT NOT NULL,brief_value TEXT NOT NULL,value TEXT NOT NULL,range_min REAL,range_max REAL,range_unit TEXT,status TEXT NOT NULL CHECK(status IN ('confirmed','corrected','partly_supported','no_published_data')),evidence TEXT NOT NULL,nasa_proxy TEXT REFERENCES key_indicators(id),sources TEXT NOT NULL CHECK(json_valid(sources)),PRIMARY KEY(species_id,rank));
     CREATE TABLE audit(pdf_row INTEGER PRIMARY KEY,species_id TEXT REFERENCES species(id),pdf_threshold_claim TEXT,disposition TEXT);
     ''')
     db.executemany('INSERT INTO metadata VALUES (?,?)',[('schema_version','2.0.0'),('review_date','2026-11-14'),('title','Biodiversity and climate: a collection of 15 species'),('climate_scope','NASA POWER: regional air climate, not water or microhabitat'),('scenario_year',str(SCENARIO_YEAR)),('archive_period',f'1981-{ARCHIVE_END}')])

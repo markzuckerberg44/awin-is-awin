@@ -68,7 +68,7 @@ WHERE species_id = 'sapo-dorado' AND location_id = 'san-gerardo'
 - Media anual con media anual del **mismo indicador**; nunca media con máximo ni temperatura del aire con temperatura de un manantial.
 - El rango observado es de valores anuales, no de temperaturas instantáneas ni de los 12 meses típicos. Estar dentro no demuestra supervivencia; estar fuera no demuestra muerte.
 - La lluvia seca de la ficha usa los cuatro meses más secos del **sitio de referencia**, seleccionados con 1981–2014. Los mismos meses se suman en cada candidato, aunque no sean sus propios meses más secos. Pueden ser meses no consecutivos.
-- Las antiguas `key_variable_series.precip_dry_season` usan meses propios de cada sitio, seleccionados con 1981–2025; se conservan por compatibilidad con el módulo ML. Para comparar las nuevas fichas, usar `survival_card.comparison_series`, que tiene su propia definición y tabla. No mezclar ambas ni sus pronósticos sin recalcular con la misma definición.
+- Las antiguas `key_variable_series.precip_dry_season` usan meses propios de cada sitio, seleccionados con 1981–2025; se conservan como series heredadas. Para comparar las nuevas fichas, usar `survival_card.comparison_series`, que tiene su propia definición y tabla. El módulo ML actualizado también utiliza ``species_comparison_values`` y coincide con las nuevas fichas. No mezclar las series heredadas con esas predicciones.
 - `T2M_MAX` / `T2M_MIN` son extremos, distintos de `T2M` y de los promedios diarios de extremos. Ver la [definición temporal oficial de NASA POWER](https://power.larc.nasa.gov/docs/methodology/data/processing/).
 - `TS` es temperatura de la superficie (*skin*), no temperatura comprobada del agua a la profundidad del animal. Ver [NASA POWER Monthly Meteorology](https://gis.earthdata.nasa.gov/portal/rest/services/POWER/POWER_MONTHLY_METEOROLOGY_LST/ImageServer/multiDimensionalInfo). En las cinco especies acuáticas la ficha sigue marcada como contexto regional; faltan series acuáticas y candidatos validados.
 
@@ -83,3 +83,8 @@ La comparación ecológica debe combinar las cifras climáticas con la evidencia
 - El período 2015, los textos del jugador en inglés y el módulo ML existente se conservan.
 
 Validación: `python data/pokedex/verificar_datos.py` desde la raíz del repositorio.
+
+
+## Consulta automática, ampliación y auditoría
+
+Véase [AUDITORIA-Y-AMPLIACION.md](AUDITORIA-Y-AMPLIACION.md). Cada indicador tiene `nasa_parameters` explícitos. `consultar-series.mjs` selecciona las series desde la ficha sin imponer tres variables. Las selecciones actuales siguen siendo tres; ampliar requiere justificar y verificar cada indicador nuevo.

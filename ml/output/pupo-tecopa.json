@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "pupo-tecopa",
  "species_name": "Tecopa pupfish",
  "scientific_name": "Cyprinodon nevadensis calidae",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,30 @@
    "label": "Average monthly maximum temperature",
    "unit": "°C",
    "source": "T2M_MAX",
-   "aggregation": "Annual mean of each month's hottest-day temperature"
+   "aggregation": "Annual mean of each month's hottest-day temperature",
+   "nasa_parameters": [
+    "T2M_MAX"
+   ]
   },
   {
    "id": "precip_annual",
    "label": "Annual rainfall",
    "unit": "mm/year",
    "source": "PRECTOTCORR",
-   "aggregation": "Sum of mm/day × days in month"
+   "aggregation": "Sum of mm/day × days in month",
+   "nasa_parameters": [
+    "PRECTOTCORR"
+   ]
   },
   {
    "id": "soil_wetness",
    "label": "Root-zone soil wetness",
    "unit": "0–1",
    "source": "GWETROOT",
-   "aggregation": "Annual mean (0 = dry, 1 = saturated)"
+   "aggregation": "Annual mean (0 = dry, 1 = saturated)",
+   "nasa_parameters": [
+    "GWETROOT"
+   ]
   }
  ],
  "locations": [
@@ -263,14 +275,37 @@
        "high80": 34.97
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 33.793,
+       "low80": 32.645,
+       "high80": 34.666,
+       "observed": 34.643
+      },
+      "absolute_error": 0.85,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.768,
       "historical_mean": 0.988,
       "recent_mean": 0.703,
       "linear_trend": 0.626,
-      "theil_sen_trend": 0.661
+      "theil_sen_trend": 0.661,
+      "autoregressive_ridge": 0.857
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 32.903,
       "mean_2016_2025": 33.66,
@@ -328,10 +363,29 @@
       "mae": 0.936,
       "mae_if_no_change": 1.513,
       "skill_vs_no_change": 0.382,
+      "mae_persistence": 0.901,
+      "skill_vs_persistence": -0.038,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Average monthly maximum temperature in 2026–2030 is forecast to average 34.0 °C (80% range for 2030: 33.0–35.0 °C), above the 1991–2020 average of 32.9 °C (+1.10 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
+      "parameter": "T2M_MAX",
+      "verification_response_file": "nasa-power-extra/tecopa.json",
+      "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Average monthly maximum temperature in 2026–2030 is forecast to average 34.0 °C (nominal 80% band for 2030: 33.0–35.0 °C; coverage is not guaranteed), above the 1991–2020 average of 32.9 °C (+1.10 °C)."
     },
     "precip_annual": {
      "observed": [
@@ -548,14 +602,37 @@
        "high80": 282.45
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 153.588,
+       "low80": 105.542,
+       "high80": 283.074,
+       "observed": 226.86
+      },
+      "absolute_error": 73.272,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 98.393,
       "historical_mean": 56.893,
       "recent_mean": 57.634,
       "linear_trend": 56.933,
-      "theil_sen_trend": 59.346
+      "theil_sen_trend": 59.346,
+      "autoregressive_ridge": 57.438
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 156.98,
       "mean_2016_2025": 201.848,
@@ -613,11 +690,26 @@
       "mae": 49.823,
       "mae_if_no_change": 46.06,
       "skill_vs_no_change": -0.082,
+      "mae_persistence": 87.416,
+      "skill_vs_persistence": 0.43,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CRH2M%2CPRECTOTCORR&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "file": "nasa-power/tecopa.json",
+      "file_sha256": "7d2b1ad30314e6cbdcd60849e7677f3231ee576925f3afccc06c9e45d82a6924",
+      "parameter": "PRECTOTCORR"
+     },
      "data_caution": "Reanalysis rainfall is the least reliable NASA POWER variable. Several sites show large multi-year shifts (e.g. Bramble Cay 2015–2025 about 42 % drier than 1981–2014; Monteverde dry-season rain about 3 times higher in 2009–2025 than in 1981–2008). A change-point test places these shifts in different years (1998–2015), so they do not point to a single data-source switch, but they may still be partly artificial. Rainfall forecasts that extend such shifts are uncertain: show the 80 % range and verify against local rain gauges before presenting them as fact.",
-     "summary_text": "Annual rainfall in 2026–2030 is forecast to average 155.2 mm/year (80% range for 2030: 107.5–282.4 mm/year), below the 1991–2020 average of 157.0 mm/year (-1.76 mm/year)."
+     "summary_text": "Annual rainfall in 2026–2030 is forecast to average 155.2 mm/year (nominal 80% band for 2030: 107.5–282.4 mm/year; coverage is not guaranteed), below the 1991–2020 average of 157.0 mm/year (-1.76 mm/year)."
     },
     "soil_wetness": {
      "observed": [
@@ -805,43 +897,66 @@
      "forecast": [
       {
        "year": 2026,
-       "value": 0.381,
+       "value": 0.38,
        "low80": 0.372,
-       "high80": 0.401
+       "high80": 0.402
       },
       {
        "year": 2027,
        "value": 0.381,
-       "low80": 0.372,
-       "high80": 0.401
+       "low80": 0.373,
+       "high80": 0.403
       },
       {
        "year": 2028,
        "value": 0.381,
-       "low80": 0.372,
-       "high80": 0.401
+       "low80": 0.373,
+       "high80": 0.403
       },
       {
        "year": 2029,
        "value": 0.381,
-       "low80": 0.372,
-       "high80": 0.401
+       "low80": 0.373,
+       "high80": 0.403
       },
       {
        "year": 2030,
        "value": 0.381,
-       "low80": 0.372,
-       "high80": 0.401
+       "low80": 0.373,
+       "high80": 0.403
       }
      ],
-     "selected_model": "historical_mean",
-     "model_description": "Average of all training years (assumes no change)",
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "autoregressive_ridge",
+      "prediction": {
+       "year": 2025,
+       "value": 0.382,
+       "low80": 0.373,
+       "high80": 0.404,
+       "observed": 0.382
+      },
+      "absolute_error": 0.0,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
+     "selected_model": "autoregressive_ridge",
+     "model_description": "Recursive ridge regression on the previous three annual values (fixed L2=1)",
      "cv_mae_by_model": {
+      "persistence": 0.014,
       "historical_mean": 0.009,
       "recent_mean": 0.01,
       "linear_trend": 0.01,
-      "theil_sen_trend": 0.009
+      "theil_sen_trend": 0.009,
+      "autoregressive_ridge": 0.009
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 0.383,
       "mean_2016_2025": 0.387,
@@ -899,10 +1014,29 @@
       "mae": 0.006,
       "mae_if_no_change": 0.006,
       "skill_vs_no_change": 0.008,
+      "mae_persistence": 0.007,
+      "skill_vs_persistence": 0.196,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 4
      },
      "available": true,
-     "summary_text": "Root-zone soil wetness in 2026–2030 is forecast to average 0.38 0–1 (80% range for 2030: 0.37–0.40 0–1), about the same as the 1991–2020 average of 0.38 0–1."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-116.23&latitude=35.88&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "45f2bf87ecc922d4373723ba717c484b8fe57f621e589f06cf0f6f618b180710",
+      "parameter": "GWETROOT",
+      "verification_response_file": "nasa-power-extra/tecopa.json",
+      "verification_response_sha256": "478e3923a31c27a2ffc3f76845897e47ccc5f7fb088d0cf34bcfa338552721c9",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Root-zone soil wetness in 2026–2030 is forecast to average 0.38 0–1 (nominal 80% band for 2030: 0.37–0.40 0–1; coverage is not guaranteed), about the same as the 1991–2020 average of 0.38 0–1."
     }
    }
   }

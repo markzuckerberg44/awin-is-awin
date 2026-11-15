@@ -1,8 +1,11 @@
 {
- "schema_version": "1.0.0",
+ "schema_version": "2.0.0",
  "species_id": "damisela-galapagos",
  "species_name": "Galápagos damsel",
  "scientific_name": "Azurina eupalama",
+ "series_source": "pokedex.sqlite:species_comparison_values; identical to survival_card.comparison_series",
+ "data_provider": "NASA POWER",
+ "forecast_provider": "Project model, not a NASA prediction",
  "forecast_years": [
   2026,
   2027,
@@ -24,21 +27,30 @@
    "label": "Mean surface (skin) temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature"
+   "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "surface_temp_warmest_month",
    "label": "Warmest-month surface temperature",
    "unit": "°C",
    "source": "TS",
-   "aggregation": "Highest monthly mean of the year (heat-stress proxy)"
+   "aggregation": "Highest monthly mean of the year (heat-stress proxy)",
+   "nasa_parameters": [
+    "TS"
+   ]
   },
   {
    "id": "wind_speed",
    "label": "Wind speed at 2 m",
    "unit": "m/s",
    "source": "WS2M",
-   "aggregation": "Annual mean"
+   "aggregation": "Annual mean",
+   "nasa_parameters": [
+    "WS2M"
+   ]
   }
  ],
  "locations": [
@@ -263,14 +275,37 @@
        "high80": 25.2
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 24.497,
+       "low80": 23.695,
+       "high80": 25.313,
+       "observed": 24.583
+      },
+      "absolute_error": 0.086,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 1.217,
       "historical_mean": 0.611,
       "recent_mean": 0.643,
       "linear_trend": 0.663,
-      "theil_sen_trend": 0.71
+      "theil_sen_trend": 0.71,
+      "autoregressive_ridge": 0.722
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 24.493,
       "mean_2016_2025": 24.46,
@@ -328,10 +363,29 @@
       "mae": 0.694,
       "mae_if_no_change": 0.694,
       "skill_vs_no_change": -0.0,
+      "mae_persistence": 0.936,
+      "skill_vs_persistence": 0.258,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 3
      },
      "available": true,
-     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 24.5 °C (80% range for 2030: 23.7–25.2 °C), about the same as the 1991–2020 average of 24.5 °C."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/galapagos.json",
+      "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Mean surface (skin) temperature in 2026–2030 is forecast to average 24.5 °C (nominal 80% band for 2030: 23.7–25.2 °C; coverage is not guaranteed), about the same as the 1991–2020 average of 24.5 °C."
     },
     "surface_temp_warmest_month": {
      "observed": [
@@ -548,14 +602,37 @@
        "high80": 28.766
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "linear_trend",
+      "prediction": {
+       "year": 2025,
+       "value": 27.847,
+       "low80": 27.22,
+       "high80": 28.418,
+       "observed": 28.56
+      },
+      "absolute_error": 0.713,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "linear_trend",
      "model_description": "Least-squares straight line through the training years",
      "cv_mae_by_model": {
+      "persistence": 0.664,
       "historical_mean": 0.469,
       "recent_mean": 0.423,
       "linear_trend": 0.398,
-      "theil_sen_trend": 0.399
+      "theil_sen_trend": 0.399,
+      "autoregressive_ridge": 0.475
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 27.587,
       "mean_2016_2025": 27.874,
@@ -613,10 +690,29 @@
       "mae": 0.53,
       "mae_if_no_change": 0.735,
       "skill_vs_no_change": 0.278,
+      "mae_persistence": 0.742,
+      "skill_vs_persistence": 0.285,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 2
      },
      "available": true,
-     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 28.0 °C (80% range for 2030: 27.4–28.8 °C), above the 1991–2020 average of 27.6 °C (+0.37 °C)."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
+      "parameter": "TS",
+      "verification_response_file": "nasa-power-extra/galapagos.json",
+      "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Warmest-month surface temperature in 2026–2030 is forecast to average 28.0 °C (nominal 80% band for 2030: 27.4–28.8 °C; coverage is not guaranteed), above the 1991–2020 average of 27.6 °C (+0.37 °C)."
     },
     "wind_speed": {
      "observed": [
@@ -833,14 +929,37 @@
        "high80": 4.143
       }
      ],
+     "hindcast_2025": {
+      "train_end": 2024,
+      "target_year": 2025,
+      "selected_model": "historical_mean",
+      "prediction": {
+       "year": 2025,
+       "value": 3.93,
+       "low80": 3.792,
+       "high80": 4.144,
+       "observed": 3.896
+      },
+      "absolute_error": 0.034,
+      "kind": "retrospective_holdout_not_future_forecast"
+     },
      "selected_model": "historical_mean",
      "model_description": "Average of all training years (assumes no change)",
      "cv_mae_by_model": {
+      "persistence": 0.206,
       "historical_mean": 0.115,
       "recent_mean": 0.123,
       "linear_trend": 0.141,
-      "theil_sen_trend": 0.155
+      "theil_sen_trend": 0.155,
+      "autoregressive_ridge": 0.125
      },
+     "cv_origins": [
+      2005,
+      2010,
+      2015,
+      2020
+     ],
+     "interval_note": "Nominal 80% empirical residual band; not a calibrated guarantee. Validation windows overlap; limited residual sample.",
      "context": {
       "normal_1991_2020": 3.957,
       "mean_2016_2025": 3.913,
@@ -898,10 +1017,29 @@
       "mae": 0.106,
       "mae_if_no_change": 0.106,
       "skill_vs_no_change": 0.001,
+      "mae_persistence": 0.106,
+      "skill_vs_persistence": -0.004,
+      "cv_origins": [
+       2000,
+       2005,
+       2010,
+       2015
+      ],
       "years_inside_80_interval": 5
      },
      "available": true,
-     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 3.93 m/s (80% range for 2030: 3.79–4.14 m/s), about the same as the 1991–2020 average of 3.96 m/s."
+     "source": {
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX,T2M_MIN,TS,GWETROOT,CLOUD_AMT,WS2M,ALLSKY_SFC_SW_DWN&community=AG&longitude=-90.3&latitude=-0.75&format=JSON&start=1981&end=2025",
+      "file": "nasa-power-extra-anual.json",
+      "file_sha256": "71d1a427a9c9c2f78a1c35c2ae0406a58b3d5370191e9b77b18e795c0b781b75",
+      "original_response_sha256": "8be373902766b6b6ccaf61e20be028e83d19aad322698ea4628fa512d9acdcac",
+      "parameter": "WS2M",
+      "verification_response_file": "nasa-power-extra/galapagos.json",
+      "verification_response_sha256": "b5622bd959a437756056d6f72b3c37017f116337e459ba6fe103004f476e9965",
+      "verification_report": "auditoria-nasa.json"
+     },
+     "summary_text": "Wind speed at 2 m in 2026–2030 is forecast to average 3.93 m/s (nominal 80% band for 2030: 3.79–4.14 m/s; coverage is not guaranteed), about the same as the 1991–2020 average of 3.96 m/s."
     }
    }
   }

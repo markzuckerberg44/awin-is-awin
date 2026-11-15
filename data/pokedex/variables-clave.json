@@ -6,73 +6,110 @@
       "label": "Mean air temperature",
       "unit": "°C",
       "source": "T2M",
-      "aggregation": "Day-weighted annual mean of monthly means"
+      "aggregation": "Day-weighted annual mean of monthly means",
+      "nasa_parameters": [
+        "T2M"
+      ]
     },
     "t2m_max_mean": {
       "label": "Average monthly maximum temperature",
       "unit": "°C",
       "source": "T2M_MAX",
-      "aggregation": "Annual mean of each month's hottest-day temperature"
+      "aggregation": "Annual mean of each month's hottest-day temperature",
+      "nasa_parameters": [
+        "T2M_MAX"
+      ]
     },
     "t2m_min_mean": {
       "label": "Average monthly minimum temperature",
       "unit": "°C",
       "source": "T2M_MIN",
-      "aggregation": "Annual mean of each month's coldest-day temperature"
+      "aggregation": "Annual mean of each month's coldest-day temperature",
+      "nasa_parameters": [
+        "T2M_MIN"
+      ]
     },
     "thermal_range": {
       "label": "Monthly temperature range",
       "unit": "°C",
       "source": "T2M_MAX − T2M_MIN",
-      "aggregation": "Annual mean of (monthly maximum − monthly minimum)"
+      "aggregation": "Annual mean of (monthly maximum − monthly minimum)",
+      "nasa_parameters": [
+        "T2M_MAX",
+        "T2M_MIN"
+      ]
     },
     "rh2m_mean": {
       "label": "Mean relative humidity",
       "unit": "%",
       "source": "RH2M",
-      "aggregation": "Day-weighted annual mean"
+      "aggregation": "Day-weighted annual mean",
+      "nasa_parameters": [
+        "RH2M"
+      ]
     },
     "precip_annual": {
       "label": "Annual rainfall",
       "unit": "mm/year",
       "source": "PRECTOTCORR",
-      "aggregation": "Sum of mm/day × days in month"
+      "aggregation": "Sum of mm/day × days in month",
+      "nasa_parameters": [
+        "PRECTOTCORR"
+      ]
     },
     "precip_dry_season": {
       "label": "Dry-season rainfall",
       "unit": "mm",
       "source": "PRECTOTCORR",
-      "aggregation": "Rainfall summed over the location's 4 driest months (1981–2025 average cycle)"
+      "aggregation": "Rainfall summed over the location's 4 driest months (1981–2025 average cycle)",
+      "nasa_parameters": [
+        "PRECTOTCORR"
+      ]
     },
     "soil_wetness": {
       "label": "Root-zone soil wetness",
       "unit": "0–1",
       "source": "GWETROOT",
-      "aggregation": "Annual mean (0 = dry, 1 = saturated)"
+      "aggregation": "Annual mean (0 = dry, 1 = saturated)",
+      "nasa_parameters": [
+        "GWETROOT"
+      ]
     },
     "cloud_cover": {
       "label": "Cloud cover",
       "unit": "%",
       "source": "CLOUD_AMT",
-      "aggregation": "Annual mean"
+      "aggregation": "Annual mean",
+      "nasa_parameters": [
+        "CLOUD_AMT"
+      ]
     },
     "surface_temp_mean": {
       "label": "Mean surface (skin) temperature",
       "unit": "°C",
       "source": "TS",
-      "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature"
+      "aggregation": "Day-weighted annual mean; over ocean cells ≈ sea-surface temperature",
+      "nasa_parameters": [
+        "TS"
+      ]
     },
     "surface_temp_warmest_month": {
       "label": "Warmest-month surface temperature",
       "unit": "°C",
       "source": "TS",
-      "aggregation": "Highest monthly mean of the year (heat-stress proxy)"
+      "aggregation": "Highest monthly mean of the year (heat-stress proxy)",
+      "nasa_parameters": [
+        "TS"
+      ]
     },
     "wind_speed": {
       "label": "Wind speed at 2 m",
       "unit": "m/s",
       "source": "WS2M",
-      "aggregation": "Annual mean"
+      "aggregation": "Annual mean",
+      "nasa_parameters": [
+        "WS2M"
+      ]
     }
   },
   "species": {
