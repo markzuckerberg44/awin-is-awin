@@ -1,1 +1,124 @@
-[]
+[
+  {
+    "id": "torres-strait-measures-v2205",
+    "site": "Torres Strait",
+    "siteEs": "Estrecho de Torres",
+    "variable": "seaLevel",
+    "unit": "mm",
+    "product": "NASA/JPL MEaSUREs v2205",
+    "source": "https://doi.org/10.5067/SLREF-CDRV3",
+    "archiveSource": "https://doi.org/10.5281/zenodo.16993112",
+    "gridCentersLonLat": [
+      [
+        143.0,
+        -9.5
+      ],
+      [
+        144.0,
+        -9.5
+      ],
+      [
+        145.0,
+        -9.5
+      ],
+      [
+        144.0,
+        -8.5
+      ],
+      [
+        145.0,
+        -8.5
+      ]
+    ],
+    "observations": [
+      {
+        "year": 1993,
+        "value": -43.914
+      },
+      {
+        "year": 1994,
+        "value": -0.846
+      },
+      {
+        "year": 1995,
+        "value": -6.075
+      },
+      {
+        "year": 1996,
+        "value": -10.526
+      },
+      {
+        "year": 1997,
+        "value": -54.463
+      },
+      {
+        "year": 1998,
+        "value": 16.299
+      },
+      {
+        "year": 1999,
+        "value": -17.568
+      },
+      {
+        "year": 2000,
+        "value": 10.215
+      },
+      {
+        "year": 2001,
+        "value": 25.501
+      },
+      {
+        "year": 2002,
+        "value": -0.928
+      },
+      {
+        "year": 2003,
+        "value": 21.635
+      },
+      {
+        "year": 2004,
+        "value": -4.522
+      },
+      {
+        "year": 2005,
+        "value": 8.388
+      },
+      {
+        "year": 2006,
+        "value": 20.364
+      },
+      {
+        "year": 2007,
+        "value": 28.48
+      },
+      {
+        "year": 2008,
+        "value": 34.541
+      },
+      {
+        "year": 2009,
+        "value": 68.879
+      },
+      {
+        "year": 2010,
+        "value": 119.19
+      },
+      {
+        "year": 2011,
+        "value": 65.845
+      },
+      {
+        "year": 2012,
+        "value": 66.167
+      },
+      {
+        "year": 2013,
+        "value": 77.958
+      },
+      {
+        "year": 2014,
+        "value": 47.396
+      }
+    ]
+  }
+]

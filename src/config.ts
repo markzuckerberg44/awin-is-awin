@@ -24,6 +24,12 @@ export const isPierStage = (stage: Stage) => stage === 'pierSign' || stage === '
 export const isCabinStage = (stage: Stage) => stage === 'hat' || stage === 'greeting' || stage === 'seat' || stage === 'radio'
   || stage === 'leave' || stage === 'bedtime' || stage === 'dreamExit' || stage === 'dreamFlood' || stage === 'wake' || stage === 'officeGoal'
   || stage === 'evacuation' || stage === 'packing' || stage === 'depart'
+export const isOfficeStage = (stage: Stage) => stage === 'officeGoal' || stage === 'complete' || stage === 'evacuation'
+
+export function officeCheckpoint(save: Save): Save {
+  return { ...save, stage: 'complete', inOffice: true, room: undefined, nightmareSeen: true, atShore: true, cabinVisit: 'inside' }
+}
+
 export function areaFor(stage: Stage, atShore: boolean, cabinVisit: Save['cabinVisit'], inOffice = false, room?: CabinRoom) {
   if (stage === 'evacPier' || stage === 'rowing' || stage === 'escaped' || stage === 'credits') return 'pier'
   if (inOffice) return 'office'
@@ -44,9 +50,17 @@ export const settingsKey = 'bramble-cay-settings'
 
 export function savedChapter(chapter: ChapterId): Save | null {
   const save = readLocal<Save | null>(chapterSaveKey(chapter), null)
-  if (save?.stage === 'dreamExit' && !save.room) return { ...save, room: 'bedroom', cabinVisit: undefined }
-  if (save?.stage !== 'complete' || save.nightmareSeen) return save
-  if (save.inOffice || save.cabinVisit === 'inside') return { ...save, stage: 'bedtime', cabinVisit: undefined, inOffice: undefined }
+  if (!save) return null
+  if (save.inOffice && !isOfficeStage(save.stage)) {
+    if (save.investigation?.relocation?.origin || save.stage === 'afterPier' || save.stage === 'bedtime' || save.stage === 'wake') {
+      return officeCheckpoint(save)
+    }
+    return { ...save, inOffice: undefined, room: save.stage === 'dreamExit' ? 'bedroom' : save.room }
+  }
+  if (save.stage === 'dreamExit' && !save.room) return { ...save, room: 'bedroom', cabinVisit: undefined }
+  if (save.stage !== 'complete' || save.nightmareSeen) return save
+  if (save.inOffice || save.investigation?.relocation?.origin) return officeCheckpoint(save)
+  if (save.cabinVisit === 'inside') return { ...save, stage: 'bedtime', cabinVisit: undefined }
   if (save.atShore) return { ...save, stage: 'bedtime', cabinVisit: 'outside' }
   return { ...save, stage: 'afterPier' }
 }

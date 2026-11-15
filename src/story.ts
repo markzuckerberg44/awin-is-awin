@@ -22,8 +22,8 @@ export const objectives: Record<Stage, Labels> = {
   dreamExit: ['Ve a la cocina. Los niños necesitan ayuda.', 'Go to the kitchen. The children need help.'],
   dreamFlood: ['Saca el agua de los tres puntos marcados en la cocina.', 'Bail water out of the three marked spots in the kitchen.'],
   wake: ['Habla con tu pareja.', 'Talk to your partner.'],
-  officeGoal: ['Ve a la oficina y siéntate en tu escritorio.', 'Go to the office and sit at your desk.'],
-  complete: ['La oficina está lista para investigar.', 'The office is ready for your investigation.'],
+  officeGoal: ['Ve a la oficina y abre el expediente de traslado.', 'Go to the office and open the relocation dossier.'],
+  complete: ['Vuelve a la oficina para preparar el expediente de traslado.', 'Return to the office to prepare the relocation dossier.'],
   evacuation: ['Entra al PC y solicita un arriendo urgente en DirtBNB.', 'Use the computer to request an urgent rental on DirtBNB.'],
   packing: ['Ayuda a tu familia a preparar sus maletas. Prepara la tuya al final.', 'Help your family pack their bags. Pack your own last.'],
   depart: ['Lleva a tu familia al muelle.', 'Lead your family to the pier.'],
@@ -36,7 +36,7 @@ export const objectives: Record<Stage, Labels> = {
 export const evacuationBroadcast: Line[] = [
   { speaker: 'radio', text: ['¡Atención, Bramble Cay! Vienen vientos muy fuertes. Todas las familias deben evacuar la isla. Diríjanse al muelle en cuanto estén listas.', 'Attention, Bramble Cay! Dangerous winds are coming. All families must evacuate the island. Head to the pier as soon as you are ready.'] },
   { speaker: 'partner', text: ['Yo reúno a los niños. ¿Ya sabes dónde podríamos ir?', 'I’ll round up the kids. Do you know where we can go?'] },
-  { speaker: 'player', text: ['Volveré al PC. Con los datos que revisé puedo elegir un refugio. Le escribiré al anfitrión ahora mismo.', 'I’ll go back to the computer. I can use the data I reviewed to choose a refuge. I’ll message the host right away.'] },
+  { speaker: 'player', text: ['Ya evalué los refugios. Volveré al PC y le escribiré al anfitrión del destino que firmé en el expediente.', 'I’ve assessed the refuges. I’ll go back to the computer and message the host for the destination I signed off on in the dossier.'] },
 ]
 
 export const packingBrief: Line[] = [

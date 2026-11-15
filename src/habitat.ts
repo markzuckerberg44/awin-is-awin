@@ -1,6 +1,7 @@
 import habitat from './data/melomys-habitat.json'
-import { archiveEndYear, type Labels } from './config'
-import type { Investigation } from './investigation'
+import marineSeries from './data/bramble-series.json'
+import { archiveEndYear, type Labels, type Language } from './config'
+import { chartQuestions, gradeChartQuestions, type ChartReview, type Investigation, type Series } from './investigation'
 import { erubPlots } from './ErubTerrain'
 
 export const { species, source_revision: sourceRevision } = habitat
@@ -16,6 +17,23 @@ export const indicatorLabels: Record<Indicator, Labels> = {
   precip_annual: ['Lluvia anual', 'Annual rainfall'],
   soil_wetness: ['Humedad del suelo en la zona radicular', 'Root-zone soil wetness'],
 }
+
+export const catalogue: Series[] = [
+  ...marineSeries,
+  ...requirements.map(entry => ({
+    id: `bramble-cay-${entry.indicator_id}`, site: 'Bramble Cay', variable: entry.indicator_id,
+    unit: entry.unit, product: entry.sources[0].provider, source: entry.sources[0].url,
+    observations: card.comparison_series[reference][entry.indicator_id].flatMap(({ year, value }) =>
+      year <= archiveEndYear && typeof value === 'number' ? [{ year, value }] : []),
+  })),
+]
+
+export function seriesLabels(variable: string): Labels {
+  return indicatorLabels[variable as Indicator] ?? ['Nivel medio del mar (anomalía)', 'Mean sea level (anomaly)']
+}
+
+export const seriesSite = (series: Series, language: Language) =>
+  language === 'es' ? series.siteEs ?? series.site : series.site
 
 const hosts: Record<string, { owner: string; listing: Labels }> = {
   erub: { owner: 'Mara Reed', listing: ['Cabaña de la ladera', 'Hillside cottage'] },
@@ -49,19 +67,39 @@ export function compareHabitat(place: Place, indicator: Indicator) {
   }
 }
 
-const reviewableRentals = listings.map(listing => ({
-  ...listing,
-  signals: requirements.filter(({ indicator_id }) => compareHabitat(listing.climateId, indicator_id) !== null)
-    .map(({ indicator_id }) => indicator_id),
-}))
+export type RentalReviewItem = Indicator | 'terrain'
+export const reviewableRentals = listings.map(listing => {
+  const items: RentalReviewItem[] = requirements.filter(({ indicator_id }) => compareHabitat(listing.climateId, indicator_id) !== null)
+    .map(({ indicator_id }) => indicator_id)
+  if (erubPlots[listing.id]) items.push('terrain')
+  return { ...listing, items }
+})
 
-export function rentalReview(progress?: Investigation, listingId?: string) {
+export function rentalQuizPassed(progress: Investigation, id: string, indicator: Indicator, review: ChartReview) {
+  const samples = progress.rentalPractice?.[id]?.[indicator]?.answers[`${review.from}-${review.to}`]
+  if (!samples) return false
+  const listing = listings.find(item => item.id === id)
+  const comparison = listing && compareHabitat(listing.climateId, indicator)
+  const first = comparison?.shared.find(point => point.year === review.from)
+  const last = comparison?.shared.find(point => point.year === review.to)
+  if (!comparison) return false
+  const { readingCorrect, predictionCorrect } = gradeChartQuestions(chartQuestions(first, last, comparison.unit), samples)
+  return readingCorrect && predictionCorrect
+}
+
+export function rentalReviewSaved(progress: Investigation | undefined, id: string, item: RentalReviewItem) {
+  if (!progress?.rentalAnalyses?.[id]?.includes(item)) return false
+  // Signed dossiers and terrain reviews are already finalized.
+  if (item === 'terrain' || progress.relocation?.signed) return true
+  const review = progress.rentalEvidence?.[id]?.[item]
+  return Boolean(review && rentalQuizPassed(progress, id, item, review))
+}
+
+export function rentalReview(progress?: Investigation) {
   const review = { done: 0, total: 0 }
-  for (const { id, signals } of reviewableRentals) {
-    if (listingId && listingId !== id) continue
-    review.total += signals.length + Number(Boolean(erubPlots[id]))
-    review.done += signals.filter(signal => progress?.rentalAnalyses?.[id]?.includes(signal)).length
-    if (erubPlots[id] && progress?.rentalAnalyses?.[id]?.includes('terrain')) review.done++
+  for (const { id, items } of reviewableRentals) {
+    review.total += items.length
+    review.done += items.filter(item => rentalReviewSaved(progress, id, item)).length
   }
   return review
 }

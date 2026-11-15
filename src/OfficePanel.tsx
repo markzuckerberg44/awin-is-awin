@@ -3,16 +3,16 @@ import { archiveEndYear, isPierStage, translate, type Language, type RentalAppli
 import { DesktopHome, HabitatApp, type DesktopApp } from './DesktopApps'
 import { DataViewer } from './DataViewer'
 import { QuestionCalculator } from './QuestionCalculator'
-import { TerrainEvidence, erubPlots } from './ErubTerrain'
-import { compareHabitat, indicatorLabels, listings, type Indicator } from './habitat'
-import { analyze, catalogue, queryBudget, type Evidence, type Investigation, type Stamp } from './investigation'
+import { TerrainEvidence } from './ErubTerrain'
+import { RelocationDossier } from './RelocationDossier'
+import { catalogue, listings, rentalReview, rentalReviewSaved, requirements, seriesLabels, seriesSite } from './habitat'
+import { queryBudget, queryId, type Investigation, type Query } from './investigation'
 import type { OfficeTool } from './world'
 import { evacuationStages } from './missions'
 
-const stamps = ['up', 'down', 'unproven'] as const
 const bootDuration = 1050
 
-export function OfficePanel({ tool, language, role, progress, stage, onChange, onClose, onComputerClick, onHostReply, computerGuideComplete, onComputerGuideComplete, rental, onRent, onPack }: {
+export function OfficePanel({ tool, language, role, progress, stage, onChange, onClose, onComputerClick, onHostReply, computerGuideComplete, onComputerGuideComplete, rental, onRent, onPack, initialApp, seated, onOpenTool, onStamp }: {
   tool: OfficeTool
   language: Language
   role: Role
@@ -27,6 +27,10 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
   rental?: RentalApplication
   onRent: (id: string) => void
   onPack: () => void
+  initialApp?: DesktopApp
+  seated: boolean
+  onOpenTool: (tool: OfficeTool, app?: DesktopApp) => void
+  onStamp: () => void
 }) {
   const t = (es: string, en: string) => language === 'es' ? es : en
   const sawCoast = ['afterPier', 'bedtime', 'dreamExit', 'dreamFlood', 'wake', 'officeGoal', 'complete', ...evacuationStages, 'escaped', 'credits'].includes(stage)
@@ -36,21 +40,25 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
   const glass = useRef<HTMLDivElement>(null)
   const calculatorId = useId()
   const calculatorButton = useRef<HTMLButtonElement>(null)
+  const requestControl = useRef<HTMLButtonElement>(null)
+  const returnToRequest = useRef(false)
   const [calculatorOpen, setCalculatorOpen] = useState(false)
-  const [desktopApp, setDesktopApp] = useState<DesktopApp>()
+  const [desktopApp, setDesktopApp] = useState<DesktopApp | undefined>(initialApp)
   const [guideStep, setGuideStep] = useState(0)
   const [terminalViewer, setTerminalViewer] = useState(false)
-  const [site, setSite] = useState(catalogue[0]?.site ?? '')
-  const [variable, setVariable] = useState('seaLevel')
-  const [from, setFrom] = useState(catalogue[0]?.observations[0]?.year ?? 1993)
-  const [to, setTo] = useState(Math.min(archiveEndYear, catalogue[0]?.observations.at(-1)?.year ?? 2008))
-  const dataset = catalogue.find(item => item.site === site && item.variable === variable)
-  const points = dataset?.observations.filter(point => point.year >= from && point.year <= Math.min(to, archiveEndYear)) ?? []
-  const stampLabel = (stamp: Stamp) => stamp === 'up' ? 'REAL ↑' : stamp === 'down' ? 'REAL ↓' : t('NO PROBADO', 'NOT PROVEN')
-  const available = progress.evidence.find(item => item.series === dataset?.id && item.from === from && item.to === to)
-  const lastEvidence = progress.evidence.at(-1)
-  const ready = lastEvidence && progress.stamp === lastEvidence.stamp && progress.rationale?.trim() &&
-    (progress.destination === 'hold' || (lastEvidence.stamp !== 'unproven' && progress.destination?.trim()))
+  const [seriesId, setSeriesId] = useState(catalogue[0].id)
+  const dataset = catalogue.find(item => item.id === seriesId)!
+  const marine = dataset.variable === 'seaLevel'
+  const regions = [...new Set(catalogue.map(item => item.site))]
+  const [from, setFrom] = useState(catalogue[0].observations[0].year)
+  const [to, setTo] = useState(archiveEndYear)
+  const points = dataset.observations.filter(point => point.year >= from && point.year <= to && point.year <= archiveEndYear)
+  const available = progress.evidence.find(item => item.series === dataset.id && item.from === from && item.to === to)
+  const review = rentalReview(progress)
+  const attached = available && progress.relocation?.origin === queryId(available)
+  const canAttach = !progress.relocation?.signed && !rental
+  const reviewRentalsNext = attached && canAttach && review.done < review.total
+  const nextApp = progress.relocation?.origin ? review.done < review.total || stage === 'evacuation' ? 'rentals' : undefined : 'terminal'
   const toolTitle = tool === 'computer' ? t('Terminal de datos', 'Data terminal')
     : tool === 'notebook' ? t('Cuaderno de campo', 'Field notebook') : t('Expediente de traslado', 'Relocation dossier')
   const computer = tool === 'computer'
@@ -58,7 +66,7 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
 
   useEffect(() => {
     dialog.current?.showModal()
-    dialog.current?.querySelector<HTMLButtonElement>('.computer-exit')?.focus()
+    dialog.current?.querySelector<HTMLElement>(computer ? '.computer-exit' : '#office-panel-title')?.focus()
   }, [])
 
   useEffect(() => {
@@ -73,31 +81,42 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
     glass.current?.querySelector<HTMLElement>(desktopApp ? '#office-panel-title' : computerGuideComplete ? '.pc-icon' : '.pc-guide-title')?.focus()
   }, [computer, booting, desktopApp, computerGuideComplete])
 
+  useEffect(() => {
+    if (terminalViewer || !returnToRequest.current) return
+    requestControl.current?.focus()
+    returnToRequest.current = false
+  }, [terminalViewer])
+
   function request() {
-    if (!dataset || !points.length || from > to || to > archiveEndYear) return
-    if (available) return
-    if (progress.evidence.length >= queryBudget) return
-    const evidence = analyze(dataset.id, points, from, to)
-    onChange({ ...progress, evidence: [...progress.evidence, evidence], signed: false, stamp: undefined })
+    if (available || !points.length || progress.evidence.length >= queryBudget) return
+    const evidence = { series: dataset.id, from, to, count: points.length }
+    onChange({ ...progress, evidence: [...progress.evidence, evidence] })
+    setTerminalViewer(true)
   }
 
-  function evidenceCard(evidence: Evidence) {
+  function chooseSeries(id: string) {
+    const item = catalogue.find(candidate => candidate.id === id)
+    if (!item) return
+    setSeriesId(id)
+    setFrom(item.observations[0]?.year ?? archiveEndYear)
+    setTo(Math.min(archiveEndYear, item.observations.at(-1)?.year ?? archiveEndYear))
+  }
+
+  function evidenceCard(evidence: Query) {
     const source = catalogue.find(item => item.id === evidence.series)
+    if (!source) return null
+    const unit = language === 'es' && source.unit === 'mm/year' ? 'mm/año' : source.unit
+    const { trend } = evidence
     return <article className="office-sheet">
-      <h3>{source?.site} · {evidence.from}–{evidence.to}</h3>
-      <p>{source?.product} · {evidence.count}/{evidence.to - evidence.from + 1} {t('años válidos', 'valid years')}</p>
-      <p>{t('Pendiente de Sen', 'Sen slope')}: {evidence.slope === null ? '—' : evidence.slope.toFixed(2)} {source?.unit}/{t('década', 'decade')} · p {evidence.p === null ? '—' : evidence.p < 0.001 ? '< 0.001' : evidence.p.toFixed(3)}</p>
-      {evidence.p === null && <p>{t('La prueba necesita al menos 10 años consecutivos con datos válidos.', 'The test needs at least 10 consecutive years with valid data.')}</p>}
-      <p><strong>{stampLabel(evidence.stamp)}</strong></p>
-      {source && <a href={source.source} target="_blank" rel="noreferrer">{t('Fuente de la serie', 'Series source')}</a>}
+      <h3>{translate(language, seriesLabels(source.variable))}</h3>
+      <p>{seriesSite(source, language)} · {evidence.from}–{evidence.to} · {evidence.count}/{evidence.to - evidence.from + 1} {t('años válidos', 'valid years')}</p>
+      {trend && <p>{t('Pendiente de Sen', 'Sen slope')} · {trend.slope?.toLocaleString(language, { maximumFractionDigits: 3 }) ?? '—'} {unit}/{t('década', 'decade')} · {trend.p === null
+        ? t('Cobertura insuficiente para la prueba', 'Insufficient coverage for the test') : `p ${trend.p < .001 ? '< 0.001' : trend.p.toLocaleString(language, { maximumFractionDigits: 4 })}`}</p>}
+      <p><a href={source.source} target="_blank" rel="noreferrer">{source.product}</a>
+        {source.archiveSource && <> · <a href={source.archiveSource} target="_blank" rel="noreferrer">{t('Datos reprocesados', 'Reprocessed data')}</a></>}</p>
     </article>
   }
 
-  const current = available
-  const min = Math.min(...points.map(point => point.value))
-  const max = Math.max(...points.map(point => point.value))
-  const y = (value: number) => 94 - 74 * (value - min) / (max - min || 1)
-  const x = (year: number) => 32 + 318 * (year - from) / (to - from || 1)
   const calculatorTrigger = <div className="question-calculator">
     <button type="button" className="calculator-green" ref={calculatorButton} aria-haspopup="dialog"
       aria-expanded={calculatorOpen} aria-controls={calculatorId} onClick={() => setCalculatorOpen(true)}>
@@ -114,7 +133,7 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
     } : undefined}
     onCancel={event => { event.preventDefault(); onClose() }}>
     {!computer && <header>
-      <h2 id="office-panel-title">{toolTitle}</h2>
+      <h2 id="office-panel-title" tabIndex={-1}>{toolTitle}</h2>
       <button className="back" onClick={onClose}>{t('Cerrar', 'Close')} <kbd>Esc</kbd></button>
     </header>}
     <div ref={glass} className={computer ? 'computer-glass office-content' : 'office-content'}>
@@ -125,9 +144,12 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
           <span style={{ animationDuration: `${bootDuration}ms` }} />
         </div>
       </section>}
-      {computer && !booting && !desktopApp && <DesktopHome language={language} open={setDesktopApp}
+      {computer && !booting && !desktopApp && <DesktopHome language={language} open={app => {
+        setDesktopApp(app)
+        if (!computerGuideComplete) onComputerGuideComplete()
+      }}
         guideStep={computerGuideComplete ? undefined : guideStep} nextGuideStep={() => setGuideStep(step => step + 1)}
-        finishGuide={onComputerGuideComplete} />}
+        finishGuide={onComputerGuideComplete} nextApp={nextApp} />}
       {computer && !booting && desktopApp && <header className="computer-toolbar" data-app={desktopApp}>
         <h2 id="office-panel-title" tabIndex={-1}>{desktopApp === 'terminal' ? toolTitle
           : desktopApp === 'passport' ? t('Mi pasaporte', 'My Passport') : 'DirtBNB'}</h2>
@@ -137,121 +159,103 @@ export function OfficePanel({ tool, language, role, progress, stage, onChange, o
       {computer && !booting && (desktopApp === 'passport' || desktopApp === 'rentals') &&
         <HabitatApp key={desktopApp} app={desktopApp} language={language} role={role} progress={progress}
           onChange={onChange} onHostReply={onHostReply} calculatorTrigger={calculatorTrigger}
-          canRent={stage === 'evacuation'} rental={rental} onRent={onRent} onPack={onPack} />}
-      {computer && !booting && desktopApp === 'terminal' && (terminalViewer && dataset && current ?
-        <DataViewer language={language} label={t('Nivel del mar', 'Sea level')} unit={dataset.unit} site={dataset.site}
-          points={points} onBack={() => setTerminalViewer(false)} /> : <>
-        <div className="computer-workspace">
-          <div className="office-terminal">
-            <div className="office-filters">
-              <label>{t('Región', 'Region')}<select value={site} onChange={event => setSite(event.target.value)}>
-                {!catalogue.length && <option value="">{t('Estrecho de Torres', 'Torres Strait')}</option>}
-                {[...new Set(catalogue.map(item => item.site))].map(item => <option key={item}>{item}</option>)}
-              </select></label>
-              <label>{t('Variable', 'Variable')}<select value={variable} onChange={event => setVariable(event.target.value)}>
-                <option value="seaLevel">{t('Nivel del mar', 'Sea level')}</option>
-              </select></label>
-              <label>{t('Desde', 'From')}<input type="number" min={1900} max={archiveEndYear} value={from} onChange={event => setFrom(Number(event.target.value))} /></label>
-              <label>{t('Hasta', 'To')}<input type="number" min={1900} max={archiveEndYear} value={to} onChange={event => setTo(Number(event.target.value))} /></label>
-            </div>
-            <p>{t('Busca cambios a lo largo de varios años. El nivel del mar de la región y la inundación de una casa se observan a escalas distintas.', 'Look for change across several years. Regional sea level and flooding at one house are observed on different scales.')}</p>
-            {!dataset && <p className="office-status" role="status">{t('Serie histórica pendiente de verificar para el estrecho de Torres. Las consultas estarán disponibles cuando se incorpore la serie.', 'The historical Torres Strait series is awaiting verification. Requests will be available once it is added.')}</p>}
-            {dataset && from > to && <p role="status">{t('El año inicial debe ser anterior o igual al final.', 'The start year must be at or before the end year.')}</p>}
-            {dataset && from <= to && !points.length && <p role="status">{t('Este periodo no contiene observaciones.', 'This period has no observations.')}</p>}
-            <button disabled={Boolean(available) || !points.length || from > to || to > archiveEndYear || progress.evidence.length >= queryBudget}
-              onClick={request}>{available ? t('Consulta guardada', 'Request saved') : t('Pedir datos y analizar (Mann–Kendall)', 'Request data and analyze (Mann–Kendall)')}</button>
-          </div>
-          <section className="computer-results" aria-label={t('Serie temporal', 'Time series')}>
-            <h3>{t('Serie temporal', 'Time series')}</h3>
-            {current ? <>
-              <svg className="office-chart" viewBox="0 0 380 124" role="img" aria-label={`${dataset?.site}, ${from}–${to}, ${dataset?.unit}`}>
-                <path d="M32 10V95H350" fill="none" stroke="currentColor" />
-                <text x="2" y="16">{dataset?.unit}</text><text x="32" y="114">{from}</text><text x="322" y="114">{to}</text>
-                <text x="5" y="32">{max.toFixed(1)}</text><text x="5" y="91">{min.toFixed(1)}</text>
-                {points.map((point, i) => <g key={point.year}>
-                  {i > 0 && point.year === points[i-1].year + 1 && <line x1={x(points[i-1].year)} y1={y(points[i-1].value)} x2={x(point.year)} y2={y(point.value)} stroke="currentColor" strokeWidth="2" />}
-                  <circle cx={x(point.year)} cy={y(point.value)} r="2.5" fill="currentColor"><title>{point.year}: {point.value}</title></circle>
-                </g>)}
-              </svg>
-              {evidenceCard(current)}
-              <button onClick={() => setTerminalViewer(true)}>{t('Abrir Visualizador de datos', 'Open Data Viewer')}</button>
-              <p>{t('Mann–Kendall bilateral con preblanqueo sin tendencia de rezago 1. Umbral p < 0,05.', 'Two-sided Mann–Kendall with lag-1 trend-free prewhitening. Threshold p < 0.05.')}</p>
-            </> : <div className="computer-empty">
-              <p>{t('Esperando datos para la selección actual', 'Waiting for data for the current selection')}</p>
+          canRent={stage === 'evacuation'} rental={rental} onRent={onRent} onPack={onPack} onDossier={() => onOpenTool('dossier')} />}
+      {computer && !booting && desktopApp === 'terminal' && <>
+        {!terminalViewer && <div className="terminal-dossier">
+          <button type="button" onClick={() => onOpenTool('dossier')}>{t('Abrir expediente de traslado', 'Open relocation dossier')}</button>
+        </div>}
+        {terminalViewer && available ? <DataViewer key={queryId(available)} language={language} label={translate(language, seriesLabels(dataset.variable))}
+          unit={dataset.unit} site={seriesSite(dataset, language)} points={points} source={{ provider: dataset.product, url: dataset.source }}
+          requestAction={<>
+            {attached ? <div className="terminal-attachment">
+              <p className="answer-correct" role="status"><strong>{t('Consulta guardada en el expediente.', 'Request saved to the dossier.')}</strong></p>
+              {reviewRentalsNext && <button type="button" className="primary" onClick={() => {
+                setTerminalViewer(false)
+                setDesktopApp('rentals')
+              }}>{t('Revisar arriendos en DirtBNB', 'Review rentals in DirtBNB')}</button>}
+              <button type="button" className={reviewRentalsNext ? undefined : 'primary'} onClick={() => onOpenTool('dossier')}>
+                {t('Ver expediente', 'View dossier')}
+              </button>
+            </div> : canAttach ? <div className="terminal-attachment">
+              <p role="status">{t('Consulta guardada en la terminal. Falta adjuntarla al expediente.', 'Request saved in the terminal. Attach it to add it to the dossier.')}</p>
+              <button type="button" className="primary" onClick={() => {
+                onChange({ ...progress, relocation: { ...progress.relocation, origin: queryId(available) } })
+                onOpenTool('dossier')
+              }}>{t('Adjuntar consulta al expediente', 'Attach request to dossier')}</button>
+            </div> : <div className="terminal-attachment">
+              <p>{t('El destino ya está confirmado. El expediente se puede consultar.', 'The destination has been confirmed. You can still view the dossier.')}</p>
+              <button type="button" onClick={() => onOpenTool('dossier')}>{t('Ver expediente', 'View dossier')}</button>
             </div>}
-          </section>
-        </div>
-      </>)}
+            {marine && <p>{t('Cada punto es un promedio anual de la zona marina cercana a Bramble Cay. Cero representa el nivel de referencia del producto. La serie describe el nivel medio del mar y no la altura de una marejada.', 'Each point is an annual average for the ocean area near Bramble Cay. Zero marks the product’s reference sea level. The series describes mean sea level rather than the height of a storm surge.')}
+              {dataset.archiveSource && <> · <a href={dataset.archiveSource} target="_blank" rel="noreferrer">{t('Datos a 1° reprocesados por Camargo (Zenodo)', 'Data regridded to 1° by Camargo (Zenodo)')}</a></>}</p>}
+          </>}
+          onTrend={trend => onChange({ ...progress, evidence: progress.evidence.map(item => item === available ? { ...item, trend: { ...trend, series: item.series } } : item) })}
+          onBack={() => { returnToRequest.current = true; setTerminalViewer(false) }} /> :
+          <div className="computer-workspace">
+            <section className="office-terminal" aria-label={t('Consultar el archivo', 'Search the archive')}>
+              {!progress.relocation?.origin && <p>{t('Para investigar el mar, elige «Nivel medio del mar (anomalía)» y pulsa «Pedir datos».', 'To investigate the sea, choose “Mean sea level (anomaly)” and then “Request data”.')}</p>}
+              <div className="office-filters">
+                <label><span id="terminal-region">{t('Región', 'Region')}</span><select value={dataset.site} aria-labelledby="terminal-region"
+                  onChange={event => chooseSeries(catalogue.find(item => item.site === event.target.value)!.id)}>
+                  {regions.map(site => <option key={site} value={site}>{seriesSite(catalogue.find(item => item.site === site)!, language)}</option>)}
+                </select></label>
+                <label><span id="terminal-variable">{t('Variable', 'Variable')}</span><select value={seriesId} aria-labelledby="terminal-variable" onChange={event => chooseSeries(event.target.value)}>
+                  {regions.map(site => {
+                    const series = catalogue.filter(item => item.site === site)
+                    return <optgroup key={site} label={seriesSite(series[0], language)}>
+                      {series.map(item => <option key={item.id} value={item.id}>{translate(language, seriesLabels(item.variable))}</option>)}
+                    </optgroup>
+                  })}
+                </select></label>
+                <label>{t('Desde', 'From')}<input type="number" min={dataset.observations[0]?.year} max={archiveEndYear} value={from || ''} onChange={event => setFrom(Number(event.target.value))} /></label>
+                <label>{t('Hasta', 'To')}<input type="number" min={dataset.observations[0]?.year} max={archiveEndYear} value={to || ''} onChange={event => setTo(Number(event.target.value))} /></label>
+              </div>
+              <p>{t('Cada consulta nueva cuesta un crédito. Puedes reabrir las consultas guardadas sin gastar otro.', 'Each new request costs one credit. Reopen saved requests without spending another.')}</p>
+              {(!Number.isInteger(from) || !Number.isInteger(to) || from < dataset.observations[0]?.year || from > to || to > archiveEndYear) && <p role="status">{t('Elige años dentro del archivo. El año inicial debe ser anterior o igual al final.', 'Choose years within the archive. The start year must be at or before the end year.')}</p>}
+              {progress.evidence.length >= queryBudget && !available && <p role="status">{t('Se agotaron las consultas. Puedes usar cualquiera de las series guardadas en el expediente.', 'No requests left. You can attach any saved series to the dossier.')}</p>}
+              <button ref={requestControl} disabled={!available && (!points.length || !Number.isInteger(from) || !Number.isInteger(to) || from < dataset.observations[0]?.year || to > archiveEndYear || progress.evidence.length >= queryBudget)}
+                onClick={available ? () => setTerminalViewer(true) : request}>{available ? t('Abrir consulta guardada', 'Open saved request') : t('Pedir datos', 'Request data')}</button>
+            </section>
+            <section className="computer-results" aria-label={t('Consultas guardadas', 'Saved requests')}>
+              <h3>{t('Consultas guardadas', 'Saved requests')}</h3>
+              {progress.evidence.length === 0 && <p>{t('Cuando abras el gráfico de una consulta, puedes adjuntarla al expediente.', 'When you open a request’s chart, you can attach it to the dossier.')}</p>}
+              {progress.evidence.map(item => {
+                const series = catalogue.find(candidate => candidate.id === item.series)
+                return series && <button type="button" key={queryId(item)} onClick={() => {
+                  setSeriesId(series.id); setFrom(item.from); setTo(item.to); setTerminalViewer(true)
+                }}>{seriesSite(series, language)} · {translate(language, seriesLabels(series.variable))} · {item.from}–{item.to}
+                  {progress.relocation?.origin === queryId(item) && <> · {t('En el expediente', 'In the dossier')}</>}</button>
+              })}
+            </section>
+          </div>}
+      </>}
       {tool === 'notebook' && <>
         <article className="office-sheet">
           <h3>{t('Observaciones del cayo', 'Observations from the cay')}</h3>
           {heardAda && <p>{t('Ada contó que el depósito de agua se vació durante el calor.', 'Ada said the water tank ran dry during the heat.')}</p>}
           {heardEli && <p>{t('Eli contó que una inundación alcanzó la casa de su hermana.', 'Eli said a flood reached his sister’s house.')}</p>}
-          <p>{sawCoast ? t('Desde el muelle, viste agua donde la foto del cartel mostraba arena. Registra qué serie pedirías para saber si el nivel del mar cambió con los años.', 'From the pier you saw water where the sign’s photograph showed sand. Note which series you would request to find out whether sea level changed over time.')
+          <p>{sawCoast ? t('Desde el muelle viste agua donde la foto mostraba arena. En la terminal puedes pedir la serie de nivel medio del mar del estrecho de Torres.', 'From the pier you saw water where the photo showed sand. The terminal has a mean sea-level series for the Torres Strait.')
             : t('Ve al muelle para comparar el cartel antiguo con la costa actual.', 'Visit the pier to compare the old sign with the coast today.')}</p>
         </article>
         <label>{t('Mis notas', 'My notes')}<textarea rows={5} value={progress.notes} onChange={event => onChange({ ...progress, notes: event.target.value })} /></label>
         <h3>{t('Series guardadas', 'Saved series')}</h3>
         {progress.evidence.length ? progress.evidence.map(item => <div key={`${item.series}-${item.from}-${item.to}`}>{evidenceCard(item)}</div>) :
           <p>{t('Aquí se guardan las consultas del PC con sus filtros.', 'Computer requests are saved here with their filters.')}</p>}
-        {listings.some(place => progress.habitatRequests?.[place.id]?.length) && <h3>DirtBNB</h3>}
-        {listings.filter(place => progress.habitatRequests?.[place.id]?.length).map(place => <article className="office-sheet" key={place.id}>
-          <h4>{place.name} · {place.owner}</h4>
-          {progress.habitatRequests?.[place.id].filter((id): id is Indicator => Object.hasOwn(indicatorLabels, id)).map(indicator => {
-            const result = compareHabitat(place.climateId, indicator)
-            return <p key={indicator}>{translate(language, indicatorLabels[indicator])} · {result
-              ? `${result.destination.mean.toLocaleString(language, { maximumFractionDigits: 2 })} ${language === 'es' && result.unit === 'mm/year' ? 'mm/año' : result.unit}`
-              : t('Sin datos comparables', 'No comparable data')}</p>
+        <h3>{t('Revisiones de DirtBNB', 'DirtBNB reviews')}</h3>
+        {listings.filter(place => progress.rentalAnalyses?.[place.id]?.length).map(place => <article className="office-sheet" key={place.id}>
+          <h4>{translate(language, place.listing)} · {place.name}</h4>
+          {requirements.map(({ indicator_id }) => {
+            const record = progress.rentalEvidence?.[place.id]?.[indicator_id]
+            return record && <p key={indicator_id}>{translate(language, seriesLabels(indicator_id))} · {record.from}–{record.to} · {rentalReviewSaved(progress, place.id, indicator_id)
+              ? record.trend ? t('Prueba guardada', 'Test saved') : t('Sin prueba estadística', 'No statistical test')
+              : t('Preguntas pendientes', 'Questions pending')}</p>
           })}
-          {progress.habitatRequests?.[place.id].includes('terrain') && <TerrainEvidence language={language} id={place.id} compact />}
+          {progress.rentalAnalyses?.[place.id]?.includes('terrain') && <TerrainEvidence language={language} id={place.id} compact />}
         </article>)}
+        <button type="button" onClick={() => onOpenTool('dossier')}>{t('Abrir expediente de traslado', 'Open relocation dossier')}</button>
       </>}
-      {tool === 'dossier' && <>
-        <section className="office-sheet">
-          <h3>{t('Comparación de terrenos de Erub', 'Erub site comparison')}</h3>
-          {listings.filter(place => erubPlots[place.id] && progress.habitatRequests?.[place.id]?.includes('terrain')).map(place =>
-            <TerrainEvidence key={place.id} language={language} id={place.id} compact />)}
-          {['erub', 'erub-coast'].every(id => progress.habitatRequests?.[id]?.includes('terrain')) ? <>
-            <label>{t('Terreno para investigar', 'Site to investigate')}
-              <select value={progress.terrainChoice ?? ''} onChange={event => onChange({ ...progress, terrainChoice: event.target.value || undefined })}>
-                <option value="">{t('Selecciona un arriendo', 'Select a rental')}</option>
-                {listings.filter(place => erubPlots[place.id]).map(place =>
-                  <option key={place.id} value={place.id}>{translate(language, place.listing)}</option>)}
-              </select>
-            </label>
-            <label>{t('Justificación del terreno y evidencia pendiente', 'Site rationale and outstanding evidence')}
-              <textarea rows={3} value={progress.terrainRationale ?? ''} onChange={event => onChange({ ...progress, terrainRationale: event.target.value })} />
-            </label>
-          </> : <p>{t('Pide la ficha de ambos arriendos en DirtBNB para registrar tu elección.', 'Request the site report for both rentals in DirtBNB to record your choice.')}</p>}
-        </section>
-        <article className="office-sheet">
-          <h3>{t('Afirmación por cotejar', 'Claim to review')}</h3>
-          <p>{t('El nivel del mar aumentó en la región durante el periodo investigado.', 'Sea level rose in the region during the period under investigation.')}</p>
-          <p>{t('Para evaluar un refugio, reúne evidencia sobre la elevación, el riesgo de inundación, el alimento disponible y la presencia de plantas de poca altura, como hierbas y plantas rastreras.', 'To assess a refuge, gather evidence on elevation, flood exposure, available food and the presence of low-growing plants such as grasses and creeping plants.')}</p>
-        </article>
-        {lastEvidence && evidenceCard(lastEvidence)}
-        <div className="office-stamps" aria-label={t('Sello de tendencia', 'Trend stamp')}>
-          {stamps.map(stamp => <button key={stamp} disabled={progress.signed} aria-pressed={progress.stamp === stamp}
-            onClick={() => onChange({ ...progress, stamp })}>{stampLabel(stamp)}</button>)}
-        </div>
-        {lastEvidence && progress.stamp && progress.stamp !== lastEvidence.stamp && <p role="status">{t('Revisa la dirección, la cobertura y el valor p de la serie antes de elegir el sello.', 'Check the direction, coverage and p-value before choosing a stamp.')}</p>}
-        <label>{t('Destino evaluado', 'Destination assessed')}
-          <input value={progress.destination === 'hold' ? '' : progress.destination ?? ''} disabled={progress.signed}
-            onChange={event => onChange({ ...progress, destination: event.target.value })}
-            placeholder={t('Nombre del lugar', 'Site name')} />
-        </label>
-        <label>{t('Justificación y condición pendiente', 'Rationale and outstanding condition')}
-          <textarea rows={4} value={progress.rationale ?? ''} disabled={progress.signed}
-            onChange={event => onChange({ ...progress, rationale: event.target.value })} />
-        </label>
-        <label className="office-check"><input type="checkbox" checked={progress.destination === 'hold'} disabled={progress.signed}
-          onChange={event => onChange({ ...progress, destination: event.target.checked ? 'hold' : '' })} />
-          {t('Aplazar el traslado por evidencia insuficiente', 'Defer the relocation due to insufficient evidence')}
-        </label>
-        {!lastEvidence && <p role="status">{t('Borrador. Registra una consulta en el PC para poder firmar.', 'Draft. Log a request on the computer before signing.')}</p>}
-        {progress.signed ? <p role="status"><strong>{t('Veredicto firmado.', 'Verdict signed.')}</strong></p> :
-          <button disabled={!ready} onClick={() => onChange({ ...progress, signed: true })}>{t('Firmar veredicto', 'Sign verdict')}</button>}
-      </>}
+      {tool === 'dossier' && <RelocationDossier language={language} stage={stage} progress={progress} rental={rental}
+        onChange={onChange} onStamp={onStamp} onClose={onClose} onComputer={seated ? app => onOpenTool('computer', app) : undefined} />}
     </div>
     {computer && <footer className="computer-bezel">
       <span className="computer-vents" aria-hidden="true" />

@@ -2,12 +2,16 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { archiveEndYear, asset, caseYear, playerIdentity, translate, type Language, type Role, type RentalApplication } from './config'
 import { DataViewer } from './DataViewer'
 import { TerrainEvidence, erubPlots } from './ErubTerrain'
-import { compareHabitat, indicatorLabels, listings, rentalReview, requirements, sourceRevision, species, type Indicator } from './habitat'
-import type { ChartPractice, Investigation } from './investigation'
+import { compareHabitat, indicatorLabels, listings, rentalQuizPassed, rentalReview, rentalReviewSaved, requirements, reviewableRentals, sourceRevision, species, type Indicator, type RentalReviewItem } from './habitat'
+import type { ChartPractice, ChartReview, Investigation } from './investigation'
 
 export type DesktopApp = 'passport' | 'rentals' | 'terminal'
 
 const desktopApps = [
+  { id: 'terminal', label: ['Terminal de datos', 'Data terminal'], guide: [
+    'Empieza aquí. Pide la serie histórica de nivel del mar del estrecho de Torres y adjúntala al expediente.',
+    'Start here. Request the historical sea-level series for the Torres Strait and attach it to the dossier.',
+  ] },
   { id: 'passport', label: ['Mi pasaporte', 'My Passport'], guide: [
     'Revisa qué necesita el melomys para vivir y cómo era el clima de Bramble Cay. Usa esa ficha como referencia al comparar un destino.',
     'See what the melomys needs and what Bramble Cay’s climate was like. Use the profile as a reference when comparing a new home.',
@@ -16,18 +20,15 @@ const desktopApps = [
     'Busca un nuevo hogar para tu familia. Pide datos a los anfitriones y compara el clima y las fichas de terreno disponibles.',
     'Look for a new home for your family. Ask hosts for data and compare the available climate and site reports.',
   ] },
-  { id: 'terminal', label: ['Terminal de datos', 'Data terminal'], guide: [
-    'Elige una región y un periodo para investigar cómo cambió el nivel del mar. Si hay una serie disponible, puedes analizarla y guardar la consulta en tu cuaderno.',
-    'Choose a region and a period to investigate how sea level changed. If a series is available, you can analyze it and save the request to your notebook.',
-  ] },
 ] as const
 
-export function DesktopHome({ language, open, guideStep, nextGuideStep, finishGuide }: {
+export function DesktopHome({ language, open, guideStep, nextGuideStep, finishGuide, nextApp }: {
   language: Language
   open: (app: DesktopApp) => void
   guideStep?: number
   nextGuideStep: () => void
   finishGuide: () => void
+  nextApp?: DesktopApp
 }) {
   const guideTitle = useRef<HTMLHeadingElement>(null)
   const step = guideStep ?? -1
@@ -41,9 +42,11 @@ export function DesktopHome({ language, open, guideStep, nextGuideStep, finishGu
     <div className="pc-desktop-main" data-guided={Boolean(highlighted)}>
       <nav className="pc-icons" aria-label={translate(language, ['Aplicaciones', 'Apps'])}>
         {desktopApps.map(app => <button key={app.id} className="pc-icon" type="button" onClick={() => open(app.id)}
-          data-guide-target={highlighted?.id === app.id} aria-describedby={highlighted?.id === app.id ? 'pc-guide-copy' : undefined}>
+          data-guide-target={(highlighted?.id ?? nextApp) === app.id} aria-labelledby={`pc-label-${app.id}`}
+          aria-describedby={highlighted?.id === app.id ? 'pc-guide-copy' : !highlighted && nextApp === app.id ? 'pc-next-app' : undefined}>
           <span className={`pc-icon-art pc-icon-${app.id}`} aria-hidden="true">{app.id === 'terminal' ? '>_' : ''}</span>
-          <span>{translate(language, app.label)}</span>
+          <span id={`pc-label-${app.id}`}>{translate(language, app.label)}</span>
+          {!highlighted && nextApp === app.id && <small id="pc-next-app">{translate(language, ['Siguiente paso', 'Next step'])}</small>}
         </button>)}
       </nav>
       {highlighted && <section className="pc-guide" aria-labelledby="pc-guide-title">
@@ -64,7 +67,7 @@ export function DesktopHome({ language, open, guideStep, nextGuideStep, finishGu
         </div>
       </section>}
     </div>
-    <footer className="pc-taskbar">DoorsXP <span> Año actual · {caseYear}</span></footer>
+    <footer className="pc-taskbar">DoorsXP <span>{translate(language, ['Año actual', 'Current year'])} · {caseYear}</span></footer>
   </section>
 }
 
@@ -100,10 +103,11 @@ function PassportContent({ language, role }: { language: Language; role: Role })
   </div>
 }
 
-const signalLabels: Record<Indicator, readonly [string, string]> = {
+const signalLabels: Record<RentalReviewItem, readonly [string, string]> = {
   t2m_max_mean: ['Temperatura', 'Temperature'],
   precip_annual: ['Lluvia', 'Rainfall'],
   soil_wetness: ['Humedad del suelo', 'Soil wetness'],
+  terrain: ['Elevación y marejadas', 'Elevation and storm tides'],
 }
 
 const hostReplyDelay = 850
@@ -115,7 +119,7 @@ const hostPrompts = {
 } as const
 const hostPromptOptions = Object.keys(hostPrompts) as (keyof typeof hostPrompts)[]
 
-export function HabitatApp({ app, language, role, progress, onChange, onHostReply, calculatorTrigger, canRent, rental, onRent, onPack }: {
+export function HabitatApp({ app, language, role, progress, onChange, onHostReply, calculatorTrigger, canRent, rental, onRent, onPack, onDossier }: {
   app: 'passport' | 'rentals'
   language: Language
   role: Role
@@ -127,15 +131,18 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
   rental?: RentalApplication
   onRent: (id: string) => void
   onPack: () => void
+  onDossier: () => void
 }) {
   const firstSignal = requirements[0].indicator_id
-  const [selected, setSelected] = useState(() => listings.find(listing => listing.id === rental?.id))
+  const [selected, setSelected] = useState(() => reviewableRentals.find(listing =>
+    listing.id === (rental?.id ?? (canRent && progress.relocation?.signed ? progress.relocation.listing : undefined))))
   const [viewing, setViewing] = useState<Indicator>(firstSignal)
   const [openReport, setOpenReport] = useState<'terrain' | 'license'>()
   const [clock, setClock] = useState(Date.now)
   const reportDialog = useRef<HTMLDialogElement>(null)
   const chatHeading = useRef<HTMLHeadingElement>(null)
   const chartHeading = useRef<HTMLHeadingElement>(null)
+  const chartControls = useRef<HTMLDivElement>(null)
   const t = (es: string, en: string) => translate(language, [es, en])
   const chat = selected ? progress.habitatChats?.[selected.id] : undefined
   const replyAt = chat ? chat.sentAt + hostReplyDelay : undefined
@@ -145,7 +152,20 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
   const accepted = acceptedAt !== undefined && clock >= acceptedAt
   const visualized = selected && replied ? compareHabitat(selected.climateId, viewing) : null
   const review = rentalReview(progress)
-  const selectedReview = selected ? rentalReview(progress, selected.id) : undefined
+  const signedListing = progress.relocation?.signed && progress.relocation.listing
+  const reviewing = !signedListing && !rental
+  const missing = (listing: typeof reviewableRentals[number]) =>
+    listing.items.filter(item => !rentalReviewSaved(progress, listing.id, item))
+  const pendingItems = selected ? missing(selected) : []
+  const nextRental = reviewableRentals.find(listing => listing.id !== selected?.id && missing(listing).length)
+  const pendingOverview = <ul className="rental-pending-overview">
+    {reviewableRentals.map(listing => {
+      const items = missing(listing)
+      return <li key={listing.id}><strong>{translate(language, listing.listing)}</strong> · {items.length
+        ? items.map(item => translate(language, signalLabels[item])).join(', ')
+        : t('Todos los registros guardados', 'All records saved')}</li>
+    })}
+  </ul>
 
   useEffect(() => {
     if (!selected) return
@@ -183,11 +203,16 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
     onChange({ ...progress, habitatRequests: { ...progress.habitatRequests, [listing.id]: [...previous, item] } })
   }
 
-  function chooseListing(listing: typeof listings[number]) {
+  function chooseListing(listing: typeof reviewableRentals[number]) {
     if (listing.id === selected?.id) return
     setSelected(listing)
     setViewing(firstSignal)
     setClock(Date.now())
+  }
+
+  function openTerrain(listing: typeof reviewableRentals[number]) {
+    request(listing, 'terrain')
+    setOpenReport('terrain')
   }
 
   function sendMessage(prompt: keyof typeof hostPrompts) {
@@ -198,10 +223,14 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
     onChange({ ...progress, habitatChats: { ...progress.habitatChats, [selected.id]: { prompt, sentAt } } })
   }
 
-  function recordReview(id: string, item: Indicator | 'terrain') {
+  function recordReview(id: string, item: RentalReviewItem, evidence?: ChartReview) {
+    if (item !== 'terrain' && (!evidence || !rentalQuizPassed(progress, id, item, evidence))) return
     const previous = progress.rentalAnalyses?.[id] ?? []
-    if (previous.includes(item)) return
-    onChange({ ...progress, rentalAnalyses: { ...progress.rentalAnalyses, [id]: [...previous, item] } })
+    const rentalAnalyses = { ...progress.rentalAnalyses, [id]: previous.includes(item) ? previous : [...previous, item] }
+    const rentalEvidence = evidence
+      ? { ...progress.rentalEvidence, [id]: { ...progress.rentalEvidence?.[id], [item]: evidence } }
+      : progress.rentalEvidence
+    onChange({ ...progress, rentalAnalyses, rentalEvidence })
   }
 
   function savePractice(id: string, indicator: Indicator, practice: ChartPractice) {
@@ -219,14 +248,25 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
         <h3>{t('Arriendos disponibles', 'Available rentals')}</h3>
         <span>{listings.length}</span>
       </header>
-      {canRent ? <p className="evac-rental-status" role="status">{t('Evacuación en curso. Elige un arriendo y escribe al anfitrión para solicitarlo con urgencia.', 'Evacuation underway. Choose a rental and message the host with an urgent request.')}</p> :
-        <p className="rental-review" role="status"><strong>{review.done}/{review.total}</strong> {t('revisiones registradas. Traza y registra las tendencias disponibles y revisa las fichas de terreno de Erub.', 'reviews recorded. Plot and record the available trends and review both Erub site reports.')}</p>}
+      {canRent && signedListing && <p className="evac-rental-status" role="status">
+        {t('Evacuación en curso. En el chat del destino firmado, pulsa «Solicitar arriendo urgente».', 'Evacuation underway. In the signed destination’s chat, choose “Request urgent rental”.')}</p>}
+      {reviewing && <>
+        <p className="rental-review" role="status"><strong>{review.done}/{review.total}</strong> {t('registros guardados.', 'records saved.')}</p>
+        <p>{t('Responde bien las dos preguntas de cada gráfico para registrarlo. Guarda también las dos fichas de elevación y marejadas de Erub.', 'Answer both questions on each chart correctly to record it. Save both Erub elevation and storm-tide reports as well.')}</p>
+      </>}
+      {(canRent || review.done === review.total) && <button type="button" onClick={onDossier}>{t('Abrir expediente de traslado', 'Open relocation dossier')}</button>}
+      {reviewing && selected && review.done < review.total && <details className="rental-all-pending">
+        <summary>{t('Ver todos los registros pendientes', 'See all pending records')}</summary>
+        {pendingOverview}
+      </details>}
       <div className="rental-list" data-chat-open={Boolean(selected)}>
-        {listings.map(listing => <button className="rental-card" key={listing.id} aria-pressed={selected?.id === listing.id} onClick={() => chooseListing(listing)}>
+        {reviewableRentals.map(listing => <button className="rental-card" key={listing.id} aria-pressed={selected?.id === listing.id} onClick={() => chooseListing(listing)}>
           <img src={asset(`art/rental-${listing.id}.png`)} alt="" width="192" height="108" />
           <span className="rental-card-copy">
             <strong>{translate(language, listing.listing)}</strong>
             <span>{listing.name}</span><small>{t('Anfitrión', 'Host')} · {listing.owner}</small>
+            {signedListing === listing.id && <small className="answer-correct">{t('Destino firmado', 'Signed destination')}</small>}
+            {reviewing && <small>{listing.items.length - missing(listing).length}/{listing.items.length} {t('registros', 'records')}</small>}
           </span>
         </button>)}
       </div>
@@ -248,10 +288,7 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
                 if (visualized) request(selected, viewing)
                 chartHeading.current?.focus()
               }}>{t('Ver gráficos', 'View charts')}</button>
-              {erubPlots[selected.id] && <button type="button" aria-haspopup="dialog" onClick={() => {
-                request(selected, 'terrain')
-                setOpenReport('terrain')
-              }}>{t('Ver ficha del terreno', 'View site report')}</button>}
+              {erubPlots[selected.id] && <button type="button" aria-haspopup="dialog" onClick={() => openTerrain(selected)}>{t('Ver ficha del terreno', 'View site report')}</button>}
             </div>
           </div>}
           {application && <div className="rental-bubble rental-bubble-player"><span>{t('Tú', 'You')}</span>
@@ -263,13 +300,15 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
             <div className="rental-attachments"><button type="button" onClick={onPack}>{t('Ir a preparar maletas', 'Go pack your bags')}</button></div>
           </div>}
         </div>
-        {canRent && replied && !rental && <button type="button" onClick={() => onRent(selected.id)}>{t('Solicitar arriendo urgente', 'Request urgent rental')}</button>}
+        {canRent && replied && !rental && (progress.relocation?.signed && progress.relocation.listing === selected.id
+          ? <button type="button" onClick={() => onRent(selected.id)}>{t('Solicitar arriendo urgente', 'Request urgent rental')}</button>
+          : <p>{t('Para solicitar este arriendo, elige este destino y firma el expediente.', 'To request this rental, choose this destination and sign the dossier.')}</p>)}
         {canRent && rental && !application && <button type="button" onClick={() => {
-          const chosen = listings.find(listing => listing.id === rental.id)
+          const chosen = reviewableRentals.find(listing => listing.id === rental.id)
           if (chosen) chooseListing(chosen)
         }}>{t('Volver al chat del arriendo elegido', 'Return to the chosen rental chat')}</button>}
         {!chat && <div className="rental-replies" role="group" aria-label={t('Mensajes para el anfitrión', 'Messages for the host')}>
-          <p>{t('Elige un mensaje para enviar.', 'Choose a message to send.')}</p>
+          <p>{t('Envía cualquiera de estos mensajes para recibir los datos del arriendo.', 'Send any of these messages to receive the rental data.')}</p>
           {hostPromptOptions.map(prompt => <button key={prompt} type="button" onClick={() => sendMessage(prompt)}>
             {translate(language, hostPrompts[prompt])}
           </button>)}
@@ -283,19 +322,42 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
     </div>
     <section className="rental-analysis" aria-labelledby="rental-analysis-title">
       <header className="rental-panel-heading">
-        <h3 id="rental-analysis-title" ref={chartHeading} tabIndex={-1}>{t('Analiza las señales', 'Analyze the signals')}</h3>
+        <h3 id="rental-analysis-title" ref={chartHeading} tabIndex={-1}>{t('Datos del arriendo', 'Rental data')}</h3>
         <span>{t('Archivo hasta', 'Archive through')} {archiveEndYear}</span>
       </header>
       {selected ? <>
         <h4 className="rental-selection">{translate(language, selected.listing)} · {selected.name}</h4>
-        {!canRent && selectedReview && <p className="rental-review">{selectedReview.done}/{selectedReview.total} {t('revisiones registradas en este arriendo', 'reviews recorded for this rental')}</p>}
+        {erubPlots[selected.id] && <p className="habitat-caption">{t('Los dos arriendos de Erub usan la misma serie climática regional. Compara sus fichas para distinguir la elevación y la exposición a marejadas.', 'Both Erub rentals use the same regional climate series. Compare their site reports to distinguish elevation and storm-tide exposure.')}</p>}
+        {reviewing && <div className="rental-checklist">
+          <h4>{t('Qué debes guardar de este arriendo', 'What to save for this rental')}</h4>
+          <ul>
+            {selected.items.map(item => {
+              const pending = pendingItems.includes(item)
+              const label = translate(language, signalLabels[item])
+              return <li key={item}>
+                {replied ? <button className="rental-review-link" type="button" aria-haspopup={item === 'terrain' ? 'dialog' : undefined} onClick={() => {
+                  if (item === 'terrain') openTerrain(selected)
+                  else {
+                    setViewing(item)
+                    request(selected, item)
+                    chartControls.current?.focus()
+                  }
+                }}>{label}</button> : <span>{label}</span>}
+                <strong data-recorded={!pending}>{pending ? t('Pendiente', 'Pending') : t('Guardado', 'Saved')}</strong>
+              </li>
+            })}
+          </ul>
+          {replied && pendingItems.length === 0 && <button type="button" onClick={nextRental ? () => chooseListing(nextRental) : onDossier}>
+            {nextRental ? t('Ver siguiente arriendo pendiente', 'Open next rental to review') : t('Volver al expediente', 'Return to dossier')}
+          </button>}
+        </div>}
         {!replied ? <div className="rental-analysis-empty">
           <p role="status">{chat
             ? t('Mensaje enviado. Los gráficos estarán disponibles cuando responda el anfitrión.', 'Message sent. Charts will be available when the host replies.')
             : t('Aún no has solicitado información de esta propiedad. Envía un mensaje al anfitrión para recibir sus datos y desbloquear los gráficos.', 'You haven’t requested information for this property yet. Message the host to get the data and unlock the charts.')}</p>
           {!chat && <button type="button" onClick={() => chatHeading.current?.focus()}>{t('Ir al chat', 'Go to chat')}</button>}
         </div> : <>
-          <div className="rental-signals" aria-label={t('Variables climáticas', 'Climate variables')}>
+          <div className="rental-signals" role="group" ref={chartControls} tabIndex={-1} aria-label={t('Variables climáticas', 'Climate variables')}>
             {requirements.map(({ indicator_id }) => <button key={indicator_id} aria-pressed={viewing === indicator_id}
               onClick={() => { setViewing(indicator_id); request(selected, indicator_id) }}>
               {translate(language, signalLabels[indicator_id])}
@@ -307,12 +369,13 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
             source={visualized.source ?? undefined} calculatorTrigger={calculatorTrigger}
             savedPractice={progress.rentalPractice?.[selected.id]?.[viewing]}
             onPracticeChange={practice => savePractice(selected.id, viewing, practice)}
-            onReview={() => recordReview(selected.id, viewing)} reviewed={progress.rentalAnalyses?.[selected.id]?.includes(viewing)} /> :
+            onReview={evidence => recordReview(selected.id, viewing, evidence)} review={progress.rentalEvidence?.[selected.id]?.[viewing]}
+            reviewSaved={rentalReviewSaved(progress, selected.id, viewing)} /> :
             <p className="rental-analysis-empty" role="status">{t('El anfitrión no tiene una serie comparable para este indicador. Elige otra variable.', 'The host has no comparable series for this indicator. Choose another variable.')}</p>}
         </>}
       </> : <div className="rental-analysis-empty">
-        <p>{t('Selecciona un arriendo y pídele información al anfitrión para ver sus gráficos.', 'Select a rental and ask its host for information to see its charts.')}</p>
-        <p>{t('Bramble Cay, comienzos de', 'Bramble Cay, early')} {caseYear}</p>
+        <p>{t('Abre una tarjeta y envía un mensaje al anfitrión. Aquí verás los registros pendientes de ese lugar.', 'Open a card and message its host. The records you still need for that rental will appear here.')}</p>
+        {pendingOverview}
       </div>}
     </section>
     {openReport && <dialog ref={reportDialog} className="office-panel rental-report-popup" aria-labelledby="rental-report-title"
@@ -324,13 +387,16 @@ export function HabitatApp({ app, language, role, progress, onChange, onHostRepl
       <div className="rental-report-body">
         {openReport === 'license'
           ? <PassportContent language={language} role={role} />
-          : selected && <>
-            <TerrainEvidence language={language} id={selected.id} />
-            <button type="button" disabled={progress.rentalAnalyses?.[selected.id]?.includes('terrain')} onClick={() => { recordReview(selected.id, 'terrain'); closeReport() }}>
-              {progress.rentalAnalyses?.[selected.id]?.includes('terrain') ? t('Ficha revisada', 'Report reviewed') : t('Registrar revisión de ficha', 'Record report review')}
-            </button>
-          </>}
+          : selected && <TerrainEvidence language={language} id={selected.id} />}
       </div>
+      {openReport === 'terrain' && selected && <footer className="rental-report-actions">
+        <p>{pendingItems.includes('terrain')
+          ? t('Esta ficha cuenta como un registro del expediente.', 'This report counts as one dossier record.')
+          : t('Ficha revisada y guardada.', 'Report reviewed and saved.')}</p>
+        {pendingItems.includes('terrain') && <button className="primary" type="button" onClick={() => { recordReview(selected.id, 'terrain'); closeReport() }}>
+          {t('Marcar ficha como revisada', 'Mark report as reviewed')}
+        </button>}
+      </footer>}
     </dialog>}
   </div>
 }

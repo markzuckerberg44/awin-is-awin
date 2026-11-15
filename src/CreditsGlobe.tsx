@@ -57,6 +57,7 @@ export function CreditsGlobe({ language, active }: { language: Language; active:
   const angle = useRef(creditsSpecies[0].longitude - (reduced ? 0 : 30))
   const paint = useRef<((longitude: number) => void) | null>(null)
   const species = creditsSpecies[selected]
+  const name = translate(language, species.name)
 
   useEffect(() => {
     const media = matchMedia(motionPreference)
@@ -163,10 +164,18 @@ export function CreditsGlobe({ language, active }: { language: Language; active:
     </figure>
     <div className="earth-reading">
       <div className="earth-species">
-        <p className="earth-region">{translate(language, species.region)}</p>
-        <h3>{translate(language, species.name)}</h3>
-        <p className="earth-scientific"><i>{species.scientificName}</i></p>
-        <p className="earth-status"><span aria-hidden="true" />{status} · {species.authority}</p>
+        <div className="earth-species-heading">
+          <div className="earth-portrait">
+            <img key={species.id} src={asset(`art/credits-species/${species.id}.png`)}
+              alt={t(`Ilustración de ${name}`, `Illustration of ${name}`)} />
+          </div>
+          <div className="earth-species-label">
+            <p className="earth-region">{translate(language, species.region)}</p>
+            <h3>{name}</h3>
+            <p className="earth-scientific"><i>{species.scientificName}</i></p>
+            <p className="earth-status"><span aria-hidden="true" />{status} · {species.authority}</p>
+          </div>
+        </div>
         <p className="earth-links" onFocus={() => setPlaying(false)}>
           <a href={species.record} target="_blank" rel="noreferrer">{t('Ficha y presencia', 'Status and range')}</a>
           <a href={species.context.url} target="_blank" rel="noreferrer">{translate(language, species.context.label)}</a>

@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import type { FootstepSurface } from './audio'
-import { areaFor, asset, isPierStage, type CabinRoom, type Labels, type Role, type Save, type Stage } from './config'
+import { areaFor, asset, isOfficeStage, isPierStage, type CabinRoom, type Labels, type Role, type Save, type Stage } from './config'
 import { floodGoal, floodSeconds, floodSpots, packTasks, scoopsPerSpot, type PackTask } from './missions'
 
 type Point = { x: number; y: number }
@@ -50,7 +50,7 @@ const actions: Record<WorldAction, Labels> = {
   enterOffice: ['Entrar a la oficina', 'Enter the office'],
   exitOffice: ['Volver a la cabaña', 'Return to the cabin'],
   sitOffice: ['Sentarse en la silla', 'Sit in the chair'],
-  dossier: ['Revisar el expediente', 'Review the dossier'],
+  dossier: ['Abrir el expediente de traslado', 'Open the relocation dossier'],
   enterCellar: ['Bajar al sótano', 'Go down to the cellar'],
   exitCellar: ['Subir a la cabaña', 'Go upstairs'],
   enterBedroom: ['Entrar al dormitorio', 'Enter the bedroom'],
@@ -133,6 +133,7 @@ export class BrambleScene extends Phaser.Scene {
   private lastMovement = -Infinity
   private manual: Input = { x: 0, y: 0 }
   paused = false
+  markDossier = false
 
   constructor(
     role: Role,
@@ -240,7 +241,7 @@ export class BrambleScene extends Phaser.Scene {
     this.keys = this.input.keyboard!.addKeys({
       up: 'UP', down: 'DOWN', left: 'LEFT', right: 'RIGHT',
       w: 'W', s: 'S', a: 'A', d: 'D', act: 'E',
-    }) as typeof this.keys
+    }, false) as typeof this.keys
     this.input.on('pointerdown', this.onPointer, this)
     this.events.once('shutdown', () => {
       this.running = false
@@ -500,6 +501,11 @@ export class BrambleScene extends Phaser.Scene {
     this.prop('office-desk', 168, 93, 146)
     this.prop('office-chair', 187, 148, 169)
     this.prop('office-shelf', 275, 72, 135)
+    this.add.graphics().setDepth(136)
+      .fillStyle(0x382629).fillRect(287, 118, 13, 8)
+      .fillStyle(0xeeaf5a).fillRect(288, 119, 11, 6).fillRect(288, 117, 5, 2)
+      .fillStyle(0xffedba).fillRect(289, 120, 8, 2)
+      .fillStyle(0xaf6140).fillRect(289, 123, 9, 2)
     this.prop('office-plant', 89, 169, 231)
     this.prop('office-cabinet', 288, 177, 231)
   }
@@ -609,7 +615,7 @@ export class BrambleScene extends Phaser.Scene {
 
   private objectiveAction(): WorldAction {
     const { area, stage, cabinVisit } = this
-    if (area === 'office') return stage === 'officeGoal' ? 'sitOffice' : 'exitOffice'
+    if (area === 'office') return this.markDossier ? 'dossier' : 'sitOffice'
     if (area === 'cellar') return stage === 'adaWater' ? 'fillJug' : 'exitCellar'
     if (area === 'bedroom') return stage === 'bedtime' || stage === 'wake' ? stage : 'exitBedroom'
     if (area === 'pier') return stage === 'evacPier' ? 'boardBoat' : stage === 'afterPier' ? 'returnToShore' : stage === 'pierCoast' || stage === 'complete' ? stage : 'pierSign'
@@ -618,7 +624,7 @@ export class BrambleScene extends Phaser.Scene {
       if (stage === 'dreamFlood') return 'dreamFlood'
       if (stage === 'adaWater') return 'enterCellar'
       if (stage === 'bedtime' || stage === 'wake') return 'enterBedroom'
-      if (stage === 'officeGoal' || stage === 'evacuation') return 'enterOffice'
+      if (isOfficeStage(stage)) return 'enterOffice'
       return stage === 'hat' || stage === 'greeting' || stage === 'seat' || stage === 'radio' || stage === 'leave' ? stage : 'exitCabin'
     }
     if (stage === 'depart') return 'reachEvacPier'
@@ -632,7 +638,7 @@ export class BrambleScene extends Phaser.Scene {
       case 'inside':
         if (this.stage === 'packing') return this.remainingBags()
         if (this.stage === 'dreamFlood' || this.stage === 'leave' || this.stage === 'depart' || this.stage === 'evacuation') return []
-        return ['exitCabin', 'enterOffice']
+        return ['exitCabin']
       case 'yard': return this.stage === 'yard' || this.stage === 'depart' ? [] : ['enterCabin']
       case 'cellar': return ['exitCellar']
       case 'bedroom': return ['exitBedroom']
@@ -802,12 +808,15 @@ export class BrambleScene extends Phaser.Scene {
       this.onProximity(nearby === 'exitBedroom' && this.stage === 'dreamExit' ? ['Ir a la cocina', 'Go to the kitchen'] : nearby ? actions[nearby] : null)
     }
     this.marker.clear()
-    const target = this.target(nearby ?? primary)
+    const showDossierMarker = this.area === 'office' && this.markDossier
+    const officeMission = this.area === 'office' && isOfficeStage(this.stage)
+    const target = this.target(officeMission ? primary : nearby ?? primary)
     if (target && !this.paused && !this.locked) {
       const bob = this.reducedMotion ? 0 : Math.round(Math.sin(time / 230) * 2)
-      const y = target.y + bob
-      this.marker.fillStyle(0x30242a, .8).fillTriangle(target.x-5,y-11,target.x+5,y-11,target.x,y-4)
-      this.marker.fillStyle(0xffe7a9).fillTriangle(target.x-3,y-11,target.x+3,y-11,target.x,y-6)
+      const x = target.x + (showDossierMarker ? 3 : 0)
+      const y = target.y + bob - (showDossierMarker ? 22 : 0)
+      this.marker.fillStyle(0x30242a, .8).fillTriangle(x-5,y-11,x+5,y-11,x,y-4)
+      this.marker.fillStyle(0xffe7a9).fillTriangle(x-3,y-11,x+3,y-11,x,y-6)
     }
     if (Phaser.Input.Keyboard.JustDown(this.keys.act)) this.interact()
   }

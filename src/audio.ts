@@ -175,9 +175,10 @@ export class GameAudio {
     this.tone(1070, 535, .21, .19, 'triangle', .66)
   }
 
-  missionSound(cue: 'latch' | 'pump' | 'pour' | 'jug' | 'sleep' | 'scoop' | 'row' | 'flood' | 'wake' | 'fail') {
+  missionSound(cue: 'latch' | 'pump' | 'pour' | 'jug' | 'sleep' | 'scoop' | 'row' | 'flood' | 'wake' | 'fail' | 'stamp') {
     switch (cue) {
       case 'latch': this.tone(164, 73, .12, .13, 'triangle'); this.noise(520, .15, .16); break
+      case 'stamp': this.tone(146, 68, .095, .22, 'triangle'); this.noise(730, .11, .13); break
       case 'pump': this.noise(1500, .24, .27); break
       case 'pour': this.noise(2350, .42, .36); this.tone(190, 320, .16, .07, 'sine'); break
       case 'jug': this.tone(357, 541, .24, .12, 'triangle'); break

@@ -1,13 +1,13 @@
-import series from './data/bramble-series.json'
-
 export type Observation = { year: number; value: number }
-type Series = {
+export type Series = {
   id: string
   site: string
-  variable: 'seaLevel'
+  siteEs?: string
+  variable: string
   unit: string
   product: string
   source: string
+  archiveSource?: string
   observations: Observation[]
 }
 export type Stamp = 'up' | 'down' | 'unproven'
@@ -26,24 +26,54 @@ export type ChartPractice = {
   to: number
   answers: Partial<Record<string, ChartAnswers>>
 }
+export type Query = Pick<Evidence, 'series' | 'from' | 'to' | 'count'> & { trend?: Evidence }
+export type ChartReview = Pick<Evidence, 'from' | 'to'> & { trend?: Evidence }
+export type SiteReading = 'high' | 'outside' | 'unknown'
+export type Relocation = {
+  origin?: string
+  listing?: string
+  indicator?: string
+  siteReading?: SiteReading
+  stamp?: Stamp
+  habitatPending?: boolean
+  rationale?: string
+  signed?: ChartReview
+}
 export type Investigation = {
-  evidence: Evidence[]
+  evidence: Query[]
   notes: string
   habitatRequests?: Record<string, string[]>
   habitatChats?: Partial<Record<string, { prompt: 'property' | 'compare' | 'site'; sentAt: number }>>
   rentalAnalyses?: Partial<Record<string, string[]>>
   rentalPractice?: Partial<Record<string, Partial<Record<string, ChartPractice>>>>
-  terrainChoice?: string
-  terrainRationale?: string
-  stamp?: Stamp
-  destination?: string
-  rationale?: string
-  signed?: boolean
+  rentalEvidence?: Partial<Record<string, Partial<Record<string, ChartReview>>>>
+  relocation?: Relocation
 }
 
-export const catalogue: Series[] = series
 export const emptyInvestigation: Investigation = { evidence: [], notes: '' }
 export const queryBudget = 4
+export const queryId = (query: Query) => `${query.series}/${query.from}/${query.to}`
+export const chartObservationDecimals = 4
+
+export function chartQuestions(first: Observation | undefined, last: Observation | undefined, unit: string) {
+  if (!first || !last || last.year <= first.year) return undefined
+  const annualChange = (last.value - first.value) / (last.year - first.year)
+  const clamp = (value: number) => unit === '0–1' ? Math.min(1, Math.max(0, value))
+    : unit === 'mm/year' ? Math.max(0, value) : value
+  const project = (year: number) => clamp(last.value + annualChange * (year - last.year))
+  return {
+    reading: Math.sign(Number(last.value.toFixed(chartObservationDecimals)) - Number(first.value.toFixed(chartObservationDecimals))),
+    prediction: project(last.year + 1),
+    annualChange, clamp, project,
+  }
+}
+
+export function gradeChartQuestions(questions: ReturnType<typeof chartQuestions>, answers?: ChartAnswers) {
+  return {
+    readingCorrect: Boolean(questions && questions.reading === answers?.reading),
+    predictionCorrect: Boolean(questions && questions.prediction === answers?.prediction),
+  }
+}
 
 function senSlope(points: Observation[]) {
   const slopes = points.flatMap((a, i) => points.slice(i + 1).map(b => (b.value - a.value) / (b.year - a.year)))

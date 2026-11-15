@@ -463,19 +463,72 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
 .office-budget strong { float: right; }
 .office-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem .75rem; }
 .office-status { border-left: 3px solid #e6aa64; padding-left: .6rem; }
-.office-chart, .office-sheet {
+.office-sheet {
   padding: .65rem;
   background: #fff0cd;
   border: 2px solid #be966e;
 }
-.office-chart { width: 100%; font-size: 9px; }
-.office-chart text { fill: currentColor; }
 .office-sheet { display: grid; gap: .3rem; }
 .office-sheet a { color: #2b534b; }
 .office-stamps { display: flex; flex-wrap: wrap; gap: .55rem; }
 .office-stamps button[aria-pressed="true"] { --face: #b75d45; color: #fff0cd; }
 .office-content .office-check { display: flex; align-items: center; gap: .45rem; }
 .office-check input { width: auto; accent-color: #2b534b; }
+
+.office-dossier { width: min(47rem, calc(100% - 1rem)); }
+.office-dossier .office-content { background: #fff0cd; }
+.dossier, .dossier-steps > li, .dossier-evidence { display: grid; gap: .75rem; }
+.dossier-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .4rem 1rem;
+  padding-bottom: .7rem;
+  border-bottom: 2px solid #be966e;
+}
+.dossier-state { color: #654535; font-weight: 700; }
+.dossier-state[data-signed="true"] { color: #2b534b; }
+.dossier-guide {
+  display: grid;
+  gap: .55rem;
+  padding: .8rem;
+  background: #e7e7c7;
+  color: #233d31;
+  border: 1px solid #6b835e;
+}
+.dossier-steps { display: grid; gap: 1.1rem; margin: 0; padding-left: 1.6rem; }
+.dossier-steps > li { display: list-item; padding: 0 0 .9rem .2rem; border-bottom: 1px solid #be966e; }
+.dossier-steps > li > * + * { margin-top: .65rem; }
+.dossier-steps > li:last-child { border-bottom: 0; padding-bottom: 0; }
+.dossier-steps > li::marker { color: #654535; font-weight: 700; }
+.dossier-destinations { display: grid; gap: .35rem; min-inline-size: 0; margin-inline: 0; padding: .55rem; border: 1px solid #be966e; }
+.dossier-destinations legend { padding-inline: .3rem; font-weight: 700; }
+.dossier .dossier-destinations .office-check { min-height: 2.75rem; align-items: center; padding: .45rem; border: 1px solid #be966e; }
+.dossier .dossier-destinations input { margin: 0; color-scheme: light; }
+.dossier-destinations .office-check:has(:checked) { background: #e7e7c7; border-color: #6b835e; color: #233d31; }
+.dossier-destinations:not(:disabled) .office-check { cursor: pointer; }
+.dossier-destinations .office-check:has(:focus-visible) { outline: 2px solid #2b534b; }
+.dossier-evidence { padding: .75rem; background: #f5e1b8; border: 1px solid #be966e; }
+.dossier-evidence fieldset { min-inline-size: 0; margin: 0; border: 1px solid #be966e; }
+.dossier-evidence fieldset p { margin-top: .55rem; }
+.dossier-stamp-instructions { margin-bottom: .7rem; }
+.dossier-stamp-instructions ul { display: grid; gap: .28rem; margin: .5rem 0 0; padding-left: 1.2rem; }
+.dossier-site-choices { display: flex; flex-wrap: wrap; gap: .5rem; }
+.dossier-site-choices button { white-space: normal; text-align: left; }
+.dossier-site-choices button[aria-pressed="true"] { --face: #dbc082; outline: 2px solid #654535; outline-offset: 1px; }
+.dossier a { color: #2b534b; }
+.dossier :is(button, select) { min-height: 2.75rem; }
+.dossier textarea { min-height: 4rem; }
+.dossier .office-check { align-items: start; }
+.dossier .office-check input { flex: none; width: 1.1rem; height: 1.1rem; margin: .2rem 0 0; }
+.dossier .office-stamps button[aria-pressed="true"] { --face: #864838; }
+.dossier .office-stamps:has(+ .answer-correct) button[aria-pressed="true"] { --face: #38614b; }
+.terminal-dossier { display: grid; gap: .5rem; padding: .65rem clamp(.75rem, 3vw, 2rem) .65rem; }
+.terminal-attachment { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .75rem; }
+.terminal-attachment button { min-height: 2.75rem; }
+.viewer-record { color: #2b534b; }
+.data-viewer a { color: #2b534b; }
 
 .desk-actions {
   position: absolute;
@@ -486,6 +539,7 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
   gap: .55rem;
 }
 .desk-actions button { padding: .45rem .65rem; }
+.desk-actions button[data-task="true"] { --face: #f1c76e; outline: 2px solid #fff0cd; outline-offset: 2px; }
 
 .office-panel.office-computer:modal {
   box-sizing: border-box;
@@ -547,22 +601,6 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
   color-scheme: dark;
 }
 .computer-results { min-width: 0; display: grid; gap: .65rem; }
-.office-computer :is(.office-chart, .office-sheet, .computer-empty) {
-  border: 1px solid #6e8c6a;
-  background-color: #132d24;
-  color: #dbf1c3;
-}
-.office-computer .office-sheet a { color: #dbf1c3; }
-.computer-empty {
-  display: grid;
-  place-items: center;
-  min-height: clamp(8rem, 37vh, 23rem);
-  padding: 1rem;
-  text-align: center;
-  background-image: linear-gradient(#88a4771e 1px, transparent 1px), linear-gradient(90deg, #88a4771e 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-.computer-empty p { background: #132d24; padding: .35rem .55rem; }
 .computer-bezel {
   display: flex;
   justify-content: space-between;
@@ -759,6 +797,7 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
   color: #30242a;
 }
 .data-viewer > .back, .viewer-open { justify-self: start; }
+.viewer-actions { display: flex; flex-wrap: wrap; gap: .45rem .65rem; align-items: center; }
 .viewer-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: .55rem; }
 .viewer-filters > div { display: grid; gap: .32rem; }
 .viewer-legend { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; list-style: none; padding: 0; margin: 0; }
@@ -909,6 +948,19 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
 }
 .rental-selection { font-size: .95rem; }
 .rental-analysis-empty button { justify-self: start; min-height: 2.4rem; }
+.rental-checklist { display: grid; gap: .4rem; padding: .65rem; border: 1px solid #aa8b56; background: #fff1ce; }
+.rental-checklist ul { margin: 0; padding: 0; list-style: none; }
+.rental-checklist li { display: flex; align-items: center; justify-content: space-between; gap: .4rem .7rem; min-height: 2.25rem; }
+.rental-checklist li + li { border-top: 1px solid #ddc79d; }
+.rental-checklist li strong { color: #6c4d27; font-size: .85rem; }
+.rental-checklist li strong[data-recorded="true"] { color: #285137; }
+.rental-checklist button.rental-review-link {
+  border-color: transparent; box-shadow: none; background: transparent; min-height: 2.5rem;
+  padding: .25rem 0; color: #244633; text-align: start; text-decoration: underline; text-underline-offset: .18em;
+}
+.rental-checklist button.rental-review-link:hover { background: #f3e2b9; }
+.rental-pending-overview { display: grid; gap: .35rem; margin: .35rem 0 0; padding-left: 1.15rem; }
+.rental-all-pending summary { cursor: pointer; color: #4b3827; font-weight: 700; }
 .rental-signals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; }
 .rental-signals button { min-width: 0; padding-inline: .3rem; font-size: .91rem; }
 .rental-signals button[aria-pressed="true"] {
@@ -1060,7 +1112,7 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
 
 .rental-report-popup:modal {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   width: min(36rem, calc(100% - 1.25rem));
   max-height: min(78dvh, 40rem);
   overflow: hidden;
@@ -1078,6 +1130,8 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
   padding: clamp(.7rem, 2.5vw, 1.15rem);
 }
 .rental-report-popup a { overflow-wrap: anywhere; }
+.rental-report-actions { display: grid; gap: .45rem; padding: .65rem .75rem .85rem; border-top: 2px solid #be966e; background: #f5e1b8; }
+.rental-report-actions button { min-height: 2.75rem; }
 
 .rental-review { color: #554626; font-size: .9rem; }
 .evac-rental-status {
@@ -1087,7 +1141,6 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
   color: #453021;
   line-height: 1.35;
 }
-.rental-report-body > button { justify-self: start; padding: .45rem .7rem; }
 .evac-weather {
   position: absolute;
   inset: 0;
@@ -1347,6 +1400,18 @@ kbd { display: inline-block; font-family: inherit; font-size: .85rem; font-weigh
 .earth-pin[data-front="true"] .earth-pin-name { display: block; }
 .earth-reading { display: grid; gap: .85rem; min-width: 0; }
 .earth-species { min-height: 11rem; display: grid; align-content: start; gap: .3rem; }
+.earth-species-heading { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: .75rem; }
+.earth-species-label { display: grid; gap: .3rem; }
+.earth-portrait {
+  width: clamp(4rem, 12vw, 6rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #253a40;
+  outline: 1px solid #698381;
+  box-shadow: inset 0 0 0 2px #16262d;
+}
+/* Each sprite sheet starts with the forward-facing pose of its eight frames. */
+.earth-portrait img { display: block; width: 800%; max-width: none; height: auto; image-rendering: pixelated; }
 .earth-species h3 { margin: 0; font-size: clamp(1.25rem, 2.9vw, 1.9rem); line-height: 1.05; }
 .earth-region, .earth-scientific { color: #bed0cf; }
 .earth-status { display: flex; gap: .45rem; align-items: center; color: #ffc6ad; }
