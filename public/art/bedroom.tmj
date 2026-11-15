@@ -1,0 +1,174 @@
+{
+  "compressionlevel": -1,
+  "width": 25,
+  "height": 16,
+  "infinite": false,
+  "layers": [
+    {
+      "id": 1,
+      "name": "Collision",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 1,
+          "name": "Wardrobe",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 94,
+          "y": 78,
+          "width": 45,
+          "height": 30
+        },
+        {
+          "id": 2,
+          "name": "Bed",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 224,
+          "y": 101,
+          "width": 50,
+          "height": 52
+        },
+        {
+          "id": 3,
+          "name": "Vanity",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 280,
+          "y": 87,
+          "width": 27,
+          "height": 29
+        },
+        {
+          "id": 4,
+          "name": "Lantern table",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 281,
+          "y": 188,
+          "width": 27,
+          "height": 19
+        },
+        {
+          "id": 5,
+          "name": "Mushrooms",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 92,
+          "y": 193,
+          "width": 24,
+          "height": 11
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "name": "Interactions",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 6,
+          "name": "exitBedroom",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 200,
+          "y": 96,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 7,
+          "name": "bedtime",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 245,
+          "y": 164,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 8,
+          "name": "wake",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 209,
+          "y": 127,
+          "point": true,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "name": "Walkable",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 9,
+          "name": "Floor",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 90,
+          "y": 90,
+          "width": 0,
+          "height": 0,
+          "polygon": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 220,
+              "y": 0
+            },
+            {
+              "x": 220,
+              "y": 119
+            },
+            {
+              "x": 0,
+              "y": 119
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "nextlayerid": 4,
+  "nextobjectid": 10,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "tiledversion": "1.11.2",
+  "tilewidth": 16,
+  "tileheight": 16,
+  "type": "map",
+  "version": "1.10",
+  "tilesets": []
+}

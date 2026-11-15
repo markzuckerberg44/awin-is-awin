@@ -1,0 +1,140 @@
+{
+  "compressionlevel": -1,
+  "width": 25,
+  "height": 16,
+  "infinite": false,
+  "layers": [
+    {
+      "id": 1,
+      "name": "Collision",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 1,
+          "name": "Cistern",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 173,
+          "y": 88,
+          "width": 55,
+          "height": 36
+        },
+        {
+          "id": 2,
+          "name": "Crates",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 99,
+          "y": 105,
+          "width": 48,
+          "height": 23
+        },
+        {
+          "id": 3,
+          "name": "Barrel",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 259,
+          "y": 155,
+          "width": 27,
+          "height": 21
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "name": "Interactions",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 4,
+          "name": "exitCellar",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 200,
+          "y": 227,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 5,
+          "name": "fillJug",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 233,
+          "y": 135,
+          "point": true,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "name": "Walkable",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 6,
+          "name": "Floor",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 90,
+          "y": 88,
+          "width": 0,
+          "height": 0,
+          "polygon": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 220,
+              "y": 0
+            },
+            {
+              "x": 220,
+              "y": 151
+            },
+            {
+              "x": 0,
+              "y": 151
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "draworder": "topdown",
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "nextlayerid": 4,
+  "nextobjectid": 7,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "tiledversion": "1.11.2",
+  "tilewidth": 16,
+  "tileheight": 16,
+  "type": "map",
+  "version": "1.10",
+  "tilesets": []
+}

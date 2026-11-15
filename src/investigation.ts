@@ -20,9 +20,21 @@ export type Evidence = {
   p: number | null
   stamp: Stamp
 }
+export type ChartAnswers = { reading?: number; prediction?: number }
+export type ChartPractice = {
+  from: number
+  to: number
+  answers: Partial<Record<string, ChartAnswers>>
+}
 export type Investigation = {
   evidence: Evidence[]
   notes: string
+  habitatRequests?: Record<string, string[]>
+  habitatChats?: Partial<Record<string, { prompt: 'property' | 'compare' | 'site'; sentAt: number }>>
+  rentalAnalyses?: Partial<Record<string, string[]>>
+  rentalPractice?: Partial<Record<string, Partial<Record<string, ChartPractice>>>>
+  terrainChoice?: string
+  terrainRationale?: string
   stamp?: Stamp
   destination?: string
   rationale?: string

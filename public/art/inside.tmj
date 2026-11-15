@@ -604,6 +604,66 @@
           "width": 0,
           "height": 0,
           "point": true
+        },
+        {
+          "id": 16,
+          "name": "enterCellar",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 137,
+          "y": 186,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 17,
+          "name": "enterBedroom",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 221,
+          "y": 62,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 18,
+          "name": "dreamCounter",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 257,
+          "y": 190,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 19,
+          "name": "dreamDoor",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 197,
+          "y": 222,
+          "point": true,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "id": 20,
+          "name": "dreamStove",
+          "type": "",
+          "visible": true,
+          "rotation": 0,
+          "x": 132,
+          "y": 169,
+          "point": true,
+          "width": 0,
+          "height": 0
         }
       ],
       "visible": true,
@@ -614,7 +674,7 @@
     }
   ],
   "nextlayerid": 4,
-  "nextobjectid": 16,
+  "nextobjectid": 21,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

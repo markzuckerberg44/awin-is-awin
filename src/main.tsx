@@ -1,12 +1,18 @@
-import { useEffect, useRef, useState, type PointerEvent, type RefObject } from 'react'
+import { useEffect, useRef, useState, type PointerEvent, type RefObject, type SetStateAction } from 'react'
 import { createRoot } from 'react-dom/client'
-import { areaFor, asset, defaultSettings, GAME_TITLE, isCabinStage, levels, readLocal, saveKey, settingsKey, translate, writeLocal,
-  type Labels, type Role, type Save, type Settings, type Stage } from './config'
+import { areaFor, asset, chapterSaveKey, defaultSettings, GAME_TITLE, isCabinStage, isPierStage, levels, readLocal, savedChapter, settingsKey, translate, writeLocal,
+  type ChapterId, type Labels, type Role, type Save, type Settings, type Stage } from './config'
 import { GameAudio } from './audio'
 import { CoastView } from './CoastView'
 import { OfficePanel } from './OfficePanel'
 import { emptyInvestigation } from './investigation'
-import { broadcast, dinner, flood, greeting, heat, objectives, type Line } from './story'
+import { bedroomAlarm, broadcast, dinner, evacuationBroadcast, flood, floodAlarm, greeting, heat, objectives, packingBrief, wakingUp, waterDelivery, type Line } from './story'
+import { availableMissions, evacuationStages, floodGoal, floodSeconds, floodSpots, packingSeconds, packTasks, scoopsPerSpot, type PackTask } from './missions'
+import { listings, rentalReview } from './habitat'
+import { rentalReplyDelay } from './DesktopApps'
+import { BoatEscape } from './BoatEscape'
+import { EvacuationResult } from './EvacuationResult'
+import { WaterFill } from './WaterFill'
 import type { Action, OfficeTool } from './world'
 import './style.css'
 
@@ -14,6 +20,8 @@ type Screen = 'title' | 'levels' | 'role' | 'world'
 type World = import('./world').BrambleScene
 type Conversation = { lines: Line[]; index: number; next: Stage; intro?: boolean }
 type Game = ReturnType<typeof import('./world').createWorld>
+const newDream = { scoops: 0, seconds: floodSeconds }
+const newPacking = { bags: [] as PackTask[], seconds: packingSeconds }
 
 function DialogueBox({ name, portrait, text, radio, paused, language, audio, onNext }: {
   name: string
@@ -59,10 +67,17 @@ function DialogueBox({ name, portrait, text, radio, paused, language, audio, onN
 function App() {
   const [screen, setScreen] = useState<Screen>('title')
   const [settings, setSettings] = useState(() => readLocal<Settings>(settingsKey, defaultSettings))
-  const [save, setSave] = useState(() => readLocal<Save | null>(saveKey, null))
+  const [chapterId, setChapterId] = useState<ChapterId>(levels[0].id)
+  const [saves, setSaves] = useState<Partial<Record<ChapterId, Save | null>>>(() =>
+    Object.fromEntries(levels.map(chapter => [chapter.id, savedChapter(chapter.id)])))
+  const [restartSelection, setRestartSelection] = useState<Stage>()
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [levelRun, setLevelRun] = useState(0)
-  const [ending, setEnding] = useState(false)
+  const [filling, setFilling] = useState(false)
+  const [transition, setTransition] = useState<'sleep' | 'wake' | null>(null)
+  const [dream, setDream] = useState(newDream)
+  const [packing, setPacking] = useState(newPacking)
+  const lastScoop = useRef(-Infinity)
   const [coastView, setCoastView] = useState<'sign' | 'coast' | null>(null)
   const [officeTool, setOfficeTool] = useState<OfficeTool>()
   const [officeSeated, setOfficeSeated] = useState(false)
@@ -73,11 +88,17 @@ function App() {
   const mount = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
   const options = useRef<HTMLDialogElement>(null)
-  const endingButton = useRef<HTMLButtonElement>(null)
+  const dreamRetry = useRef<HTMLButtonElement>(null)
   const world = useRef<World | null>(null)
   const audio = useRef<GameAudio | null>(null)
   const language = settings.language
   const t = (es: string, en: string) => translate(language, [es, en])
+  const save = saves[chapterId] ?? null
+  const restartChapter = save ? chapterId : levels.find(chapter => saves[chapter.id])?.id
+  const restartSave = restartChapter ? saves[restartChapter] : null
+  const restartOptions = restartSave ? availableMissions(restartSave.stage, restartSave.unlockedThrough) : undefined
+  const restartMissionChoice = restartOptions?.missions.find(mission => mission.stages[0] === restartSelection)
+    ?? restartOptions?.missions.find(mission => mission.stages[0] === restartOptions.current)
   const openingRadio = dialogue?.intro === true
   const active = dialogue && !openingRadio ? dialogue.lines[dialogue.index] : null
   const soundOn = settings.sound && settings.volume > 0
@@ -86,8 +107,25 @@ function App() {
   const atShore = save?.atShore === true
   const cabinVisit = save?.cabinVisit
   const inOffice = save?.inOffice === true
-  const area = stage && areaFor(stage, atShore, cabinVisit, inOffice)
-  const inside = area === 'inside' || area === 'office'
+  const room = save?.room
+  const area = stage && areaFor(stage, atShore, cabinVisit, inOffice, room)
+  const inside = area === 'inside' || area === 'office' || area === 'cellar' || area === 'bedroom'
+  const flooding = stage === 'dreamFlood'
+  const storm = stage !== undefined && evacuationStages.includes(stage)
+  const ambience = stage === 'credits' ? 'credits' : storm ? 'storm' : undefined
+  const packingFailed = stage === 'packing' && packing.seconds === 0
+  const playingPacking = screen === 'world' && stage === 'packing' && !dialogue && !settingsOpen && !packingFailed
+  const voyage = stage === 'rowing' || stage === 'escaped' || stage === 'credits'
+  const review = rentalReview(save?.investigation)
+  const dreamFailed = flooding && dream.seconds === 0 && dream.scoops < floodGoal
+  const playingDream = screen === 'world' && flooding && !dreamFailed && !dialogue && !settingsOpen && !transition
+  const blocked = Boolean(dialogue || settingsOpen || coastView || officeTool || filling || transition || dreamFailed || packingFailed || voyage)
+  const blockedRef = useRef(blocked)
+  blockedRef.current = blocked
+
+  function setSave(next: SetStateAction<Save | null>) {
+    setSaves(previous => ({ ...previous, [chapterId]: typeof next === 'function' ? next(previous[chapterId] ?? null) : next }))
+  }
 
   function advance(next: Stage) {
     setSave(previous => previous && { ...previous, stage: next })
@@ -107,6 +145,32 @@ function App() {
     setOfficeTool(tool)
   }
 
+  function startFlood() {
+    setDream(newDream)
+    lastScoop.current = -Infinity
+    audio.current?.missionSound('flood')
+    setSave(previous => previous && {
+      ...previous, stage: 'dreamFlood', atShore: false, room: undefined, cabinVisit: undefined,
+    })
+    startConversation(floodAlarm, 'dreamFlood')
+  }
+
+  function requestRental(id: string) {
+    const sentAt = Date.now()
+    setSave(previous => previous?.stage === 'evacuation' && !previous.rental
+      && listings.some(listing => listing.id === id) && previous.investigation?.habitatChats?.[id]
+      ? { ...previous, rental: { id, sentAt } } : previous)
+  }
+
+  function startPacking() {
+    if (stage !== 'evacuation' || !save?.rental || Date.now() < save.rental.sentAt + rentalReplyDelay) return
+    setPacking(newPacking)
+    setOfficeTool(undefined)
+    sitAtDesk(false)
+    setSave(previous => previous && { ...previous, stage: 'packing', cabinVisit: 'inside', inOffice: false, room: undefined })
+    startConversation(packingBrief, 'packing')
+  }
+
   function act(current: Action) {
     switch (current) {
       case 'yard': advance('hat'); break
@@ -116,12 +180,25 @@ function App() {
       case 'exitCabin':
         setSave(previous => previous && { ...previous, cabinVisit: isCabinStage(previous.stage) ? 'outside' : undefined })
         break
+      case 'enterCellar':
+      case 'enterBedroom':
+      case 'exitCellar':
+      case 'exitBedroom':
+        audio.current?.missionSound('latch')
+        if (current === 'exitBedroom' && stage === 'dreamExit') { startFlood(); break }
+        setSave(previous => previous && { ...previous, room: current === 'enterCellar' ? 'cellar' : current === 'enterBedroom' ? 'bedroom' : undefined })
+        break
+      case 'fillJug': setFilling(true); break
       case 'enterOffice':
       case 'exitOffice':
         setSave(previous => previous && { ...previous, inOffice: current === 'enterOffice' || undefined })
         break
       case 'sitOffice':
         sitAtDesk(true)
+        if (stage === 'officeGoal') setSave(previous => previous && { ...previous, stage: 'complete', nightmareSeen: true, atShore: true, cabinVisit: 'inside' })
+        break
+      case 'standOffice':
+        sitAtDesk(false)
         break
       case 'dossier':
         setOfficeTool(current)
@@ -131,7 +208,12 @@ function App() {
       case 'seat': startConversation(dinner, 'radio'); break
       case 'radio': setDialogue({ lines: broadcast, index: 0, next: 'leave', intro: true }); break
       case 'leave': advance('heat'); break
-      case 'heat': startConversation(heat, 'flood'); break
+      case 'heat': startConversation(heat, 'adaWater'); break
+      case 'adaReturn':
+        world.current?.giveJug()
+        audio.current?.missionSound('jug')
+        startConversation(waterDelivery, 'flood')
+        break
       case 'flood': startConversation(flood, 'pier'); break
       case 'pier':
         setSave(previous => previous && {
@@ -141,11 +223,40 @@ function App() {
         })
         break
       case 'returnToShore':
-        setSave(previous => previous && { ...previous, atShore: true })
+        setSave(previous => previous && (previous.stage === 'afterPier'
+          ? { ...previous, stage: 'bedtime', atShore: true, cabinVisit: 'outside' }
+          : { ...previous, atShore: true }))
         break
       case 'pierSign': setCoastView('sign'); break
       case 'pierCoast':
       case 'complete': setCoastView('coast'); break
+      case 'packLuz': case 'packNico': case 'packPartner': case 'packSelf': {
+        if (!playingPacking || packing.bags.includes(current) || current === 'packSelf' && packing.bags.length < packTasks.length - 1) break
+        const bags = [...packing.bags, current]
+        setPacking({ ...packing, bags })
+        audio.current?.missionSound('latch')
+        if (bags.length === packTasks.length) advance('depart')
+        break
+      }
+      case 'reachEvacPier':
+        setSave(previous => previous && { ...previous, stage: 'evacPier', cabinVisit: undefined, room: undefined, atShore: false })
+        break
+      case 'boardBoat': advance('rowing'); break
+      case 'bedtime':
+        world.current?.lieDown()
+        audio.current?.missionSound('sleep')
+        setTransition('sleep')
+        break
+      case 'dreamFlood': {
+        if (!playingDream || performance.now() - lastScoop.current < 420) break
+        lastScoop.current = performance.now()
+        audio.current?.missionSound('scoop')
+        const scoops = dream.scoops + 1
+        setDream({ ...dream, scoops })
+        if (scoops === floodGoal) setTransition('wake')
+        break
+      }
+      case 'wake': startConversation(wakingUp, 'officeGoal'); break
     }
   }
 
@@ -160,7 +271,9 @@ function App() {
     setNearby(null)
     void import('./world').then(({ BrambleScene, createWorld }) => {
       if (closed || !mount.current) return
-      const scene = new BrambleScene(role, stage, atShore, cabinVisit, current => actRef.current(current), setNearby, inOffice)
+      const scene = new BrambleScene(role, stage, atShore, cabinVisit, current => actRef.current(current), setNearby,
+        surface => audio.current?.footstep(surface), inOffice, room)
+      scene.paused = blockedRef.current
       world.current = scene
       game = createWorld(mount.current, scene)
     }).catch(() => { if (!closed) setLoadFailed(true) })
@@ -173,11 +286,63 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screen, role, levelRun])
 
-  useEffect(() => { if (stage) world.current?.setStage(stage, atShore, cabinVisit, inOffice) }, [stage, atShore, cabinVisit, inOffice])
+  useEffect(() => { if (stage) world.current?.setStage(stage, atShore, cabinVisit, inOffice, room) }, [stage, atShore, cabinVisit, inOffice, room])
   useEffect(() => {
-    if (world.current) world.current.paused = Boolean(dialogue || settingsOpen || ending || coastView || officeTool)
-  }, [dialogue, settingsOpen, ending, coastView, officeTool])
-  useEffect(() => { if (save) writeLocal(saveKey, save) }, [save])
+    if (world.current) world.current.paused = blocked
+  }, [blocked])
+  useEffect(() => {
+    if (!playingDream) return
+    const clock = window.setInterval(() => {
+      if (document.visibilityState !== 'hidden') setDream(previous => ({ ...previous, seconds: Math.max(0, previous.seconds - 1) }))
+    }, 1000)
+    return () => window.clearInterval(clock)
+  }, [playingDream])
+  useEffect(() => { world.current?.setDreamProgress(dream.scoops, dream.seconds) }, [dream])
+  useEffect(() => { world.current?.setPacked(packing.bags) }, [packing.bags])
+  useEffect(() => {
+    if (!playingPacking) return
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setPacking(current => ({ ...current, seconds: Math.max(0, current.seconds - 1) }))
+    }, 1000)
+    return () => window.clearInterval(timer)
+  }, [playingPacking])
+  useEffect(() => {
+    if (packingFailed) audio.current?.missionSound('fail')
+  }, [packingFailed])
+  useEffect(() => {
+    if (screen !== 'world' || stage !== 'complete' || settingsOpen || review.done !== review.total) return
+    setCoastView(null)
+    setOfficeTool(undefined)
+    setOfficeSeated(false)
+    setSave(previous => previous && { ...previous, stage: 'evacuation', inOffice: false, cabinVisit: 'inside', room: undefined })
+    setDialogue({ lines: evacuationBroadcast, index: 0, next: 'evacuation', intro: true })
+  }, [screen, stage, settingsOpen, review.done, review.total])
+  useEffect(() => {
+    if (!dreamFailed) return
+    audio.current?.missionSound('fail')
+    dreamRetry.current?.focus()
+  }, [dreamFailed])
+  useEffect(() => {
+    if (!transition) return
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
+    const length = transition === 'sleep' ? (reduced ? 1900 : 2700) : (reduced ? 600 : 1600)
+    const cut = window.setTimeout(() => {
+      setSave(previous => previous && { ...previous, stage: transition === 'sleep' ? 'dreamExit' : 'wake', room: 'bedroom', cabinVisit: undefined })
+      if (transition === 'wake') audio.current?.missionSound('wake')
+    }, length * .46)
+    const finish = window.setTimeout(() => {
+      setTransition(null)
+      if (transition === 'wake') startConversation(wakingUp, 'officeGoal')
+      else {
+        audio.current?.childrenCry()
+        startConversation(bedroomAlarm, 'dreamExit')
+      }
+    }, length)
+    return () => { window.clearTimeout(cut); window.clearTimeout(finish) }
+  }, [transition])
+  useEffect(() => {
+    for (const chapter of levels) writeLocal(chapterSaveKey(chapter.id), saves[chapter.id] ?? null)
+  }, [saves])
   useEffect(() => {
     writeLocal(settingsKey, settings)
     document.documentElement.lang = language
@@ -188,12 +353,17 @@ function App() {
     audio.current = new GameAudio()
     return () => audio.current?.configure({ ...defaultSettings, sound: false }, false)
   }, [])
+  useEffect(() => {
+    if (playingDream && soundOn) return audio.current?.playFloodMusic()
+  }, [playingDream, soundOn])
+  useEffect(() => {
+    if (screen === 'world' && ambience) return audio.current?.playAmbience(ambience)
+  }, [screen, ambience])
   useEffect(() => { heading.current?.focus() }, [screen])
   useEffect(() => {
     if (settingsOpen) options.current?.showModal()
     else options.current?.close()
   }, [settingsOpen])
-  useEffect(() => { if (ending) endingButton.current?.focus() }, [ending])
   useEffect(() => {
     if (officeSeated && !officeTool && !settingsOpen) deskControl.current?.focus()
   }, [officeSeated, officeTool, settingsOpen])
@@ -226,10 +396,7 @@ function App() {
   function closeCoast() {
     setCoastView(null)
     if (coastView === 'sign') advance('pierCoast')
-    if (coastView === 'coast' && stage === 'pierCoast') {
-      advance('complete')
-      setEnding(true)
-    }
+    if (coastView === 'coast' && stage === 'pierCoast') advance('afterPier')
   }
 
   function chooseRole(value: Role) {
@@ -237,25 +404,57 @@ function App() {
     setScreen('world')
   }
 
-  function restartLevel() {
-    if (!role) return
+  function restartMission() {
+    if (!restartChapter || !restartSave || !restartMissionChoice) return
+    const stage = restartMissionChoice.stages[0]
+    clearScene()
+    options.current?.close()
+    setSettingsOpen(false)
+    setRestartSelection(undefined)
+    setSaves(previous => ({ ...previous, [restartChapter]: {
+      role: restartSave.role,
+      stage,
+      room: restartMissionChoice.room,
+      unlockedThrough: restartOptions?.missions.at(-1)?.stages[0],
+      investigation: stage === 'wake' ? undefined : restartSave.investigation,
+      computerGuideComplete: stage === 'wake' ? undefined : restartSave.computerGuideComplete,
+    } }))
+    if (stage === 'dreamFlood') {
+      lastScoop.current = -Infinity
+      audio.current?.missionSound('flood')
+      startConversation(floodAlarm, 'dreamFlood')
+    }
+    if (stage === 'wake') startConversation(wakingUp, 'officeGoal')
+    if (stage === 'evacuation') setDialogue({ lines: evacuationBroadcast, index: 0, next: 'evacuation', intro: true })
+    setChapterId(restartChapter)
+    setLevelRun(run => run + 1)
+    setScreen('world')
+  }
+
+  function restartGame() {
+    clearScene()
+    options.current?.close()
+    setSettingsOpen(false)
+    setSaves({})
+    setRestartSelection(undefined)
+    setChapterId(levels[0].id)
+    setScreen('levels')
+  }
+
+  function clearScene() {
     setDialogue(null)
-    setEnding(false)
+    setFilling(false)
+    setTransition(null)
+    setDream(newDream)
+    setPacking(newPacking)
     setCoastView(null)
     setOfficeTool(undefined)
     setOfficeSeated(false)
     setNearby(null)
-    setSettingsOpen(false)
-    chooseRole(role)
-    setLevelRun(run => run + 1)
   }
 
   function toLevels() {
-    setDialogue(null)
-    setEnding(false)
-    setCoastView(null)
-    setOfficeTool(undefined)
-    setOfficeSeated(false)
+    clearScene()
     setScreen('levels')
   }
 
@@ -279,13 +478,31 @@ function App() {
     }
   }
 
-  const level = levels[0]
+  const level = levels.find(chapter => chapter.id === chapterId) ?? levels[0]
+  const place = area === 'office' ? t('La oficina', 'The office')
+    : area === 'bedroom' ? t('El dormitorio', 'The bedroom')
+    : area === 'cellar' ? t('El sótano', 'The cellar')
+    : area === 'inside' ? t('La cabaña', 'The cabin')
+    : area === 'pier' ? t('El muelle', 'The pier') : t('El poblado', 'The village')
+  const objective = stage && (stage === 'evacuation' || stage === 'packing' || stage === 'depart' || stage === 'evacPier'
+    ? translate(language, objectives[stage]) : area === 'office' && stage !== 'officeGoal'
+    ? t('Siéntate para usar el PC o el cuaderno. El expediente está en la estantería.', 'Sit down to use the computer or notebook. The dossier is on the bookshelf.')
+    : area === 'bedroom' && stage === 'bedtime'
+    ? t('Acércate al pie de la cama y acuéstate junto a tu pareja.', 'Walk to the foot of the bed and get in beside your partner.')
+    : area === 'cellar' && stage === 'adaWater'
+    ? t('Acércate a la llave del depósito para llenar el bidón.', 'Walk to the cistern tap to fill the jug.')
+    : area === 'inside' && ['bedtime', 'wake'].includes(stage)
+    ? t('La puerta del dormitorio está al fondo, a la izquierda de la oficina.', 'The bedroom door is at the back, left of the office.')
+    : area === 'inside' && cabinVisit === 'inside' && isPierStage(stage)
+    ? t('La oficina está al fondo de la cabaña.', 'The office is at the back of the cabin.')
+    : area === 'yard' && isPierStage(stage)
+    ? translate(language, objectives.pier)
+    : translate(language, objectives[stage]))
   return <main className={screen === 'world' ? 'app game' : 'app menu'} onPointerDown={enableAudio} onKeyDown={event => {
     enableAudio()
     if (!officeSeated || officeTool || settingsOpen || event.repeat) return
     if (event.key === '1') openDeskTool('computer')
     if (event.key === '2') openDeskTool('notebook')
-    if (event.key === 'Escape') sitAtDesk(false)
   }}>
     {screen !== 'world' && <div className="cover" aria-hidden="true" />}
     {screen === 'title' && <section className="title-screen">
@@ -302,12 +519,16 @@ function App() {
       <button className="back" onClick={() => setScreen('title')}>← {t('Inicio', 'Title screen')}</button>
       <h1 ref={heading} tabIndex={-1}>{t('Elige un capítulo', 'Choose a chapter')}</h1>
       <div className="cards">
-        {levels.map(chapter => <button key={chapter.id} className="level-card" onClick={() => { audio.current?.click(); setScreen(save ? 'world' : 'role') }}>
+        {levels.map(chapter => <button key={chapter.id} className="level-card" onClick={() => {
+          audio.current?.click()
+          setChapterId(chapter.id)
+          setScreen(saves[chapter.id] ? 'world' : 'role')
+        }}>
           <span className="card-art"><img src={asset('art/father-portrait.png')} alt="" /></span>
           <span className="card-body">
             <strong>{language === 'es' ? 'Melomys de Bramble Cay' : 'Bramble Cay melomys'}</strong>
             <em>{chapter.species}</em>
-            <span className="start-label">{save ? t('Continuar', 'Continue') : t('Comenzar', 'Begin')} <span aria-hidden="true">↗</span></span>
+            <span className="start-label">{saves[chapter.id] ? t('Continuar', 'Continue') : t('Comenzar', 'Begin')} <span aria-hidden="true">↗</span></span>
           </span>
         </button>)}
       </div>
@@ -327,47 +548,77 @@ function App() {
     {screen === 'world' && save && <section className="play">
       <header className="hud">
         <button className="back" onClick={toLevels}>← <span>{t('Capítulos', 'Chapters')}</span></button>
-        <span className="location">{level.chapter[language]} <span aria-hidden="true">/</span> {inOffice ? t('La oficina', 'The office') : inside ? t('La cabaña', 'The cabin') : area === 'pier' ? t('El muelle', 'The pier') : t('El poblado', 'The village')}</span>
+        <span className="location">{level.chapter[language]} <span aria-hidden="true">/</span> {place}</span>
         <button className="back options" onClick={() => setSettingsOpen(true)}>{t('Configuración', 'Settings')}</button>
       </header>
-      <div className="viewport">
-        <div key={levelRun} className="canvas" ref={mount} aria-label={inOffice ? t('Oficina de la cabaña', 'Cabin office') : inside ? t('Interior de la cabaña', 'Cabin interior') : t('Patio y casas vecinas', 'Yard and neighboring houses')} />
+      <div className="viewport" data-area={area} data-voyage={voyage}>
+        <div key={levelRun} className="canvas" ref={mount} aria-label={place} />
+        {storm && stage !== 'rowing' && <div className="evac-weather" data-outside={area === 'yard' || area === 'pier'} aria-hidden="true" />}
         {loadFailed && <p role="alert" className="loading">{t('No se pudo cargar la escena.', 'Could not load the scene.')}</p>}
-        {!dialogue && !ending && !officeSeated && <p className="objective" aria-live="polite">{inOffice
-          ? t('Siéntate para usar el PC o el cuaderno. El expediente está en la estantería.', 'Sit down to use the computer or notebook. The dossier is on the bookshelf.')
-          : cabinVisit === 'inside'
-          ? save.stage === 'complete' ? t('La oficina está al fondo de la cabaña.', 'The office is at the back of the cabin.') : t('Sal por la puerta para continuar la investigación.', 'Go outside to continue the investigation.')
-          : cabinVisit === 'outside' ? t('Vuelve a entrar para continuar en casa.', 'Go back inside to continue at home.')
-          : translate(language, objectives[atShore ? 'pier' : save.stage])}</p>}
-        {nearby && !dialogue && !ending && !officeSeated && <button className="prompt" onClick={() => world.current?.interact()}><kbd>E</kbd> {translate(language, nearby)}</button>}
+        {!blocked && !officeSeated && !flooding && stage !== 'packing' && <p className="objective" aria-live="polite">{objective}</p>}
+        {stage === 'packing' && !dialogue && !packingFailed && <section className="flood-hud packing-hud" data-urgent={packing.seconds <= 8}>
+          <div><strong>{packing.bags.length === 3 ? t('Ahora prepara tu maleta', 'Now pack your bag') : t('Ayuda a empacar a tu familia', 'Help your family pack')}</strong>
+            <span role="status">{t('Maletas listas', 'Bags ready')} {packing.bags.length}/{packTasks.length}</span></div>
+          <span role="timer" aria-label={t('Segundos restantes', 'Seconds remaining')}>{packing.seconds}<small> s</small></span>
+        </section>}
+        {flooding && !dialogue && !dreamFailed && !transition && <section className="flood-hud" data-urgent={dream.seconds <= 8} aria-label={t('Sacar el agua', 'Bail out the water')}>
+          <div><strong>{t('Saca el agua de la cocina', 'Bail water out of the kitchen')}</strong>
+            <span role="status">{t('Puntos despejados', 'Spots cleared')} {Math.floor(dream.scoops / scoopsPerSpot)}/{floodSpots.length}
+              {dream.scoops % scoopsPerSpot === 1 && t(' · Falta una cubetada aquí', ' · One more bucket here')}</span></div>
+          <span role="timer" aria-label={t('Segundos restantes', 'Seconds remaining')}>{dream.seconds}<small> s</small></span>
+        </section>}
+        {nearby && !blocked && !officeSeated && <button className="prompt" onClick={() => world.current?.interact()}><kbd>E</kbd> {translate(language, nearby)}</button>}
         {officeSeated && !officeTool && <nav className="desk-actions" aria-label={t('Escritorio', 'Desk')}>
           <button ref={deskControl} onClick={() => openDeskTool('computer')}><kbd>1</kbd> {t('Ver el PC', 'View computer')}</button>
           <button onClick={() => openDeskTool('notebook')}><kbd>2</kbd> {t('Abrir el cuaderno', 'Open the notebook')}</button>
-          <button onClick={() => sitAtDesk(false)}><kbd>Esc</kbd> {t('Levantarse', 'Stand up')}</button>
+          <button onClick={() => sitAtDesk(false)}><kbd>E</kbd> {t('Levantarse', 'Stand up')}</button>
         </nav>}
         <span className="dialogue-reader" role="status">{active && translate(language, active.text)}</span>
         {active && dialogue && <DialogueBox key={language + ':' + dialogue.index} name={speaker(active)} portrait={portrait(active)}
           text={translate(language, active.text)} radio={active.speaker === 'radio'} paused={settingsOpen}
           language={language} audio={audio} onNext={nextLine} />}
         {coastView && <CoastView key={coastView} view={coastView} language={language} onClose={closeCoast} />}
-        {officeTool && <OfficePanel tool={officeTool} language={language}
+        {filling && <WaterFill language={language} paused={settingsOpen} onStroke={inZone => {
+          world.current?.pumpWater(inZone)
+          audio.current?.missionSound(inZone ? 'pour' : 'pump')
+        }}
+          onFilled={() => { audio.current?.missionSound('jug'); setFilling(false); advance('adaReturn') }} />}
+        {transition && <div className="sleep-cut" data-kind={transition}>
+          <span aria-hidden="true" /><span aria-hidden="true" />
+          {transition === 'sleep' && <p role="status">{t('Te quedas dormido…', 'You drift off to sleep…')}</p>}
+        </div>}
+        {officeTool && <OfficePanel tool={officeTool} language={language} role={save.role}
+          onComputerClick={() => audio.current?.mouseClick()}
+          onHostReply={() => audio.current?.rentalReply()}
+          rental={save.rental} onRent={requestRental} onPack={startPacking}
+          computerGuideComplete={save.computerGuideComplete === true}
+          onComputerGuideComplete={() => setSave(previous => previous && { ...previous, computerGuideComplete: true })}
           progress={save.investigation ?? emptyInvestigation} stage={save.stage}
           onChange={investigation => setSave(previous => previous && { ...previous, investigation })}
           onClose={() => setOfficeTool(undefined)} />}
-        {ending && <article className="end-card">
-          <h2>{t('Las primeras pistas', 'The first clues')}</h2>
-          <p>{t('Ada habló del calor y la falta de agua. Eli contó lo de la inundación. Desde el muelle viste que el agua llega donde antes había arena seca. ¿Llegó hasta ahí por una marea alta o ha estado subiendo durante años?', 'Ada described the heat and lack of water. Eli told you about the flood. From the pier, you saw water where there used to be dry sand. Was that just a high tide, or has the sea been rising for years?')}</p>
-          <p>{t('De vuelta en casa, abre el cuaderno de la oficina para revisar las pistas.', 'Back home, open the notebook in the office to review the clues.')}</p>
-          <button className="primary" ref={endingButton} onClick={toLevels}>{t('Volver a capítulos', 'Back to chapters')} →</button>
-          <button className="back" onClick={() => setEnding(false)}>{t('Quedarme en el muelle', 'Stay at the pier')}</button>
+        {dreamFailed && <article className="end-card dream-failure" role="alertdialog" aria-labelledby="dream-failure-title">
+          <h2 id="dream-failure-title">{t('Tu casa se inundó', 'Your home flooded')}</h2>
+          <p>{t('No lograste proteger a tu familia.', 'You couldn’t protect your family.')}</p>
+          <button className="primary" ref={dreamRetry} onClick={() => { startFlood(); setLevelRun(run => run + 1) }}>{t('Reintentar', 'Try again')}</button>
         </article>}
+        {packingFailed && <article className="end-card" role="alertdialog" aria-labelledby="packing-failure-title">
+          <h2 id="packing-failure-title">{t('Se acabó el tiempo', 'Time ran out')}</h2>
+          <p>{t('Todavía faltan maletas. Intenta de nuevo antes de salir al muelle.', 'Some bags still need packing. Try again before heading to the pier.')}</p>
+          <button className="primary" onClick={() => { setPacking(newPacking); setLevelRun(run => run + 1) }}>{t('Reintentar', 'Try again')}</button>
+        </article>}
+        {stage === 'rowing' && <BoatEscape language={language} role={save.role} paused={settingsOpen}
+          onStroke={good => audio.current?.missionSound(good ? 'row' : 'fail')} onSuccess={() => advance('escaped')} />}
+        {(stage === 'escaped' || stage === 'credits') && <EvacuationResult language={language} stage={stage} rentalId={save.rental?.id} paused={settingsOpen}
+          onPageTurn={() => audio.current?.openDeskTool('notebook')}
+          onAnswer={correct => correct ? audio.current?.rentalReply() : audio.current?.click()}
+          onContinue={() => stage === 'escaped' ? advance('credits') : toLevels()} />}
       </div>
       <footer className="controls">
-        {!officeSeated && <>
+        {!officeSeated && !filling && !transition && !dreamFailed && !packingFailed && !voyage && <>
           <span className="key-controls">{t('Moverse', 'Move')} <kbd>W A S D</kbd> <kbd>↑ ↓ ← →</kbd> <span>{t('Interactuar', 'Interact')}</span> <kbd>E</kbd></span>
           <span className="touch-controls">{t('Toca el suelo para caminar.', 'Tap the ground to walk.')}</span>
         </>}
-        {!dialogue && !ending && !officeSeated && <div className="dpad" aria-label={t('Moverse', 'Move')}>
+        {!blocked && !officeSeated && <div className="dpad" aria-label={t('Moverse', 'Move')}>
           {([['↑', 0, -1, 'Arriba', 'Up'], ['←', -1, 0, 'Izquierda', 'Left'], ['↓', 0, 1, 'Abajo', 'Down'], ['→', 1, 0, 'Derecha', 'Right']] as const)
             .map(([key, x, y, es, en]) => <button key={key} aria-label={t(es, en)} onPointerDown={event => move(event, x, y)} onLostPointerCapture={() => world.current?.setMove(0, 0)}>{key}</button>)}
         </div>}
@@ -386,7 +637,20 @@ function App() {
       <label className="setting-row">{t('Volumen', 'Volume')}
         <input type="range" min={0} max={1} step={.05} value={settings.volume} onChange={event => setSettings({ ...settings, volume: Number(event.target.value) })} />
       </label>
-      {screen === 'world' && <button className="quiet" onClick={restartLevel}>{t('Reiniciar nivel', 'Restart level')}</button>}
+      {restartSave && <section className="progress-settings" aria-labelledby="progress-settings-title">
+        <h3 id="progress-settings-title">{t('Progreso de la partida', 'Game progress')}</h3>
+        <label className="setting-row">
+          {t('Misión para reiniciar', 'Mission to restart')}
+          <select value={restartMissionChoice?.stages[0]} onChange={event => setRestartSelection(event.target.value as Stage)}>
+            {restartOptions?.missions.map(mission => <option key={mission.stages[0]} value={mission.stages[0]}>{translate(language, mission.name)}</option>)}
+          </select>
+        </label>
+        <button className="quiet" onClick={restartMission}>{t('Reiniciar misión', 'Restart mission')}</button>
+        <p>{t('Vuelve al comienzo de la misión elegida con tu mismo personaje.', 'Return to the start of the selected mission with your current character.')}</p>
+        {restartMissionChoice?.stages[0] === 'wake' && <p>{t('Reiniciar la oficina borra sus consultas, chats y notas guardadas.', 'Restarting the office clears its saved requests, chats and notes.')}</p>}
+        <button className="quiet" onClick={restartGame}>{t('Reiniciar todo', 'Reset all progress')}</button>
+        <p>{t('Borra el progreso de todas las misiones. Conserva tu idioma y audio.', 'Clear all mission progress while keeping your language and audio settings.')}</p>
+      </section>}
       <button className="primary" onClick={() => setSettingsOpen(false)}>{t('Volver', 'Back')} <span aria-hidden="true">↵</span></button>
     </dialog>
   </main>
