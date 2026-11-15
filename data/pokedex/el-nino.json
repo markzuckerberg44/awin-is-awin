@@ -1,0 +1,8432 @@
+{
+ "schema_version": "1.0.0",
+ "source": {
+  "provider": "NOAA Climate Prediction Center (CPC), distributed by NOAA Physical Sciences Laboratory (PSL)",
+  "index": "Oceanic Niño Index (ONI): 3-month running mean of ERSST.v6 sea-surface temperature anomalies, Niño 3.4 region (5°N–5°S, 120°–170°W)",
+  "url": "https://psl.noaa.gov/data/correlation/oni.data",
+  "original_url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
+  "file": "noaa/oni.data",
+  "sha256": "27af499bc406f8e5f5e9655013d2299a97d6a1cc92f27db30990b04dbc872f60",
+  "downloaded": "2026-11-15",
+  "note": "Each monthly value is the 3-month season centred on that month (January = DJF). Since 2026 CPC ranks El Niño strength with the Relative ONI (RONI), which removes tropical-wide warming and is usually somewhat lower than the traditional ONI used here."
+ },
+ "definition": {
+  "threshold_c": 0.5,
+  "min_consecutive_seasons": 5,
+  "rule": "El Niño: ONI ≥ +0.5 °C for at least five consecutive overlapping 3-month seasons; La Niña: ≤ −0.5 °C.",
+  "strength_categories": {
+   "very strong": 2.0,
+   "strong": 1.5,
+   "moderate": 1.0,
+   "weak": 0.5
+  },
+  "strength_note": "Peak-based categories commonly used for the ONI; not an official NOAA classification."
+ },
+ "current_status": {
+  "as_of": "2026-11-14",
+  "alert": "El Niño Advisory",
+  "discussion_issued": "2026-10-08",
+  "summary": "NOAA reports that El Niño keeps strengthening and that a strong-to-very strong event is likely through January–March 2027 (probability above 83%).",
+  "latest_oni": {
+   "season": "ASO 2026",
+   "value": 2.46
+  },
+  "sources": [
+   {
+    "title": "NOAA CPC ENSO Diagnostic Discussion (8 October 2026)",
+    "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml"
+   },
+   {
+    "title": "NOAA Coral Reef Watch: ENSO conditions and alerts",
+    "url": "https://www.coralreefwatch.noaa.gov/satellite/analyses_guidance/enso_current_conditions.php"
+   }
+  ]
+ },
+ "game_2015": {
+  "note": "Only what a player in 2015 could know: ONI seasons ending by December 2015 and the event so far.",
+  "oni_2015": [
+   {
+    "season": "DJF",
+    "value": 0.73
+   },
+   {
+    "season": "JFM",
+    "value": 0.65
+   },
+   {
+    "season": "FMA",
+    "value": 0.72
+   },
+   {
+    "season": "MAM",
+    "value": 0.86
+   },
+   {
+    "season": "AMJ",
+    "value": 1.04
+   },
+   {
+    "season": "MJJ",
+    "value": 1.19
+   },
+   {
+    "season": "JJA",
+    "value": 1.44
+   },
+   {
+    "season": "JAS",
+    "value": 1.73
+   },
+   {
+    "season": "ASO",
+    "value": 2.02
+   },
+   {
+    "season": "SON",
+    "value": 2.28
+   },
+   {
+    "season": "OND",
+    "value": 2.45
+   }
+  ],
+  "event": {
+   "type": "El Niño",
+   "start": "2014-10",
+   "end": "2015-11",
+   "seasons": 14,
+   "peak_oni": 2.45,
+   "peak_season": "OND 2015",
+   "strength": "very strong",
+   "ongoing": true
+  },
+  "player_text": "2015: a very strong El Niño is building in the Pacific (Oceanic Niño Index +2.45 °C in OND). The last comparable events, 1982–83 and 1997–98, brought marine heatwaves and droughts across the tropics."
+ },
+ "present_alert": {
+  "player_text": "Today: NOAA has an El Niño Advisory in force. The Oceanic Niño Index reached +2.46 °C in ASO 2026, close to the 1997 and 2015 record events, and a strong-to-very strong El Niño is likely through early 2027.",
+  "comparable_events": [
+   {
+    "type": "El Niño",
+    "start": "1982-05",
+    "end": "1983-06",
+    "seasons": 14,
+    "peak_oni": 2.14,
+    "peak_season": "DJF 1983",
+    "strength": "very strong",
+    "ongoing": false
+   },
+   {
+    "type": "El Niño",
+    "start": "1997-05",
+    "end": "1998-04",
+    "seasons": 12,
+    "peak_oni": 2.37,
+    "peak_season": "NDJ 1997",
+    "strength": "very strong",
+    "ongoing": false
+   },
+   {
+    "type": "El Niño",
+    "start": "2014-10",
+    "end": "2016-05",
+    "seasons": 20,
+    "peak_oni": 2.59,
+    "peak_season": "NDJ 2015",
+    "strength": "very strong",
+    "ongoing": false
+   }
+  ]
+ },
+ "strong_el_nino_onset_years": [
+  1957,
+  1965,
+  1972,
+  1982,
+  1991,
+  1997,
+  2009,
+  2014,
+  2023,
+  2026
+ ],
+ "events": [
+  {
+   "type": "La Niña",
+   "start": "1950-01",
+   "end": "1951-01",
+   "seasons": 13,
+   "peak_oni": -1.32,
+   "peak_season": "DJF 1950",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1951-06",
+   "end": "1952-01",
+   "seasons": 8,
+   "peak_oni": 1.03,
+   "peak_season": "SON 1951",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1953-04",
+   "end": "1953-12",
+   "seasons": 9,
+   "peak_oni": 0.78,
+   "peak_season": "SON 1953",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1955-03",
+   "end": "1956-04",
+   "seasons": 14,
+   "peak_oni": -1.59,
+   "peak_season": "OND 1955",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1957-04",
+   "end": "1958-05",
+   "seasons": 14,
+   "peak_oni": 1.69,
+   "peak_season": "DJF 1958",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1963-07",
+   "end": "1964-02",
+   "seasons": 8,
+   "peak_oni": 1.19,
+   "peak_season": "OND 1963",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1964-05",
+   "end": "1965-01",
+   "seasons": 9,
+   "peak_oni": -0.8,
+   "peak_season": "SON 1964",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1965-06",
+   "end": "1966-03",
+   "seasons": 10,
+   "peak_oni": 1.82,
+   "peak_season": "OND 1965",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1968-10",
+   "end": "1969-05",
+   "seasons": 8,
+   "peak_oni": 0.98,
+   "peak_season": "DJF 1969",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1970-07",
+   "end": "1972-01",
+   "seasons": 19,
+   "peak_oni": -1.36,
+   "peak_season": "JFM 1971",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1972-06",
+   "end": "1973-03",
+   "seasons": 10,
+   "peak_oni": 1.84,
+   "peak_season": "OND 1972",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1973-05",
+   "end": "1974-06",
+   "seasons": 14,
+   "peak_oni": -2.04,
+   "peak_season": "NDJ 1973",
+   "strength": "very strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1974-10",
+   "end": "1976-03",
+   "seasons": 18,
+   "peak_oni": -1.58,
+   "peak_season": "NDJ 1975",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1976-09",
+   "end": "1977-02",
+   "seasons": 6,
+   "peak_oni": 0.84,
+   "peak_season": "NDJ 1976",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1977-10",
+   "end": "1978-02",
+   "seasons": 5,
+   "peak_oni": 0.84,
+   "peak_season": "OND 1977",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1982-05",
+   "end": "1983-06",
+   "seasons": 14,
+   "peak_oni": 2.14,
+   "peak_season": "DJF 1983",
+   "strength": "very strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1983-10",
+   "end": "1984-02",
+   "seasons": 5,
+   "peak_oni": -0.96,
+   "peak_season": "OND 1983",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1984-10",
+   "end": "1985-06",
+   "seasons": 9,
+   "peak_oni": -1.06,
+   "peak_season": "NDJ 1984",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1986-09",
+   "end": "1988-01",
+   "seasons": 17,
+   "peak_oni": 1.49,
+   "peak_season": "ASO 1987",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1988-05",
+   "end": "1989-05",
+   "seasons": 13,
+   "peak_oni": -1.85,
+   "peak_season": "NDJ 1988",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1991-06",
+   "end": "1992-06",
+   "seasons": 13,
+   "peak_oni": 1.54,
+   "peak_season": "DJF 1992",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1994-10",
+   "end": "1995-02",
+   "seasons": 5,
+   "peak_oni": 0.97,
+   "peak_season": "NDJ 1994",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1995-08",
+   "end": "1996-03",
+   "seasons": 8,
+   "peak_oni": -1.05,
+   "peak_season": "OND 1995",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "1997-05",
+   "end": "1998-04",
+   "seasons": 12,
+   "peak_oni": 2.37,
+   "peak_season": "NDJ 1997",
+   "strength": "very strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "1998-07",
+   "end": "2000-06",
+   "seasons": 24,
+   "peak_oni": -1.53,
+   "peak_season": "NDJ 1999",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2000-10",
+   "end": "2001-02",
+   "seasons": 5,
+   "peak_oni": -0.78,
+   "peak_season": "NDJ 2000",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2002-07",
+   "end": "2003-02",
+   "seasons": 8,
+   "peak_oni": 1.19,
+   "peak_season": "OND 2002",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2004-08",
+   "end": "2005-02",
+   "seasons": 7,
+   "peak_oni": 0.71,
+   "peak_season": "NDJ 2004",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2005-11",
+   "end": "2006-03",
+   "seasons": 5,
+   "peak_oni": -0.86,
+   "peak_season": "DJF 2006",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2006-09",
+   "end": "2007-01",
+   "seasons": 5,
+   "peak_oni": 0.88,
+   "peak_season": "OND 2006",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2007-08",
+   "end": "2008-06",
+   "seasons": 11,
+   "peak_oni": -1.76,
+   "peak_season": "DJF 2008",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2008-11",
+   "end": "2009-03",
+   "seasons": 5,
+   "peak_oni": -0.89,
+   "peak_season": "DJF 2009",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2009-07",
+   "end": "2010-03",
+   "seasons": 9,
+   "peak_oni": 1.5,
+   "peak_season": "NDJ 2009",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2010-06",
+   "end": "2011-05",
+   "seasons": 12,
+   "peak_oni": -1.57,
+   "peak_season": "OND 2010",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2011-08",
+   "end": "2012-02",
+   "seasons": 7,
+   "peak_oni": -1.02,
+   "peak_season": "OND 2011",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2014-10",
+   "end": "2016-05",
+   "seasons": 20,
+   "peak_oni": 2.59,
+   "peak_season": "NDJ 2015",
+   "strength": "very strong",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2017-11",
+   "end": "2018-03",
+   "seasons": 5,
+   "peak_oni": -0.76,
+   "peak_season": "NDJ 2017",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2018-09",
+   "end": "2019-06",
+   "seasons": 10,
+   "peak_oni": 1.05,
+   "peak_season": "NDJ 2018",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2019-10",
+   "end": "2020-03",
+   "seasons": 6,
+   "peak_oni": 0.75,
+   "peak_season": "NDJ 2019",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2020-09",
+   "end": "2021-04",
+   "seasons": 8,
+   "peak_oni": -1.11,
+   "peak_season": "OND 2020",
+   "strength": "moderate",
+   "ongoing": false
+  },
+  {
+   "type": "La Niña",
+   "start": "2021-09",
+   "end": "2023-01",
+   "seasons": 17,
+   "peak_oni": -0.91,
+   "peak_season": "OND 2021",
+   "strength": "weak",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2023-06",
+   "end": "2024-04",
+   "seasons": 11,
+   "peak_oni": 1.99,
+   "peak_season": "NDJ 2023",
+   "strength": "strong",
+   "ongoing": false
+  },
+  {
+   "type": "El Niño",
+   "start": "2026-05",
+   "end": "2026-09",
+   "seasons": 5,
+   "peak_oni": 2.46,
+   "peak_season": "ASO 2026",
+   "strength": "very strong",
+   "ongoing": true
+  }
+ ],
+ "annual": {
+  "1950": {
+   "mean": -0.878,
+   "oct_dec": -0.69,
+   "months_available": 12
+  },
+  "1951": {
+   "mean": 0.433,
+   "oct_dec": 0.9,
+   "months_available": 12
+  },
+  "1952": {
+   "mean": 0.013,
+   "oct_dec": -0.003,
+   "months_available": 12
+  },
+  "1953": {
+   "mean": 0.588,
+   "oct_dec": 0.62,
+   "months_available": 12
+  },
+  "1954": {
+   "mean": -0.337,
+   "oct_dec": -0.453,
+   "months_available": 12
+  },
+  "1955": {
+   "mean": -0.939,
+   "oct_dec": -1.513,
+   "months_available": 12
+  },
+  "1956": {
+   "mean": -0.556,
+   "oct_dec": -0.383,
+   "months_available": 12
+  },
+  "1957": {
+   "mean": 0.781,
+   "oct_dec": 1.387,
+   "months_available": 12
+  },
+  "1958": {
+   "mean": 0.717,
+   "oct_dec": 0.407,
+   "months_available": 12
+  },
+  "1959": {
+   "mean": 0.199,
+   "oct_dec": 0.16,
+   "months_available": 12
+  },
+  "1960": {
+   "mean": 0.051,
+   "oct_dec": -0.02,
+   "months_available": 12
+  },
+  "1961": {
+   "mean": -0.024,
+   "oct_dec": -0.127,
+   "months_available": 12
+  },
+  "1962": {
+   "mean": -0.173,
+   "oct_dec": -0.273,
+   "months_available": 12
+  },
+  "1963": {
+   "mean": 0.55,
+   "oct_dec": 1.15,
+   "months_available": 12
+  },
+  "1964": {
+   "mean": -0.376,
+   "oct_dec": -0.78,
+   "months_available": 12
+  },
+  "1965": {
+   "mean": 0.805,
+   "oct_dec": 1.707,
+   "months_available": 12
+  },
+  "1966": {
+   "mean": 0.282,
+   "oct_dec": -0.233,
+   "months_available": 12
+  },
+  "1967": {
+   "mean": -0.314,
+   "oct_dec": -0.393,
+   "months_available": 12
+  },
+  "1968": {
+   "mean": 0.072,
+   "oct_dec": 0.697,
+   "months_available": 12
+  },
+  "1969": {
+   "mean": 0.678,
+   "oct_dec": 0.743,
+   "months_available": 12
+  },
+  "1970": {
+   "mean": -0.292,
+   "oct_dec": -0.867,
+   "months_available": 12
+  },
+  "1971": {
+   "mean": -0.861,
+   "oct_dec": -0.807,
+   "months_available": 12
+  },
+  "1972": {
+   "mean": 0.807,
+   "oct_dec": 1.767,
+   "months_available": 12
+  },
+  "1973": {
+   "mean": -0.581,
+   "oct_dec": -1.837,
+   "months_available": 12
+  },
+  "1974": {
+   "mean": -0.887,
+   "oct_dec": -0.76,
+   "months_available": 12
+  },
+  "1975": {
+   "mean": -0.997,
+   "oct_dec": -1.457,
+   "months_available": 12
+  },
+  "1976": {
+   "mean": -0.022,
+   "oct_dec": 0.813,
+   "months_available": 12
+  },
+  "1977": {
+   "mean": 0.517,
+   "oct_dec": 0.78,
+   "months_available": 12
+  },
+  "1978": {
+   "mean": -0.049,
+   "oct_dec": -0.077,
+   "months_available": 12
+  },
+  "1979": {
+   "mean": 0.308,
+   "oct_dec": 0.537,
+   "months_available": 12
+  },
+  "1980": {
+   "mean": 0.212,
+   "oct_dec": -0.013,
+   "months_available": 12
+  },
+  "1981": {
+   "mean": -0.25,
+   "oct_dec": -0.163,
+   "months_available": 12
+  },
+  "1982": {
+   "mean": 0.912,
+   "oct_dec": 1.99,
+   "months_available": 12
+  },
+  "1983": {
+   "mean": 0.46,
+   "oct_dec": -0.87,
+   "months_available": 12
+  },
+  "1984": {
+   "mean": -0.552,
+   "oct_dec": -0.877,
+   "months_available": 12
+  },
+  "1985": {
+   "mean": -0.578,
+   "oct_dec": -0.313,
+   "months_available": 12
+  },
+  "1986": {
+   "mean": 0.267,
+   "oct_dec": 1.043,
+   "months_available": 12
+  },
+  "1987": {
+   "mean": 1.182,
+   "oct_dec": 1.203,
+   "months_available": 12
+  },
+  "1988": {
+   "mean": -0.89,
+   "oct_dec": -1.733,
+   "months_available": 12
+  },
+  "1989": {
+   "mean": -0.62,
+   "oct_dec": -0.137,
+   "months_available": 12
+  },
+  "1990": {
+   "mean": 0.271,
+   "oct_dec": 0.307,
+   "months_available": 12
+  },
+  "1991": {
+   "mean": 0.654,
+   "oct_dec": 1.147,
+   "months_available": 12
+  },
+  "1992": {
+   "mean": 0.609,
+   "oct_dec": -0.17,
+   "months_available": 12
+  },
+  "1993": {
+   "mean": 0.357,
+   "oct_dec": 0.197,
+   "months_available": 12
+  },
+  "1994": {
+   "mean": 0.366,
+   "oct_dec": 0.853,
+   "months_available": 12
+  },
+  "1995": {
+   "mean": -0.216,
+   "oct_dec": -1.01,
+   "months_available": 12
+  },
+  "1996": {
+   "mean": -0.406,
+   "oct_dec": -0.377,
+   "months_available": 12
+  },
+  "1997": {
+   "mean": 1.142,
+   "oct_dec": 2.317,
+   "months_available": 12
+  },
+  "1998": {
+   "mean": 0.042,
+   "oct_dec": -1.3,
+   "months_available": 12
+  },
+  "1999": {
+   "mean": -1.081,
+   "oct_dec": -1.337,
+   "months_available": 12
+  },
+  "2000": {
+   "mean": -0.766,
+   "oct_dec": -0.693,
+   "months_available": 12
+  },
+  "2001": {
+   "mean": -0.294,
+   "oct_dec": -0.303,
+   "months_available": 12
+  },
+  "2002": {
+   "mean": 0.514,
+   "oct_dec": 1.087,
+   "months_available": 12
+  },
+  "2003": {
+   "mean": 0.235,
+   "oct_dec": 0.27,
+   "months_available": 12
+  },
+  "2004": {
+   "mean": 0.393,
+   "oct_dec": 0.653,
+   "months_available": 12
+  },
+  "2005": {
+   "mean": 0.029,
+   "oct_dec": -0.553,
+   "months_available": 12
+  },
+  "2006": {
+   "mean": 0.04,
+   "oct_dec": 0.823,
+   "months_available": 12
+  },
+  "2007": {
+   "mean": -0.613,
+   "oct_dec": -1.557,
+   "months_available": 12
+  },
+  "2008": {
+   "mean": -0.808,
+   "oct_dec": -0.573,
+   "months_available": 12
+  },
+  "2009": {
+   "mean": 0.259,
+   "oct_dec": 1.243,
+   "months_available": 12
+  },
+  "2010": {
+   "mean": -0.427,
+   "oct_dec": -1.53,
+   "months_available": 12
+  },
+  "2011": {
+   "mean": -0.769,
+   "oct_dec": -0.96,
+   "months_available": 12
+  },
+  "2012": {
+   "mean": -0.066,
+   "oct_dec": 0.127,
+   "months_available": 12
+  },
+  "2013": {
+   "mean": -0.259,
+   "oct_dec": -0.123,
+   "months_available": 12
+  },
+  "2014": {
+   "mean": 0.228,
+   "oct_dec": 0.67,
+   "months_available": 12
+  },
+  "2015": {
+   "mean": 1.475,
+   "oct_dec": 2.44,
+   "months_available": 12
+  },
+  "2016": {
+   "mean": 0.487,
+   "oct_dec": -0.457,
+   "months_available": 12
+  },
+  "2017": {
+   "mean": -0.059,
+   "oct_dec": -0.603,
+   "months_available": 12
+  },
+  "2018": {
+   "mean": 0.143,
+   "oct_dec": 0.97,
+   "months_available": 12
+  },
+  "2019": {
+   "mean": 0.649,
+   "oct_dec": 0.66,
+   "months_available": 12
+  },
+  "2020": {
+   "mean": -0.211,
+   "oct_dec": -1.057,
+   "months_available": 12
+  },
+  "2021": {
+   "mean": -0.651,
+   "oct_dec": -0.837,
+   "months_available": 12
+  },
+  "2022": {
+   "mean": -0.782,
+   "oct_dec": -0.803,
+   "months_available": 12
+  },
+  "2023": {
+   "mean": 0.814,
+   "oct_dec": 1.877,
+   "months_available": 12
+  },
+  "2024": {
+   "mean": 0.41,
+   "oct_dec": -0.303,
+   "months_available": 12
+  },
+  "2025": {
+   "mean": -0.282,
+   "oct_dec": -0.593,
+   "months_available": 12
+  },
+  "2026": {
+   "mean": null,
+   "oct_dec": null,
+   "months_available": 9
+  }
+ },
+ "monthly": [
+  {
+   "year": 1950,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.32
+  },
+  {
+   "year": 1950,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.2
+  },
+  {
+   "year": 1950,
+   "month": 3,
+   "season": "FMA",
+   "oni": -1.12
+  },
+  {
+   "year": 1950,
+   "month": 4,
+   "season": "MAM",
+   "oni": -1.08
+  },
+  {
+   "year": 1950,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -1.1
+  },
+  {
+   "year": 1950,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.9
+  },
+  {
+   "year": 1950,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.62
+  },
+  {
+   "year": 1950,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.57
+  },
+  {
+   "year": 1950,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.56
+  },
+  {
+   "year": 1950,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.62
+  },
+  {
+   "year": 1950,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.66
+  },
+  {
+   "year": 1950,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.79
+  },
+  {
+   "year": 1951,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.66
+  },
+  {
+   "year": 1951,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.36
+  },
+  {
+   "year": 1951,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.04
+  },
+  {
+   "year": 1951,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.16
+  },
+  {
+   "year": 1951,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.27
+  },
+  {
+   "year": 1951,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.5
+  },
+  {
+   "year": 1951,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.71
+  },
+  {
+   "year": 1951,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.9
+  },
+  {
+   "year": 1951,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.02
+  },
+  {
+   "year": 1951,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.03
+  },
+  {
+   "year": 1951,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.96
+  },
+  {
+   "year": 1951,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.71
+  },
+  {
+   "year": 1952,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.52
+  },
+  {
+   "year": 1952,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.27
+  },
+  {
+   "year": 1952,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.33
+  },
+  {
+   "year": 1952,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.18
+  },
+  {
+   "year": 1952,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.07
+  },
+  {
+   "year": 1952,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.44
+  },
+  {
+   "year": 1952,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.45
+  },
+  {
+   "year": 1952,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.2
+  },
+  {
+   "year": 1952,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.03
+  },
+  {
+   "year": 1952,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.04
+  },
+  {
+   "year": 1952,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.11
+  },
+  {
+   "year": 1952,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.06
+  },
+  {
+   "year": 1953,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.25
+  },
+  {
+   "year": 1953,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.5
+  },
+  {
+   "year": 1953,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.48
+  },
+  {
+   "year": 1953,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.56
+  },
+  {
+   "year": 1953,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.77
+  },
+  {
+   "year": 1953,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.74
+  },
+  {
+   "year": 1953,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.63
+  },
+  {
+   "year": 1953,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.68
+  },
+  {
+   "year": 1953,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.59
+  },
+  {
+   "year": 1953,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.78
+  },
+  {
+   "year": 1953,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.52
+  },
+  {
+   "year": 1953,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.56
+  },
+  {
+   "year": 1954,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.41
+  },
+  {
+   "year": 1954,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.35
+  },
+  {
+   "year": 1954,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.01
+  },
+  {
+   "year": 1954,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.27
+  },
+  {
+   "year": 1954,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.48
+  },
+  {
+   "year": 1954,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.48
+  },
+  {
+   "year": 1954,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.67
+  },
+  {
+   "year": 1954,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.83
+  },
+  {
+   "year": 1954,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.73
+  },
+  {
+   "year": 1954,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.52
+  },
+  {
+   "year": 1954,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.4
+  },
+  {
+   "year": 1954,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.44
+  },
+  {
+   "year": 1955,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.5
+  },
+  {
+   "year": 1955,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.48
+  },
+  {
+   "year": 1955,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.58
+  },
+  {
+   "year": 1955,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.76
+  },
+  {
+   "year": 1955,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.78
+  },
+  {
+   "year": 1955,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.88
+  },
+  {
+   "year": 1955,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.72
+  },
+  {
+   "year": 1955,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.92
+  },
+  {
+   "year": 1955,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.11
+  },
+  {
+   "year": 1955,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.44
+  },
+  {
+   "year": 1955,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.59
+  },
+  {
+   "year": 1955,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.51
+  },
+  {
+   "year": 1956,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.17
+  },
+  {
+   "year": 1956,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.81
+  },
+  {
+   "year": 1956,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.57
+  },
+  {
+   "year": 1956,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.51
+  },
+  {
+   "year": 1956,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.49
+  },
+  {
+   "year": 1956,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.47
+  },
+  {
+   "year": 1956,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.55
+  },
+  {
+   "year": 1956,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.52
+  },
+  {
+   "year": 1956,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.43
+  },
+  {
+   "year": 1956,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.39
+  },
+  {
+   "year": 1956,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.37
+  },
+  {
+   "year": 1956,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.39
+  },
+  {
+   "year": 1957,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.27
+  },
+  {
+   "year": 1957,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.06
+  },
+  {
+   "year": 1957,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.26
+  },
+  {
+   "year": 1957,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.63
+  },
+  {
+   "year": 1957,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.72
+  },
+  {
+   "year": 1957,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.82
+  },
+  {
+   "year": 1957,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.96
+  },
+  {
+   "year": 1957,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.03
+  },
+  {
+   "year": 1957,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.12
+  },
+  {
+   "year": 1957,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.15
+  },
+  {
+   "year": 1957,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.39
+  },
+  {
+   "year": 1957,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.62
+  },
+  {
+   "year": 1958,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.69
+  },
+  {
+   "year": 1958,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.59
+  },
+  {
+   "year": 1958,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.17
+  },
+  {
+   "year": 1958,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.84
+  },
+  {
+   "year": 1958,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.57
+  },
+  {
+   "year": 1958,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.49
+  },
+  {
+   "year": 1958,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.43
+  },
+  {
+   "year": 1958,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.32
+  },
+  {
+   "year": 1958,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.28
+  },
+  {
+   "year": 1958,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.3
+  },
+  {
+   "year": 1958,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.36
+  },
+  {
+   "year": 1958,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.56
+  },
+  {
+   "year": 1959,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.6
+  },
+  {
+   "year": 1959,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.64
+  },
+  {
+   "year": 1959,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.48
+  },
+  {
+   "year": 1959,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.39
+  },
+  {
+   "year": 1959,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.24
+  },
+  {
+   "year": 1959,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.02
+  },
+  {
+   "year": 1959,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.19
+  },
+  {
+   "year": 1959,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.23
+  },
+  {
+   "year": 1959,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.04
+  },
+  {
+   "year": 1959,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.11
+  },
+  {
+   "year": 1959,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.23
+  },
+  {
+   "year": 1959,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.14
+  },
+  {
+   "year": 1960,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.02
+  },
+  {
+   "year": 1960,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.03
+  },
+  {
+   "year": 1960,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.06
+  },
+  {
+   "year": 1960,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.17
+  },
+  {
+   "year": 1960,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.04
+  },
+  {
+   "year": 1960,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.0
+  },
+  {
+   "year": 1960,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.01
+  },
+  {
+   "year": 1960,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.15
+  },
+  {
+   "year": 1960,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.19
+  },
+  {
+   "year": 1960,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.08
+  },
+  {
+   "year": 1960,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.07
+  },
+  {
+   "year": 1960,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.07
+  },
+  {
+   "year": 1961,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.0
+  },
+  {
+   "year": 1961,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.03
+  },
+  {
+   "year": 1961,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.01
+  },
+  {
+   "year": 1961,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.05
+  },
+  {
+   "year": 1961,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.22
+  },
+  {
+   "year": 1961,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.22
+  },
+  {
+   "year": 1961,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.08
+  },
+  {
+   "year": 1961,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.2
+  },
+  {
+   "year": 1961,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.32
+  },
+  {
+   "year": 1961,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.22
+  },
+  {
+   "year": 1961,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.11
+  },
+  {
+   "year": 1961,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.05
+  },
+  {
+   "year": 1962,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.16
+  },
+  {
+   "year": 1962,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.17
+  },
+  {
+   "year": 1962,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.15
+  },
+  {
+   "year": 1962,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.2
+  },
+  {
+   "year": 1962,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.19
+  },
+  {
+   "year": 1962,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.13
+  },
+  {
+   "year": 1962,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.0
+  },
+  {
+   "year": 1962,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.1
+  },
+  {
+   "year": 1962,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.16
+  },
+  {
+   "year": 1962,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.25
+  },
+  {
+   "year": 1962,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.25
+  },
+  {
+   "year": 1962,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.32
+  },
+  {
+   "year": 1963,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.33
+  },
+  {
+   "year": 1963,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.17
+  },
+  {
+   "year": 1963,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.01
+  },
+  {
+   "year": 1963,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.13
+  },
+  {
+   "year": 1963,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.12
+  },
+  {
+   "year": 1963,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.45
+  },
+  {
+   "year": 1963,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.76
+  },
+  {
+   "year": 1963,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.09
+  },
+  {
+   "year": 1963,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.09
+  },
+  {
+   "year": 1963,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.13
+  },
+  {
+   "year": 1963,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.19
+  },
+  {
+   "year": 1963,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.13
+  },
+  {
+   "year": 1964,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.95
+  },
+  {
+   "year": 1964,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.52
+  },
+  {
+   "year": 1964,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.06
+  },
+  {
+   "year": 1964,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.35
+  },
+  {
+   "year": 1964,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.6
+  },
+  {
+   "year": 1964,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.66
+  },
+  {
+   "year": 1964,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.67
+  },
+  {
+   "year": 1964,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.7
+  },
+  {
+   "year": 1964,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.72
+  },
+  {
+   "year": 1964,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.8
+  },
+  {
+   "year": 1964,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.79
+  },
+  {
+   "year": 1964,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.75
+  },
+  {
+   "year": 1965,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.51
+  },
+  {
+   "year": 1965,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.25
+  },
+  {
+   "year": 1965,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.04
+  },
+  {
+   "year": 1965,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.16
+  },
+  {
+   "year": 1965,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.47
+  },
+  {
+   "year": 1965,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.79
+  },
+  {
+   "year": 1965,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.1
+  },
+  {
+   "year": 1965,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.27
+  },
+  {
+   "year": 1965,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.55
+  },
+  {
+   "year": 1965,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.7
+  },
+  {
+   "year": 1965,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.82
+  },
+  {
+   "year": 1965,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.6
+  },
+  {
+   "year": 1966,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.24
+  },
+  {
+   "year": 1966,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.95
+  },
+  {
+   "year": 1966,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.76
+  },
+  {
+   "year": 1966,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.43
+  },
+  {
+   "year": 1966,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.24
+  },
+  {
+   "year": 1966,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.18
+  },
+  {
+   "year": 1966,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.25
+  },
+  {
+   "year": 1966,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.13
+  },
+  {
+   "year": 1966,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.09
+  },
+  {
+   "year": 1966,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.12
+  },
+  {
+   "year": 1966,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.23
+  },
+  {
+   "year": 1966,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.35
+  },
+  {
+   "year": 1967,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.46
+  },
+  {
+   "year": 1967,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.48
+  },
+  {
+   "year": 1967,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.5
+  },
+  {
+   "year": 1967,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.37
+  },
+  {
+   "year": 1967,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.15
+  },
+  {
+   "year": 1967,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.05
+  },
+  {
+   "year": 1967,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.02
+  },
+  {
+   "year": 1967,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.26
+  },
+  {
+   "year": 1967,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.4
+  },
+  {
+   "year": 1967,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.4
+  },
+  {
+   "year": 1967,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.36
+  },
+  {
+   "year": 1967,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.42
+  },
+  {
+   "year": 1968,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.62
+  },
+  {
+   "year": 1968,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.73
+  },
+  {
+   "year": 1968,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.63
+  },
+  {
+   "year": 1968,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.48
+  },
+  {
+   "year": 1968,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.1
+  },
+  {
+   "year": 1968,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.17
+  },
+  {
+   "year": 1968,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.44
+  },
+  {
+   "year": 1968,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.38
+  },
+  {
+   "year": 1968,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.34
+  },
+  {
+   "year": 1968,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.5
+  },
+  {
+   "year": 1968,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.66
+  },
+  {
+   "year": 1968,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.93
+  },
+  {
+   "year": 1969,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.98
+  },
+  {
+   "year": 1969,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.98
+  },
+  {
+   "year": 1969,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.77
+  },
+  {
+   "year": 1969,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.69
+  },
+  {
+   "year": 1969,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.62
+  },
+  {
+   "year": 1969,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.48
+  },
+  {
+   "year": 1969,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.37
+  },
+  {
+   "year": 1969,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.41
+  },
+  {
+   "year": 1969,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.61
+  },
+  {
+   "year": 1969,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.71
+  },
+  {
+   "year": 1969,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.81
+  },
+  {
+   "year": 1969,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.71
+  },
+  {
+   "year": 1970,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.46
+  },
+  {
+   "year": 1970,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.23
+  },
+  {
+   "year": 1970,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.23
+  },
+  {
+   "year": 1970,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.28
+  },
+  {
+   "year": 1970,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.11
+  },
+  {
+   "year": 1970,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.26
+  },
+  {
+   "year": 1970,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.55
+  },
+  {
+   "year": 1970,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.72
+  },
+  {
+   "year": 1970,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.69
+  },
+  {
+   "year": 1970,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.72
+  },
+  {
+   "year": 1970,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.78
+  },
+  {
+   "year": 1970,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.1
+  },
+  {
+   "year": 1971,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.29
+  },
+  {
+   "year": 1971,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.36
+  },
+  {
+   "year": 1971,
+   "month": 3,
+   "season": "FMA",
+   "oni": -1.08
+  },
+  {
+   "year": 1971,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.81
+  },
+  {
+   "year": 1971,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.72
+  },
+  {
+   "year": 1971,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.69
+  },
+  {
+   "year": 1971,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.68
+  },
+  {
+   "year": 1971,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.6
+  },
+  {
+   "year": 1971,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.68
+  },
+  {
+   "year": 1971,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.78
+  },
+  {
+   "year": 1971,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.86
+  },
+  {
+   "year": 1971,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.78
+  },
+  {
+   "year": 1972,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.57
+  },
+  {
+   "year": 1972,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.27
+  },
+  {
+   "year": 1972,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.04
+  },
+  {
+   "year": 1972,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.25
+  },
+  {
+   "year": 1972,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.48
+  },
+  {
+   "year": 1972,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.7
+  },
+  {
+   "year": 1972,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.0
+  },
+  {
+   "year": 1972,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.26
+  },
+  {
+   "year": 1972,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.49
+  },
+  {
+   "year": 1972,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.69
+  },
+  {
+   "year": 1972,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.84
+  },
+  {
+   "year": 1972,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.77
+  },
+  {
+   "year": 1973,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.55
+  },
+  {
+   "year": 1973,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.13
+  },
+  {
+   "year": 1973,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.56
+  },
+  {
+   "year": 1973,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.03
+  },
+  {
+   "year": 1973,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.51
+  },
+  {
+   "year": 1973,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.8
+  },
+  {
+   "year": 1973,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.99
+  },
+  {
+   "year": 1973,
+   "month": 8,
+   "season": "JAS",
+   "oni": -1.11
+  },
+  {
+   "year": 1973,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.26
+  },
+  {
+   "year": 1973,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.58
+  },
+  {
+   "year": 1973,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.89
+  },
+  {
+   "year": 1973,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -2.04
+  },
+  {
+   "year": 1974,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.87
+  },
+  {
+   "year": 1974,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.59
+  },
+  {
+   "year": 1974,
+   "month": 3,
+   "season": "FMA",
+   "oni": -1.24
+  },
+  {
+   "year": 1974,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.99
+  },
+  {
+   "year": 1974,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.71
+  },
+  {
+   "year": 1974,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.64
+  },
+  {
+   "year": 1974,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.46
+  },
+  {
+   "year": 1974,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.4
+  },
+  {
+   "year": 1974,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.47
+  },
+  {
+   "year": 1974,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.69
+  },
+  {
+   "year": 1974,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.88
+  },
+  {
+   "year": 1974,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.71
+  },
+  {
+   "year": 1975,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.56
+  },
+  {
+   "year": 1975,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.55
+  },
+  {
+   "year": 1975,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.61
+  },
+  {
+   "year": 1975,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.66
+  },
+  {
+   "year": 1975,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.8
+  },
+  {
+   "year": 1975,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.92
+  },
+  {
+   "year": 1975,
+   "month": 7,
+   "season": "JJA",
+   "oni": -1.08
+  },
+  {
+   "year": 1975,
+   "month": 8,
+   "season": "JAS",
+   "oni": -1.12
+  },
+  {
+   "year": 1975,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.29
+  },
+  {
+   "year": 1975,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.32
+  },
+  {
+   "year": 1975,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.47
+  },
+  {
+   "year": 1975,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.58
+  },
+  {
+   "year": 1976,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.49
+  },
+  {
+   "year": 1976,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.11
+  },
+  {
+   "year": 1976,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.65
+  },
+  {
+   "year": 1976,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.45
+  },
+  {
+   "year": 1976,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.23
+  },
+  {
+   "year": 1976,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.0
+  },
+  {
+   "year": 1976,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.23
+  },
+  {
+   "year": 1976,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.4
+  },
+  {
+   "year": 1976,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.6
+  },
+  {
+   "year": 1976,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.79
+  },
+  {
+   "year": 1976,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.81
+  },
+  {
+   "year": 1976,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.84
+  },
+  {
+   "year": 1977,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.71
+  },
+  {
+   "year": 1977,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.66
+  },
+  {
+   "year": 1977,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.33
+  },
+  {
+   "year": 1977,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.26
+  },
+  {
+   "year": 1977,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.26
+  },
+  {
+   "year": 1977,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.46
+  },
+  {
+   "year": 1977,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.39
+  },
+  {
+   "year": 1977,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.35
+  },
+  {
+   "year": 1977,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.45
+  },
+  {
+   "year": 1977,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.68
+  },
+  {
+   "year": 1977,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.84
+  },
+  {
+   "year": 1977,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.82
+  },
+  {
+   "year": 1978,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.71
+  },
+  {
+   "year": 1978,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.52
+  },
+  {
+   "year": 1978,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.17
+  },
+  {
+   "year": 1978,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.06
+  },
+  {
+   "year": 1978,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.28
+  },
+  {
+   "year": 1978,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.24
+  },
+  {
+   "year": 1978,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.37
+  },
+  {
+   "year": 1978,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.37
+  },
+  {
+   "year": 1978,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.44
+  },
+  {
+   "year": 1978,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.27
+  },
+  {
+   "year": 1978,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.07
+  },
+  {
+   "year": 1978,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.11
+  },
+  {
+   "year": 1979,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.19
+  },
+  {
+   "year": 1979,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.21
+  },
+  {
+   "year": 1979,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.29
+  },
+  {
+   "year": 1979,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.32
+  },
+  {
+   "year": 1979,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.29
+  },
+  {
+   "year": 1979,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.14
+  },
+  {
+   "year": 1979,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.09
+  },
+  {
+   "year": 1979,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.22
+  },
+  {
+   "year": 1979,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.34
+  },
+  {
+   "year": 1979,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.47
+  },
+  {
+   "year": 1979,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.5
+  },
+  {
+   "year": 1979,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.64
+  },
+  {
+   "year": 1980,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.62
+  },
+  {
+   "year": 1980,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.47
+  },
+  {
+   "year": 1980,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.35
+  },
+  {
+   "year": 1980,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.34
+  },
+  {
+   "year": 1980,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.45
+  },
+  {
+   "year": 1980,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.4
+  },
+  {
+   "year": 1980,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.18
+  },
+  {
+   "year": 1980,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.06
+  },
+  {
+   "year": 1980,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.17
+  },
+  {
+   "year": 1980,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.07
+  },
+  {
+   "year": 1980,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.08
+  },
+  {
+   "year": 1980,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.05
+  },
+  {
+   "year": 1981,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.27
+  },
+  {
+   "year": 1981,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.42
+  },
+  {
+   "year": 1981,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.41
+  },
+  {
+   "year": 1981,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.27
+  },
+  {
+   "year": 1981,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.28
+  },
+  {
+   "year": 1981,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.27
+  },
+  {
+   "year": 1981,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.28
+  },
+  {
+   "year": 1981,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.23
+  },
+  {
+   "year": 1981,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.08
+  },
+  {
+   "year": 1981,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.16
+  },
+  {
+   "year": 1981,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.19
+  },
+  {
+   "year": 1981,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.14
+  },
+  {
+   "year": 1982,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.05
+  },
+  {
+   "year": 1982,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.02
+  },
+  {
+   "year": 1982,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.07
+  },
+  {
+   "year": 1982,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.34
+  },
+  {
+   "year": 1982,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.65
+  },
+  {
+   "year": 1982,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.73
+  },
+  {
+   "year": 1982,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.78
+  },
+  {
+   "year": 1982,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.99
+  },
+  {
+   "year": 1982,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.45
+  },
+  {
+   "year": 1982,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.82
+  },
+  {
+   "year": 1982,
+   "month": 11,
+   "season": "OND",
+   "oni": 2.03
+  },
+  {
+   "year": 1982,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 2.12
+  },
+  {
+   "year": 1983,
+   "month": 1,
+   "season": "DJF",
+   "oni": 2.14
+  },
+  {
+   "year": 1983,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.91
+  },
+  {
+   "year": 1983,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.52
+  },
+  {
+   "year": 1983,
+   "month": 4,
+   "season": "MAM",
+   "oni": 1.23
+  },
+  {
+   "year": 1983,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.95
+  },
+  {
+   "year": 1983,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.62
+  },
+  {
+   "year": 1983,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.25
+  },
+  {
+   "year": 1983,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.06
+  },
+  {
+   "year": 1983,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.43
+  },
+  {
+   "year": 1983,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.76
+  },
+  {
+   "year": 1983,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.96
+  },
+  {
+   "year": 1983,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.89
+  },
+  {
+   "year": 1984,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.63
+  },
+  {
+   "year": 1984,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.51
+  },
+  {
+   "year": 1984,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.38
+  },
+  {
+   "year": 1984,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.47
+  },
+  {
+   "year": 1984,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.55
+  },
+  {
+   "year": 1984,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.52
+  },
+  {
+   "year": 1984,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.39
+  },
+  {
+   "year": 1984,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.22
+  },
+  {
+   "year": 1984,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.32
+  },
+  {
+   "year": 1984,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.62
+  },
+  {
+   "year": 1984,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.95
+  },
+  {
+   "year": 1984,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.06
+  },
+  {
+   "year": 1985,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.01
+  },
+  {
+   "year": 1985,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.86
+  },
+  {
+   "year": 1985,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.85
+  },
+  {
+   "year": 1985,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.8
+  },
+  {
+   "year": 1985,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.79
+  },
+  {
+   "year": 1985,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.6
+  },
+  {
+   "year": 1985,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.44
+  },
+  {
+   "year": 1985,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.33
+  },
+  {
+   "year": 1985,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.31
+  },
+  {
+   "year": 1985,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.3
+  },
+  {
+   "year": 1985,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.28
+  },
+  {
+   "year": 1985,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.36
+  },
+  {
+   "year": 1986,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.4
+  },
+  {
+   "year": 1986,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.38
+  },
+  {
+   "year": 1986,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.25
+  },
+  {
+   "year": 1986,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.17
+  },
+  {
+   "year": 1986,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.09
+  },
+  {
+   "year": 1986,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.02
+  },
+  {
+   "year": 1986,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.24
+  },
+  {
+   "year": 1986,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.46
+  },
+  {
+   "year": 1986,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.64
+  },
+  {
+   "year": 1986,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.86
+  },
+  {
+   "year": 1986,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.06
+  },
+  {
+   "year": 1986,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.21
+  },
+  {
+   "year": 1987,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.18
+  },
+  {
+   "year": 1987,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.13
+  },
+  {
+   "year": 1987,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.02
+  },
+  {
+   "year": 1987,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.94
+  },
+  {
+   "year": 1987,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.95
+  },
+  {
+   "year": 1987,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 1.11
+  },
+  {
+   "year": 1987,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.3
+  },
+  {
+   "year": 1987,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.46
+  },
+  {
+   "year": 1987,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.49
+  },
+  {
+   "year": 1987,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.41
+  },
+  {
+   "year": 1987,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.2
+  },
+  {
+   "year": 1987,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.0
+  },
+  {
+   "year": 1988,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.63
+  },
+  {
+   "year": 1988,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.37
+  },
+  {
+   "year": 1988,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.03
+  },
+  {
+   "year": 1988,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.45
+  },
+  {
+   "year": 1988,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.99
+  },
+  {
+   "year": 1988,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -1.3
+  },
+  {
+   "year": 1988,
+   "month": 7,
+   "season": "JJA",
+   "oni": -1.3
+  },
+  {
+   "year": 1988,
+   "month": 8,
+   "season": "JAS",
+   "oni": -1.14
+  },
+  {
+   "year": 1988,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.27
+  },
+  {
+   "year": 1988,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.54
+  },
+  {
+   "year": 1988,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.81
+  },
+  {
+   "year": 1988,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.85
+  },
+  {
+   "year": 1989,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.64
+  },
+  {
+   "year": 1989,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.38
+  },
+  {
+   "year": 1989,
+   "month": 3,
+   "season": "FMA",
+   "oni": -1.09
+  },
+  {
+   "year": 1989,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.85
+  },
+  {
+   "year": 1989,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.61
+  },
+  {
+   "year": 1989,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.4
+  },
+  {
+   "year": 1989,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.37
+  },
+  {
+   "year": 1989,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.36
+  },
+  {
+   "year": 1989,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.33
+  },
+  {
+   "year": 1989,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.25
+  },
+  {
+   "year": 1989,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.12
+  },
+  {
+   "year": 1989,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.04
+  },
+  {
+   "year": 1990,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.18
+  },
+  {
+   "year": 1990,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.19
+  },
+  {
+   "year": 1990,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.3
+  },
+  {
+   "year": 1990,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.27
+  },
+  {
+   "year": 1990,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.25
+  },
+  {
+   "year": 1990,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.25
+  },
+  {
+   "year": 1990,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.26
+  },
+  {
+   "year": 1990,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.32
+  },
+  {
+   "year": 1990,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.31
+  },
+  {
+   "year": 1990,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.27
+  },
+  {
+   "year": 1990,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.31
+  },
+  {
+   "year": 1990,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.34
+  },
+  {
+   "year": 1991,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.35
+  },
+  {
+   "year": 1991,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.26
+  },
+  {
+   "year": 1991,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.23
+  },
+  {
+   "year": 1991,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.29
+  },
+  {
+   "year": 1991,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.49
+  },
+  {
+   "year": 1991,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.63
+  },
+  {
+   "year": 1991,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.77
+  },
+  {
+   "year": 1991,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.67
+  },
+  {
+   "year": 1991,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.72
+  },
+  {
+   "year": 1991,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.83
+  },
+  {
+   "year": 1991,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.18
+  },
+  {
+   "year": 1991,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.43
+  },
+  {
+   "year": 1992,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.54
+  },
+  {
+   "year": 1992,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.5
+  },
+  {
+   "year": 1992,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.4
+  },
+  {
+   "year": 1992,
+   "month": 4,
+   "season": "MAM",
+   "oni": 1.3
+  },
+  {
+   "year": 1992,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 1.08
+  },
+  {
+   "year": 1992,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.72
+  },
+  {
+   "year": 1992,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.35
+  },
+  {
+   "year": 1992,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.08
+  },
+  {
+   "year": 1992,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.15
+  },
+  {
+   "year": 1992,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.22
+  },
+  {
+   "year": 1992,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.24
+  },
+  {
+   "year": 1992,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.05
+  },
+  {
+   "year": 1993,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.13
+  },
+  {
+   "year": 1993,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.31
+  },
+  {
+   "year": 1993,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.5
+  },
+  {
+   "year": 1993,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.73
+  },
+  {
+   "year": 1993,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.76
+  },
+  {
+   "year": 1993,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.56
+  },
+  {
+   "year": 1993,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.28
+  },
+  {
+   "year": 1993,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.22
+  },
+  {
+   "year": 1993,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.2
+  },
+  {
+   "year": 1993,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.2
+  },
+  {
+   "year": 1993,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.2
+  },
+  {
+   "year": 1993,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.19
+  },
+  {
+   "year": 1994,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.07
+  },
+  {
+   "year": 1994,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.0
+  },
+  {
+   "year": 1994,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.04
+  },
+  {
+   "year": 1994,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.17
+  },
+  {
+   "year": 1994,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.25
+  },
+  {
+   "year": 1994,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.23
+  },
+  {
+   "year": 1994,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.3
+  },
+  {
+   "year": 1994,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.3
+  },
+  {
+   "year": 1994,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.47
+  },
+  {
+   "year": 1994,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.66
+  },
+  {
+   "year": 1994,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.93
+  },
+  {
+   "year": 1994,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.97
+  },
+  {
+   "year": 1995,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.88
+  },
+  {
+   "year": 1995,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.65
+  },
+  {
+   "year": 1995,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.46
+  },
+  {
+   "year": 1995,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.19
+  },
+  {
+   "year": 1995,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.03
+  },
+  {
+   "year": 1995,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.11
+  },
+  {
+   "year": 1995,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.3
+  },
+  {
+   "year": 1995,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.55
+  },
+  {
+   "year": 1995,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.81
+  },
+  {
+   "year": 1995,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.97
+  },
+  {
+   "year": 1995,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.05
+  },
+  {
+   "year": 1995,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.01
+  },
+  {
+   "year": 1996,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.88
+  },
+  {
+   "year": 1996,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.7
+  },
+  {
+   "year": 1996,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.52
+  },
+  {
+   "year": 1996,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.36
+  },
+  {
+   "year": 1996,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.25
+  },
+  {
+   "year": 1996,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.24
+  },
+  {
+   "year": 1996,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.22
+  },
+  {
+   "year": 1996,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.27
+  },
+  {
+   "year": 1996,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.3
+  },
+  {
+   "year": 1996,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.33
+  },
+  {
+   "year": 1996,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.39
+  },
+  {
+   "year": 1996,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.41
+  },
+  {
+   "year": 1997,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.41
+  },
+  {
+   "year": 1997,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.26
+  },
+  {
+   "year": 1997,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.03
+  },
+  {
+   "year": 1997,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.3
+  },
+  {
+   "year": 1997,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.71
+  },
+  {
+   "year": 1997,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 1.13
+  },
+  {
+   "year": 1997,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.48
+  },
+  {
+   "year": 1997,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.79
+  },
+  {
+   "year": 1997,
+   "month": 9,
+   "season": "ASO",
+   "oni": 2.04
+  },
+  {
+   "year": 1997,
+   "month": 10,
+   "season": "SON",
+   "oni": 2.24
+  },
+  {
+   "year": 1997,
+   "month": 11,
+   "season": "OND",
+   "oni": 2.34
+  },
+  {
+   "year": 1997,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 2.37
+  },
+  {
+   "year": 1998,
+   "month": 1,
+   "season": "DJF",
+   "oni": 2.22
+  },
+  {
+   "year": 1998,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.91
+  },
+  {
+   "year": 1998,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.4
+  },
+  {
+   "year": 1998,
+   "month": 4,
+   "season": "MAM",
+   "oni": 1.03
+  },
+  {
+   "year": 1998,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.4
+  },
+  {
+   "year": 1998,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.08
+  },
+  {
+   "year": 1998,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.63
+  },
+  {
+   "year": 1998,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.83
+  },
+  {
+   "year": 1998,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.02
+  },
+  {
+   "year": 1998,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.12
+  },
+  {
+   "year": 1998,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.31
+  },
+  {
+   "year": 1998,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.47
+  },
+  {
+   "year": 1999,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.51
+  },
+  {
+   "year": 1999,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.25
+  },
+  {
+   "year": 1999,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.93
+  },
+  {
+   "year": 1999,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.8
+  },
+  {
+   "year": 1999,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.79
+  },
+  {
+   "year": 1999,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.84
+  },
+  {
+   "year": 1999,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.9
+  },
+  {
+   "year": 1999,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.94
+  },
+  {
+   "year": 1999,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.0
+  },
+  {
+   "year": 1999,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.13
+  },
+  {
+   "year": 1999,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.35
+  },
+  {
+   "year": 1999,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.53
+  },
+  {
+   "year": 2000,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.47
+  },
+  {
+   "year": 2000,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.26
+  },
+  {
+   "year": 2000,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.98
+  },
+  {
+   "year": 2000,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.81
+  },
+  {
+   "year": 2000,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.67
+  },
+  {
+   "year": 2000,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.62
+  },
+  {
+   "year": 2000,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.48
+  },
+  {
+   "year": 2000,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.4
+  },
+  {
+   "year": 2000,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.42
+  },
+  {
+   "year": 2000,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.54
+  },
+  {
+   "year": 2000,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.76
+  },
+  {
+   "year": 2000,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.78
+  },
+  {
+   "year": 2001,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.76
+  },
+  {
+   "year": 2001,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.54
+  },
+  {
+   "year": 2001,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.43
+  },
+  {
+   "year": 2001,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.29
+  },
+  {
+   "year": 2001,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.19
+  },
+  {
+   "year": 2001,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.08
+  },
+  {
+   "year": 2001,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.05
+  },
+  {
+   "year": 2001,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.13
+  },
+  {
+   "year": 2001,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.15
+  },
+  {
+   "year": 2001,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.26
+  },
+  {
+   "year": 2001,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.33
+  },
+  {
+   "year": 2001,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.32
+  },
+  {
+   "year": 2002,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.15
+  },
+  {
+   "year": 2002,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.07
+  },
+  {
+   "year": 2002,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.11
+  },
+  {
+   "year": 2002,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.15
+  },
+  {
+   "year": 2002,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.3
+  },
+  {
+   "year": 2002,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.45
+  },
+  {
+   "year": 2002,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.57
+  },
+  {
+   "year": 2002,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.63
+  },
+  {
+   "year": 2002,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.78
+  },
+  {
+   "year": 2002,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.99
+  },
+  {
+   "year": 2002,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.19
+  },
+  {
+   "year": 2002,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.08
+  },
+  {
+   "year": 2003,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.9
+  },
+  {
+   "year": 2003,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.59
+  },
+  {
+   "year": 2003,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.38
+  },
+  {
+   "year": 2003,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.01
+  },
+  {
+   "year": 2003,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.18
+  },
+  {
+   "year": 2003,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.13
+  },
+  {
+   "year": 2003,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.09
+  },
+  {
+   "year": 2003,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.14
+  },
+  {
+   "year": 2003,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.23
+  },
+  {
+   "year": 2003,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.23
+  },
+  {
+   "year": 2003,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.29
+  },
+  {
+   "year": 2003,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.29
+  },
+  {
+   "year": 2004,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.34
+  },
+  {
+   "year": 2004,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.27
+  },
+  {
+   "year": 2004,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.19
+  },
+  {
+   "year": 2004,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.1
+  },
+  {
+   "year": 2004,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.12
+  },
+  {
+   "year": 2004,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.22
+  },
+  {
+   "year": 2004,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.39
+  },
+  {
+   "year": 2004,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.54
+  },
+  {
+   "year": 2004,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.58
+  },
+  {
+   "year": 2004,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.61
+  },
+  {
+   "year": 2004,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.64
+  },
+  {
+   "year": 2004,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.71
+  },
+  {
+   "year": 2005,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.62
+  },
+  {
+   "year": 2005,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.55
+  },
+  {
+   "year": 2005,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.4
+  },
+  {
+   "year": 2005,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.37
+  },
+  {
+   "year": 2005,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.27
+  },
+  {
+   "year": 2005,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.09
+  },
+  {
+   "year": 2005,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.04
+  },
+  {
+   "year": 2005,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.14
+  },
+  {
+   "year": 2005,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.11
+  },
+  {
+   "year": 2005,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.27
+  },
+  {
+   "year": 2005,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.57
+  },
+  {
+   "year": 2005,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.82
+  },
+  {
+   "year": 2006,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.86
+  },
+  {
+   "year": 2006,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.8
+  },
+  {
+   "year": 2006,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.63
+  },
+  {
+   "year": 2006,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.45
+  },
+  {
+   "year": 2006,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.19
+  },
+  {
+   "year": 2006,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.05
+  },
+  {
+   "year": 2006,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.12
+  },
+  {
+   "year": 2006,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.33
+  },
+  {
+   "year": 2006,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.54
+  },
+  {
+   "year": 2006,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.71
+  },
+  {
+   "year": 2006,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.88
+  },
+  {
+   "year": 2006,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.88
+  },
+  {
+   "year": 2007,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.62
+  },
+  {
+   "year": 2007,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.19
+  },
+  {
+   "year": 2007,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.12
+  },
+  {
+   "year": 2007,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.32
+  },
+  {
+   "year": 2007,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.34
+  },
+  {
+   "year": 2007,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.41
+  },
+  {
+   "year": 2007,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.49
+  },
+  {
+   "year": 2007,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.77
+  },
+  {
+   "year": 2007,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.05
+  },
+  {
+   "year": 2007,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.38
+  },
+  {
+   "year": 2007,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.57
+  },
+  {
+   "year": 2007,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.72
+  },
+  {
+   "year": 2008,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.76
+  },
+  {
+   "year": 2008,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.61
+  },
+  {
+   "year": 2008,
+   "month": 3,
+   "season": "FMA",
+   "oni": -1.37
+  },
+  {
+   "year": 2008,
+   "month": 4,
+   "season": "MAM",
+   "oni": -1.05
+  },
+  {
+   "year": 2008,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.85
+  },
+  {
+   "year": 2008,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.56
+  },
+  {
+   "year": 2008,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.33
+  },
+  {
+   "year": 2008,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.2
+  },
+  {
+   "year": 2008,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.25
+  },
+  {
+   "year": 2008,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.36
+  },
+  {
+   "year": 2008,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.57
+  },
+  {
+   "year": 2008,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.79
+  },
+  {
+   "year": 2009,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.89
+  },
+  {
+   "year": 2009,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.84
+  },
+  {
+   "year": 2009,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.63
+  },
+  {
+   "year": 2009,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.35
+  },
+  {
+   "year": 2009,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.03
+  },
+  {
+   "year": 2009,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.34
+  },
+  {
+   "year": 2009,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.5
+  },
+  {
+   "year": 2009,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.56
+  },
+  {
+   "year": 2009,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.66
+  },
+  {
+   "year": 2009,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.92
+  },
+  {
+   "year": 2009,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.31
+  },
+  {
+   "year": 2009,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.5
+  },
+  {
+   "year": 2010,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.47
+  },
+  {
+   "year": 2010,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.21
+  },
+  {
+   "year": 2010,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.88
+  },
+  {
+   "year": 2010,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.38
+  },
+  {
+   "year": 2010,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.16
+  },
+  {
+   "year": 2010,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.66
+  },
+  {
+   "year": 2010,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.98
+  },
+  {
+   "year": 2010,
+   "month": 8,
+   "season": "JAS",
+   "oni": -1.24
+  },
+  {
+   "year": 2010,
+   "month": 9,
+   "season": "ASO",
+   "oni": -1.43
+  },
+  {
+   "year": 2010,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.54
+  },
+  {
+   "year": 2010,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.57
+  },
+  {
+   "year": 2010,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.48
+  },
+  {
+   "year": 2011,
+   "month": 1,
+   "season": "DJF",
+   "oni": -1.29
+  },
+  {
+   "year": 2011,
+   "month": 2,
+   "season": "JFM",
+   "oni": -1.06
+  },
+  {
+   "year": 2011,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.85
+  },
+  {
+   "year": 2011,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.68
+  },
+  {
+   "year": 2011,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.5
+  },
+  {
+   "year": 2011,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.34
+  },
+  {
+   "year": 2011,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.37
+  },
+  {
+   "year": 2011,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.5
+  },
+  {
+   "year": 2011,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.76
+  },
+  {
+   "year": 2011,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.94
+  },
+  {
+   "year": 2011,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.02
+  },
+  {
+   "year": 2011,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.92
+  },
+  {
+   "year": 2012,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.71
+  },
+  {
+   "year": 2012,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.56
+  },
+  {
+   "year": 2012,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.44
+  },
+  {
+   "year": 2012,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.35
+  },
+  {
+   "year": 2012,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.18
+  },
+  {
+   "year": 2012,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.03
+  },
+  {
+   "year": 2012,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.28
+  },
+  {
+   "year": 2012,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.39
+  },
+  {
+   "year": 2012,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.37
+  },
+  {
+   "year": 2012,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.28
+  },
+  {
+   "year": 2012,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.13
+  },
+  {
+   "year": 2012,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.03
+  },
+  {
+   "year": 2013,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.24
+  },
+  {
+   "year": 2013,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.28
+  },
+  {
+   "year": 2013,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.23
+  },
+  {
+   "year": 2013,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.2
+  },
+  {
+   "year": 2013,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.3
+  },
+  {
+   "year": 2013,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.38
+  },
+  {
+   "year": 2013,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.45
+  },
+  {
+   "year": 2013,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.34
+  },
+  {
+   "year": 2013,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.32
+  },
+  {
+   "year": 2013,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.14
+  },
+  {
+   "year": 2013,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.12
+  },
+  {
+   "year": 2013,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.11
+  },
+  {
+   "year": 2014,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.24
+  },
+  {
+   "year": 2014,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.21
+  },
+  {
+   "year": 2014,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.02
+  },
+  {
+   "year": 2014,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.25
+  },
+  {
+   "year": 2014,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.35
+  },
+  {
+   "year": 2014,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.22
+  },
+  {
+   "year": 2014,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.07
+  },
+  {
+   "year": 2014,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.07
+  },
+  {
+   "year": 2014,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.24
+  },
+  {
+   "year": 2014,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.51
+  },
+  {
+   "year": 2014,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.7
+  },
+  {
+   "year": 2014,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.8
+  },
+  {
+   "year": 2015,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.73
+  },
+  {
+   "year": 2015,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.65
+  },
+  {
+   "year": 2015,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.72
+  },
+  {
+   "year": 2015,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.86
+  },
+  {
+   "year": 2015,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 1.04
+  },
+  {
+   "year": 2015,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 1.19
+  },
+  {
+   "year": 2015,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.44
+  },
+  {
+   "year": 2015,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.73
+  },
+  {
+   "year": 2015,
+   "month": 9,
+   "season": "ASO",
+   "oni": 2.02
+  },
+  {
+   "year": 2015,
+   "month": 10,
+   "season": "SON",
+   "oni": 2.28
+  },
+  {
+   "year": 2015,
+   "month": 11,
+   "season": "OND",
+   "oni": 2.45
+  },
+  {
+   "year": 2015,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 2.59
+  },
+  {
+   "year": 2016,
+   "month": 1,
+   "season": "DJF",
+   "oni": 2.5
+  },
+  {
+   "year": 2016,
+   "month": 2,
+   "season": "JFM",
+   "oni": 2.21
+  },
+  {
+   "year": 2016,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.69
+  },
+  {
+   "year": 2016,
+   "month": 4,
+   "season": "MAM",
+   "oni": 1.11
+  },
+  {
+   "year": 2016,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.57
+  },
+  {
+   "year": 2016,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.09
+  },
+  {
+   "year": 2016,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.19
+  },
+  {
+   "year": 2016,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.34
+  },
+  {
+   "year": 2016,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.42
+  },
+  {
+   "year": 2016,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.51
+  },
+  {
+   "year": 2016,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.49
+  },
+  {
+   "year": 2016,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.37
+  },
+  {
+   "year": 2017,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.08
+  },
+  {
+   "year": 2017,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.08
+  },
+  {
+   "year": 2017,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.27
+  },
+  {
+   "year": 2017,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.32
+  },
+  {
+   "year": 2017,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.35
+  },
+  {
+   "year": 2017,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.32
+  },
+  {
+   "year": 2017,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.14
+  },
+  {
+   "year": 2017,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.07
+  },
+  {
+   "year": 2017,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.23
+  },
+  {
+   "year": 2017,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.44
+  },
+  {
+   "year": 2017,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.61
+  },
+  {
+   "year": 2017,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.76
+  },
+  {
+   "year": 2018,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.71
+  },
+  {
+   "year": 2018,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.67
+  },
+  {
+   "year": 2018,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.55
+  },
+  {
+   "year": 2018,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.35
+  },
+  {
+   "year": 2018,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.07
+  },
+  {
+   "year": 2018,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.13
+  },
+  {
+   "year": 2018,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.2
+  },
+  {
+   "year": 2018,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.3
+  },
+  {
+   "year": 2018,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.52
+  },
+  {
+   "year": 2018,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.82
+  },
+  {
+   "year": 2018,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.04
+  },
+  {
+   "year": 2018,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.05
+  },
+  {
+   "year": 2019,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.99
+  },
+  {
+   "year": 2019,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.94
+  },
+  {
+   "year": 2019,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.87
+  },
+  {
+   "year": 2019,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.82
+  },
+  {
+   "year": 2019,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.71
+  },
+  {
+   "year": 2019,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.59
+  },
+  {
+   "year": 2019,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.38
+  },
+  {
+   "year": 2019,
+   "month": 8,
+   "season": "JAS",
+   "oni": 0.2
+  },
+  {
+   "year": 2019,
+   "month": 9,
+   "season": "ASO",
+   "oni": 0.31
+  },
+  {
+   "year": 2019,
+   "month": 10,
+   "season": "SON",
+   "oni": 0.51
+  },
+  {
+   "year": 2019,
+   "month": 11,
+   "season": "OND",
+   "oni": 0.72
+  },
+  {
+   "year": 2019,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 0.75
+  },
+  {
+   "year": 2020,
+   "month": 1,
+   "season": "DJF",
+   "oni": 0.71
+  },
+  {
+   "year": 2020,
+   "month": 2,
+   "season": "JFM",
+   "oni": 0.66
+  },
+  {
+   "year": 2020,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.57
+  },
+  {
+   "year": 2020,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.33
+  },
+  {
+   "year": 2020,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.04
+  },
+  {
+   "year": 2020,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.18
+  },
+  {
+   "year": 2020,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.29
+  },
+  {
+   "year": 2020,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.43
+  },
+  {
+   "year": 2020,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.77
+  },
+  {
+   "year": 2020,
+   "month": 10,
+   "season": "SON",
+   "oni": -1.0
+  },
+  {
+   "year": 2020,
+   "month": 11,
+   "season": "OND",
+   "oni": -1.11
+  },
+  {
+   "year": 2020,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -1.06
+  },
+  {
+   "year": 2021,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.99
+  },
+  {
+   "year": 2021,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.85
+  },
+  {
+   "year": 2021,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.74
+  },
+  {
+   "year": 2021,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.56
+  },
+  {
+   "year": 2021,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.4
+  },
+  {
+   "year": 2021,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.31
+  },
+  {
+   "year": 2021,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.35
+  },
+  {
+   "year": 2021,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.46
+  },
+  {
+   "year": 2021,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.64
+  },
+  {
+   "year": 2021,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.77
+  },
+  {
+   "year": 2021,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.91
+  },
+  {
+   "year": 2021,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.83
+  },
+  {
+   "year": 2022,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.76
+  },
+  {
+   "year": 2022,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.68
+  },
+  {
+   "year": 2022,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.77
+  },
+  {
+   "year": 2022,
+   "month": 4,
+   "season": "MAM",
+   "oni": -0.86
+  },
+  {
+   "year": 2022,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.83
+  },
+  {
+   "year": 2022,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.73
+  },
+  {
+   "year": 2022,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.7
+  },
+  {
+   "year": 2022,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.78
+  },
+  {
+   "year": 2022,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.87
+  },
+  {
+   "year": 2022,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.89
+  },
+  {
+   "year": 2022,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.82
+  },
+  {
+   "year": 2022,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.7
+  },
+  {
+   "year": 2023,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.55
+  },
+  {
+   "year": 2023,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.33
+  },
+  {
+   "year": 2023,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.11
+  },
+  {
+   "year": 2023,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.19
+  },
+  {
+   "year": 2023,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.46
+  },
+  {
+   "year": 2023,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.73
+  },
+  {
+   "year": 2023,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.0
+  },
+  {
+   "year": 2023,
+   "month": 8,
+   "season": "JAS",
+   "oni": 1.25
+  },
+  {
+   "year": 2023,
+   "month": 9,
+   "season": "ASO",
+   "oni": 1.5
+  },
+  {
+   "year": 2023,
+   "month": 10,
+   "season": "SON",
+   "oni": 1.74
+  },
+  {
+   "year": 2023,
+   "month": 11,
+   "season": "OND",
+   "oni": 1.9
+  },
+  {
+   "year": 2023,
+   "month": 12,
+   "season": "NDJ",
+   "oni": 1.99
+  },
+  {
+   "year": 2024,
+   "month": 1,
+   "season": "DJF",
+   "oni": 1.84
+  },
+  {
+   "year": 2024,
+   "month": 2,
+   "season": "JFM",
+   "oni": 1.53
+  },
+  {
+   "year": 2024,
+   "month": 3,
+   "season": "FMA",
+   "oni": 1.18
+  },
+  {
+   "year": 2024,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.77
+  },
+  {
+   "year": 2024,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.43
+  },
+  {
+   "year": 2024,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 0.18
+  },
+  {
+   "year": 2024,
+   "month": 7,
+   "season": "JJA",
+   "oni": 0.06
+  },
+  {
+   "year": 2024,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.04
+  },
+  {
+   "year": 2024,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.12
+  },
+  {
+   "year": 2024,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.19
+  },
+  {
+   "year": 2024,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.29
+  },
+  {
+   "year": 2024,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.43
+  },
+  {
+   "year": 2025,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.46
+  },
+  {
+   "year": 2025,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.22
+  },
+  {
+   "year": 2025,
+   "month": 3,
+   "season": "FMA",
+   "oni": -0.08
+  },
+  {
+   "year": 2025,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.02
+  },
+  {
+   "year": 2025,
+   "month": 5,
+   "season": "AMJ",
+   "oni": -0.04
+  },
+  {
+   "year": 2025,
+   "month": 6,
+   "season": "MJJ",
+   "oni": -0.02
+  },
+  {
+   "year": 2025,
+   "month": 7,
+   "season": "JJA",
+   "oni": -0.11
+  },
+  {
+   "year": 2025,
+   "month": 8,
+   "season": "JAS",
+   "oni": -0.26
+  },
+  {
+   "year": 2025,
+   "month": 9,
+   "season": "ASO",
+   "oni": -0.43
+  },
+  {
+   "year": 2025,
+   "month": 10,
+   "season": "SON",
+   "oni": -0.57
+  },
+  {
+   "year": 2025,
+   "month": 11,
+   "season": "OND",
+   "oni": -0.61
+  },
+  {
+   "year": 2025,
+   "month": 12,
+   "season": "NDJ",
+   "oni": -0.6
+  },
+  {
+   "year": 2026,
+   "month": 1,
+   "season": "DJF",
+   "oni": -0.39
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "season": "JFM",
+   "oni": -0.21
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "season": "FMA",
+   "oni": 0.11
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "season": "MAM",
+   "oni": 0.46
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "season": "AMJ",
+   "oni": 0.95
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "season": "MJJ",
+   "oni": 1.39
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "season": "JJA",
+   "oni": 1.8
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "season": "JAS",
+   "oni": 2.12
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "season": "ASO",
+   "oni": 2.46
+  }
+ ],
+ "species": {
+  "melomys": {
+   "reference_location": "bramble-cay",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "t2m_max_mean",
+     "label": "Average monthly maximum temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.276,
+      "r_squared": 0.076,
+      "change_per_1c_oni": -0.151,
+      "strong_el_nino_years": {
+       "1982": -0.448,
+       "1991": -0.393,
+       "1997": -0.425,
+       "2009": 0.173,
+       "2014": -0.193
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.228,
+      "r_squared": 0.052,
+      "change_per_1c_oni": -0.141,
+      "strong_el_nino_years": {
+       "1982": -0.261,
+       "1991": -0.347,
+       "1997": -0.473,
+       "2009": -0.063,
+       "2014": -0.508,
+       "2023": 0.236
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_annual",
+     "label": "Annual rainfall",
+     "unit": "mm/year",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.382,
+      "r_squared": 0.146,
+      "change_per_1c_oni": -348.716,
+      "strong_el_nino_years": {
+       "1982": -871.104,
+       "1991": -737.023,
+       "1997": -660.796,
+       "2009": 60.418,
+       "2014": -673.029
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.382,
+      "r_squared": 0.146,
+      "change_per_1c_oni": -330.717,
+      "strong_el_nino_years": {
+       "1982": -1092.833,
+       "1991": -780.657,
+       "1997": -585.7,
+       "2009": 372.975,
+       "2014": -261.531,
+       "2023": -369.525
+      }
+     }
+    },
+    {
+     "indicator_id": "soil_wetness",
+     "label": "Root-zone soil wetness",
+     "unit": "0–1",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, root-zone soil wetness here tends to run lower than its trend: about 0.055 on its 0–1 scale per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = -0.51).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.505,
+      "r_squared": 0.255,
+      "change_per_1c_oni": -0.055,
+      "strong_el_nino_years": {
+       "1982": -0.072,
+       "1991": -0.116,
+       "1997": -0.096,
+       "2009": 0.0,
+       "2014": -0.056
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.467,
+      "r_squared": 0.218,
+      "change_per_1c_oni": -0.054,
+      "strong_el_nino_years": {
+       "1982": -0.11,
+       "1991": -0.124,
+       "1997": -0.083,
+       "2009": 0.053,
+       "2014": 0.014,
+       "2023": -0.053
+      }
+     }
+    }
+   ]
+  },
+  "sapo-dorado": {
+   "reference_location": "monteverde",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "rh2m_mean",
+     "label": "Mean relative humidity",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.29,
+      "r_squared": 0.084,
+      "change_per_1c_oni": -1.528,
+      "strong_el_nino_years": {
+       "1982": 5.005,
+       "1991": -2.295,
+       "1997": -2.976,
+       "2009": -0.949,
+       "2014": -0.36
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.31,
+      "r_squared": 0.096,
+      "change_per_1c_oni": -1.417,
+      "strong_el_nino_years": {
+       "1982": 5.133,
+       "1991": -2.27,
+       "1997": -3.02,
+       "2009": -1.131,
+       "2014": -0.599,
+       "2023": -1.491
+      }
+     }
+    },
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, mean air temperature here tends to run higher than its trend: about 0.41 °C per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = +0.52).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.522,
+      "r_squared": 0.273,
+      "change_per_1c_oni": 0.408,
+      "strong_el_nino_years": {
+       "1982": -0.574,
+       "1991": 0.191,
+       "1997": 0.452,
+       "2009": 0.1,
+       "2014": 0.065
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.573,
+      "r_squared": 0.328,
+      "change_per_1c_oni": 0.419,
+      "strong_el_nino_years": {
+       "1982": -0.493,
+       "1991": 0.21,
+       "1997": 0.429,
+       "2009": -0.006,
+       "2014": -0.075,
+       "2023": 0.478
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.075,
+      "r_squared": 0.006,
+      "change_per_1c_oni": -2.166,
+      "strong_el_nino_years": {
+       "1982": 18.097,
+       "1991": -0.598,
+       "1997": -8.891,
+       "2009": 9.032,
+       "2014": -1.351
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.158,
+      "r_squared": 0.025,
+      "change_per_1c_oni": 8.46,
+      "strong_el_nino_years": {
+       "1982": 42.141,
+       "1991": 4.327,
+       "1997": -16.712,
+       "2009": -24.28,
+       "2014": -45.284,
+       "2023": 66.902
+      }
+     }
+    }
+   ]
+  },
+  "arlequin-chiriqui": {
+   "reference_location": "talamanca",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, mean air temperature here tends to run higher than its trend: about 0.34 °C per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = +0.70).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.698,
+      "r_squared": 0.488,
+      "change_per_1c_oni": 0.338,
+      "strong_el_nino_years": {
+       "1982": -0.093,
+       "1991": 0.083,
+       "1997": 0.388,
+       "2009": 0.164,
+       "2014": 0.16
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.74,
+      "r_squared": 0.548,
+      "change_per_1c_oni": 0.363,
+      "strong_el_nino_years": {
+       "1982": -0.008,
+       "1991": 0.101,
+       "1997": 0.361,
+       "2009": 0.048,
+       "2014": 0.006,
+       "2023": 0.448
+      }
+     }
+    },
+    {
+     "indicator_id": "cloud_cover",
+     "label": "Cloud cover",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1984,
+       2014
+      ],
+      "r": 0.008,
+      "r_squared": 0.0,
+      "change_per_1c_oni": 0.023,
+      "strong_el_nino_years": {
+       "1991": -0.35,
+       "1997": -0.643,
+       "2009": -1.146,
+       "2014": -1.53
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1984,
+       2025
+      ],
+      "r": -0.079,
+      "r_squared": 0.006,
+      "change_per_1c_oni": -0.248,
+      "strong_el_nino_years": {
+       "1991": -0.164,
+       "1997": -0.558,
+       "2009": -1.265,
+       "2014": -1.734,
+       "2023": 0.852
+      }
+     }
+    },
+    {
+     "indicator_id": "thermal_range",
+     "label": "Monthly temperature range",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.429,
+      "r_squared": 0.184,
+      "change_per_1c_oni": 0.348,
+      "strong_el_nino_years": {
+       "1982": -0.187,
+       "1991": 0.962,
+       "1997": 0.413,
+       "2009": -0.109,
+       "2014": 0.362
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.43,
+      "r_squared": 0.185,
+      "change_per_1c_oni": 0.311,
+      "strong_el_nino_years": {
+       "1982": -0.137,
+       "1991": 0.974,
+       "1997": 0.399,
+       "2009": -0.175,
+       "2014": 0.274,
+       "2023": 0.473
+      }
+     }
+    }
+   ]
+  },
+  "rana-gastrica": {
+   "reference_location": "conondale",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.449,
+      "r_squared": 0.202,
+      "change_per_1c_oni": 0.383,
+      "strong_el_nino_years": {
+       "1982": -0.131,
+       "1991": 0.726,
+       "1997": 0.408,
+       "2009": 0.476,
+       "2014": 0.355
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.482,
+      "r_squared": 0.233,
+      "change_per_1c_oni": 0.414,
+      "strong_el_nino_years": {
+       "1982": -0.025,
+       "1991": 0.746,
+       "1997": 0.371,
+       "2009": 0.324,
+       "2014": 0.154,
+       "2023": 0.697
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.435,
+      "r_squared": 0.189,
+      "change_per_1c_oni": -71.326,
+      "strong_el_nino_years": {
+       "1982": -78.621,
+       "1991": -134.63,
+       "1997": -70.552,
+       "2009": -30.967,
+       "2014": -36.414
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.354,
+      "r_squared": 0.125,
+      "change_per_1c_oni": -51.905,
+      "strong_el_nino_years": {
+       "1982": -95.406,
+       "1991": -138.292,
+       "1997": -65.465,
+       "2009": -8.382,
+       "2014": -6.539,
+       "2023": -62.324
+      }
+     }
+    },
+    {
+     "indicator_id": "soil_wetness",
+     "label": "Root-zone soil wetness",
+     "unit": "0–1",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.392,
+      "r_squared": 0.154,
+      "change_per_1c_oni": -0.033,
+      "strong_el_nino_years": {
+       "1982": -0.028,
+       "1991": -0.054,
+       "1997": -0.037,
+       "2009": -0.015,
+       "2014": -0.04
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.418,
+      "r_squared": 0.175,
+      "change_per_1c_oni": -0.032,
+      "strong_el_nino_years": {
+       "1982": -0.034,
+       "1991": -0.055,
+       "1997": -0.035,
+       "2009": -0.005,
+       "2014": -0.028,
+       "2023": -0.047
+      }
+     }
+    }
+   ]
+  },
+  "darwin-norte": {
+   "reference_location": "nahuelbuta",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.154,
+      "r_squared": 0.024,
+      "change_per_1c_oni": 0.091,
+      "strong_el_nino_years": {
+       "1982": 0.093,
+       "1991": -0.037,
+       "1997": 0.389,
+       "2009": -0.025,
+       "2014": -0.149
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.19,
+      "r_squared": 0.036,
+      "change_per_1c_oni": 0.103,
+      "strong_el_nino_years": {
+       "1982": 0.136,
+       "1991": -0.03,
+       "1997": 0.371,
+       "2009": -0.092,
+       "2014": -0.236,
+       "2023": 0.184
+      }
+     }
+    },
+    {
+     "indicator_id": "rh2m_mean",
+     "label": "Mean relative humidity",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.286,
+      "r_squared": 0.082,
+      "change_per_1c_oni": 0.662,
+      "strong_el_nino_years": {
+       "1982": -0.63,
+       "1991": -0.045,
+       "1997": 0.972,
+       "2009": -1.002,
+       "2014": -0.048
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.078,
+      "r_squared": 0.006,
+      "change_per_1c_oni": 0.227,
+      "strong_el_nino_years": {
+       "1982": -1.646,
+       "1991": -0.288,
+       "1997": 1.245,
+       "2009": 0.302,
+       "2014": 1.686,
+       "2023": -3.519
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.021,
+      "r_squared": 0.0,
+      "change_per_1c_oni": 1.83,
+      "strong_el_nino_years": {
+       "1982": 23.712,
+       "1991": 6.725,
+       "1997": -32.939,
+       "2009": -43.768,
+       "2014": 39.158
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.135,
+      "r_squared": 0.018,
+      "change_per_1c_oni": -11.086,
+      "strong_el_nino_years": {
+       "1982": 5.406,
+       "1991": 2.888,
+       "1997": -27.13,
+       "2009": -18.667,
+       "2014": 72.297,
+       "2023": -63.01
+      }
+     }
+    }
+   ]
+  },
+  "caracol-oahu": {
+   "reference_location": "koolau",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.033,
+      "r_squared": 0.001,
+      "change_per_1c_oni": 0.017,
+      "strong_el_nino_years": {
+       "1982": -0.322,
+       "1991": -0.032,
+       "1997": 0.265,
+       "2009": -0.186,
+       "2014": 0.167
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.101,
+      "r_squared": 0.01,
+      "change_per_1c_oni": 0.048,
+      "strong_el_nino_years": {
+       "1982": -0.265,
+       "1991": -0.018,
+       "1997": 0.251,
+       "2009": -0.255,
+       "2014": 0.074,
+       "2023": 0.099
+      }
+     }
+    },
+    {
+     "indicator_id": "rh2m_mean",
+     "label": "Mean relative humidity",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.11,
+      "r_squared": 0.012,
+      "change_per_1c_oni": 0.293,
+      "strong_el_nino_years": {
+       "1982": 3.835,
+       "1991": 0.071,
+       "1997": -1.804,
+       "2009": 0.266,
+       "2014": 1.925
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.185,
+      "r_squared": 0.034,
+      "change_per_1c_oni": 0.519,
+      "strong_el_nino_years": {
+       "1982": 4.478,
+       "1991": 0.17,
+       "1997": -2.069,
+       "2009": -0.726,
+       "2014": 0.63,
+       "2023": 0.282
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.303,
+      "r_squared": 0.092,
+      "change_per_1c_oni": 46.249,
+      "strong_el_nino_years": {
+       "1982": 331.312,
+       "1991": -49.294,
+       "1997": -32.255,
+       "2009": 1.983,
+       "2014": 137.671
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.318,
+      "r_squared": 0.101,
+      "change_per_1c_oni": 50.869,
+      "strong_el_nino_years": {
+       "1982": 360.225,
+       "1991": -46.047,
+       "1997": -46.118,
+       "2009": -46.101,
+       "2014": 75.328,
+       "2023": -83.084
+      }
+     }
+    }
+   ]
+  },
+  "poouli": {
+   "reference_location": "hanawi",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.222,
+      "r_squared": 0.049,
+      "change_per_1c_oni": 0.118,
+      "strong_el_nino_years": {
+       "1982": -0.082,
+       "1991": 0.006,
+       "1997": 0.303,
+       "2009": -0.068,
+       "2014": 0.333
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.304,
+      "r_squared": 0.093,
+      "change_per_1c_oni": 0.153,
+      "strong_el_nino_years": {
+       "1982": 0.02,
+       "1991": 0.026,
+       "1997": 0.269,
+       "2009": -0.211,
+       "2014": 0.144,
+       "2023": 0.084
+      }
+     }
+    },
+    {
+     "indicator_id": "t2m_min_mean",
+     "label": "Average monthly minimum temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.08,
+      "r_squared": 0.006,
+      "change_per_1c_oni": -0.04,
+      "strong_el_nino_years": {
+       "1982": -0.193,
+       "1991": -0.055,
+       "1997": 0.241,
+       "2009": -0.159,
+       "2014": 0.05
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.025,
+      "r_squared": 0.001,
+      "change_per_1c_oni": -0.012,
+      "strong_el_nino_years": {
+       "1982": -0.14,
+       "1991": -0.042,
+       "1997": 0.226,
+       "2009": -0.227,
+       "2014": -0.04,
+       "2023": -0.01
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_annual",
+     "label": "Annual rainfall",
+     "unit": "mm/year",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.233,
+      "r_squared": 0.054,
+      "change_per_1c_oni": 106.85,
+      "strong_el_nino_years": {
+       "1982": 511.449,
+       "1991": -202.922,
+       "1997": -276.142,
+       "2009": -8.333,
+       "2014": 567.693
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.257,
+      "r_squared": 0.066,
+      "change_per_1c_oni": 108.465,
+      "strong_el_nino_years": {
+       "1982": 538.234,
+       "1991": -203.3,
+       "1997": -294.629,
+       "2009": -63.038,
+       "2014": 497.898,
+       "2023": -72.906
+      }
+     }
+    }
+   ]
+  },
+  "pupo-tecopa": {
+   "reference_location": "tecopa",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_max_mean",
+     "label": "Average monthly maximum temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.268,
+      "r_squared": 0.072,
+      "change_per_1c_oni": -0.302,
+      "strong_el_nino_years": {
+       "1982": -1.074,
+       "1991": -0.496,
+       "1997": 0.479,
+       "2009": -0.053,
+       "2014": 0.204
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.367,
+      "r_squared": 0.135,
+      "change_per_1c_oni": -0.449,
+      "strong_el_nino_years": {
+       "1982": -1.055,
+       "1991": -0.489,
+       "1997": 0.479,
+       "2009": -0.068,
+       "2014": 0.182,
+       "2023": -1.933
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_annual",
+     "label": "Annual rainfall",
+     "unit": "mm/year",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.191,
+      "r_squared": 0.037,
+      "change_per_1c_oni": 18.263,
+      "strong_el_nino_years": {
+       "1982": 10.548,
+       "1991": 4.062,
+       "1997": -14.158,
+       "2009": -43.639,
+       "2014": 15.806
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.346,
+      "r_squared": 0.12,
+      "change_per_1c_oni": 35.041,
+      "strong_el_nino_years": {
+       "1982": 27.401,
+       "1991": 6.841,
+       "1997": -20.762,
+       "2009": -69.01,
+       "2014": -17.384,
+       "2023": 94.326
+      }
+     }
+    },
+    {
+     "indicator_id": "soil_wetness",
+     "label": "Root-zone soil wetness",
+     "unit": "0–1",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.057,
+      "r_squared": 0.003,
+      "change_per_1c_oni": 0.001,
+      "strong_el_nino_years": {
+       "1982": -0.003,
+       "1991": -0.003,
+       "1997": -0.004,
+       "2009": -0.003,
+       "2014": -0.005
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.211,
+      "r_squared": 0.045,
+      "change_per_1c_oni": 0.004,
+      "strong_el_nino_years": {
+       "1982": -0.001,
+       "1991": -0.003,
+       "1997": -0.005,
+       "2009": -0.007,
+       "2014": -0.009,
+       "2023": 0.012
+      }
+     }
+    }
+   ]
+  },
+  "millepora": {
+   "reference_location": "coiba",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "surface_temp_mean",
+     "label": "Mean surface (skin) temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, mean surface (skin) temperature here tends to run higher than its trend: about 0.45 °C per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = +0.75).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.751,
+      "r_squared": 0.565,
+      "change_per_1c_oni": 0.452,
+      "strong_el_nino_years": {
+       "1982": 0.562,
+       "1991": 0.193,
+       "1997": 0.612,
+       "2009": 0.228,
+       "2014": 0.43
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.801,
+      "r_squared": 0.642,
+      "change_per_1c_oni": 0.468,
+      "strong_el_nino_years": {
+       "1982": 0.656,
+       "1991": 0.211,
+       "1997": 0.58,
+       "2009": 0.094,
+       "2014": 0.254,
+       "2023": 0.633
+      }
+     }
+    },
+    {
+     "indicator_id": "surface_temp_warmest_month",
+     "label": "Warmest-month surface temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.35,
+      "r_squared": 0.123,
+      "change_per_1c_oni": 0.27,
+      "strong_el_nino_years": {
+       "1982": 0.197,
+       "1991": 0.068,
+       "1997": 0.162,
+       "2009": 0.33,
+       "2014": 0.385
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.37,
+      "r_squared": 0.137,
+      "change_per_1c_oni": 0.271,
+      "strong_el_nino_years": {
+       "1982": 0.258,
+       "1991": 0.083,
+       "1997": 0.146,
+       "2009": 0.253,
+       "2014": 0.282,
+       "2023": 0.067
+      }
+     }
+    },
+    {
+     "indicator_id": "wind_speed",
+     "label": "Wind speed at 2 m",
+     "unit": "m/s",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, wind speed at 2 m here tends to run lower than its trend: about 0.32 m/s per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = -0.56).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.56,
+      "r_squared": 0.314,
+      "change_per_1c_oni": -0.317,
+      "strong_el_nino_years": {
+       "1982": -0.516,
+       "1991": -0.324,
+       "1997": -0.543,
+       "2009": -0.322,
+       "2014": -0.539
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.57,
+      "r_squared": 0.325,
+      "change_per_1c_oni": -0.301,
+      "strong_el_nino_years": {
+       "1982": -0.586,
+       "1991": -0.336,
+       "1997": -0.517,
+       "2009": -0.22,
+       "2014": -0.406,
+       "2023": -0.271
+      }
+     }
+    }
+   ]
+  },
+  "damisela-galapagos": {
+   "reference_location": "galapagos",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "surface_temp_mean",
+     "label": "Mean surface (skin) temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, mean surface (skin) temperature here tends to run higher than its trend: about 0.97 °C per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = +0.64).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.638,
+      "r_squared": 0.407,
+      "change_per_1c_oni": 0.967,
+      "strong_el_nino_years": {
+       "1982": 0.754,
+       "1991": 0.136,
+       "1997": 2.163,
+       "2009": 0.438,
+       "2014": 0.634
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.68,
+      "r_squared": 0.462,
+      "change_per_1c_oni": 1.002,
+      "strong_el_nino_years": {
+       "1982": 0.814,
+       "1991": 0.145,
+       "1997": 2.138,
+       "2009": 0.345,
+       "2014": 0.513,
+       "2023": 2.099
+      }
+     }
+    },
+    {
+     "indicator_id": "surface_temp_warmest_month",
+     "label": "Warmest-month surface temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.357,
+      "r_squared": 0.127,
+      "change_per_1c_oni": 0.514,
+      "strong_el_nino_years": {
+       "1982": -0.315,
+       "1991": 0.754,
+       "1997": 0.584,
+       "2009": -0.517,
+       "2014": -0.368
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.356,
+      "r_squared": 0.127,
+      "change_per_1c_oni": 0.458,
+      "strong_el_nino_years": {
+       "1982": -0.227,
+       "1991": 0.778,
+       "1997": 0.564,
+       "2009": -0.623,
+       "2014": -0.509,
+       "2023": 0.726
+      }
+     }
+    },
+    {
+     "indicator_id": "wind_speed",
+     "label": "Wind speed at 2 m",
+     "unit": "m/s",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.351,
+      "r_squared": 0.123,
+      "change_per_1c_oni": 0.095,
+      "strong_el_nino_years": {
+       "1982": 0.126,
+       "1991": 0.153,
+       "1997": 0.147,
+       "2009": -0.093,
+       "2014": 0.099
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.18,
+      "r_squared": 0.033,
+      "change_per_1c_oni": 0.047,
+      "strong_el_nino_years": {
+       "1982": 0.081,
+       "1991": 0.143,
+       "1997": 0.16,
+       "2009": -0.032,
+       "2014": 0.179,
+       "2023": -0.142
+      }
+     }
+    }
+   ]
+  },
+  "eslizón-christmas": {
+   "reference_location": "christmas",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_max_mean",
+     "label": "Average monthly maximum temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.025,
+      "r_squared": 0.001,
+      "change_per_1c_oni": -0.012,
+      "strong_el_nino_years": {
+       "1982": -0.059,
+       "1991": -0.316,
+       "1997": -0.072,
+       "2009": 0.125,
+       "2014": 0.086
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.031,
+      "r_squared": 0.001,
+      "change_per_1c_oni": -0.014,
+      "strong_el_nino_years": {
+       "1982": -0.042,
+       "1991": -0.312,
+       "1997": -0.076,
+       "2009": 0.103,
+       "2014": 0.057,
+       "2023": -0.245
+      }
+     }
+    },
+    {
+     "indicator_id": "rh2m_mean",
+     "label": "Mean relative humidity",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.153,
+      "r_squared": 0.023,
+      "change_per_1c_oni": -0.165,
+      "strong_el_nino_years": {
+       "1982": 0.333,
+       "1991": -0.55,
+       "1997": -0.403,
+       "2009": -0.02,
+       "2014": -0.066
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.216,
+      "r_squared": 0.047,
+      "change_per_1c_oni": -0.255,
+      "strong_el_nino_years": {
+       "1982": 0.539,
+       "1991": -0.5,
+       "1997": -0.457,
+       "2009": -0.282,
+       "2014": -0.415,
+       "2023": -0.273
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.198,
+      "r_squared": 0.039,
+      "change_per_1c_oni": -36.595,
+      "strong_el_nino_years": {
+       "1982": -74.778,
+       "1991": -99.125,
+       "1997": -72.63,
+       "2009": -60.7,
+       "2014": -17.507
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.142,
+      "r_squared": 0.02,
+      "change_per_1c_oni": -30.761,
+      "strong_el_nino_years": {
+       "1982": -68.266,
+       "1991": -99.407,
+       "1997": -77.441,
+       "2009": -74.569,
+       "2014": -35.151,
+       "2023": -87.182
+      }
+     }
+    }
+   ]
+  },
+  "pupo-catarina": {
+   "reference_location": "el-potosi",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "precip_annual",
+     "label": "Annual rainfall",
+     "unit": "mm/year",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.258,
+      "r_squared": 0.067,
+      "change_per_1c_oni": 56.053,
+      "strong_el_nino_years": {
+       "1982": -33.563,
+       "1991": 96.227,
+       "1997": -9.896,
+       "2009": -55.072,
+       "2014": 165.451
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.372,
+      "r_squared": 0.138,
+      "change_per_1c_oni": 74.13,
+      "strong_el_nino_years": {
+       "1982": -29.148,
+       "1991": 95.422,
+       "1997": -14.182,
+       "2009": -66.318,
+       "2014": 151.304,
+       "2023": -19.276
+      }
+     }
+    },
+    {
+     "indicator_id": "t2m_max_mean",
+     "label": "Average monthly maximum temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.218,
+      "r_squared": 0.048,
+      "change_per_1c_oni": -0.246,
+      "strong_el_nino_years": {
+       "1982": 0.953,
+       "1991": -0.783,
+       "1997": -0.506,
+       "2009": 0.501,
+       "2014": -1.01
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.27,
+      "r_squared": 0.073,
+      "change_per_1c_oni": -0.297,
+      "strong_el_nino_years": {
+       "1982": 1.053,
+       "1991": -0.748,
+       "1997": -0.514,
+       "2009": 0.407,
+       "2014": -1.139,
+       "2023": 1.095
+      }
+     }
+    },
+    {
+     "indicator_id": "soil_wetness",
+     "label": "Root-zone soil wetness",
+     "unit": "0–1",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.19,
+      "r_squared": 0.036,
+      "change_per_1c_oni": 0.009,
+      "strong_el_nino_years": {
+       "1982": -0.021,
+       "1991": 0.02,
+       "1997": -0.017,
+       "2009": -0.015,
+       "2014": 0.042
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.336,
+      "r_squared": 0.113,
+      "change_per_1c_oni": 0.016,
+      "strong_el_nino_years": {
+       "1982": -0.021,
+       "1991": 0.02,
+       "1997": -0.018,
+       "2009": -0.016,
+       "2014": 0.04,
+       "2023": -0.017
+      }
+     }
+    }
+   ]
+  },
+  "pez-mano": {
+   "reference_location": "tasmania",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "surface_temp_mean",
+     "label": "Mean surface (skin) temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.319,
+      "r_squared": 0.102,
+      "change_per_1c_oni": -0.236,
+      "strong_el_nino_years": {
+       "1982": 0.345,
+       "1991": -0.375,
+       "1997": -0.217,
+       "2009": -0.2,
+       "2014": 0.258
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.172,
+      "r_squared": 0.03,
+      "change_per_1c_oni": -0.115,
+      "strong_el_nino_years": {
+       "1982": 0.377,
+       "1991": -0.369,
+       "1997": -0.228,
+       "2009": -0.245,
+       "2014": 0.198,
+       "2023": 0.248
+      }
+     }
+    },
+    {
+     "indicator_id": "surface_temp_warmest_month",
+     "label": "Warmest-month surface temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.359,
+      "r_squared": 0.129,
+      "change_per_1c_oni": -0.654,
+      "strong_el_nino_years": {
+       "1982": 1.041,
+       "1991": -0.266,
+       "1997": -0.507,
+       "2009": -0.759,
+       "2014": 0.158
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.218,
+      "r_squared": 0.048,
+      "change_per_1c_oni": -0.355,
+      "strong_el_nino_years": {
+       "1982": 1.136,
+       "1991": -0.249,
+       "1997": -0.543,
+       "2009": -0.9,
+       "2014": -0.026,
+       "2023": -0.122
+      }
+     }
+    },
+    {
+     "indicator_id": "wind_speed",
+     "label": "Wind speed at 2 m",
+     "unit": "m/s",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.325,
+      "r_squared": 0.106,
+      "change_per_1c_oni": 0.107,
+      "strong_el_nino_years": {
+       "1982": -0.056,
+       "1991": 0.141,
+       "1997": 0.099,
+       "2009": -0.032,
+       "2014": -0.29
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.332,
+      "r_squared": 0.11,
+      "change_per_1c_oni": 0.1,
+      "strong_el_nino_years": {
+       "1982": -0.055,
+       "1991": 0.141,
+       "1997": 0.099,
+       "2009": -0.031,
+       "2014": -0.289,
+       "2023": -0.034
+      }
+     }
+    }
+   ]
+  },
+  "pipistrelo-christmas": {
+   "reference_location": "christmas",
+   "el_nino_sensitive": false,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.098,
+      "r_squared": 0.01,
+      "change_per_1c_oni": -0.046,
+      "strong_el_nino_years": {
+       "1982": -0.153,
+       "1991": -0.26,
+       "1997": -0.151,
+       "2009": 0.095,
+       "2014": 0.117
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.085,
+      "r_squared": 0.007,
+      "change_per_1c_oni": -0.039,
+      "strong_el_nino_years": {
+       "1982": -0.138,
+       "1991": -0.257,
+       "1997": -0.155,
+       "2009": 0.075,
+       "2014": 0.09,
+       "2023": -0.281
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.198,
+      "r_squared": 0.039,
+      "change_per_1c_oni": -36.595,
+      "strong_el_nino_years": {
+       "1982": -74.778,
+       "1991": -99.125,
+       "1997": -72.63,
+       "2009": -60.7,
+       "2014": -17.507
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.142,
+      "r_squared": 0.02,
+      "change_per_1c_oni": -30.761,
+      "strong_el_nino_years": {
+       "1982": -68.266,
+       "1991": -99.407,
+       "1997": -77.441,
+       "2009": -74.569,
+       "2014": -35.151,
+       "2023": -87.182
+      }
+     }
+    },
+    {
+     "indicator_id": "rh2m_mean",
+     "label": "Mean relative humidity",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.153,
+      "r_squared": 0.023,
+      "change_per_1c_oni": -0.165,
+      "strong_el_nino_years": {
+       "1982": 0.333,
+       "1991": -0.55,
+       "1997": -0.403,
+       "2009": -0.02,
+       "2014": -0.066
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.216,
+      "r_squared": 0.047,
+      "change_per_1c_oni": -0.255,
+      "strong_el_nino_years": {
+       "1982": 0.539,
+       "1991": -0.5,
+       "1997": -0.457,
+       "2009": -0.282,
+       "2014": -0.415,
+       "2023": -0.273
+      }
+     }
+    }
+   ]
+  },
+  "rana-rabbs": {
+   "reference_location": "el-valle",
+   "el_nino_sensitive": true,
+   "indicators": [
+    {
+     "indicator_id": "t2m_mean",
+     "label": "Mean air temperature",
+     "unit": "°C",
+     "available": true,
+     "linked": true,
+     "player_text": "In El Niño years, mean air temperature here tends to run higher than its trend: about 0.3 °C per +1 °C of the Oceanic Niño Index (NASA POWER 1981–2014, r = +0.69).",
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": 0.692,
+      "r_squared": 0.478,
+      "change_per_1c_oni": 0.303,
+      "strong_el_nino_years": {
+       "1982": 0.223,
+       "1991": 0.067,
+       "1997": 0.228,
+       "2009": 0.105,
+       "2014": 0.324
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": 0.737,
+      "r_squared": 0.543,
+      "change_per_1c_oni": 0.355,
+      "strong_el_nino_years": {
+       "1982": 0.321,
+       "1991": 0.088,
+       "1997": 0.198,
+       "2009": -0.026,
+       "2014": 0.15,
+       "2023": 0.704
+      }
+     }
+    },
+    {
+     "indicator_id": "precip_dry_season",
+     "label": "Dry-season rainfall",
+     "unit": "mm",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1981,
+       2014
+      ],
+      "r": -0.234,
+      "r_squared": 0.055,
+      "change_per_1c_oni": -26.361,
+      "strong_el_nino_years": {
+       "1982": 12.331,
+       "1991": -73.836,
+       "1997": -22.961,
+       "2009": -52.821,
+       "2014": -80.305
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1981,
+       2025
+      ],
+      "r": -0.389,
+      "r_squared": 0.152,
+      "change_per_1c_oni": -50.984,
+      "strong_el_nino_years": {
+       "1982": 30.506,
+       "1991": -68.334,
+       "1997": -25.908,
+       "2009": -72.666,
+       "2014": -107.19,
+       "2023": -6.551
+      }
+     }
+    },
+    {
+     "indicator_id": "cloud_cover",
+     "label": "Cloud cover",
+     "unit": "%",
+     "available": true,
+     "linked": false,
+     "player_text": null,
+     "game_period_1981_2014": {
+      "years": [
+       1984,
+       2014
+      ],
+      "r": -0.37,
+      "r_squared": 0.137,
+      "change_per_1c_oni": -1.291,
+      "strong_el_nino_years": {
+       "1991": -1.606,
+       "1997": -4.414,
+       "2009": -0.188,
+       "2014": -1.162
+      }
+     },
+     "full_period_1981_2025": {
+      "years": [
+       1984,
+       2025
+      ],
+      "r": -0.479,
+      "r_squared": 0.229,
+      "change_per_1c_oni": -1.907,
+      "strong_el_nino_years": {
+       "1991": -1.423,
+       "1997": -4.306,
+       "2009": -0.229,
+       "2014": -1.266,
+       "2023": -3.278
+      }
+     }
+    }
+   ]
+  }
+ }
+}

@@ -180,7 +180,10 @@ def main():
                 invalid += 1
                 assert t['p_corrected'] is None and t['invalid_reason']
         assert invalid == 4
+        import el_nino
+        enso = el_nino.check()
         print('OK: integridad SQLite, conteos, 24 hashes NASA, 3240 agregaciones anuales, 15 exportaciones, 3 variables clave por especie recalculadas, 15 fichas de supervivencia y resultados estadísticos.')
+        print(f"OK: alerta El Niño reconstruida desde noaa/oni.data ({len(enso['events'])} episodios, hash NOAA verificado).")
     finally:
         db.close()
 

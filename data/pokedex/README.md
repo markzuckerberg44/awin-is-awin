@@ -14,6 +14,7 @@ Este directorio es un **paquete de datos**, no la interfaz del juego ni una API 
 | `fichas-supervivencia.json` | Ficha numérica: 3 indicadores por especie con media, rango observado, unidad, período y fuente |
 | `variables-clave.json` | Las 3 variables NASA con que se sigue a cada especie, con su justificación |
 | `nasa-power-extra-anual.json` | Variables NASA adicionales (máx./mín., mar, suelo, nubes, viento) en valores anuales, con hashes |
+| `el-nino.json` | Alerta El Niño: índice ONI de NOAA, episodios desde 1950, estado oficial actual y sensibilidad de cada especie |
 | `METODOLOGIA.md` | Cálculos, interpretación, supuestos y límites científicos |
 
 Hay 15 entradas totales (incluido el melomys), 24 localizaciones y datos de 1981–2025. Diez fichas tienen comparación climática entre tres candidatos. Las cinco acuáticas tienen ejercicios sobre evidencia faltante: **aún no incluyen tres refugios acuáticos validados ni series del agua**.
@@ -115,6 +116,28 @@ El pronóstico 2026–2030 de estas mismas variables está en [`ml/`](../../ml/R
 
 El pronóstico 2026–2030 de las tres variables clave de cada especie está en el módulo independiente [`ml/`](../../ml/README.md), en inglés. No modifica este paquete de datos.
 
+## Alerta El Niño
+
+[`el-nino.json`](el-nino.json) reúne el índice oceánico de El Niño (ONI) de NOAA, mes a mes desde 1950, archivado en `noaa/oni.data` con su hash. Los episodios se detectan con la regla operativa de NOAA: ONI ≥ +0,5 °C (El Niño) o ≤ −0,5 °C (La Niña) durante al menos cinco temporadas de tres meses consecutivas. La intensidad (débil, moderado, fuerte, muy fuerte) usa categorías habituales por valor máximo, no una clasificación oficial.
+
+| Campo | Qué contiene |
+|---|---|
+| `game_2015` | Solo lo que se sabía en 2015: ONI hasta octubre–diciembre de 2015 y el evento en curso (muy fuerte, +2,45 °C). Incluye `player_text` |
+| `present_alert`, `current_status` | El presente: advertencia oficial de NOAA vigente, ONI +2,46 °C en agosto–octubre de 2026 y los eventos comparables (1982, 1997, 2015) |
+| `species[id]` | Por cada indicador de la ficha: correlación con el ONI (sin tendencia) en 1981–2014 y 1981–2025, cambio por cada +1 °C de ONI y valores en los años de El Niño fuerte. `linked: true` si \|r\| ≥ 0,5 en 1981–2014 |
+| `events`, `annual`, `monthly` | Todos los episodios, medias anuales y valores mensuales |
+
+Seis especies muestran un vínculo claro: sapo dorado, arlequín de Chiriquí y rana de Rabbs (temperatura del aire), millepora (temperatura del mar y viento), damisela de Galápagos (temperatura del mar) y melomys (humedad del suelo). Son relaciones estadísticas regionales, no causas de extinción demostradas.
+
+```js
+const enso = await fetch('/data/pokedex/el-nino.json').then(r => r.json());
+mostrarAlerta(enso.game_2015.player_text);               // dentro de la historia (2015)
+const s = enso.species[speciesId];
+if (s.el_nino_sensitive) s.indicators.filter(i => i.linked).forEach(i => mostrarNota(i.player_text));
+```
+
+El estado oficial se copia a mano desde la discusión mensual de NOAA CPC. Para actualizarlo: descargar de nuevo `oni.data`, cambiar `SOURCE.sha256` y `CURRENT_STATUS` en `el_nino.py` y ejecutar `python el_nino.py`. Desde 2026 NOAA mide la intensidad oficial con el índice relativo RONI, que suele dar valores algo menores que el ONI tradicional usado aquí.
+
 ## SQLite desde un backend
 
 Descargar `pokedex.sqlite`; abrirlo en modo de solo lectura. Ejemplo con Python estándar:
@@ -152,6 +175,7 @@ python -m pip install -r requirements.txt
 python seed.py
 python descargar_nasa.py
 python construir_db.py
+python el_nino.py
 python verificar_datos.py
 ```
 
